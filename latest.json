@@ -3,20 +3,11 @@
     {
       "device": 48,
       "inode": 833157357,
-      "kind": "live",
-      "path": "validate-ops-tick-39ac9f8a55f1-65181b10c460.jsonl",
+      "kind": "published-retained",
+      "path": "published/validate-ops-tick-39ac9f8a55f1-65181b10c460.jsonl",
       "rows": 953,
       "sha256": "cb41f45d8ac8f0c0d63b9209a8eb41f28856b2a89610c6482d2c16287e680ea9",
       "size": 1373805
-    },
-    {
-      "device": 48,
-      "inode": 830796089,
-      "kind": "published-retained",
-      "path": "published/validate-main-dev-hermit-29faadea03ea-20260918T134828Z.jsonl",
-      "rows": 965,
-      "sha256": "b919f35ab0d5a9fd2d679356281a4a8d536b93f620f64bcc6b88dc14a19ac8ef",
-      "size": 1406043
     }
   ],
   "rows": 82253,
@@ -26,9 +17,9 @@
     "scorecard/SCORECARD.md": "ee115c4b7a372c54c948d5db8430efb267f65ffa690b83b666527e28419dd34c",
     "scorecard/cells.json": "38e5d9b875ce4fff41f45916a212bf2c14e110f1d713db2a9ab778c97ef8edba"
   },
-  "scorecard_hermit_commit": "39ac9f8a55f1b4d17b8c4c0001ce6c4d8a763435",
+  "scorecard_hermit_commit": "fb0a4e3f39742f90cd8e69668d9f52c7d870e901",
   "series_commit": "5cee220e9e8f6e9a4361b0b0c2b433bc08bab615",
-  "source_commit": "7afaa7b58c63518ab30c27fbe2c802cafb563154",
+  "source_commit": "adf8dd5985cc6702c5bf80153272d5cae75076c2",
   "source_repository": "https://github.com/rrnewton/dev-hermit.git",
-  "source_tree": "d685d797cb5518261a38f0973c92f1ec6445902e"
+  "source_tree": "54ad14c529db820c6c57bf9b3b6b57aa919fb62c"
 }
