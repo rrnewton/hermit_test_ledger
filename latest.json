@@ -14,7 +14,6 @@
   "rows_sha256": "096dc21db53de46f56fa413b0fccd02db80f7d8c71109e58ffbad94a727b88ab",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
-    "build_output_sha256": "535f1be9b4c122a6770ba3169452b2ee8db1e0478538dd694c613353eb4ba61d",
     "scorecard/SCORECARD.md": "ee115c4b7a372c54c948d5db8430efb267f65ffa690b83b666527e28419dd34c",
     "scorecard/cells.json": "2130fc3d6f47f6482ee8a4e1317839c3540bd49c20bcd76122476e9d58b96d4d"
   },
