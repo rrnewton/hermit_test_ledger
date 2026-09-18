@@ -13,7 +13,11 @@
   "rows": 76445,
   "rows_sha256": "096dc21db53de46f56fa413b0fccd02db80f7d8c71109e58ffbad94a727b88ab",
   "schema": "hermit-test-ledger/v1",
-  "scorecard": {},
+  "scorecard": {
+    "build_output_sha256": "b6b8a66106afd9047871418c766a25ebbffde92fc91a5f0ad713dceaa078112f",
+    "scorecard/SCORECARD.md": "ee115c4b7a372c54c948d5db8430efb267f65ffa690b83b666527e28419dd34c",
+    "scorecard/cells.json": "2130fc3d6f47f6482ee8a4e1317839c3540bd49c20bcd76122476e9d58b96d4d"
+  },
   "scorecard_hermit_commit": "79da523137dbac400faca6130593361b58a01468",
   "source_commit": "bf0bf66df1c9357aae20448d32b41825c3b9cff6",
   "source_repository": "https://github.com/rrnewton/dev-hermit.git",
