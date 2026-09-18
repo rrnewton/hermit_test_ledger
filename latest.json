@@ -2,33 +2,33 @@
   "local_sources": [
     {
       "device": 48,
-      "inode": 841176538,
+      "inode": 842264731,
       "kind": "live",
-      "path": "validate-ops-tick-97c39b308efd-3ae3bc288c1f.jsonl",
+      "path": "validate-ops-tick-ad3474118660-f2cdd9e5165a.jsonl",
       "rows": 954,
-      "sha256": "49f7693fc62a3b5a3839c4f68ef02dee026ab0877e1fdd2d9015787ca7004a04",
-      "size": 1377084
+      "sha256": "fa1f28f0b54571e439300862de17de14a583c648af10743d91bf7db9d95d149d",
+      "size": 1376705
     },
     {
       "device": 48,
-      "inode": 833157357,
+      "inode": 841176538,
       "kind": "published-retained",
-      "path": "published/validate-ops-tick-39ac9f8a55f1-65181b10c460.jsonl",
-      "rows": 953,
-      "sha256": "cb41f45d8ac8f0c0d63b9209a8eb41f28856b2a89610c6482d2c16287e680ea9",
-      "size": 1373805
+      "path": "published/validate-ops-tick-97c39b308efd-3ae3bc288c1f.jsonl",
+      "rows": 954,
+      "sha256": "49f7693fc62a3b5a3839c4f68ef02dee026ab0877e1fdd2d9015787ca7004a04",
+      "size": 1377084
     }
   ],
-  "rows": 83207,
-  "rows_sha256": "289d9f445d99082c4eebc9cc46c6dbb6cc4c05c52ba9fa4c77efc838194f63cf",
+  "rows": 84161,
+  "rows_sha256": "7c3caeb5c2e99f8c8c2bbc9f4be1f5cad36b4c621ded6afa3a8dbc80f2873dbe",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
     "scorecard/SCORECARD.md": "4fed3613279e61656b4a581afe5a6c71831dfdacb8590f9ea5109eb56ab31082",
-    "scorecard/cells.json": "4f45a05d1ffb584094c3a182908966cfca3af18fed146f89a7d1bfcae4847e9e"
+    "scorecard/cells.json": "45d1556de712fd23507bd57adb386ce21f5d2cbcdfb0adc6cd7e23c377f5d414"
   },
-  "scorecard_hermit_commit": "97c39b308efd854693038f24962484182d932f27",
-  "series_commit": "200d6f1d7a8ecf43556c848399f02c388ca6c7a2",
-  "source_commit": "310f5f576afbd8bc8e85be8efe09b0a49658dc91",
+  "scorecard_hermit_commit": "ad3474118660fe31f5497193b1677f67a1bd51fb",
+  "series_commit": "4ce6760a416d2ab59506f7095132e82e34ee4e23",
+  "source_commit": "ac4e63cfa5319621ca14aa5df3cc1a413ed05098",
   "source_repository": "https://github.com/rrnewton/dev-hermit.git",
-  "source_tree": "54ad14c529db820c6c57bf9b3b6b57aa919fb62c"
+  "source_tree": "6fff4395c3de03f9588f55ed61b9b7cbd9a7644e"
 }
