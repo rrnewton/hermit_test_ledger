@@ -17,7 +17,7 @@
     "scorecard/SCORECARD.md": "ee115c4b7a372c54c948d5db8430efb267f65ffa690b83b666527e28419dd34c",
     "scorecard/cells.json": "3af0f38222c830fec52a3b698a307482e969f9b745301cfed26b682401a4e7ac"
   },
-  "scorecard_hermit_commit": "793c4636543a7ac624bed334c876fb857011d199",
+  "scorecard_hermit_commit": "56660e6b4333862ead5c7268aab13924d58a8c51",
   "series_commit": "1ae5e0f1d1d40c00aae13212fd6242b2b3a983f8",
   "source_commit": "770a77e1fa35c14def50f8ca510c71ac40d88362",
   "source_repository": "https://github.com/rrnewton/dev-hermit.git",
