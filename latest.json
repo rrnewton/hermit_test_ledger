@@ -19,7 +19,7 @@
   },
   "scorecard_hermit_commit": "5905a449948e7026227492cd29ef6b871322a703",
   "series_commit": "87cb326817694f1bbde9997f8e4801ad620a2e0b",
-  "source_commit": "ff5d003f37e5ebc1cacbe3563bddd8b53f575853",
+  "source_commit": "06c3d61c8c823b4fcb01dd2729a307acd9c4db30",
   "source_repository": "https://github.com/rrnewton/dev-hermit.git",
   "source_tree": "dbbf2fa59944a951d82af501946ab45f055ba9f5"
 }
