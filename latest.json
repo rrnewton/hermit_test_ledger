@@ -17,9 +17,9 @@
     "scorecard/SCORECARD.md": "4fed3613279e61656b4a581afe5a6c71831dfdacb8590f9ea5109eb56ab31082",
     "scorecard/cells.json": "c9c977ba017d702bde562c8ec47865a4bf4653b2dbacbc8a7c4d3648032277f5"
   },
-  "scorecard_hermit_commit": "c8ed39c6c26dfd8e04b9c10a171d027b169d1515",
+  "scorecard_hermit_commit": "7b8fc74154b116338ccb3274eefa6b3d2d318974",
   "series_commit": "87cb326817694f1bbde9997f8e4801ad620a2e0b",
-  "source_commit": "db0b7ae76c5285010367e41106c6ed3ff57bd819",
+  "source_commit": "5870b35a4c64fc5408ab5706f8fb93d11d76094d",
   "source_repository": "https://github.com/rrnewton/dev-hermit.git",
   "source_tree": "dbbf2fa59944a951d82af501946ab45f055ba9f5"
 }
