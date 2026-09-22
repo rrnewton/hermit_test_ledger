@@ -1,25 +1,16 @@
 {
-  "local_sources": [
-    {
-      "device": 48,
-      "inode": 908737845,
-      "kind": "published-retained",
-      "path": "published/pressure-05dcd35a78b3-20260912T202343Z.jsonl",
-      "rows": 5,
-      "sha256": "d04f53c4f5ecf3984a3dba89e54376638e7bec5f7b839175dd2bb6ba1269432d",
-      "size": 6361
-    }
-  ],
-  "rows": 88027,
-  "rows_sha256": "39799c9ddeaa7c54c3b5df91bb6b1a96cb57431b9bf04bbf771ac049c8579c9f",
+  "local_sources": [],
+  "rows": 88031,
+  "rows_sha256": "d6b685d054e5be53cbc769bcbbe1359036c5124821e8b3d5ec43303a5155c6e6",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
     "scorecard/SCORECARD.md": "4fed3613279e61656b4a581afe5a6c71831dfdacb8590f9ea5109eb56ab31082",
-    "scorecard/cells.json": "c9c977ba017d702bde562c8ec47865a4bf4653b2dbacbc8a7c4d3648032277f5"
+    "scorecard/cells.json": "2324512802bfbdf39ac2e7e28e9b65542e6404e446323ddfb86ae09f635f3b7b"
   },
-  "scorecard_hermit_commit": "419e47e67bc037e61032d71ec22694fbbdcbc0fc",
-  "series_commit": "87cb326817694f1bbde9997f8e4801ad620a2e0b",
-  "source_commit": "5870b35a4c64fc5408ab5706f8fb93d11d76094d",
-  "source_repository": "https://github.com/rrnewton/dev-hermit.git",
-  "source_tree": "dbbf2fa59944a951d82af501946ab45f055ba9f5"
+  "scorecard_hermit_commit": "15b1a42d811d4a32bcbaceb2746b017669206bd0",
+  "scorecard_tool_hermit_commit": "15b1a42d811d4a32bcbaceb2746b017669206bd0",
+  "series_commit": "503c83914472b2bbed14622bde2ff30c8948bdbf",
+  "source_commit": "503c83914472b2bbed14622bde2ff30c8948bdbf",
+  "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
+  "source_tree": "759f85f3009d7f447818eadc62567045f6ae8c14"
 }
