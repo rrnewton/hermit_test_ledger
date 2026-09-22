@@ -1,16 +1,20 @@
 {
   "local_sources": [],
-  "rows": 88031,
-  "rows_sha256": "d6b685d054e5be53cbc769bcbbe1359036c5124821e8b3d5ec43303a5155c6e6",
+  "rows": 88039,
+  "rows_sha256": "89c860a51d3d441180f9c0ae68256d0e59ee7a44e7dad0d3c299e5a78ef49edd",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
     "scorecard/SCORECARD.md": "4fed3613279e61656b4a581afe5a6c71831dfdacb8590f9ea5109eb56ab31082",
-    "scorecard/cells.json": "2324512802bfbdf39ac2e7e28e9b65542e6404e446323ddfb86ae09f635f3b7b"
+    "scorecard/cells.json": "04cb4255f6bf0d2fcc3f649523bf1d4053c6fb140d87a9d1725ac6d7a01325c0",
+    "scorecard/finalized/objects/sha256/499bd720281f2b762b008a777c7dadd606e740243b65d1ffae288d7939457767": "499bd720281f2b762b008a777c7dadd606e740243b65d1ffae288d7939457767",
+    "scorecard/finalized/objects/sha256/60de04e985c3e7fa867636328b7b161e50c1d13024c1d1618beb2afc862018ab": "60de04e985c3e7fa867636328b7b161e50c1d13024c1d1618beb2afc862018ab",
+    "scorecard/finalized/objects/sha256/e4009d6798df2dbb634570edf51bc9e7e35f1aa35502228396c4e91a68e115ba": "e4009d6798df2dbb634570edf51bc9e7e35f1aa35502228396c4e91a68e115ba",
+    "scorecard/finalized/runs/5cede5de0ab9c46b6be9b4933831428502ffb77c40d6868736319ecde7f351ca.json": "70a94f0f2dc95ec03343d82d8d1a1108b6a7eef520a28f604870776b083beacf"
   },
-  "scorecard_hermit_commit": "15b1a42d811d4a32bcbaceb2746b017669206bd0",
-  "scorecard_tool_hermit_commit": "15b1a42d811d4a32bcbaceb2746b017669206bd0",
-  "series_commit": "503c83914472b2bbed14622bde2ff30c8948bdbf",
-  "source_commit": "503c83914472b2bbed14622bde2ff30c8948bdbf",
+  "scorecard_hermit_commit": "8ab53653770396e9490d7f7ea098648acee9a71f",
+  "scorecard_tool_hermit_commit": "8ab53653770396e9490d7f7ea098648acee9a71f",
+  "series_commit": "2cfc26554ee9bfbaf1a8ca5f66648de43d635639",
+  "source_commit": "2cfc26554ee9bfbaf1a8ca5f66648de43d635639",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
-  "source_tree": "759f85f3009d7f447818eadc62567045f6ae8c14"
+  "source_tree": "091cffbefeb6c29fe3607538339b43b0e78e51e8"
 }
