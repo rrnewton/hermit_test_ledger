@@ -1,20 +1,16 @@
 {
   "local_sources": [],
-  "rows": 88039,
-  "rows_sha256": "89c860a51d3d441180f9c0ae68256d0e59ee7a44e7dad0d3c299e5a78ef49edd",
+  "rows": 89056,
+  "rows_sha256": "521b7af295686309b307e18ddcf883a27effecbcefb741ca7df8b8c097810eec",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
-    "scorecard/SCORECARD.md": "4fed3613279e61656b4a581afe5a6c71831dfdacb8590f9ea5109eb56ab31082",
-    "scorecard/cells.json": "8d9cf3a86d7a655cd86ebe91c699352f436cbbd164b51014247725964aa687fc",
-    "scorecard/finalized/objects/sha256/785b6054ac5949067b606ad7383645e0156c2c564cee301741a2270f22caed8e": "785b6054ac5949067b606ad7383645e0156c2c564cee301741a2270f22caed8e",
-    "scorecard/finalized/objects/sha256/89fe708da6934cd277a2f26f03bdb82e3db538e56511a99362b6dfcb7c5e272e": "89fe708da6934cd277a2f26f03bdb82e3db538e56511a99362b6dfcb7c5e272e",
-    "scorecard/finalized/objects/sha256/a75829f82e4544c564c9c1397a5ddc66d89b28bb03ffeb7fefa24aad3f4e53b8": "a75829f82e4544c564c9c1397a5ddc66d89b28bb03ffeb7fefa24aad3f4e53b8",
-    "scorecard/finalized/runs/09192b4a098eb300cf7349d19fe24056897445a383fe22dd9b143115265e6fc7.json": "7e03c739404e881f3d516f1258905ac3e1770fb85bc1360e36ba53a478d6f1e5"
+    "scorecard/SCORECARD.md": "2578ab5e1180009104a001119f97e3c2a0089084b0266b5b8b6a15a58499a5f1",
+    "scorecard/cells.json": "c6b08499ee5ca4e234d1d32ce4157a4bad93dca479256e54a641b169e4007c77"
   },
-  "scorecard_hermit_commit": "8ab53653770396e9490d7f7ea098648acee9a71f",
-  "scorecard_tool_hermit_commit": "c12ffb3ff2924cecac3c4d53fa42b5aca74d4887",
-  "series_commit": "59e4825812b35719d7a8a886b7a1f757428969ce",
-  "source_commit": "59e4825812b35719d7a8a886b7a1f757428969ce",
+  "scorecard_hermit_commit": "83928eb75c9aae899bdf6d80046688534562b761",
+  "scorecard_tool_hermit_commit": "6988c184d8ff245907ddfaf53744eb27b03669e5",
+  "series_commit": "2a6492f7c5cf0929d48433a91e2542251aa4993d",
+  "source_commit": "2a6492f7c5cf0929d48433a91e2542251aa4993d",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
-  "source_tree": "091cffbefeb6c29fe3607538339b43b0e78e51e8"
+  "source_tree": "fd5d5c2405f68d871f969710568de9af38a36938"
 }
