@@ -5,16 +5,16 @@
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
     "scorecard/SCORECARD.md": "5306c0b4898ec97c5c26d37d4baca8d9b2680f4a40c6850c666c223840aefc85",
-    "scorecard/cells.json": "8b3531ba58608ff62c33a4532b5cdcf0505cab32e769811140ea077db884c565",
-    "scorecard/finalized/objects/sha256/115904a32a2711c2772bc3bd8658ee0b6f852aeb478a92e596cc8ba837e28041": "115904a32a2711c2772bc3bd8658ee0b6f852aeb478a92e596cc8ba837e28041",
-    "scorecard/finalized/objects/sha256/2301befce110dc7a7ee858a821ce225c7f0eebbd63067870ed6d6a7e9ebe3d0a": "2301befce110dc7a7ee858a821ce225c7f0eebbd63067870ed6d6a7e9ebe3d0a",
+    "scorecard/cells.json": "59fce8ed50c80f8af52879d129f321f58898901d2084363f602495f14e0f1ebf",
+    "scorecard/finalized/objects/sha256/039a99098a24e36cc06ac6b1c4844e7416a5501abdea7befb9d93a24e735cf68": "039a99098a24e36cc06ac6b1c4844e7416a5501abdea7befb9d93a24e735cf68",
+    "scorecard/finalized/objects/sha256/432cfe376ae91835bc3410392d7dee1764212a834d8e094b98f2681ba1162e4a": "432cfe376ae91835bc3410392d7dee1764212a834d8e094b98f2681ba1162e4a",
     "scorecard/finalized/objects/sha256/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "scorecard/finalized/runs/d213c69f25ca4277125582f8bacf93388ffd0028b4b1f1a709e872a43801a2fb.json": "769761bbf46e336566b850900de02f8cda5316a68e7484caffbc2eadc12faeb0"
+    "scorecard/finalized/runs/2dc7efe95f74e26330e15da73a958901e27aee1f6060e891f6c2d8d297178d41.json": "e364e621627a3e4780795f63b7f0ba718485350dc4e6d33a0f97d577ebb3acb9"
   },
   "scorecard_hermit_commit": "f92de83e327cb2ec601694da1c43ea8937c17b03",
   "scorecard_tool_hermit_commit": "8929eeb7162d2d86b1a1172c9ceaf2cc7d74b0ab",
-  "series_commit": "70e933a41f160683d170b9667c65e4d6fb4779d0",
-  "source_commit": "70e933a41f160683d170b9667c65e4d6fb4779d0",
+  "series_commit": "22a137a3505867c75f8e44decf284ff56553deee",
+  "source_commit": "22a137a3505867c75f8e44decf284ff56553deee",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
   "source_tree": "4ea79e7312e06c6c50b502705574d83587402810"
 }
