@@ -5,12 +5,12 @@
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
     "scorecard/SCORECARD.md": "2578ab5e1180009104a001119f97e3c2a0089084b0266b5b8b6a15a58499a5f1",
-    "scorecard/cells.json": "d1e0b5b9dc7a7289182599e304a276981a430ddd668431f4cf97ce17d329ff9e"
+    "scorecard/cells.json": "9a2b10dc359ccc35e164371e632af791f450a3323f64b7a592044f9d3b187413"
   },
   "scorecard_hermit_commit": "1bf22b4f5ba322b7cc2f80e3dd251cc2baabc548",
   "scorecard_tool_hermit_commit": "1bf22b4f5ba322b7cc2f80e3dd251cc2baabc548",
-  "series_commit": "44f62421c076488505ac11aebf51485086752b37",
-  "source_commit": "44f62421c076488505ac11aebf51485086752b37",
+  "series_commit": "168bafe09c8b117614299a5cbea9c670683ed367",
+  "source_commit": "168bafe09c8b117614299a5cbea9c670683ed367",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
   "source_tree": "62ed7011b62fe75af322b8e5c546901cf95b3cd2"
 }
