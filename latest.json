@@ -5,7 +5,7 @@
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
     "scorecard/SCORECARD.md": "5306c0b4898ec97c5c26d37d4baca8d9b2680f4a40c6850c666c223840aefc85",
-    "scorecard/cells.json": "59fce8ed50c80f8af52879d129f321f58898901d2084363f602495f14e0f1ebf",
+    "scorecard/cells.json": "c1ac1568e0cd555706f2264c7843c6d3e40090f9326daf4000223766aac15dd2",
     "scorecard/finalized/objects/sha256/039a99098a24e36cc06ac6b1c4844e7416a5501abdea7befb9d93a24e735cf68": "039a99098a24e36cc06ac6b1c4844e7416a5501abdea7befb9d93a24e735cf68",
     "scorecard/finalized/objects/sha256/432cfe376ae91835bc3410392d7dee1764212a834d8e094b98f2681ba1162e4a": "432cfe376ae91835bc3410392d7dee1764212a834d8e094b98f2681ba1162e4a",
     "scorecard/finalized/objects/sha256/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -13,8 +13,8 @@
   },
   "scorecard_hermit_commit": "f92de83e327cb2ec601694da1c43ea8937c17b03",
   "scorecard_tool_hermit_commit": "8929eeb7162d2d86b1a1172c9ceaf2cc7d74b0ab",
-  "series_commit": "22a137a3505867c75f8e44decf284ff56553deee",
-  "source_commit": "22a137a3505867c75f8e44decf284ff56553deee",
+  "series_commit": "0634b73a87dfd605ad9e1f33e4cfd94e09c96fa9",
+  "source_commit": "0634b73a87dfd605ad9e1f33e4cfd94e09c96fa9",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
   "source_tree": "4ea79e7312e06c6c50b502705574d83587402810"
 }
