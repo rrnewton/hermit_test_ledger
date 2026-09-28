@@ -1,18 +1,18 @@
 {
   "local_sources": [],
-  "rows": 95760,
-  "rows_sha256": "76a5d5e2c6a428037570303b7858f9619a8dc2eddc931027923e5bdeb217605d",
+  "rows": 96721,
+  "rows_sha256": "0c1e6e27dd94a93c71ab27d066af9c38e50ba6b28e414d5301de738dd37d3f34",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
-    "scorecard/SCORECARD.md": "43ba259407a9ad7decb182f906bc4ca2042e3f87f050b37b1c511ae3fc87927c",
-    "scorecard/cells.json": "f9b0b4c5a083c31de5a5c2a5543401f6fa1c5d98ccb1cb32d55f155036f707e5",
-    "scorecard/finalized/objects/sha256/ec1291a830b5023b53eb5021f88475f331f9a68696c7199e5e0556ab848ed513": "ec1291a830b5023b53eb5021f88475f331f9a68696c7199e5e0556ab848ed513",
-    "scorecard/finalized/runs/efe7e9d48c4e1bb71677a621a59ed86cf555eb5c77e88558e6bc56c10c656e48.json": "44376f87727de0b9b006b11b17f2548371b2bb11f50017167c55e40b9868a3aa"
+    "scorecard/SCORECARD.md": "f1021833baea64c44480e4ede295e1205c498b4225b3f46167c4c2f7e429cc4b",
+    "scorecard/cells.json": "8a0b988e5c82adc0bb42ef6d180eb3e06322c6fce098dd164ef718addf6e331c",
+    "scorecard/finalized/objects/sha256/4749dc5d47a63581aa522481420e5e9ca7852e0c613a73d160dedf897aae6a9d": "4749dc5d47a63581aa522481420e5e9ca7852e0c613a73d160dedf897aae6a9d",
+    "scorecard/finalized/runs/ea22a803db35d0e2d5e76b5956ac3fb150b8b6a3bc97f1ff8480cd37fcf54e64.json": "5d24dae3ae58d24ca447ae080413828da9e987c97be07fc852f510c055dd1852"
   },
-  "scorecard_hermit_commit": "5f7fe6f5469e17e5166b41f65bf349890554a5ee",
+  "scorecard_hermit_commit": "5ee668223a15e4a853ca4e28f26fe31e5542d43e",
   "scorecard_tool_hermit_commit": "487cf9b1d7ded9aa15ec30deb8bc9b1ffba8ce47",
-  "series_commit": "0905763fb34e54398aff47e5b126a884e3d1ec37",
-  "source_commit": "0905763fb34e54398aff47e5b126a884e3d1ec37",
+  "series_commit": "6af85b80566730f212cf6c7a550d409cc27ae782",
+  "source_commit": "6af85b80566730f212cf6c7a550d409cc27ae782",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
-  "source_tree": "2cfbc756e790972f801bda01622720942a382815"
+  "source_tree": "81b15087598ba3bfc3069a9b26f80d445ece03b8"
 }

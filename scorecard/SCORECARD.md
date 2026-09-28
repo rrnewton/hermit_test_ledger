@@ -270,10 +270,10 @@ The count table includes all **5776** cells in the manifest; no row is omitted. 
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 651 | 0 | 3 | 202 | 856 |
+| Selected by full | 0 | 650 | 0 | 3 | 203 | 856 |
 | Not selected by full | 43 | 70 | 7 | 0 | 30 | 150 |
 | Not applicable | 4770 | 0 | 0 | 0 | 0 | 4770 |
-| **Total** | **4813** | **721** | **7** | **3** | **232** | **5776** |
+| **Total** | **4813** | **720** | **7** | **3** | **233** | **5776** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -867,7 +867,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/proc-fdinfo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/proc-locks` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/proc-locks` | `verify` | `ptrace` | `Selected by full` | `diverged` |
-| `c-programs/proc-locks` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/proc-locks` | `verify` | `sabre` | `Selected by full` | `diverged` |
 | `c-programs/process-mrelease-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/process-mrelease-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/process-mrelease-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
