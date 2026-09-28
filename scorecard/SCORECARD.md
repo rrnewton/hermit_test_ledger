@@ -1,5 +1,7 @@
 # Compatibility scorecard
 
+Last regenerated **2026-09-28T20:32:59Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `5aa027e4591441e95bf9e6943d18ce0e3f34f287`, reading 98439 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` (856). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (1030), `validate-buck-validate-cargo-116306360331-1790568657341247584-953732-59d32212` current (1029), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (1029), `validate-main-full-20260922-v4` retained (348).
+
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
 The count table includes all **5776** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **856** are selected by full, **150** are not selected by full, and **4770** are **Not applicable**.
@@ -73,7 +75,7 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Cross-backend parity
 
-This is measured ptrace-reference parity, not CI plan membership and not same-backend repeatability. A cell is eligible when the corresponding ptrace `verify` coordinate is selected by full. The CLI can explicitly select eligible not-applicable candidates with `--probe-disabled`; the committed selectors do not include that option. `Never measured` means no strict typed ptrace-vs-candidate report exists. At the latest recorded Hermit source depth, any divergence outranks a match. The portable and hosted-portable `backend-parity-c` nodes perform ptrace-reference parity comparisons for eligible selected verify cells. These selectors cover a subset of the eligible cells; eligibility does not mean every cell was selected or measured.
+This is measured ptrace-reference parity, not CI plan membership and not same-backend repeatability. A cell is eligible when the corresponding ptrace `verify` coordinate is selected by full. The CLI can explicitly select eligible not-applicable candidates with `--probe-disabled`; the committed selectors do not include that option. `Never measured` means no strict typed ptrace-vs-candidate report exists. At the latest recorded Hermit source depth, any divergence outranks a match. The portable and hosted-portable `backend-parity-c` nodes currently perform ordinary same-backend verification: since https://github.com/rrnewton/hermit/issues/3301 no committed selector runs a ptrace reference, and parity no longer decides a validation outcome. The counts below come from recorded strict ptrace-vs-candidate reports; eligibility does not mean every cell was selected or measured.
 
 | Candidate backend | Ptrace cells selected by full | Not-applicable probe candidates | Measured match | Parity failure | Never measured |
 | --- | ---: | ---: | ---: | ---: | ---: |
