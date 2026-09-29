@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-09-29T03:00:03Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `eac48ee55637d57ee88e91d008355e43bce6b3b7`, reading 101875 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` (856). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (1030), `validate-buck-validate-cargo-116306360331-1790568657341247584-953732-59d32212` current (1029), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (1029), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (856), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (855), `validate-main-full-20260922-v4` retained (348).
+Last regenerated **2026-09-29T07:13:51Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `9822817dcbd80cafa4c65d3a3fbfb2d9e0e2b8c4`, reading 103593 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-liteinst-lane-claude-20260927-inodes-78e69b8de6d1-1790665034398292621-2080784-da1f272e` (856). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (1030), `validate-buck-validate-cargo-116306360331-1790568657341247584-953732-59d32212` current (1029), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (1029), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (856), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (856), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (855), `validate-main-full-20260922-v4` retained (348).
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -48,9 +48,8 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | Manifest category | Verify | Replay | Chaos | Selected by full | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `applications` | 3 / 6 | 0 / 6 | 0 / 6 | 3 | 18 |
-| `backend-parity-c` | 103 / 104 | 0 / 104 | 0 / 104 | 103 | 312 |
 | `bin-c` | 1 / 2 | 0 / 2 | 0 / 2 | 1 | 6 |
-| `c-programs` | 162 / 166 | 1 / 166 | 3 / 166 | 166 | 498 |
+| `c-programs` | 265 / 270 | 1 / 270 | 3 / 270 | 269 | 810 |
 | `chaos-c` | 1 / 1 | 0 / 1 | 1 / 1 | 2 | 3 |
 | `data-handling` | 6 / 6 | 0 / 6 | 0 / 6 | 6 | 18 |
 | `debugger-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
@@ -69,202 +68,30 @@ These rows are part of the selected regression denominator even though they are 
 
 | Lane | Category | Test | Mode | Backend |
 | --- | --- | --- | --- | --- |
-| `portable` | `backend-parity-c` | `backend-parity-c/environment-and-workdir` | `custom` | `ptrace` |
+| `portable` | `c-programs` | `c-programs/environment-and-workdir` | `custom` | `ptrace` |
 | `portable` | `system-utils` | `system-utils/clock-determinism` | `custom` | `liteinst` |
 | `portable` | `system-utils` | `system-utils/clock-determinism` | `custom` | `ptrace` |
 
 ## Cross-backend parity
 
-This is measured ptrace-reference parity, not CI plan membership and not same-backend repeatability. A cell is eligible when the corresponding ptrace `verify` coordinate is selected by full. `Never measured` means no strict typed ptrace-vs-candidate report exists. At the latest recorded Hermit source depth, any divergence outranks a match. The portable and hosted-portable `backend-parity-c` nodes currently perform ordinary same-backend verification: since https://github.com/rrnewton/hermit/issues/3301 no committed selector runs a ptrace reference, and parity no longer decides a validation outcome. The counts below come from strict ptrace-vs-candidate reports recorded before that change. No command produces a new one, `--probe-disabled` included: it now runs only the disabled cell's own backend verification. The counts are therefore not refreshed until a new parity producer lands. Eligibility does not mean every cell was selected or measured.
+This is measured ptrace-reference parity, not CI plan membership and not same-backend repeatability. A cell is eligible when the corresponding ptrace `verify` coordinate is selected by full. The CLI can explicitly select eligible not-applicable candidates with `--probe-disabled`; the committed selectors do not include that option. `Never measured` means no strict typed ptrace-vs-candidate report exists. At the latest recorded Hermit source depth, any divergence outranks a match. The portable and hosted-portable `backend-parity-c` nodes currently perform ordinary same-backend verification: since https://github.com/rrnewton/hermit/issues/3301 no committed selector runs a ptrace reference, and parity no longer decides a validation outcome. The counts below come from recorded strict ptrace-vs-candidate reports; eligibility does not mean every cell was selected or measured.
 
-| Candidate backend | Ptrace cells selected by full | Not-applicable candidates | Measured match | Parity failure | Never measured |
+| Candidate backend | Ptrace cells selected by full | Not-applicable probe candidates | Measured match | Parity failure | Never measured |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `dbt` | 346 | 286 | 0 | 0 | 346 |
-| `kvm` | 346 | 97 | 0 | 75 | 271 |
-| `sabre` | 346 | 202 | 0 | 1 | 345 |
-| `liteinst` | 346 | 199 | 0 | 97 | 249 |
+| `kvm` | 346 | 97 | 0 | 0 | 346 |
+| `sabre` | 346 | 202 | 0 | 0 | 346 |
+| `liteinst` | 346 | 199 | 0 | 0 | 346 |
 
 Measured pairs are listed individually so a failing backend/test coordinate is visible without interpreting the plan-colour tables. The raw-record column is the smaller of the two complete input record counts, before target and INFO selection. The Ptrace INFO and Candidate INFO columns count the selected Detcore messages used for comparison.
 
 | Test | Candidate backend | Result | Smaller raw record count | Ptrace INFO | Candidate INFO |
 | --- | --- | --- | ---: | ---: | ---: |
-| `backend-parity-c/aio-refusal` | `kvm` | `parity-failure` | 107 | 106 | 106 |
-| `backend-parity-c/aio-refusal` | `liteinst` | `parity-failure` | 107 | 106 | 1022 |
-| `backend-parity-c/append-pwrite` | `kvm` | `parity-failure` | 144 | 151 | 143 |
-| `backend-parity-c/append-pwrite` | `liteinst` | `parity-failure` | 152 | 151 | 1067 |
-| `backend-parity-c/bind-getsockname` | `kvm` | `parity-failure` | 110 | 109 | 109 |
-| `backend-parity-c/bind-getsockname` | `liteinst` | `parity-failure` | 110 | 109 | 1025 |
-| `backend-parity-c/cachestat-refusal` | `kvm` | `parity-failure` | 124 | 131 | 123 |
-| `backend-parity-c/cachestat-refusal` | `liteinst` | `parity-failure` | 132 | 131 | 1047 |
-| `backend-parity-c/child-subreaper-refusal` | `kvm` | `parity-failure` | 103 | 102 | 102 |
-| `backend-parity-c/child-subreaper-refusal` | `liteinst` | `parity-failure` | 103 | 102 | 1018 |
-| `backend-parity-c/close-range-fds` | `kvm` | `parity-failure` | 137 | 144 | 136 |
-| `backend-parity-c/close-range-fds` | `liteinst` | `parity-failure` | 145 | 144 | 1060 |
-| `backend-parity-c/copy-file-range-refusal` | `kvm` | `parity-failure` | 139 | 142 | 138 |
-| `backend-parity-c/copy-file-range-refusal` | `liteinst` | `parity-failure` | 143 | 142 | 1058 |
-| `backend-parity-c/cpu-virtualization` | `kvm` | `parity-failure` | 104 | 103 | 103 |
-| `backend-parity-c/cpu-virtualization` | `liteinst` | `parity-failure` | 104 | 103 | 1019 |
-| `backend-parity-c/cwd-roundtrip` | `kvm` | `parity-failure` | 133 | 140 | 132 |
-| `backend-parity-c/cwd-roundtrip` | `liteinst` | `parity-failure` | 141 | 140 | 1056 |
-| `backend-parity-c/dup-shared-offset` | `kvm` | `parity-failure` | 148 | 155 | 147 |
-| `backend-parity-c/dup-shared-offset` | `liteinst` | `parity-failure` | 156 | 155 | 1071 |
-| `backend-parity-c/epoll-pwait2` | `liteinst` | `parity-failure` | 125 | 124 | 1040 |
-| `backend-parity-c/epoll-readiness` | `kvm` | `parity-failure` | 123 | 122 | 122 |
-| `backend-parity-c/epoll-readiness` | `liteinst` | `parity-failure` | 123 | 122 | 1038 |
-| `backend-parity-c/event-delivery-ordering` | `liteinst` | `parity-failure` | 190 | 189 | 1105 |
-| `backend-parity-c/eventfd-semantics` | `kvm` | `parity-failure` | 169 | 168 | 168 |
-| `backend-parity-c/eventfd-semantics` | `liteinst` | `parity-failure` | 169 | 168 | 1084 |
-| `backend-parity-c/faccessat2-flags` | `kvm` | `parity-failure` | 132 | 139 | 131 |
-| `backend-parity-c/faccessat2-flags` | `liteinst` | `parity-failure` | 140 | 139 | 1055 |
-| `backend-parity-c/fadvise-hints` | `kvm` | `parity-failure` | 124 | 131 | 123 |
-| `backend-parity-c/fadvise-hints` | `liteinst` | `parity-failure` | 132 | 131 | 1047 |
-| `backend-parity-c/fallocate-extents` | `kvm` | `parity-failure` | 130 | 137 | 129 |
-| `backend-parity-c/fallocate-extents` | `liteinst` | `parity-failure` | 138 | 137 | 1053 |
-| `backend-parity-c/fchmod-bits` | `kvm` | `parity-failure` | 131 | 138 | 130 |
-| `backend-parity-c/fchmod-bits` | `liteinst` | `parity-failure` | 139 | 138 | 1054 |
-| `backend-parity-c/fchmodat2-flags` | `liteinst` | `parity-failure` | 139 | 138 | 1054 |
-| `backend-parity-c/fcntl-owner` | `liteinst` | `parity-failure` | 121 | 120 | 1036 |
-| `backend-parity-c/fd-duplication` | `kvm` | `parity-failure` | 163 | 170 | 162 |
-| `backend-parity-c/fd-duplication` | `liteinst` | `parity-failure` | 171 | 170 | 1086 |
-| `backend-parity-c/file-backed-mmap` | `kvm` | `parity-failure` | 133 | 140 | 132 |
-| `backend-parity-c/file-backed-mmap` | `liteinst` | `parity-failure` | 141 | 140 | 1056 |
-| `backend-parity-c/file-io-roundtrip` | `kvm` | `parity-failure` | 148 | 147 | 147 |
-| `backend-parity-c/file-io-roundtrip` | `liteinst` | `parity-failure` | 148 | 147 | 1063 |
-| `backend-parity-c/flock-lifecycle` | `kvm` | `parity-failure` | 121 | 128 | 120 |
-| `backend-parity-c/flock-lifecycle` | `liteinst` | `parity-failure` | 129 | 128 | 1044 |
-| `backend-parity-c/fork-exec-pipeline` | `kvm` | `parity-failure` | 337 | 341 | 336 |
-| `backend-parity-c/fsync-durability` | `liteinst` | `parity-failure` | 132 | 131 | 1047 |
-| `backend-parity-c/ftruncate-sparse` | `kvm` | `parity-failure` | 135 | 142 | 134 |
-| `backend-parity-c/ftruncate-sparse` | `liteinst` | `parity-failure` | 143 | 142 | 1058 |
-| `backend-parity-c/getcpu-identity` | `kvm` | `parity-failure` | 123 | 122 | 122 |
-| `backend-parity-c/getcpu-identity` | `liteinst` | `parity-failure` | 123 | 122 | 1038 |
-| `backend-parity-c/getpriority-identity` | `kvm` | `parity-failure` | 113 | 112 | 112 |
-| `backend-parity-c/getpriority-identity` | `liteinst` | `parity-failure` | 113 | 112 | 1028 |
-| `backend-parity-c/hardware-trap-identity` | `liteinst` | `parity-failure` | 312 | 305 | 1221 |
-| `backend-parity-c/host-identity` | `liteinst` | `parity-failure` | 117 | 116 | 1032 |
-| `backend-parity-c/inline-syscall-sites` | `kvm` | `parity-failure` | 165 | 164 | 164 |
-| `backend-parity-c/inline-syscall-sites` | `liteinst` | `parity-failure` | 165 | 164 | 1080 |
-| `backend-parity-c/inotify-watch` | `liteinst` | `parity-failure` | 110 | 109 | 1025 |
-| `backend-parity-c/ioctl-fionread` | `liteinst` | `parity-failure` | 120 | 119 | 1035 |
-| `backend-parity-c/kcmp-refusal` | `kvm` | `parity-failure` | 111 | 110 | 110 |
-| `backend-parity-c/kcmp-refusal` | `liteinst` | `parity-failure` | 111 | 110 | 1026 |
-| `backend-parity-c/linkat-flags` | `kvm` | `parity-failure` | 146 | 153 | 145 |
-| `backend-parity-c/linkat-flags` | `liteinst` | `parity-failure` | 154 | 153 | 1069 |
-| `backend-parity-c/lseek-positioning` | `kvm` | `parity-failure` | 143 | 150 | 142 |
-| `backend-parity-c/lseek-positioning` | `liteinst` | `parity-failure` | 151 | 150 | 1066 |
-| `backend-parity-c/mce-kill-refusal` | `kvm` | `parity-failure` | 103 | 102 | 102 |
-| `backend-parity-c/mce-kill-refusal` | `liteinst` | `parity-failure` | 103 | 102 | 1018 |
-| `backend-parity-c/membarrier-query` | `kvm` | `parity-failure` | 105 | 104 | 104 |
-| `backend-parity-c/membarrier-query` | `liteinst` | `parity-failure` | 105 | 104 | 1020 |
-| `backend-parity-c/memfd-create` | `kvm` | `parity-failure` | 121 | 120 | 120 |
-| `backend-parity-c/memfd-create` | `liteinst` | `parity-failure` | 121 | 120 | 1036 |
-| `backend-parity-c/mempolicy-default` | `kvm` | `parity-failure` | 107 | 106 | 106 |
-| `backend-parity-c/mempolicy-default` | `liteinst` | `parity-failure` | 107 | 106 | 1022 |
-| `backend-parity-c/mincore-residency` | `kvm` | `parity-failure` | 119 | 118 | 118 |
-| `backend-parity-c/mincore-residency` | `liteinst` | `parity-failure` | 119 | 118 | 1034 |
-| `backend-parity-c/mixed-inline-and-libc-syscalls` | `kvm` | `parity-failure` | 147 | 146 | 146 |
-| `backend-parity-c/mixed-inline-and-libc-syscalls` | `liteinst` | `parity-failure` | 147 | 146 | 1062 |
-| `backend-parity-c/mkdir-rmdir` | `kvm` | `parity-failure` | 129 | 136 | 128 |
-| `backend-parity-c/mkdir-rmdir` | `liteinst` | `parity-failure` | 137 | 136 | 1052 |
-| `backend-parity-c/mknod-special` | `kvm` | `parity-failure` | 133 | 140 | 132 |
-| `backend-parity-c/mknod-special` | `liteinst` | `parity-failure` | 141 | 140 | 1056 |
-| `backend-parity-c/mmap-layout-pointer-order` | `kvm` | `parity-failure` | 133 | 140 | 132 |
-| `backend-parity-c/mmap-layout-pointer-order` | `liteinst` | `parity-failure` | 141 | 140 | 1056 |
-| `backend-parity-c/msync-writeback` | `liteinst` | `parity-failure` | 137 | 136 | 1052 |
-| `backend-parity-c/name-to-handle-refusal` | `kvm` | `parity-failure` | 103 | 102 | 102 |
-| `backend-parity-c/name-to-handle-refusal` | `liteinst` | `parity-failure` | 103 | 102 | 1018 |
-| `backend-parity-c/no-new-privs-refusal` | `kvm` | `parity-failure` | 105 | 104 | 104 |
-| `backend-parity-c/no-new-privs-refusal` | `liteinst` | `parity-failure` | 105 | 104 | 1020 |
-| `backend-parity-c/numa-node-identity` | `kvm` | `parity-failure` | 111 | 110 | 110 |
-| `backend-parity-c/numa-node-identity` | `liteinst` | `parity-failure` | 111 | 110 | 1026 |
-| `backend-parity-c/o-tmpfile-anon` | `kvm` | `parity-failure` | 120 | 119 | 119 |
-| `backend-parity-c/o-tmpfile-anon` | `liteinst` | `parity-failure` | 120 | 119 | 1035 |
-| `backend-parity-c/openat-flags` | `kvm` | `parity-failure` | 160 | 167 | 159 |
-| `backend-parity-c/openat-flags` | `liteinst` | `parity-failure` | 168 | 167 | 1083 |
-| `backend-parity-c/openat2-refusal` | `kvm` | `parity-failure` | 105 | 104 | 104 |
-| `backend-parity-c/openat2-refusal` | `liteinst` | `parity-failure` | 105 | 104 | 1020 |
-| `backend-parity-c/path-file-ops` | `kvm` | `parity-failure` | 141 | 148 | 140 |
-| `backend-parity-c/path-file-ops` | `liteinst` | `parity-failure` | 149 | 148 | 1064 |
-| `backend-parity-c/personality-domain` | `liteinst` | `parity-failure` | 109 | 108 | 1024 |
-| `backend-parity-c/pid-probe` | `kvm` | `parity-failure` | 101 | 100 | 100 |
-| `backend-parity-c/pid-probe` | `liteinst` | `parity-failure` | 101 | 100 | 1016 |
-| `backend-parity-c/pid-probe` | `sabre` | `parity-failure` | 32 | 100 | 29 |
-| `backend-parity-c/pidfd-open-self` | `kvm` | `parity-failure` | 117 | 116 | 116 |
-| `backend-parity-c/pidfd-open-self` | `liteinst` | `parity-failure` | 117 | 116 | 1032 |
-| `backend-parity-c/pipe-capacity` | `kvm` | `parity-failure` | 113 | 112 | 112 |
-| `backend-parity-c/pipe-capacity` | `liteinst` | `parity-failure` | 113 | 112 | 1028 |
-| `backend-parity-c/pipe-capacity-pin` | `kvm` | `parity-failure` | 111 | 110 | 110 |
-| `backend-parity-c/pipe-capacity-pin` | `liteinst` | `parity-failure` | 111 | 110 | 1026 |
-| `backend-parity-c/pipe-ipc` | `kvm` | `parity-failure` | 158 | 162 | 157 |
-| `backend-parity-c/pipe-ipc` | `liteinst` | `parity-failure` | 164 | 162 | 1078 |
-| `backend-parity-c/pipe2-flags` | `kvm` | `parity-failure` | 163 | 162 | 162 |
-| `backend-parity-c/pipe2-flags` | `liteinst` | `parity-failure` | 163 | 162 | 1078 |
-| `backend-parity-c/poll-readiness` | `liteinst` | `parity-failure` | 139 | 138 | 1054 |
-| `backend-parity-c/prctl-identity` | `liteinst` | `parity-failure` | 121 | 120 | 1036 |
-| `backend-parity-c/prctl-pdeathsig` | `liteinst` | `parity-failure` | 111 | 110 | 1026 |
-| `backend-parity-c/preadv2-flags` | `liteinst` | `parity-failure` | 140 | 139 | 1055 |
-| `backend-parity-c/pthread-lifecycle` | `liteinst` | `parity-failure` | 214 | 209 | 1125 |
-| `backend-parity-c/readdir-entries` | `kvm` | `parity-failure` | 159 | 166 | 158 |
-| `backend-parity-c/readdir-entries` | `liteinst` | `parity-failure` | 167 | 166 | 1082 |
-| `backend-parity-c/readdir-order-identity` | `kvm` | `parity-failure` | 13669 | 13676 | 13668 |
-| `backend-parity-c/readdir-order-identity` | `liteinst` | `parity-failure` | 13677 | 13676 | 14590 |
-| `backend-parity-c/record-lock` | `liteinst` | `parity-failure` | 131 | 130 | 1046 |
-| `backend-parity-c/rename-ops` | `kvm` | `parity-failure` | 163 | 170 | 162 |
-| `backend-parity-c/rename-ops` | `liteinst` | `parity-failure` | 171 | 170 | 1086 |
-| `backend-parity-c/renameat2-flags` | `kvm` | `parity-failure` | 184 | 191 | 183 |
-| `backend-parity-c/renameat2-flags` | `liteinst` | `parity-failure` | 192 | 191 | 1107 |
-| `backend-parity-c/rlimit-identity` | `kvm` | `parity-failure` | 121 | 120 | 120 |
-| `backend-parity-c/rlimit-identity` | `liteinst` | `parity-failure` | 121 | 120 | 1036 |
-| `backend-parity-c/robust-list` | `kvm` | `parity-failure` | 105 | 104 | 104 |
-| `backend-parity-c/robust-list` | `liteinst` | `parity-failure` | 105 | 104 | 1020 |
-| `backend-parity-c/sched-getaffinity-identity` | `kvm` | `parity-failure` | 111 | 110 | 110 |
-| `backend-parity-c/sched-getaffinity-identity` | `liteinst` | `parity-failure` | 111 | 110 | 1026 |
-| `backend-parity-c/seccomp-refusal` | `kvm` | `parity-failure` | 103 | 102 | 102 |
-| `backend-parity-c/seccomp-refusal` | `liteinst` | `parity-failure` | 103 | 102 | 1018 |
-| `backend-parity-c/sendfile-copy` | `kvm` | `parity-failure` | 155 | 158 | 154 |
-| `backend-parity-c/sendfile-copy` | `liteinst` | `parity-failure` | 159 | 158 | 1074 |
-| `backend-parity-c/set-tid-address` | `kvm` | `parity-failure` | 107 | 106 | 106 |
-| `backend-parity-c/set-tid-address` | `liteinst` | `parity-failure` | 107 | 106 | 1022 |
-| `backend-parity-c/short-io-split-identity` | `kvm` | `parity-failure` | 431 | 432 | 430 |
-| `backend-parity-c/short-io-split-identity` | `liteinst` | `parity-failure` | 435 | 432 | 1348 |
-| `backend-parity-c/shutdown-socketpair` | `kvm` | `parity-failure` | 125 | 124 | 124 |
-| `backend-parity-c/shutdown-socketpair` | `liteinst` | `parity-failure` | 125 | 124 | 1040 |
-| `backend-parity-c/signal-delivery-sequence` | `liteinst` | `parity-failure` | 997 | 996 | 1912 |
-| `backend-parity-c/signal-waitstatus-identity` | `liteinst` | `parity-failure` | 386 | 378 | 1409 |
-| `backend-parity-c/signalfd-create` | `kvm` | `parity-failure` | 113 | 112 | 112 |
-| `backend-parity-c/signalfd-create` | `liteinst` | `parity-failure` | 113 | 112 | 1028 |
-| `backend-parity-c/socket-epoll-ordering` | `kvm` | `parity-failure` | 250 | 249 | 249 |
-| `backend-parity-c/socket-epoll-ordering` | `liteinst` | `parity-failure` | 250 | 249 | 1165 |
-| `backend-parity-c/socket-options` | `liteinst` | `parity-failure` | 131 | 130 | 1046 |
-| `backend-parity-c/socketpair-flags` | `liteinst` | `parity-failure` | 119 | 118 | 1034 |
-| `backend-parity-c/sockname-unnamed` | `liteinst` | `parity-failure` | 113 | 112 | 1028 |
-| `backend-parity-c/stat-metadata-identity` | `kvm` | `parity-failure` | 233 | 232 | 232 |
-| `backend-parity-c/stat-metadata-identity` | `liteinst` | `parity-failure` | 233 | 232 | 1148 |
-| `backend-parity-c/statfs-free-determinism` | `kvm` | `parity-failure` | 109 | 108 | 108 |
-| `backend-parity-c/statfs-free-determinism` | `liteinst` | `parity-failure` | 109 | 108 | 1024 |
-| `backend-parity-c/static-nolibc-syscall-sites` | `kvm` | `parity-failure` | 76 | 75 | 75 |
-| `backend-parity-c/statx-metadata` | `kvm` | `parity-failure` | 123 | 130 | 122 |
-| `backend-parity-c/statx-metadata` | `liteinst` | `parity-failure` | 131 | 130 | 1046 |
-| `backend-parity-c/symlink-ops` | `kvm` | `parity-failure` | 152 | 159 | 151 |
-| `backend-parity-c/symlink-ops` | `liteinst` | `parity-failure` | 160 | 159 | 1075 |
-| `backend-parity-c/sync-file-range` | `kvm` | `parity-failure` | 122 | 129 | 121 |
-| `backend-parity-c/sync-file-range` | `liteinst` | `parity-failure` | 130 | 129 | 1045 |
-| `backend-parity-c/sysv-ipc-refusal` | `kvm` | `parity-failure` | 105 | 104 | 104 |
-| `backend-parity-c/sysv-ipc-refusal` | `liteinst` | `parity-failure` | 105 | 104 | 1020 |
-| `backend-parity-c/thp-disable` | `liteinst` | `parity-failure` | 107 | 106 | 1022 |
-| `backend-parity-c/umask-mode` | `kvm` | `parity-failure` | 139 | 146 | 138 |
-| `backend-parity-c/umask-mode` | `liteinst` | `parity-failure` | 147 | 146 | 1062 |
-| `backend-parity-c/uname-identity` | `kvm` | `parity-failure` | 101 | 100 | 100 |
-| `backend-parity-c/uname-identity` | `liteinst` | `parity-failure` | 101 | 100 | 1016 |
-| `backend-parity-c/utimensat-determinism` | `kvm` | `parity-failure` | 123 | 130 | 122 |
-| `backend-parity-c/utimensat-determinism` | `liteinst` | `parity-failure` | 131 | 130 | 1046 |
-| `backend-parity-c/vectored-file-io` | `liteinst` | `parity-failure` | 147 | 146 | 1062 |
-| `backend-parity-c/vectored-io` | `kvm` | `parity-failure` | 126 | 125 | 125 |
-| `backend-parity-c/vectored-io` | `liteinst` | `parity-failure` | 126 | 125 | 1041 |
+| _none_ | — | — | — | — | — |
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **70** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **59** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -272,10 +99,10 @@ The count table includes all **5776** cells in the manifest; no row is omitted. 
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 650 | 0 | 3 | 203 | 856 |
-| Not selected by full | 43 | 70 | 7 | 0 | 30 | 150 |
+| Selected by full | 0 | 823 | 0 | 3 | 30 | 856 |
+| Not selected by full | 60 | 59 | 6 | 0 | 25 | 150 |
 | Not applicable | 4770 | 0 | 0 | 0 | 0 | 4770 |
-| **Total** | **4813** | **720** | **7** | **3** | **233** | **5776** |
+| **Total** | **4830** | **882** | **6** | **3** | **55** | **5776** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -288,298 +115,6 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `applications/git-repository-workflow` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `applications/timed-progress-bar` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `applications/timed-progress-bar` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/aio-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/aio-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/aio-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/append-pwrite` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/append-pwrite` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/append-pwrite` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/bind-getsockname` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/bind-getsockname` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/bind-getsockname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/cachestat-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/cachestat-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/cachestat-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/child-subreaper-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/child-subreaper-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/child-subreaper-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/close-range-fds` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/close-range-fds` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/close-range-fds` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/copy-file-range-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/copy-file-range-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/copy-file-range-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/cpu-virtualization` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/cpu-virtualization` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/cpu-virtualization` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/cpu-virtualization` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/cwd-roundtrip` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/cwd-roundtrip` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/cwd-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/dup-shared-offset` | `verify` | `dbt` | `Not selected by full` | `diverged` |
-| `backend-parity-c/dup-shared-offset` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/dup-shared-offset` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/dup-shared-offset` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/environment-and-workdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/epoll-pwait2` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/epoll-pwait2` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/epoll-readiness` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/epoll-readiness` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/epoll-readiness` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/event-delivery-ordering` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/event-delivery-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/eventfd-semantics` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/eventfd-semantics` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/eventfd-semantics` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/faccessat2-flags` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/faccessat2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/faccessat2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fadvise-hints` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/fadvise-hints` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/fadvise-hints` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fallocate-extents` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/fallocate-extents` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/fallocate-extents` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fchmod-bits` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/fchmod-bits` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/fchmod-bits` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fchmodat2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/fchmodat2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fcntl-owner` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/fcntl-owner` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fd-duplication` | `verify` | `dbt` | `Not selected by full` | `diverged` |
-| `backend-parity-c/fd-duplication` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/fd-duplication` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/fd-duplication` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/file-backed-mmap` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/file-backed-mmap` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/file-backed-mmap` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/file-io-roundtrip` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/file-io-roundtrip` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/file-io-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/flock-lifecycle` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/flock-lifecycle` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/flock-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fork-exec-pipeline` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/fork-exec-pipeline` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/fsync-durability` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/fsync-durability` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/ftruncate-sparse` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/ftruncate-sparse` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/ftruncate-sparse` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/getcpu-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/getcpu-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/getcpu-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/getcpu-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/getpriority-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/getpriority-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/getpriority-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/getpriority-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/getrusage-self-accounting` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
-| `backend-parity-c/getrusage-self-accounting` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/hardware-trap-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/hardware-trap-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/hardware-trap-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/host-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/host-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/host-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/inline-syscall-sites` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/inline-syscall-sites` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/inline-syscall-sites` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/inotify-watch` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/inotify-watch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/ioctl-fionread` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/ioctl-fionread` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/kcmp-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/kcmp-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/kcmp-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/linkat-flags` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/linkat-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/linkat-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/lseek-positioning` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/lseek-positioning` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/lseek-positioning` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/lseek-positioning` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/mce-kill-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/mce-kill-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/mce-kill-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/membarrier-query` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/membarrier-query` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/membarrier-query` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/memfd-create` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/memfd-create` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/memfd-create` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/mempolicy-default` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/mempolicy-default` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/mempolicy-default` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/mincore-residency` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/mincore-residency` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/mincore-residency` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/mixed-inline-and-libc-syscalls` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/mixed-inline-and-libc-syscalls` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/mixed-inline-and-libc-syscalls` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/mkdir-rmdir` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/mkdir-rmdir` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/mkdir-rmdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/mknod-special` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/mknod-special` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/mknod-special` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/mmap-layout-pointer-order` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/mmap-layout-pointer-order` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/mmap-layout-pointer-order` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/msync-writeback` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/msync-writeback` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/name-to-handle-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/name-to-handle-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/name-to-handle-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/no-new-privs-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/no-new-privs-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/no-new-privs-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/numa-node-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/numa-node-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/numa-node-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/numa-node-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/o-tmpfile-anon` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/o-tmpfile-anon` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/o-tmpfile-anon` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/openat-flags` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/openat-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/openat-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/openat2-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/openat2-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/openat2-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/path-file-ops` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/path-file-ops` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/path-file-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/personality-domain` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/personality-domain` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pid-probe` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/pid-probe` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/pid-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pid-probe` | `verify` | `sabre` | `Selected by full` | `diverged` |
-| `backend-parity-c/pidfd-open-self` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/pidfd-open-self` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/pidfd-open-self` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/pidfd-open-self` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pipe-capacity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe-capacity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe-capacity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pipe-capacity-pin` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe-capacity-pin` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe-capacity-pin` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pipe-ipc` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe-ipc` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe-ipc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pipe-multiwriter-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pipe2-flags` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/pipe2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/poll-readiness` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/poll-readiness` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/prctl-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/prctl-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/prctl-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/prctl-pdeathsig` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/prctl-pdeathsig` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/preadv2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/preadv2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pthread-lifecycle` | `verify` | `kvm` | `Not selected by full` | `diverged` |
-| `backend-parity-c/pthread-lifecycle` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/pthread-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/pthread-lifecycle` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `backend-parity-c/readdir-entries` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/readdir-entries` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/readdir-entries` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/readdir-order-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/readdir-order-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/readdir-order-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/record-lock` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/record-lock` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/rename-ops` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/rename-ops` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/rename-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/renameat2-flags` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/renameat2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/renameat2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/rlimit-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/rlimit-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/rlimit-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/rlimit-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/robust-list` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/robust-list` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/robust-list` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/sched-getaffinity-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `backend-parity-c/sched-getaffinity-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/sched-getaffinity-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/sched-getaffinity-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/seccomp-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/seccomp-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/seccomp-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/sendfile-copy` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/sendfile-copy` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/sendfile-copy` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/set-tid-address` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/set-tid-address` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/set-tid-address` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/short-io-split-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/short-io-split-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/short-io-split-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/shutdown-socketpair` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/shutdown-socketpair` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/shutdown-socketpair` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/signal-delivery-sequence` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/signal-delivery-sequence` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/signal-waitstatus-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/signal-waitstatus-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/signalfd-create` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/signalfd-create` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/signalfd-create` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/socket-epoll-ordering` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/socket-epoll-ordering` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/socket-epoll-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/socket-options` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/socket-options` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/socketpair-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/socketpair-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/sockname-unnamed` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/sockname-unnamed` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/stat-metadata-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/stat-metadata-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/stat-metadata-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/statfs-free-determinism` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/statfs-free-determinism` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/statfs-free-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/static-nolibc-syscall-sites` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/static-nolibc-syscall-sites` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/statx-metadata` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/statx-metadata` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/statx-metadata` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/symlink-ops` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/symlink-ops` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/symlink-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/sync-file-range` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/sync-file-range` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/sync-file-range` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/sysv-ipc-refusal` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/sysv-ipc-refusal` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/sysv-ipc-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/thp-disable` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/thp-disable` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/timer-family-identity` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
-| `backend-parity-c/umask-mode` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/umask-mode` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/umask-mode` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/uname-identity` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/uname-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/uname-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/utimensat-determinism` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/utimensat-determinism` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/utimensat-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/vectored-file-io` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/vectored-file-io` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/vectored-io` | `verify` | `kvm` | `Selected by full` | `diverged` |
-| `backend-parity-c/vectored-io` | `verify` | `liteinst` | `Selected by full` | `diverged` |
-| `backend-parity-c/vectored-io` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `bin-c/posix-timer-test` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `bin-c/posix-timer-test` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `bin-c/posix-timer-test` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -599,8 +134,17 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/adjtimex-deterministic` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/adjtimex-deterministic` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/adjtimex-deterministic` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/aio-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/aio-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/aio-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/append-pwrite` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/append-pwrite` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/append-pwrite` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/arch-prctl-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/arch-prctl-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/bind-getsockname` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/bind-getsockname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/bind-getsockname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/bpf-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/bpf-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/bpf-enosys` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
@@ -611,6 +155,12 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/cachestat-enosys` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/cachestat-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/cachestat-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cachestat-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cachestat-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cachestat-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/child-subreaper-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/child-subreaper-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/child-subreaper-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/clock-adjtime-deterministic` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/clock-adjtime-deterministic` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/clock-adjtime-deterministic` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
@@ -618,11 +168,23 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/clock-adjtime-deterministic` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/clone` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/clone` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/close-range-fds` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/close-range-fds` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/close-range-fds` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/copy-file-range-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/copy-file-range-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/copy-file-range-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cpu-virtualization` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cpu-virtualization` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cpu-virtualization` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cwd-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cwd-roundtrip` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cwd-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-copied-tiocgpgrp` | `verify` | `kvm` | `Selected by full` | `diverged` |
 | `c-programs/dbt-copied-tiocgpgrp` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-copied-tiocgpgrp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -651,13 +213,62 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/dbt-wait-lifecycle` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/dup-shared-offset` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/dup-shared-offset` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/dup-shared-offset` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/environment-and-workdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/epoll-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/epoll-determinism` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/epoll-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/epoll-determinism` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/epoll-pwait2` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/epoll-pwait2` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/epoll-readiness` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/epoll-readiness` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/epoll-readiness` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/event-delivery-ordering` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/event-delivery-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/eventfd-semantics` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/eventfd-semantics` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/eventfd-semantics` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/faccessat2-flags` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/faccessat2-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/faccessat2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fadvise-hints` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fadvise-hints` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fadvise-hints` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fallocate-extents` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fallocate-extents` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fallocate-extents` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fchmod-bits` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fchmod-bits` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fchmod-bits` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fchmodat2-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fchmodat2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fcntl-owner` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fcntl-owner` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fd-duplication` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fd-duplication` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fd-duplication` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/file-backed-mmap` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/file-backed-mmap` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/file-backed-mmap` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/file-io-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/file-io-roundtrip` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/file-io-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/flock-lifecycle` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/flock-lifecycle` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/flock-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fork-exec-pipeline` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fork-exec-pipeline` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/fp-reduction-nondeterminism` | `chaos` | `ptrace` | `Selected by full` | `diverged-unlocated` |
 | `c-programs/fp-reduction-nondeterminism` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/fp-reduction-nondeterminism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fsync-durability` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fsync-durability` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ftruncate-sparse` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ftruncate-sparse` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ftruncate-sparse` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/futex-requeue-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/futex-requeue-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/futex-requeue-enosys` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
@@ -685,18 +296,34 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/getcpu` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getcpu-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getcpu-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getcpu-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getitimer-determinism-probe` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getitimer-determinism-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getitimer-determinism-probe` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getpriority-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getpriority-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getpriority-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getrusage-self-accounting` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getsockopt-null` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getsockopt-null` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getsockopt-null` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/hardware-trap-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/hardware-trap-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-alarm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-alarm` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-nostdlib` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-nostdlib` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/host-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/host-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/inline-syscall-sites` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/inline-syscall-sites` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/inline-syscall-sites` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/inotify-watch` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/inotify-watch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/io-uring-fallback` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/io-uring-fallback` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/io-uring-fallback` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -708,6 +335,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/ioctl-fioclex` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-fioclex` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-fioclex` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ioctl-fionread` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ioctl-fionread` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-siocethtool` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-siocethtool` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-siocethtool` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -719,6 +348,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/kcmp-eperm` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/kcmp-eperm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/kcmp-eperm` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/kcmp-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/kcmp-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/kcmp-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/keyctl-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/keyctl-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/keyctl-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -726,11 +358,17 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/keyctl-passthrough` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/keyctl-passthrough` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/keyctl-passthrough` | `verify` | `sabre` | `Selected by full` | `diverged` |
+| `c-programs/linkat-flags` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/linkat-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/linkat-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/listmount-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/listmount-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/listmount-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/listmount-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/liteinst-advanced` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/lseek-positioning` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/lseek-positioning` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/lseek-positioning` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lsm-get-self-attr-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/lsm-get-self-attr-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lsm-get-self-attr-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -750,6 +388,15 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/map-shadow-stack-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/map-shadow-stack-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/map-shadow-stack-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mce-kill-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mce-kill-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mce-kill-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/membarrier-query` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/membarrier-query` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/membarrier-query` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/memfd-create` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/memfd-create` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/memfd-create` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/memfd-secret-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/memfd-secret-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/memfd-secret-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -766,13 +413,33 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/memorypress` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/memorypress` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/memorypress` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mempolicy-default` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mempolicy-default` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mempolicy-default` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mincore-residency` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mincore-residency` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mincore-residency` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mixed-inline-and-libc-syscalls` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mixed-inline-and-libc-syscalls` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mixed-inline-and-libc-syscalls` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mkdir-rmdir` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mkdir-rmdir` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mkdir-rmdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mknod-special` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mknod-special` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mknod-special` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mmap-layout-pointer-order` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mmap-layout-pointer-order` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mmap-layout-pointer-order` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-stress-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-stress-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-stress-determinism` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/msync-writeback` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/msync-writeback` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-at-eopnotsupp` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-at-eopnotsupp` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-at-eopnotsupp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -785,6 +452,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/name-to-handle-empty-path-eopnotsupp` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-empty-path-eopnotsupp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-empty-path-eopnotsupp` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/name-to-handle-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/name-to-handle-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/name-to-handle-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-regular-eopnotsupp` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-regular-eopnotsupp` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-regular-eopnotsupp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -815,6 +485,24 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/netns-cookie-udp4` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/netns-cookie-udp4` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/netns-cookie-udp4` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/no-new-privs-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/no-new-privs-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/no-new-privs-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/numa-node-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/numa-node-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/numa-node-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/o-tmpfile-anon` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/o-tmpfile-anon` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/o-tmpfile-anon` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/openat-flags` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/openat-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/openat-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/openat2-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/openat2-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/openat2-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/path-file-ops` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/path-file-ops` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/path-file-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pause-alarm-interrupt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pause-alarm-interrupt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/perf-event-hardware-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
@@ -835,18 +523,42 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/perf-event-watchpoint-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/periodic-setitimer-delivery` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/periodic-setitimer-delivery` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/personality-domain` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/personality-domain` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pid-probe` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pid-probe` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pid-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pid-probe` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-open-self` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-open-self` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-open-self` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pidfd-open-self-pair` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pidfd-open-self-pair` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pidfd-open-self-pair` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-poll-self` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-poll-self` | `verify` | `ptrace` | `Selected by full` | `diverged-unlocated` |
 | `c-programs/pidfd-poll-self` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-waitid-child` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-waitid-child` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/pipe-capacity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-capacity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-capacity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-capacity-pin` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-capacity-pin` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-capacity-pin` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-ipc` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-ipc` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-ipc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-multiwriter-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pipe2-errno-precedence` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/pipe2-errno-precedence` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pipe2-errno-precedence` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pipe2-errno-precedence` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe2-flags` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe2-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/poll-readiness` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/poll-readiness` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-readv` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-readv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-readv` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -855,10 +567,16 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/prctl-dumpable` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prctl-dumpable` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prctl-dumpable` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/prctl-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/prctl-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prctl-option-policy` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prctl-option-policy` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/prctl-pdeathsig` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/prctl-pdeathsig` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pread64-nostdlib` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pread64-nostdlib` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/preadv2-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/preadv2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/printf-with-threads` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -891,6 +609,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/prodcons-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prodcons-determinism` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `c-programs/pselect6-simulation` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pthread-lifecycle` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pthread-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ptrace-attach-eperm` | `verify` | `kvm` | `Selected by full` | `diverged` |
 | `c-programs/ptrace-attach-eperm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ptrace-attach-eperm` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
@@ -916,6 +636,14 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/rcx-canonicalization` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/rcx-canonicalization` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/rcx-canonicalization` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/readdir-entries` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/readdir-entries` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/readdir-entries` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/readdir-order-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/readdir-order-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/readdir-order-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/record-lock` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/record-lock` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/record-replay-fd-close` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/record-replay-fd-close` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/record-replay-file-state` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
@@ -941,11 +669,26 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/remap-file-pages-tmpfile-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/remap-file-pages-tmpfile-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/remap-file-pages-tmpfile-enosys` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/rename-ops` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/rename-ops` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/rename-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/renameat2-flags` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/renameat2-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/renameat2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/resource-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/rlimit-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/rlimit-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/rlimit-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/robust-list` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/robust-list` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/robust-list` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sched-getaffinity-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sched-getaffinity-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sched-getaffinity-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-setattr-batch` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-setattr-batch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-setattr-batch` | `verify` | `sabre` | `Selected by full` | `diverged` |
@@ -960,13 +703,35 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/scheduler-policy-queries` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/scheduler-policy-queries` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/scheduler-policy-queries` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/seccomp-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/seccomp-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/seccomp-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sendfile-copy` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sendfile-copy` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sendfile-copy` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/session-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/session-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/set-tid-address` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/set-tid-address` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/set-tid-address` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/setitimer-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/setitimer-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/short-io-split-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/short-io-split-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/short-io-split-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/shutdown-socketpair` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/shutdown-socketpair` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/shutdown-socketpair` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigmask-preemption` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigmask-preemption` | `verify` | `sabre` | `Not selected by full` | `diverged` |
+| `c-programs/signal-delivery-sequence` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signal-delivery-sequence` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signal-waitstatus-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signal-waitstatus-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signalfd-create` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signalfd-create` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signalfd-create` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigpipe-siginfo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -996,8 +761,13 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/socket-cookie-unix` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-cookie-unix` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-cookie-unix` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socket-epoll-ordering` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socket-epoll-ordering` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socket-epoll-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-ioctl-timestamp` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-ioctl-timestamp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socket-options` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socket-options` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `c-programs/socket-timestamp-timespec` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1006,14 +776,35 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/socket-timestamp-timeval` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-timestamp-timeval` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-timestamp-timeval` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socketpair-flags` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socketpair-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sockname-unnamed` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sockname-unnamed` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/splice-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/splice-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/splice-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/splice-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/stat-metadata-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/stat-metadata-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/stat-metadata-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/statfs-free-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/statfs-free-determinism` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/statfs-free-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/static-nolibc-syscall-sites` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/static-nolibc-syscall-sites` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/statmount-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/statmount-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/statmount-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/statmount-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/statx-metadata` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/statx-metadata` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/statx-metadata` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/symlink-ops` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/symlink-ops` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/symlink-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sync-file-range` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sync-file-range` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sync-file-range` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/syscall-file-io` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/syscall-file-io` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/syscall-file-io` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -1033,6 +824,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/syslog-deterministic` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/syslog-deterministic` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/syslog-deterministic` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sysv-ipc-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sysv-ipc-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sysv-ipc-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysv-sem-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/sysv-sem-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysv-sem-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1054,6 +848,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/tee-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/tee-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/tee-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/thp-disable` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/thp-disable` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thread-self-procfs-handoff` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thread-self-procfs-handoff` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `c-programs/thread-sync-determinism` | `chaos` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1064,9 +860,15 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/timer-create-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/timer-create-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/timer-create-determinism` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/umask-mode` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/umask-mode` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/umask-mode` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/uname` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/uname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/uname` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/uname-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/uname-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/uname-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/unix-autobind-dgram` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/unix-autobind-dgram` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/unix-autobind-dgram` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1083,6 +885,14 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/ustat-enosys` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ustat-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ustat-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
+| `c-programs/utimensat-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/utimensat-determinism` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/utimensat-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/vectored-file-io` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/vectored-file-io` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/vectored-io` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/vectored-io` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/vectored-io` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vforkexec` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vforkexec` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vmsplice-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
@@ -1241,6 +1051,6 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `util-c/pmu-skid` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `applications/kvm-python-examples` | `verify` | `kvm` | `Not selected by full` | `diverged` |
 | `applications/kvm-shell-environment` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/cpuid-probe` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/cpuid-probe` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
-| `backend-parity-c/cpuid-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cpuid-probe` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cpuid-probe` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/cpuid-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
