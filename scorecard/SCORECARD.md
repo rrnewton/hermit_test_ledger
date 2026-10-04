@@ -1,33 +1,33 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-04T13:38:21Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `5c1cfc5a38be64a8e754680c28777a8663366d50`, reading 272199 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-ops-tick-9af999677494-4ea4d2816eaf` (1038). Earlier validate runs still supplying comparisons: `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-ops-tick-20d49d84ec23-914f280b5537` current (1039), `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), `validate-ops-tick-562b7dd7a635-dffebdc99927` current (1039), `validate-ops-tick-8503b4fc2c30-57d1aa9b1fa2` current (1039), `validate-ops-tick-8503b4fc2c30-f0c6c4842871` current (1039), `validate-ops-tick-9f1d0350ab7a-cadb83b856b7` current (1039), and 18 more.
+Last regenerated **2026-10-04T21:52:06Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `51a74e716408828e2a4c5169b91bdaaae401ae0c`, reading 280218 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` (1042). Earlier validate runs still supplying comparisons: `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-ops-tick-20d49d84ec23-914f280b5537` current (1039), `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), `validate-ops-tick-562b7dd7a635-dffebdc99927` current (1039), `validate-ops-tick-8503b4fc2c30-57d1aa9b1fa2` current (1039), `validate-ops-tick-8503b4fc2c30-f0c6c4842871` current (1039), `validate-ops-tick-9f1d0350ab7a-cadb83b856b7` current (1039), and 19 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **14800** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1229** are selected by full, **716** are not selected by full, and **12855** are **Not applicable**.
+The count table includes all **14800** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1231** are selected by full, **714** are not selected by full, and **12855** are **Not applicable**.
 
-Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. **189** of the **1219** selected `verify` cells declare `comparator: stripped` (`compat` on `ptrace`: 189). They run Hermit's default `--verify` and pass only on a verified, matched report of a non-empty stripped comparison; they are below L2, never `bitwise_parity`, and are counted in these tables as selected, not as canonical. These same-backend results do not establish cross-backend parity.
+Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. **189** of the **1221** selected `verify` cells declare `comparator: stripped` (`compat` on `ptrace`: 189). They run Hermit's default `--verify` and pass only on a verified, matched report of a non-empty stripped comparison; they are below L2, never `bitwise_parity`, and are counted in these tables as selected, not as canonical. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
-| `ptrace` | 559 | 374 | 1842 | 2775 |
+| `ptrace` | 561 | 372 | 1842 | 2775 |
 | `dbt` | 26 | 59 | 2690 | 2775 |
 | `kvm` | 258 | 8 | 2509 | 2775 |
 | `sabre` | 240 | 239 | 2296 | 2775 |
 | `liteinst` | 146 | 3 | 2626 | 2775 |
 | `native` | 0 | 33 | 892 | 925 |
-| **Total** | **1229** | **716** | **12855** | **14800** |
+| **Total** | **1231** | **714** | **12855** | **14800** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **1229 of 14800**, which is **8.30%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **1231 of 14800**, which is **8.32%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **12855 of those 14800 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1945 cells that CAN run, selected by full is **63.19%**.
+⚠️ **12855 of those 14800 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1945 cells that CAN run, selected by full is **63.29%**.
 
-⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1229 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
+⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1231 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
 ⚠️ **Adding or removing a backend or mode changes this denominator and therefore the percentage, without anything about the product changing.** Removing a backend whose cells are mostly not selected RAISES the reported figure; adding manifest cells that are not selected LOWERS it. Neither is progress. Before comparing this percentage against an earlier one, diff the two lists above: if they differ, the numbers are not comparable and the difference is not a result.
 
@@ -35,11 +35,11 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `verify` | 549 / 925 | 26 / 925 | 258 / 925 | 240 / 925 | 146 / 925 | — | 1219 | 543 | 2863 | 4625 |
+| `verify` | 551 / 925 | 26 / 925 | 258 / 925 | 240 / 925 | 146 / 925 | — | 1221 | 541 | 2863 | 4625 |
 | `replay` | 4 / 925 | 0 / 925 | 0 / 925 | 0 / 925 | 0 / 925 | — | 4 | 139 | 4482 | 4625 |
 | `chaos` | 6 / 925 | 0 / 925 | 0 / 925 | 0 / 925 | 0 / 925 | — | 6 | 1 | 4618 | 4625 |
 | `naked` | — | — | — | — | — | 0 / 925 | 0 | 33 | 892 | 925 |
-| **Total** | | | | | | | **1229** | **716** | **12855** | **14800** |
+| **Total** | | | | | | | **1231** | **714** | **12855** | **14800** |
 
 ## Ptrace by manifest category
 
@@ -48,7 +48,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | Manifest category | Verify | Replay | Chaos | Selected by full | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `applications` | 3 / 6 | 0 / 6 | 0 / 6 | 3 | 18 |
-| `bin-c` | 1 / 2 | 0 / 2 | 0 / 2 | 1 | 6 |
+| `bin-c` | 2 / 2 | 0 / 2 | 0 / 2 | 2 | 6 |
 | `c-programs` | 273 / 278 | 3 / 278 | 3 / 278 | 279 | 834 |
 | `chaos-c` | 1 / 1 | 0 / 1 | 1 / 1 | 2 | 3 |
 | `compat` | 189 / 551 | 0 / 551 | 0 / 551 | 189 | 1653 |
@@ -56,12 +56,12 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | `debugger-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 | `determinism-stress` | 5 / 6 | 0 / 6 | 1 / 6 | 6 | 18 |
 | `determinism-stress-c` | 11 / 11 | 0 / 11 | 1 / 11 | 12 | 33 |
-| `language-runtimes` | 18 / 19 | 0 / 19 | 0 / 19 | 18 | 57 |
+| `language-runtimes` | 19 / 19 | 0 / 19 | 0 / 19 | 19 | 57 |
 | `shared-futex-c` | 1 / 4 | 0 / 4 | 0 / 4 | 1 | 12 |
 | `system-utils` | 39 / 39 | 1 / 39 | 0 / 39 | 40 | 117 |
 | `util-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 
-Ordinary full validation executes 1234 cells: the 1229 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 5 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
+Ordinary full validation executes 1236 cells: the 1231 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 5 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
 
 ### Selected custom commands outside the comparable denominator
 
@@ -77,7 +77,7 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **202** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **392** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -85,10 +85,10 @@ The count table includes all **14800** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1071 | 0 | 3 | 155 | 1229 |
-| Not selected by full | 477 | 202 | 8 | 0 | 29 | 716 |
+| Selected by full | 0 | 1072 | 0 | 3 | 156 | 1231 |
+| Not selected by full | 286 | 392 | 8 | 0 | 28 | 714 |
 | Not applicable | 12564 | 194 | 80 | 0 | 17 | 12855 |
-| **Total** | **13041** | **1467** | **88** | **3** | **201** | **14800** |
+| **Total** | **12850** | **1658** | **88** | **3** | **201** | **14800** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -112,7 +112,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `bin-c/posix-timer-test` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `bin-c/posix-timer-test` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `bin-c/robust-futex-test` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
-| `bin-c/robust-futex-test` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `bin-c/robust-futex-test` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `bin-c/robust-futex-test` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/acct-refusal-probe` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/acct-refusal-probe` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1510,6 +1510,197 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/stat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/stdbuf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/strict-addr2line` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ar` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-arch` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-as` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-awk` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-b2sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-base32` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-base64` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-basename` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bash` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bracket` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bzip2` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bzip2-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cal` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cargo` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-chmod` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-chown` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-chrt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cksum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-clang` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cmake` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cmp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-column` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-comm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cpio-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cpp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-csplit` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-curl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-curl-localhost` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cut` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cxxfilt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-date` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-dc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-dd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-df` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-diff` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-dirname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-du` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-echo` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-egrep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-elfedit` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-env` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-expand` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-expr` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-factor` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-fgrep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-file` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-find` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-findmnt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-flock` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-fmt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-fold` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-free` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gcc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gcov` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-getopt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-git` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gprof` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-grep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-groups` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gxx` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gzip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gzip-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-head` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-hexdump` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-hostname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-iconv` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-id` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-install` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ionice` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-iostat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-join` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-jq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-kill` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ld` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ln` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-logger` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-logname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ls` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lscpu` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lsirq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lsmod` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lsof` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lua` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-m4` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-make` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-md5sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mkdir` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mkfifo` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mktemp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mpstat-softirqs` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mv` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-netlink-route` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-netlink-sock-diag` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nice` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-node` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nohup` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nproc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-numactl-hardware` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-numastat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-numfmt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-objcopy` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-objdump` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-od` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-openssl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-paste` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-patch` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-perl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pgrep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pidstat-disk` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pinky` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pkg-config` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pkill` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pr` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-printenv` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-printf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ps` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ptx` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pwd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-python3` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ranlib` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-readelf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-readlink` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-realpath` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rev` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rmdir` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ruby` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rustc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sar-resource-tables` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sed` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-seq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha1sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha224sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha256sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha384sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha512sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-shell-build` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-shuf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-size` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sleep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sort` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-split` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sqlite3` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ss` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-stat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-stdbuf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-strings` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-strip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sysctl-random-uuid` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tac` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tar` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tar-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-taskset` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tcl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tee` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-test` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-time` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-top` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-touch` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tr` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-true` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tsort` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tty` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-uname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-unexpand` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-uniq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-uptime` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-users` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-vmstat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-vmstat-disk` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-wc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-wc-lines` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-wget-localhost` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-whoami` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xargs` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xmllint` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xxd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xz` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xz-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-yes` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-zip-unzip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-zstd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-zstd-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strings` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1679,7 +1870,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `language-runtimes/python-hash-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `language-runtimes/python-hash-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `language-runtimes/python-hashseed` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
-| `language-runtimes/python-hashseed` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
+| `language-runtimes/python-hashseed` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `language-runtimes/python-hashseed` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `language-runtimes/python-io-subprocess-time` | `verify` | `kvm` | `Selected by full` | `diverged` |
 | `language-runtimes/python-io-subprocess-time` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -1861,7 +2052,7 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. **Mean credit** divides the credit sum by the measured (matched plus diverged) cells, so a measured cell without credit counts as 0. **Floor credit** divides it by every selected cell except two kinds that could not be compared: a **no golden** cell, where an operand's own outcome (a determinism mismatch, a timeout, a crash and the like) left no deterministic golden log, and a **not compared** cell, whose backend cannot be given the reference's inputs. So an **unmeasured** cell (a golden log could exist, but the harness or the parity tool made no comparison), a record-missing cell and a refused cell each count as 0. No cell of a backend whose inputs cannot be equalized enters any mean or floor, and a mean or floor over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C cells that selection owes, and a run that reported fewer is marked partial. Mean credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is. The `legacy-rerun` history at the end is the retired ptrace rerun's last verdicts; it is not current parity and enters no count here.
 
 
-### validate run `validate-ops-tick-9af999677494-4ea4d2816eaf` at `9af999677494`
+### validate run `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` at `f85de5d891ab`
 
 `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 
@@ -2207,7 +2398,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 45 other parity run(s) in the store
+### 49 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2229,8 +2420,11 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-4-ad4f9cf598a3-1791030814588067897-4023945-e9bb1627` at Hermit `ad4f9cf598a3`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-4-d53ea6ca1711-1791032694966120621-1230314-61570ac3` at Hermit `d53ea6ca1711`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-itvfix-57883eff8f3d-1791046213891728858-2276425-f9271a9e` at Hermit `57883eff8f3d`: `parity: 0/204 matched; selected 204 of 204 committed; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-coord-tickval-4565b01b66c2-1791139406221186959-1755386-8f2aad77` at Hermit `4565b01b66c2`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-coord-tickval-b3037b11fa56-1791136526911996485-754722-df9fcd8a` at Hermit `b3037b11fa56`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-tipval2-c1312a563dc5-20261003T235258Z` at Hermit `c1312a563dc5`: `parity: 0/208 matched; selected 208 of 208 committed; mean 0.056 over 188 measured; floor 0.055 over 191 of 208 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 1 no golden: crash 1; 16 not compared)`
 - validate run `validate-d14-queue-a2b1deecaa21-1791037234447726839-773804-79469e5b` at Hermit `a2b1deecaa21`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-gate-select-9e698b862c8e-1791147210324610650-2296438-f7c76258` at Hermit `9e698b862c8e`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 276 measured; floor 0.043 over 279 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 2 no golden: ended 2; 16 not compared)`
 - validate run `validate-gate-select-9e7dd6e33cf6-1791027490982151389-186043-c4a5cdf6` at Hermit `9e7dd6e33cf6`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-hermit-lander-33f1c939a2e4-1791054196460293033-32690-ce1f4789` at Hermit `33f1c939a2e4`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-0f028322361f-75248bd48fcd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
@@ -2245,6 +2439,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-562b7dd7a635-dffebdc99927` at Hermit `562b7dd7a635`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-8503b4fc2c30-57d1aa9b1fa2` at Hermit `8503b4fc2c30`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-8503b4fc2c30-f0c6c4842871` at Hermit `8503b4fc2c30`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-ops-tick-9af999677494-4ea4d2816eaf` at Hermit `9af999677494`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-9d6c1f214242-545b42c1e906` at Hermit `9d6c1f214242`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 277 measured; floor 0.043 over 279 of 297 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 2 no golden: crash 1, ended 1; 16 not compared)`
 - validate run `validate-ops-tick-9d6c1f214242-df156e1dcf8c` at Hermit `9d6c1f214242`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 277 measured; floor 0.043 over 280 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 1 no golden: crash 1; 16 not compared)`
 - validate run `validate-ops-tick-9f1d0350ab7a-cadb83b856b7` at Hermit `9f1d0350ab7a`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
