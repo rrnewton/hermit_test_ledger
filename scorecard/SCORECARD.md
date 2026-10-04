@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-04T08:48:19Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `1061e1e9dcccd7f72b60ded8bf0e038005a123fe`, reading 258132 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-ops-tick-9f1d0350ab7a-cadb83b856b7` (1039). Earlier validate runs still supplying comparisons: `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-ops-tick-20d49d84ec23-914f280b5537` current (1039), `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), `validate-ops-tick-562b7dd7a635-dffebdc99927` current (1039), `validate-ops-tick-d5d1072a6f82-20a21bc9fe7b` current (1039), `validate-ops-tick-33770223b5d2-11a841f749a1` current (1038), `validate-ops-tick-33770223b5d2-27d0ecdc8ccb` current (1038), `validate-ops-tick-4b1894e81cfb-18e5730802ad` current (1038), and 14 more.
+Last regenerated **2026-10-04T08:55:49Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `b6f12ab91f39cac834793b767b630c58654e2f0b`, reading 259376 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` (1050). Earlier validate runs still supplying comparisons: `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-ops-tick-20d49d84ec23-914f280b5537` current (1039), `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), `validate-ops-tick-562b7dd7a635-dffebdc99927` current (1039), `validate-ops-tick-9f1d0350ab7a-cadb83b856b7` current (1039), `validate-ops-tick-d5d1072a6f82-20a21bc9fe7b` current (1039), `validate-ops-tick-33770223b5d2-11a841f749a1` current (1038), `validate-ops-tick-33770223b5d2-27d0ecdc8ccb` current (1038), and 15 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -85,10 +85,10 @@ The count table includes all **14800** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1079 | 0 | 3 | 146 | 1228 |
+| Selected by full | 0 | 1073 | 0 | 3 | 152 | 1228 |
 | Not selected by full | 477 | 202 | 8 | 0 | 30 | 717 |
 | Not applicable | 12564 | 194 | 80 | 0 | 17 | 12855 |
-| **Total** | **13041** | **1475** | **88** | **3** | **193** | **14800** |
+| **Total** | **13041** | **1469** | **88** | **3** | **199** | **14800** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -214,7 +214,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/dbt-pid-virtualization` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/dbt-pid-virtualization` | `verify` | `sabre` | `Not applicable` | `diverged` |
 | `c-programs/dbt-prlimit-self` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/dbt-prlimit-self` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/dbt-prlimit-self` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/dbt-prlimit-self` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-prlimit-self` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-self-sigqueue` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
@@ -451,7 +451,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/liteinst-advanced` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/lseek-positioning` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/lseek-positioning` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/lseek-positioning` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/lseek-positioning` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/lseek-positioning` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lseek-positioning` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lsm-get-self-attr-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
@@ -969,7 +969,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/sigmask-preemption` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigmask-preemption` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigmask-preemption` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `c-programs/signal-delivery-sequence` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signal-delivery-sequence` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/signal-delivery-sequence` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-delivery-sequence` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/signal-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
@@ -1149,7 +1149,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/tee-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/tee-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thp-disable` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/thp-disable` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/thp-disable` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/thp-disable` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thp-disable` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thread-self-procfs-handoff` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
@@ -1171,7 +1171,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/timer-family-identity` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
 | `c-programs/timer-family-identity` | `verify` | `sabre` | `Not applicable` | `diverged` |
 | `c-programs/umask-mode` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/umask-mode` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/umask-mode` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/umask-mode` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/umask-mode` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/uname` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1710,7 +1710,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `shared-futex-c/qemu-net-init` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `shared-futex-c/qemu-net-init` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `system-utils/auxv-loader-dump` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
-| `system-utils/auxv-loader-dump` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `system-utils/auxv-loader-dump` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `system-utils/auxv-loader-dump` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `system-utils/cat-file-read` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `system-utils/cat-file-read` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
@@ -2207,7 +2207,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 41 other parity run(s) in the store
+### 42 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2217,6 +2217,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-buck-re-3-75bec89e7db9-1791060150360793710-2018425-d3821d9a` at Hermit `75bec89e7db9`: `parity: 0/206 matched; selected 206 of 206 committed; mean n/a over 0 measured; floor 0.000 over 190 of 206 selected (counted as 0: 190 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
 - validate run `validate-buck-re-3-7831ad1c8931-1791056799838919343-1002648-6b3c5041` at Hermit `7831ad1c8931`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-buck-re-3-84821e53edb7-1791041721981051099-2446052-bf662192` at Hermit `84821e53edb7`: `parity: 0/204 matched; selected 204 of 204 committed; mean n/a over 0 measured; floor 0.000 over 188 of 204 selected (counted as 0: 188 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
+- validate run `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` at Hermit `b84faa26c355`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
 - validate run `validate-buck-re-3-ccccde5f65d6-1791044441627223683-4139778-3d0a278f` at Hermit `ccccde5f65d6`: `parity: 0/204 matched; selected 204 of 204 committed; mean n/a over 0 measured; floor 0.000 over 188 of 204 selected (counted as 0: 188 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
 - validate run `validate-buck-re-3-cf2a94ea38d3-1791063611629487524-833061-4b45d912` at Hermit `cf2a94ea38d3`: `parity: 0/206 matched; selected 206 of 206 committed; mean n/a over 0 measured; floor 0.000 over 190 of 206 selected (counted as 0: 190 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
 - validate run `validate-buck-re-3-e81ace1c0be7-1791057684904978741-1891131-b31df65f` at Hermit `e81ace1c0be7`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 189 of 205 selected (counted as 0: 189 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
@@ -2328,7 +2329,7 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 | `c-programs/linkat-flags@kvm` | legacy-rerun | diverged | 146 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/linkat-flags@liteinst` | legacy-rerun | diverged | 154 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/lseek-positioning@kvm` | legacy-rerun | diverged | 143 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
-| `c-programs/lseek-positioning@liteinst` | legacy-rerun | diverged | 151 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/lseek-positioning@liteinst` | legacy-rerun | diverged | 151 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/mce-kill-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/mce-kill-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/membarrier-query@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
@@ -2406,7 +2407,7 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 | `c-programs/short-io-split-identity@liteinst` | legacy-rerun | diverged | 435 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/shutdown-socketpair@kvm` | legacy-rerun | diverged | 125 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/shutdown-socketpair@liteinst` | legacy-rerun | diverged | 125 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
-| `c-programs/signal-delivery-sequence@liteinst` | legacy-rerun | diverged | 997 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/signal-delivery-sequence@liteinst` | legacy-rerun | diverged | 997 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/signal-waitstatus-identity@liteinst` | legacy-rerun | diverged | 386 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/signalfd-create@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/signalfd-create@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
@@ -2428,9 +2429,9 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 | `c-programs/sync-file-range@liteinst` | legacy-rerun | diverged | 130 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/sysv-ipc-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/sysv-ipc-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
-| `c-programs/thp-disable@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/thp-disable@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/umask-mode@kvm` | legacy-rerun | diverged | 139 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
-| `c-programs/umask-mode@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/umask-mode@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/uname-identity@kvm` | legacy-rerun | diverged | 101 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/uname-identity@liteinst` | legacy-rerun | diverged | 101 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/utimensat-determinism@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |

@@ -1,39 +1,44 @@
 {
-  "bytes": 296496419,
+  "bytes": 314030974,
   "part_max_bytes": 50331648,
   "parts": [
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0000",
-      "sha256": "8f4c4641d0257530e7b26e39ba7ea52bf58a6baf34de3de7e7abdb1e000f5b37"
+      "sha256": "9e8cb50a9d877caf1da5a18f1e57f6b61c4c3727e6686679d246aec9ac819f43"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0001",
-      "sha256": "31a62887516907495775fadbe6a9ce23d691551075d654d495170cf822b9ed46"
+      "sha256": "c8042348bb9944efc81ca7c731b3b5e7928312393ffad56e353b2a3d67cb3e8c"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0002",
-      "sha256": "324512121032fa17d680bb8ce3f4063eaac607444e7cf539e53bf433096996cf"
+      "sha256": "9ad743cf5d59aa6b4c9b91de4240932c2792e26b7294a10dcef07fd1e02aa2d0"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0003",
-      "sha256": "d3eff346ae077f590e49cf301f0955e8e5abccb09675b71cef80d2eb2b157e9b"
+      "sha256": "9a16fafc36a6c66f694624dcc4c9d65f59528af6ca735130608e0961050e79e0"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0004",
-      "sha256": "1ad1e88a38b8afb9304e274d9a5401d6c0f8c89bf414f4baa88a711333cc88e8"
+      "sha256": "2e3d59b611a0ca8180a2d69f1ee2bbdecd97944e9180871886c22b791327b791"
     },
     {
-      "bytes": 44838179,
+      "bytes": 50331648,
       "path": "scorecard/cells/part-0005",
-      "sha256": "f7010fee56052df9b9d2a4b338a54915da986d6c1700aeb9ad1335a0161a1145"
+      "sha256": "07a6aeb8035cf11d89a625dee65286e7408b59ebc929980167c04807c39bd08d"
+    },
+    {
+      "bytes": 12041086,
+      "path": "scorecard/cells/part-0006",
+      "sha256": "30bb0635b15c95ae7c56c82e57a765786158ba7fde089fe5067d6928f85a43f3"
     }
   ],
   "path": "scorecard/cells.json",
   "schema": "hermit-test-ledger-scorecard-cells/v1",
-  "sha256": "e83a28abc6b20eec8219ed5b811a927141fd4c783737747c62ec863525fc25b6"
+  "sha256": "920aa78e42e13269d72d328444e992bca32ea73418b75f7eb225f98b38975153"
 }

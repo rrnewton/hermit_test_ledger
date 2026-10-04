@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v2",
   "generated_from": {
-    "store_sha256": "ae32f994194b8c0e793eb51f65da312a93a90404572e52a5a6905b24f21884d8",
-    "series_commit": "1061e1e9dcccd7f72b60ded8bf0e038005a123fe",
-    "tool_hermit_commit": "9f1d0350ab7a8cd1c7f33d8e103270b12db649d8"
+    "store_sha256": "82c274e2cfc67cad13b7493b0033d51e7d9d62ccf75b1ff23e9c11664f226b4e",
+    "series_commit": "b6f12ab91f39cac834793b767b630c58654e2f0b",
+    "tool_hermit_commit": "b84faa26c3551e5353fa1525b37671dee1f340a0"
   },
   "store_present": true,
-  "rows_read": 9882,
+  "rows_read": 10179,
   "producers": [
     {
       "producer": "validate",
@@ -7397,6 +7397,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4",
+      "hermit_sha": "b84faa26c3551e5353fa1525b37671dee1f340a0",
+      "depth": {
+        "commits": 3754,
+        "first_parent": 3679
+      },
+      "emitted_at": "2026-10-04T09:09:50Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-buck-re-3-ccccde5f65d6-1791044441627223683-4139778-3d0a278f",
       "hermit_sha": "ccccde5f65d6cefc98dfc848f476e9bf114af5b5",
       "depth": {
@@ -8962,7 +8975,7 @@
           "commits": 3222,
           "first_parent": 3147
         },
-        "determinism": "measured-and-passed",
+        "determinism": "diverged",
         "current_parity_verdict": "diverged",
         "label": "legacy-rerun"
       },
@@ -10288,7 +10301,7 @@
           "commits": 3222,
           "first_parent": 3147
         },
-        "determinism": "measured-and-passed",
+        "determinism": "diverged",
         "current_parity_verdict": "diverged",
         "label": "legacy-rerun"
       },
@@ -10662,7 +10675,7 @@
           "commits": 3222,
           "first_parent": 3147
         },
-        "determinism": "measured-and-passed",
+        "determinism": "diverged",
         "current_parity_verdict": "diverged",
         "label": "legacy-rerun"
       },
@@ -10696,7 +10709,7 @@
           "commits": 3222,
           "first_parent": 3147
         },
-        "determinism": "measured-and-passed",
+        "determinism": "diverged",
         "current_parity_verdict": "diverged",
         "label": "legacy-rerun"
       },
