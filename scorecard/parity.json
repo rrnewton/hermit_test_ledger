@@ -1,23 +1,23 @@
 {
   "schema": "parity-summary/v2",
   "generated_from": {
-    "store_sha256": "215bd22ed5a53bc8f71977e8a53edf80bc05eadaac63f20299931cc15102ea69",
-    "series_commit": "51a74e716408828e2a4c5169b91bdaaae401ae0c",
-    "tool_hermit_commit": "f85de5d891ab309dfdf3663c5a912b01368b04eb"
+    "store_sha256": "057df6901feced953dfcbb5fa7c93d360e2d6c95bea7eab52610aef9b30a2f4b",
+    "series_commit": "fb96055a8285120b7eece7da36ac0fe6ac88fd11",
+    "tool_hermit_commit": "cec1ef5f402d4e36058fe68dc6bde4e61d6bf75f"
   },
   "store_present": true,
-  "rows_read": 12258,
+  "rows_read": 12555,
   "producers": [
     {
       "producer": "validate",
-      "run_id": "validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489",
-      "hermit_sha": "f85de5d891ab309dfdf3663c5a912b01368b04eb",
+      "run_id": "validate-ops-tick-cec1ef5f402d-55392313f8a8",
+      "hermit_sha": "cec1ef5f402d4e36058fe68dc6bde4e61d6bf75f",
       "conflicting_hermit_shas": [],
       "depth": {
-        "commits": 3877,
-        "first_parent": 3802
+        "commits": 3882,
+        "first_parent": 3807
       },
-      "emitted_at": "2026-10-04T22:04:41Z",
+      "emitted_at": "2026-10-04T23:26:07Z",
       "source_tree_dirty": false,
       "line": "parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)",
       "committed_unknown": null,
@@ -179,7 +179,7 @@
             "of_diverged": 98,
             "example_cell": "c-programs/aio-refusal@liteinst",
             "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-            "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }"
+            "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }"
           },
           "line": "parity: 0/99 matched; selected 99 of 99 committed; mean 0.014 over 98 measured; floor 0.014 over 99 of 99 selected (counted as 0: 1 unmeasured: no-result-row 1; excluded: 0 no golden; 0 not compared)"
         },
@@ -292,7 +292,7 @@
           "of_diverged": 278,
           "example_cell": "c-programs/aio-refusal@liteinst",
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }"
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }"
         },
         "line": "parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)"
       },
@@ -337,7 +337,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -403,7 +403,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -469,7 +469,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -535,7 +535,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -601,7 +601,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -667,7 +667,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -711,7 +711,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -799,7 +799,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -887,7 +887,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151354840764, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156217517920, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "privileged",
           "node": "manifest_c_programs"
         },
@@ -931,7 +931,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1019,7 +1019,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1085,7 +1085,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1151,7 +1151,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1195,7 +1195,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1261,7 +1261,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1327,7 +1327,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1393,7 +1393,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1459,7 +1459,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1525,7 +1525,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1591,7 +1591,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1657,7 +1657,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1745,7 +1745,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1811,7 +1811,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1877,7 +1877,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -1943,7 +1943,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2031,7 +2031,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2097,7 +2097,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2185,7 +2185,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2273,7 +2273,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2361,7 +2361,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2405,7 +2405,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2471,7 +2471,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2515,7 +2515,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2581,7 +2581,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2647,7 +2647,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2713,7 +2713,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2801,7 +2801,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2867,7 +2867,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2933,7 +2933,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -2999,7 +2999,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3065,7 +3065,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3131,7 +3131,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3197,7 +3197,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3263,7 +3263,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3329,7 +3329,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3395,7 +3395,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3461,7 +3461,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3527,7 +3527,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3593,7 +3593,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3681,7 +3681,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3747,7 +3747,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3813,7 +3813,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3879,7 +3879,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3945,7 +3945,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3989,7 +3989,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4077,7 +4077,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4165,7 +4165,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4231,7 +4231,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4297,7 +4297,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4363,7 +4363,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4407,7 +4407,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4473,7 +4473,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4561,7 +4561,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4605,7 +4605,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4671,7 +4671,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4737,7 +4737,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4803,7 +4803,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4869,7 +4869,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4891,7 +4891,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -4957,7 +4957,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5023,7 +5023,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5111,7 +5111,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5177,7 +5177,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5265,7 +5265,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5331,7 +5331,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5397,7 +5397,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5463,7 +5463,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5529,7 +5529,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5595,7 +5595,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5639,7 +5639,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5683,7 +5683,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3715, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3715, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5727,7 +5727,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5793,7 +5793,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5859,7 +5859,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5925,7 +5925,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5991,7 +5991,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6057,7 +6057,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6123,7 +6123,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6211,7 +6211,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3712, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6277,7 +6277,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6343,7 +6343,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6409,7 +6409,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6475,7 +6475,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6541,7 +6541,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6607,7 +6607,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6673,7 +6673,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6739,7 +6739,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -6805,7 +6805,7 @@
           "first_difference_field": "token 3: `DETLOG` vs `[dtid`",
           "first_difference_syscall": 3,
           "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: access(0x7ffff7ff3580 -> \"/etc/ld-nix.so.preload\", Mode(S_IROTH)) = ?",
-          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791151313386588, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
+          "candidate_message": "INFO detcore: [dtid 3] inbound rdtsc, new logical time: DetTime { syscalls: 3, syscall_nanos: Some(270000), rcbs: 3713, weighted_rcbs: None, nondet_instrs: 24, extra_nanos: 0, starting_micros: 1791156176437799, multiplier: 1.0, inherited_nanos: LogicalTime(0) }",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -7621,7 +7621,7 @@
       },
       "emitted_at": "2026-10-04T22:04:41Z",
       "source_tree_dirty": false,
-      "headline": true,
+      "headline": false,
       "line": "parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)"
     },
     {
@@ -7922,6 +7922,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 277 measured; floor 0.043 over 280 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 1 no golden: crash 1; 16 not compared)"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-ops-tick-cec1ef5f402d-55392313f8a8",
+      "hermit_sha": "cec1ef5f402d4e36058fe68dc6bde4e61d6bf75f",
+      "depth": {
+        "commits": 3882,
+        "first_parent": 3807
+      },
+      "emitted_at": "2026-10-04T23:26:07Z",
+      "source_tree_dirty": false,
+      "headline": true,
+      "line": "parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)"
     },
     {
       "producer": "validate",
