@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-04T07:44:11Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `3f28affcce5315bcb7546c7e66eee2936c852bd2`, reading 254805 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-ops-tick-20d49d84ec23-914f280b5537` (1039). Earlier validate runs still supplying comparisons: `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), `validate-ops-tick-562b7dd7a635-dffebdc99927` current (1039), `validate-ops-tick-33770223b5d2-11a841f749a1` current (1038), `validate-ops-tick-33770223b5d2-27d0ecdc8ccb` current (1038), `validate-ops-tick-4b1894e81cfb-18e5730802ad` current (1038), `validate-ops-tick-b5c378041d84-4990804fc489` current (1038), `validate-ops-tick-b5c378041d84-c53822974f8f` current (1038), `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (1030), and 11 more.
+Last regenerated **2026-10-04T07:51:41Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `3c514d6c1427f709fa24b7aa60858f12fd80b01f`, reading 256044 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` (1046). Earlier validate runs still supplying comparisons: `validate-ops-tick-20d49d84ec23-914f280b5537` current (1039), `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), `validate-ops-tick-562b7dd7a635-dffebdc99927` current (1039), `validate-ops-tick-33770223b5d2-11a841f749a1` current (1038), `validate-ops-tick-33770223b5d2-27d0ecdc8ccb` current (1038), `validate-ops-tick-4b1894e81cfb-18e5730802ad` current (1038), `validate-ops-tick-b5c378041d84-4990804fc489` current (1038), `validate-ops-tick-b5c378041d84-c53822974f8f` current (1038), and 12 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -85,10 +85,10 @@ The count table includes all **14800** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1082 | 0 | 3 | 143 | 1228 |
+| Selected by full | 0 | 1079 | 0 | 3 | 146 | 1228 |
 | Not selected by full | 477 | 202 | 8 | 0 | 30 | 717 |
 | Not applicable | 12564 | 194 | 80 | 0 | 17 | 12855 |
-| **Total** | **13041** | **1478** | **88** | **3** | **190** | **14800** |
+| **Total** | **13041** | **1475** | **88** | **3** | **193** | **14800** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -633,7 +633,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/path-file-ops` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/path-file-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/path-file-ops` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/pause-alarm-interrupt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pause-alarm-interrupt` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/pause-alarm-interrupt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pause-alarm-interrupt` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/perf-event-hardware-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
@@ -1060,7 +1060,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/splice-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/splice-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/stat-metadata-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/stat-metadata-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/stat-metadata-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/stat-metadata-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/stat-metadata-identity` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/statfs-free-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1628,7 +1628,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `determinism-stress-c/producer-consumer` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `determinism-stress-c/signal-order` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/signal-order` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `determinism-stress-c/thread-contention` | `chaos` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/thread-contention` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
 | `determinism-stress-c/thread-contention` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/thread-contention` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/thread-contention` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -2207,12 +2207,13 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 38 other parity run(s) in the store
+### 39 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
 - validate run `validate-buck-re-3-1931c6ccd8f7-1791054320749237313-288493-c38549d2` at Hermit `1931c6ccd8f7`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 189 of 205 selected (counted as 0: 189 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
 - validate run `validate-buck-re-3-5301e9a2dbb2-1791051975076983128-689340-69dc34f7` at Hermit `5301e9a2dbb2`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 189 of 205 selected (counted as 0: 189 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
+- validate run `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` at Hermit `66db685c5279`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
 - validate run `validate-buck-re-3-75bec89e7db9-1791060150360793710-2018425-d3821d9a` at Hermit `75bec89e7db9`: `parity: 0/206 matched; selected 206 of 206 committed; mean n/a over 0 measured; floor 0.000 over 190 of 206 selected (counted as 0: 190 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
 - validate run `validate-buck-re-3-7831ad1c8931-1791056799838919343-1002648-6b3c5041` at Hermit `7831ad1c8931`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-buck-re-3-84821e53edb7-1791041721981051099-2446052-bf662192` at Hermit `84821e53edb7`: `parity: 0/204 matched; selected 204 of 204 committed; mean n/a over 0 measured; floor 0.000 over 188 of 204 selected (counted as 0: 188 record-missing or refused; excluded: 0 no golden; 0 not compared; 16 record-missing or refused whose inputs cannot be equalized)`
@@ -2413,7 +2414,7 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 | `c-programs/socketpair-flags@liteinst` | legacy-rerun | diverged | 119 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/sockname-unnamed@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/stat-metadata-identity@kvm` | legacy-rerun | diverged | 233 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
-| `c-programs/stat-metadata-identity@liteinst` | legacy-rerun | diverged | 233 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/stat-metadata-identity@liteinst` | legacy-rerun | diverged | 233 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/statfs-free-determinism@kvm` | legacy-rerun | diverged | 109 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/statfs-free-determinism@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/static-nolibc-syscall-sites@kvm` | legacy-rerun | diverged | 76 | 64 | `5ee668223a15` | `measured-and-passed` | diverged |
