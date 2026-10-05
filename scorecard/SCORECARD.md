@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-05T12:45:07Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `a797fa2f15002a9b108c94daf7a65c89292b8948`, reading 300390 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-3589b3edff56-1791203838387883418-1747108-ebb12384` (896). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 32 more.
+Last regenerated **2026-10-05T13:20:44Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `2569d092d42a938c5554fadf2b05fbc7b8353d92`, reading 301479 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-317a3fd03bb9-1791205881096493745-911901-2bf15639` (895). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 33 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -2008,327 +2008,226 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. **Mean credit** divides the credit sum by the measured (matched plus diverged) cells, so a measured cell without credit counts as 0. **Floor credit** divides it by every selected cell except two kinds that could not be compared: a **no golden** cell, where an operand's own outcome (a determinism mismatch, a timeout, a crash and the like) left no deterministic golden log, and a **not compared** cell, whose backend cannot be given the reference's inputs. So an **unmeasured** cell (a golden log could exist, but the harness or the parity tool made no comparison), a record-missing cell and a refused cell each count as 0. No cell of a backend whose inputs cannot be equalized enters any mean or floor, and a mean or floor over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C cells that selection owes, and a run that reported fewer is marked partial. Mean credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is. The `legacy-rerun` history at the end is the retired ptrace rerun's last verdicts; it is not current parity and enters no count here.
 
 
-### validate run `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` at `a3d7e201e091`
+### validate run `validate-claude-coord-3589b3edff56-1791203838387883418-1747108-ebb12384` at `3589b3edff56`
 
-`parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 278 of 297 selected (counted as 0: 278 unmeasured: no-result-row 3, epoch-not-shared 275; excluded: 3 no golden: determinism-mismatch 3; 16 not compared)`
+`parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
 
 | Candidate backend | Selected | Measured | Matched | Diverged | No golden | Not compared | Unmeasured | Record-missing | Refused | Mean credit (measured) | Floor credit | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | `dbt` | 16 of 16 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 0 | n/a | n/a | not compared (inputs cannot be equalized) |
 | `kvm` | 91 of 91 | 0 | 0 | 0 | 0 | 0 | 91 | 0 | 0 | n/a | 0.000 | — |
-| `liteinst` | 99 of 99 | 0 | 0 | 0 | 3 | 0 | 96 | 0 | 0 | n/a | 0.000 | — |
 | `sabre` | 91 of 91 | 0 | 0 | 0 | 0 | 0 | 91 | 0 | 0 | n/a | 0.000 | — |
-| **TOTAL** | 297 of 297 | 0 | 0 | 0 | 3 | 16 | 278 | 0 | 0 | n/a | 0.000 | — |
+| **TOTAL** | 198 of 198 | 0 | 0 | 0 | 0 | 16 | 182 | 0 | 0 | n/a | 0.000 | — |
 
 Cells that were not measured, by class: a no-golden cell is outside the mean and the floor, and an unmeasured cell counts 0 in the floor.
 
-| Class | Group | `dbt` | `kvm` | `liteinst` | `sabre` | **TOTAL** |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| `determinism-mismatch` | no golden | 0 | 0 | 3 | 0 | 3 |
-| `no-result-row` | unmeasured | 0 | 1 | 1 | 1 | 3 |
-| `epoch-not-shared` | unmeasured | 0 | 90 | 95 | 90 | 275 |
+| Class | Group | `dbt` | `kvm` | `sabre` | **TOTAL** |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `no-result-row` | unmeasured | 0 | 1 | 1 | 2 |
+| `epoch-not-shared` | unmeasured | 0 | 90 | 90 | 180 |
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
 | Cell | Verdict | Credit | First divergence or reason |
 | --- | --- | ---: | --- |
-| `c-programs/aio-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.646697060+00:00, kvm candidate 2026-10-05T11:13:56.178145852+00:00 |
-| `c-programs/aio-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.646697060+00:00, liteinst candidate 2026-10-05T11:13:26.339457487+00:00 |
-| `c-programs/aio-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.646697060+00:00, sabre candidate 2026-10-05T11:13:27.144443899+00:00 |
-| `c-programs/append-pwrite@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.705111607+00:00, kvm candidate 2026-10-05T11:13:59.432145128+00:00 |
-| `c-programs/append-pwrite@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.705111607+00:00, liteinst candidate 2026-10-05T11:13:23.572936039+00:00 |
-| `c-programs/append-pwrite@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.705111607+00:00, sabre candidate 2026-10-05T11:13:23.691836901+00:00 |
-| `c-programs/bind-getsockname@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.097858594+00:00, kvm candidate 2026-10-05T11:13:54.953828612+00:00 |
-| `c-programs/bind-getsockname@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.097858594+00:00, liteinst candidate 2026-10-05T11:13:29.785077330+00:00 |
-| `c-programs/bind-getsockname@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.097858594+00:00, sabre candidate 2026-10-05T11:13:23.734548108+00:00 |
-| `c-programs/cachestat-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.491410062+00:00, kvm candidate 2026-10-05T11:14:02.371936724+00:00 |
-| `c-programs/cachestat-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.491410062+00:00, liteinst candidate 2026-10-05T11:13:23.636289131+00:00 |
-| `c-programs/cachestat-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.491410062+00:00, sabre candidate 2026-10-05T11:13:25.377817180+00:00 |
-| `c-programs/child-subreaper-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.671522877+00:00, kvm candidate 2026-10-05T11:13:55.940887319+00:00 |
-| `c-programs/child-subreaper-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.671522877+00:00, liteinst candidate 2026-10-05T11:13:27.349686848+00:00 |
-| `c-programs/child-subreaper-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.671522877+00:00, sabre candidate 2026-10-05T11:13:27.366587031+00:00 |
-| `c-programs/close-range-fds@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.041469610+00:00, kvm candidate 2026-10-05T11:14:06.021572403+00:00 |
-| `c-programs/close-range-fds@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.041469610+00:00, liteinst candidate 2026-10-05T11:13:30.784671348+00:00 |
-| `c-programs/copy-file-range-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.977507748+00:00, kvm candidate 2026-10-05T11:13:55.975953658+00:00 |
-| `c-programs/copy-file-range-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.977507748+00:00, liteinst candidate 2026-10-05T11:13:26.815538330+00:00 |
-| `c-programs/copy-file-range-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.977507748+00:00, sabre candidate 2026-10-05T11:13:26.929340392+00:00 |
+| `c-programs/aio-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.671293569+00:00, kvm candidate 2026-10-05T12:56:21.480388083+00:00 |
+| `c-programs/aio-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.671293569+00:00, sabre candidate 2026-10-05T12:56:56.362239974+00:00 |
+| `c-programs/append-pwrite@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.472806980+00:00, kvm candidate 2026-10-05T12:56:24.170033153+00:00 |
+| `c-programs/append-pwrite@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.472806980+00:00, sabre candidate 2026-10-05T12:56:54.760735242+00:00 |
+| `c-programs/bind-getsockname@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.656366515+00:00, kvm candidate 2026-10-05T12:56:20.507442488+00:00 |
+| `c-programs/bind-getsockname@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.656366515+00:00, sabre candidate 2026-10-05T12:56:56.849243612+00:00 |
+| `c-programs/cachestat-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.357206793+00:00, kvm candidate 2026-10-05T12:56:31.443754097+00:00 |
+| `c-programs/cachestat-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.357206793+00:00, sabre candidate 2026-10-05T12:56:58.419630738+00:00 |
+| `c-programs/child-subreaper-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.657897001+00:00, kvm candidate 2026-10-05T12:56:29.105640553+00:00 |
+| `c-programs/child-subreaper-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.657897001+00:00, sabre candidate 2026-10-05T12:56:55.161574227+00:00 |
+| `c-programs/close-range-fds@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.921821007+00:00, kvm candidate 2026-10-05T12:56:28.592109797+00:00 |
+| `c-programs/copy-file-range-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.040948108+00:00, kvm candidate 2026-10-05T12:56:21.028419927+00:00 |
+| `c-programs/copy-file-range-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.040948108+00:00, sabre candidate 2026-10-05T12:56:57.322893748+00:00 |
 | `c-programs/cpu-virtualization@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/cpu-virtualization@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.229584085+00:00, kvm candidate 2026-10-05T11:13:54.528259862+00:00 |
-| `c-programs/cpu-virtualization@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.229584085+00:00, liteinst candidate 2026-10-05T11:13:23.395539201+00:00 |
-| `c-programs/cpu-virtualization@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.229584085+00:00, sabre candidate 2026-10-05T11:13:28.980210654+00:00 |
+| `c-programs/cpu-virtualization@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.288321778+00:00, kvm candidate 2026-10-05T12:56:19.503989875+00:00 |
+| `c-programs/cpu-virtualization@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.288321778+00:00, sabre candidate 2026-10-05T12:56:56.995349180+00:00 |
 | `c-programs/cpuid-probe@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/cpuid-probe@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:53.680574104+00:00, kvm candidate 2026-10-05T11:13:52.397225967+00:00 |
-| `c-programs/cpuid-probe@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:53.680574104+00:00, liteinst candidate 2026-10-05T11:13:53.074578789+00:00 |
-| `c-programs/cwd-roundtrip@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.929503407+00:00, kvm candidate 2026-10-05T11:13:55.705779052+00:00 |
-| `c-programs/cwd-roundtrip@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.929503407+00:00, liteinst candidate 2026-10-05T11:13:28.754886172+00:00 |
-| `c-programs/cwd-roundtrip@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.929503407+00:00, sabre candidate 2026-10-05T11:13:27.307262464+00:00 |
+| `c-programs/cpuid-probe@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:40.175668590+00:00, kvm candidate 2026-10-05T12:56:38.183925410+00:00 |
+| `c-programs/cwd-roundtrip@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.351830333+00:00, kvm candidate 2026-10-05T12:56:19.361773746+00:00 |
+| `c-programs/cwd-roundtrip@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.351830333+00:00, sabre candidate 2026-10-05T12:56:57.112920364+00:00 |
 | `c-programs/dup-shared-offset@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/dup-shared-offset@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.672022393+00:00, kvm candidate 2026-10-05T11:14:05.664234943+00:00 |
-| `c-programs/dup-shared-offset@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.672022393+00:00, liteinst candidate 2026-10-05T11:13:28.281738977+00:00 |
-| `c-programs/dup-shared-offset@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.672022393+00:00, sabre candidate 2026-10-05T11:13:28.794320483+00:00 |
-| `c-programs/epoll-pwait2@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.349487972+00:00, kvm candidate 2026-10-05T11:13:50.579813157+00:00 |
-| `c-programs/epoll-pwait2@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.349487972+00:00, liteinst candidate 2026-10-05T11:13:28.322862446+00:00 |
-| `c-programs/epoll-pwait2@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.349487972+00:00, sabre candidate 2026-10-05T11:13:29.826675090+00:00 |
-| `c-programs/epoll-readiness@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.494087894+00:00, kvm candidate 2026-10-05T11:13:56.242954031+00:00 |
-| `c-programs/epoll-readiness@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.494087894+00:00, liteinst candidate 2026-10-05T11:13:25.894478178+00:00 |
-| `c-programs/epoll-readiness@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.494087894+00:00, sabre candidate 2026-10-05T11:13:30.595940683+00:00 |
-| `c-programs/event-delivery-ordering@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.375735063+00:00, liteinst candidate 2026-10-05T11:13:25.730750819+00:00 |
-| `c-programs/event-delivery-ordering@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.375735063+00:00, sabre candidate 2026-10-05T11:13:23.609312327+00:00 |
-| `c-programs/eventfd-semantics@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.576656505+00:00, kvm candidate 2026-10-05T11:13:58.280186507+00:00 |
-| `c-programs/eventfd-semantics@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.576656505+00:00, liteinst candidate 2026-10-05T11:13:27.885949640+00:00 |
-| `c-programs/eventfd-semantics@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.576656505+00:00, sabre candidate 2026-10-05T11:13:25.008603968+00:00 |
-| `c-programs/faccessat2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.501156541+00:00, kvm candidate 2026-10-05T11:14:08.454409667+00:00 |
-| `c-programs/faccessat2-flags@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.501156541+00:00, liteinst candidate 2026-10-05T11:13:29.294871707+00:00 |
-| `c-programs/faccessat2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.501156541+00:00, sabre candidate 2026-10-05T11:13:25.372160713+00:00 |
-| `c-programs/fadvise-hints@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.358298556+00:00, kvm candidate 2026-10-05T11:13:57.551336011+00:00 |
-| `c-programs/fadvise-hints@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.358298556+00:00, liteinst candidate 2026-10-05T11:13:26.670471956+00:00 |
-| `c-programs/fadvise-hints@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.358298556+00:00, sabre candidate 2026-10-05T11:13:22.992601526+00:00 |
-| `c-programs/fallocate-extents@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.349586708+00:00, kvm candidate 2026-10-05T11:13:53.263657636+00:00 |
-| `c-programs/fallocate-extents@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.349586708+00:00, liteinst candidate 2026-10-05T11:13:28.802026253+00:00 |
-| `c-programs/fallocate-extents@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.349586708+00:00, sabre candidate 2026-10-05T11:13:23.312620590+00:00 |
-| `c-programs/fchmod-bits@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.031816165+00:00, kvm candidate 2026-10-05T11:14:07.555977567+00:00 |
-| `c-programs/fchmod-bits@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.031816165+00:00, liteinst candidate 2026-10-05T11:13:27.828271141+00:00 |
-| `c-programs/fchmod-bits@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.031816165+00:00, sabre candidate 2026-10-05T11:13:25.370853072+00:00 |
-| `c-programs/fchmodat2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.271706727+00:00, kvm candidate 2026-10-05T11:13:51.505035290+00:00 |
-| `c-programs/fchmodat2-flags@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.271706727+00:00, liteinst candidate 2026-10-05T11:13:26.567039997+00:00 |
-| `c-programs/fchmodat2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.271706727+00:00, sabre candidate 2026-10-05T11:13:28.978029567+00:00 |
-| `c-programs/fcntl-owner@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.688977664+00:00, kvm candidate 2026-10-05T11:13:52.558277562+00:00 |
-| `c-programs/fcntl-owner@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.688977664+00:00, liteinst candidate 2026-10-05T11:13:23.693202117+00:00 |
-| `c-programs/fcntl-owner@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.688977664+00:00, sabre candidate 2026-10-05T11:13:22.609246253+00:00 |
+| `c-programs/dup-shared-offset@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.091071014+00:00, kvm candidate 2026-10-05T12:56:20.295913660+00:00 |
+| `c-programs/dup-shared-offset@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.091071014+00:00, sabre candidate 2026-10-05T12:56:59.050920849+00:00 |
+| `c-programs/epoll-pwait2@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.929011555+00:00, kvm candidate 2026-10-05T12:56:22.912377962+00:00 |
+| `c-programs/epoll-pwait2@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.929011555+00:00, sabre candidate 2026-10-05T12:56:55.102898691+00:00 |
+| `c-programs/epoll-readiness@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.190108080+00:00, kvm candidate 2026-10-05T12:56:27.282011952+00:00 |
+| `c-programs/epoll-readiness@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.190108080+00:00, sabre candidate 2026-10-05T12:56:52.665617589+00:00 |
+| `c-programs/event-delivery-ordering@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.471305572+00:00, sabre candidate 2026-10-05T12:56:54.958988649+00:00 |
+| `c-programs/eventfd-semantics@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.300073999+00:00, kvm candidate 2026-10-05T12:56:30.414421112+00:00 |
+| `c-programs/eventfd-semantics@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.300073999+00:00, sabre candidate 2026-10-05T12:56:59.051116084+00:00 |
+| `c-programs/faccessat2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.322473174+00:00, kvm candidate 2026-10-05T12:56:19.152781036+00:00 |
+| `c-programs/faccessat2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.322473174+00:00, sabre candidate 2026-10-05T12:56:57.457127554+00:00 |
+| `c-programs/fadvise-hints@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.670521214+00:00, kvm candidate 2026-10-05T12:56:26.193256525+00:00 |
+| `c-programs/fadvise-hints@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.670521214+00:00, sabre candidate 2026-10-05T12:56:56.823086622+00:00 |
+| `c-programs/fallocate-extents@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.117629128+00:00, kvm candidate 2026-10-05T12:56:27.816328885+00:00 |
+| `c-programs/fallocate-extents@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.117629128+00:00, sabre candidate 2026-10-05T12:56:52.685373526+00:00 |
+| `c-programs/fchmod-bits@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:53.938375286+00:00, kvm candidate 2026-10-05T12:56:25.339163100+00:00 |
+| `c-programs/fchmod-bits@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:53.938375286+00:00, sabre candidate 2026-10-05T12:56:57.973876091+00:00 |
+| `c-programs/fchmodat2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.322384929+00:00, kvm candidate 2026-10-05T12:56:23.549640986+00:00 |
+| `c-programs/fchmodat2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.322384929+00:00, sabre candidate 2026-10-05T12:56:58.576273808+00:00 |
+| `c-programs/fcntl-owner@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.570758151+00:00, kvm candidate 2026-10-05T12:56:31.177836713+00:00 |
+| `c-programs/fcntl-owner@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.570758151+00:00, sabre candidate 2026-10-05T12:56:56.835659492+00:00 |
 | `c-programs/fd-duplication@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/fd-duplication@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.268691136+00:00, kvm candidate 2026-10-05T11:13:57.785091305+00:00 |
-| `c-programs/fd-duplication@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.268691136+00:00, liteinst candidate 2026-10-05T11:13:23.432315661+00:00 |
-| `c-programs/fd-duplication@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.268691136+00:00, sabre candidate 2026-10-05T11:13:25.325663283+00:00 |
-| `c-programs/file-backed-mmap@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.346329649+00:00, kvm candidate 2026-10-05T11:13:48.757826491+00:00 |
-| `c-programs/file-backed-mmap@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.346329649+00:00, liteinst candidate 2026-10-05T11:13:23.564263165+00:00 |
-| `c-programs/file-backed-mmap@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.346329649+00:00, sabre candidate 2026-10-05T11:13:25.278905207+00:00 |
-| `c-programs/file-io-roundtrip@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.219173034+00:00, kvm candidate 2026-10-05T11:13:58.529838720+00:00 |
-| `c-programs/file-io-roundtrip@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.219173034+00:00, liteinst candidate 2026-10-05T11:13:25.330973424+00:00 |
-| `c-programs/file-io-roundtrip@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.219173034+00:00, sabre candidate 2026-10-05T11:13:25.326087102+00:00 |
-| `c-programs/flock-lifecycle@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.435947261+00:00, kvm candidate 2026-10-05T11:14:01.244360993+00:00 |
-| `c-programs/flock-lifecycle@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.435947261+00:00, liteinst candidate 2026-10-05T11:13:23.611293287+00:00 |
-| `c-programs/flock-lifecycle@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.435947261+00:00, sabre candidate 2026-10-05T11:13:23.723576767+00:00 |
-| `c-programs/fork-exec-pipeline@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.384874842+00:00, kvm candidate 2026-10-05T11:13:54.773619526+00:00 |
-| `c-programs/fsync-durability@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.584691488+00:00, kvm candidate 2026-10-05T11:13:52.238636709+00:00 |
-| `c-programs/fsync-durability@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.584691488+00:00, liteinst candidate 2026-10-05T11:13:23.241686713+00:00 |
-| `c-programs/fsync-durability@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.584691488+00:00, sabre candidate 2026-10-05T11:13:23.584049201+00:00 |
-| `c-programs/ftruncate-sparse@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.869362408+00:00, kvm candidate 2026-10-05T11:13:57.027229181+00:00 |
-| `c-programs/ftruncate-sparse@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.869362408+00:00, liteinst candidate 2026-10-05T11:13:23.823336376+00:00 |
-| `c-programs/ftruncate-sparse@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.869362408+00:00, sabre candidate 2026-10-05T11:13:23.019625411+00:00 |
+| `c-programs/fd-duplication@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.833341634+00:00, kvm candidate 2026-10-05T12:56:27.496178711+00:00 |
+| `c-programs/fd-duplication@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.833341634+00:00, sabre candidate 2026-10-05T12:56:57.718800472+00:00 |
+| `c-programs/file-backed-mmap@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.088055992+00:00, kvm candidate 2026-10-05T12:56:26.730367555+00:00 |
+| `c-programs/file-backed-mmap@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.088055992+00:00, sabre candidate 2026-10-05T12:56:57.701139644+00:00 |
+| `c-programs/file-io-roundtrip@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.708620293+00:00, kvm candidate 2026-10-05T12:56:27.638655763+00:00 |
+| `c-programs/file-io-roundtrip@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.708620293+00:00, sabre candidate 2026-10-05T12:56:57.004987193+00:00 |
+| `c-programs/flock-lifecycle@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.321234314+00:00, kvm candidate 2026-10-05T12:56:30.510836916+00:00 |
+| `c-programs/flock-lifecycle@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.321234314+00:00, sabre candidate 2026-10-05T12:56:56.929389876+00:00 |
+| `c-programs/fork-exec-pipeline@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.305775619+00:00, kvm candidate 2026-10-05T12:56:24.025986884+00:00 |
+| `c-programs/fsync-durability@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.555737653+00:00, kvm candidate 2026-10-05T12:56:18.000698641+00:00 |
+| `c-programs/fsync-durability@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.555737653+00:00, sabre candidate 2026-10-05T12:56:58.610385513+00:00 |
+| `c-programs/ftruncate-sparse@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.715411655+00:00, kvm candidate 2026-10-05T12:56:20.757486931+00:00 |
+| `c-programs/ftruncate-sparse@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.715411655+00:00, sabre candidate 2026-10-05T12:56:52.977025506+00:00 |
 | `c-programs/getcpu-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/getcpu-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.320824645+00:00, kvm candidate 2026-10-05T11:13:49.197295967+00:00 |
-| `c-programs/getcpu-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.320824645+00:00, liteinst candidate 2026-10-05T11:13:22.496384474+00:00 |
-| `c-programs/getcpu-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.320824645+00:00, sabre candidate 2026-10-05T11:13:30.842636248+00:00 |
+| `c-programs/getcpu-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.746556787+00:00, kvm candidate 2026-10-05T12:56:16.315322781+00:00 |
+| `c-programs/getcpu-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.746556787+00:00, sabre candidate 2026-10-05T12:56:52.618904329+00:00 |
 | `c-programs/getpriority-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/getpriority-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.557875923+00:00, kvm candidate 2026-10-05T11:13:51.701369761+00:00 |
-| `c-programs/getpriority-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.557875923+00:00, liteinst candidate 2026-10-05T11:13:23.420256096+00:00 |
-| `c-programs/getpriority-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.557875923+00:00, sabre candidate 2026-10-05T11:13:24.119850163+00:00 |
-| `c-programs/getrusage-self-accounting@liteinst` | candidate-missing[no-result-row] | — | the liteinst candidate verify cell of c-programs/getrusage-self-accounting has no result row in this run |
+| `c-programs/getpriority-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.666225255+00:00, kvm candidate 2026-10-05T12:56:22.764703234+00:00 |
+| `c-programs/getpriority-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.666225255+00:00, sabre candidate 2026-10-05T12:56:56.578619379+00:00 |
 | `c-programs/hardware-trap-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/hardware-trap-identity@liteinst` | nondeterministic[determinism-mismatch] | — | the liteinst candidate verify cell of c-programs/hardware-trap-identity failed determinism on attempt 1 (its two runs diverged), so it has no deterministic log to compare: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `c-programs/host-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/host-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.076710083+00:00, liteinst candidate 2026-10-05T11:13:28.800902533+00:00 |
-| `c-programs/host-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.076710083+00:00, sabre candidate 2026-10-05T11:13:24.858407764+00:00 |
-| `c-programs/inline-syscall-sites@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.422976228+00:00, kvm candidate 2026-10-05T11:14:06.283450121+00:00 |
-| `c-programs/inline-syscall-sites@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.422976228+00:00, liteinst candidate 2026-10-05T11:13:23.491777768+00:00 |
-| `c-programs/inline-syscall-sites@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.422976228+00:00, sabre candidate 2026-10-05T11:13:23.555870640+00:00 |
-| `c-programs/inotify-watch@liteinst` | nondeterministic[determinism-mismatch] | — | the liteinst candidate verify cell of c-programs/inotify-watch failed determinism on attempt 1 (its two runs diverged), so it has no deterministic log to compare: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
-| `c-programs/inotify-watch@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.745108435+00:00, sabre candidate 2026-10-05T11:13:24.573723239+00:00 |
-| `c-programs/ioctl-fionread@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.754715703+00:00, kvm candidate 2026-10-05T11:14:04.519129046+00:00 |
-| `c-programs/ioctl-fionread@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.754715703+00:00, liteinst candidate 2026-10-05T11:13:25.530006825+00:00 |
-| `c-programs/ioctl-fionread@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.754715703+00:00, sabre candidate 2026-10-05T11:13:23.595889569+00:00 |
-| `c-programs/kcmp-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.810453285+00:00, kvm candidate 2026-10-05T11:13:57.214690506+00:00 |
-| `c-programs/kcmp-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.810453285+00:00, liteinst candidate 2026-10-05T11:13:24.251819377+00:00 |
-| `c-programs/kcmp-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.810453285+00:00, sabre candidate 2026-10-05T11:13:23.036986890+00:00 |
-| `c-programs/linkat-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.648453622+00:00, kvm candidate 2026-10-05T11:13:52.185593231+00:00 |
-| `c-programs/linkat-flags@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.648453622+00:00, liteinst candidate 2026-10-05T11:13:30.204567384+00:00 |
-| `c-programs/linkat-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.648453622+00:00, sabre candidate 2026-10-05T11:13:22.982879148+00:00 |
+| `c-programs/host-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.433904405+00:00, sabre candidate 2026-10-05T12:56:52.591878202+00:00 |
+| `c-programs/inline-syscall-sites@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.993323972+00:00, kvm candidate 2026-10-05T12:56:23.949153490+00:00 |
+| `c-programs/inline-syscall-sites@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.993323972+00:00, sabre candidate 2026-10-05T12:56:52.510547621+00:00 |
+| `c-programs/inotify-watch@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.527274600+00:00, sabre candidate 2026-10-05T12:56:58.768075047+00:00 |
+| `c-programs/ioctl-fionread@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.962928122+00:00, kvm candidate 2026-10-05T12:56:29.256075918+00:00 |
+| `c-programs/ioctl-fionread@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.962928122+00:00, sabre candidate 2026-10-05T12:56:57.382687056+00:00 |
+| `c-programs/kcmp-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.658022346+00:00, kvm candidate 2026-10-05T12:56:22.073843504+00:00 |
+| `c-programs/kcmp-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.658022346+00:00, sabre candidate 2026-10-05T12:56:52.989083248+00:00 |
+| `c-programs/linkat-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.359385087+00:00, kvm candidate 2026-10-05T12:56:17.770386353+00:00 |
+| `c-programs/linkat-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.359385087+00:00, sabre candidate 2026-10-05T12:56:52.993825668+00:00 |
 | `c-programs/lseek-positioning@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/lseek-positioning@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.443928566+00:00, kvm candidate 2026-10-05T11:13:59.187623110+00:00 |
-| `c-programs/lseek-positioning@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.443928566+00:00, liteinst candidate 2026-10-05T11:13:28.285720172+00:00 |
-| `c-programs/lseek-positioning@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.443928566+00:00, sabre candidate 2026-10-05T11:13:23.385477459+00:00 |
-| `c-programs/mce-kill-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.195388738+00:00, kvm candidate 2026-10-05T11:13:51.446286849+00:00 |
-| `c-programs/mce-kill-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.195388738+00:00, liteinst candidate 2026-10-05T11:13:26.470477118+00:00 |
-| `c-programs/mce-kill-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.195388738+00:00, sabre candidate 2026-10-05T11:13:25.788076694+00:00 |
-| `c-programs/membarrier-query@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.099888074+00:00, kvm candidate 2026-10-05T11:13:55.066756376+00:00 |
-| `c-programs/membarrier-query@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.099888074+00:00, liteinst candidate 2026-10-05T11:13:23.680448995+00:00 |
-| `c-programs/membarrier-query@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.099888074+00:00, sabre candidate 2026-10-05T11:13:23.693061949+00:00 |
-| `c-programs/memfd-create@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.057586952+00:00, kvm candidate 2026-10-05T11:14:08.091218307+00:00 |
-| `c-programs/memfd-create@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.057586952+00:00, liteinst candidate 2026-10-05T11:13:25.676222447+00:00 |
-| `c-programs/memfd-create@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.057586952+00:00, sabre candidate 2026-10-05T11:13:23.694276373+00:00 |
-| `c-programs/mempolicy-default@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.978337408+00:00, kvm candidate 2026-10-05T11:13:49.489968838+00:00 |
-| `c-programs/mempolicy-default@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.978337408+00:00, liteinst candidate 2026-10-05T11:13:26.780932753+00:00 |
-| `c-programs/mempolicy-default@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.978337408+00:00, sabre candidate 2026-10-05T11:13:25.415376218+00:00 |
-| `c-programs/mincore-residency@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.711691744+00:00, kvm candidate 2026-10-05T11:14:04.656344858+00:00 |
-| `c-programs/mincore-residency@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.711691744+00:00, liteinst candidate 2026-10-05T11:13:28.878881420+00:00 |
-| `c-programs/mincore-residency@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.711691744+00:00, sabre candidate 2026-10-05T11:13:23.481349154+00:00 |
-| `c-programs/mixed-inline-and-libc-syscalls@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.982875627+00:00, kvm candidate 2026-10-05T11:13:57.868711344+00:00 |
-| `c-programs/mixed-inline-and-libc-syscalls@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.982875627+00:00, liteinst candidate 2026-10-05T11:13:29.350634939+00:00 |
-| `c-programs/mixed-inline-and-libc-syscalls@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.982875627+00:00, sabre candidate 2026-10-05T11:13:22.991160441+00:00 |
-| `c-programs/mkdir-rmdir@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.777085016+00:00, kvm candidate 2026-10-05T11:14:07.430016140+00:00 |
-| `c-programs/mkdir-rmdir@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.777085016+00:00, liteinst candidate 2026-10-05T11:13:27.491528246+00:00 |
-| `c-programs/mkdir-rmdir@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.777085016+00:00, sabre candidate 2026-10-05T11:13:23.306896619+00:00 |
-| `c-programs/mknod-special@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.624498478+00:00, kvm candidate 2026-10-05T11:13:53.022884116+00:00 |
-| `c-programs/mknod-special@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.624498478+00:00, liteinst candidate 2026-10-05T11:13:24.877095318+00:00 |
-| `c-programs/mknod-special@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.624498478+00:00, sabre candidate 2026-10-05T11:13:23.242020827+00:00 |
-| `c-programs/mmap-layout-pointer-order@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.456553483+00:00, kvm candidate 2026-10-05T11:13:59.060558334+00:00 |
-| `c-programs/mmap-layout-pointer-order@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.456553483+00:00, liteinst candidate 2026-10-05T11:13:23.377282302+00:00 |
-| `c-programs/mmap-layout-pointer-order@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.456553483+00:00, sabre candidate 2026-10-05T11:13:30.323948993+00:00 |
-| `c-programs/msync-writeback@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.596828047+00:00, kvm candidate 2026-10-05T11:13:49.115752653+00:00 |
-| `c-programs/msync-writeback@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.596828047+00:00, liteinst candidate 2026-10-05T11:13:26.571951643+00:00 |
-| `c-programs/msync-writeback@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.596828047+00:00, sabre candidate 2026-10-05T11:13:23.289685223+00:00 |
-| `c-programs/name-to-handle-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.309151874+00:00, kvm candidate 2026-10-05T11:13:53.391085019+00:00 |
-| `c-programs/name-to-handle-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.309151874+00:00, liteinst candidate 2026-10-05T11:13:22.982914743+00:00 |
-| `c-programs/name-to-handle-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.309151874+00:00, sabre candidate 2026-10-05T11:13:31.252693095+00:00 |
-| `c-programs/no-new-privs-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.087243472+00:00, kvm candidate 2026-10-05T11:13:57.470789452+00:00 |
-| `c-programs/no-new-privs-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.087243472+00:00, liteinst candidate 2026-10-05T11:13:25.276368355+00:00 |
-| `c-programs/no-new-privs-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.087243472+00:00, sabre candidate 2026-10-05T11:13:23.607342823+00:00 |
+| `c-programs/lseek-positioning@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.666746922+00:00, kvm candidate 2026-10-05T12:56:23.060464177+00:00 |
+| `c-programs/lseek-positioning@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.666746922+00:00, sabre candidate 2026-10-05T12:56:56.016063402+00:00 |
+| `c-programs/mce-kill-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.911887926+00:00, kvm candidate 2026-10-05T12:56:18.799141657+00:00 |
+| `c-programs/mce-kill-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.911887926+00:00, sabre candidate 2026-10-05T12:56:55.848053262+00:00 |
+| `c-programs/membarrier-query@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.449571860+00:00, kvm candidate 2026-10-05T12:56:30.612763667+00:00 |
+| `c-programs/membarrier-query@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.449571860+00:00, sabre candidate 2026-10-05T12:56:52.994721767+00:00 |
+| `c-programs/memfd-create@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.105581149+00:00, kvm candidate 2026-10-05T12:56:17.813382778+00:00 |
+| `c-programs/memfd-create@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.105581149+00:00, sabre candidate 2026-10-05T12:56:59.569885531+00:00 |
+| `c-programs/mempolicy-default@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.978128568+00:00, kvm candidate 2026-10-05T12:56:20.123600408+00:00 |
+| `c-programs/mempolicy-default@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.978128568+00:00, sabre candidate 2026-10-05T12:56:59.592317759+00:00 |
+| `c-programs/mincore-residency@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.618982978+00:00, kvm candidate 2026-10-05T12:56:28.527242625+00:00 |
+| `c-programs/mincore-residency@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.618982978+00:00, sabre candidate 2026-10-05T12:56:57.451149841+00:00 |
+| `c-programs/mixed-inline-and-libc-syscalls@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.564635328+00:00, kvm candidate 2026-10-05T12:56:26.582521790+00:00 |
+| `c-programs/mixed-inline-and-libc-syscalls@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.564635328+00:00, sabre candidate 2026-10-05T12:56:51.497577946+00:00 |
+| `c-programs/mkdir-rmdir@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.004735975+00:00, kvm candidate 2026-10-05T12:56:31.867999629+00:00 |
+| `c-programs/mkdir-rmdir@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.004735975+00:00, sabre candidate 2026-10-05T12:56:56.703274921+00:00 |
+| `c-programs/mknod-special@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.657052254+00:00, kvm candidate 2026-10-05T12:56:25.023557262+00:00 |
+| `c-programs/mknod-special@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.657052254+00:00, sabre candidate 2026-10-05T12:56:58.444967122+00:00 |
+| `c-programs/mmap-layout-pointer-order@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.282378372+00:00, kvm candidate 2026-10-05T12:56:22.159020168+00:00 |
+| `c-programs/mmap-layout-pointer-order@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.282378372+00:00, sabre candidate 2026-10-05T12:56:58.572335747+00:00 |
+| `c-programs/msync-writeback@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.583067822+00:00, kvm candidate 2026-10-05T12:56:22.773478443+00:00 |
+| `c-programs/msync-writeback@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.583067822+00:00, sabre candidate 2026-10-05T12:56:57.658728926+00:00 |
+| `c-programs/name-to-handle-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.914204430+00:00, kvm candidate 2026-10-05T12:56:21.977063393+00:00 |
+| `c-programs/name-to-handle-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.914204430+00:00, sabre candidate 2026-10-05T12:56:58.269969450+00:00 |
+| `c-programs/no-new-privs-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.114757805+00:00, kvm candidate 2026-10-05T12:56:17.093047020+00:00 |
+| `c-programs/no-new-privs-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.114757805+00:00, sabre candidate 2026-10-05T12:56:59.051902088+00:00 |
 | `c-programs/numa-node-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/numa-node-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.411077399+00:00, kvm candidate 2026-10-05T11:14:09.242216701+00:00 |
-| `c-programs/numa-node-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.411077399+00:00, liteinst candidate 2026-10-05T11:13:23.697040747+00:00 |
-| `c-programs/numa-node-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.411077399+00:00, sabre candidate 2026-10-05T11:13:23.483638187+00:00 |
-| `c-programs/o-tmpfile-anon@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.415246774+00:00, kvm candidate 2026-10-05T11:13:56.962604899+00:00 |
-| `c-programs/o-tmpfile-anon@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.415246774+00:00, liteinst candidate 2026-10-05T11:13:27.780148265+00:00 |
-| `c-programs/o-tmpfile-anon@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.415246774+00:00, sabre candidate 2026-10-05T11:13:23.603835827+00:00 |
-| `c-programs/openat-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.040053245+00:00, kvm candidate 2026-10-05T11:13:54.488617315+00:00 |
-| `c-programs/openat-flags@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.040053245+00:00, liteinst candidate 2026-10-05T11:13:22.761994844+00:00 |
-| `c-programs/openat-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.040053245+00:00, sabre candidate 2026-10-05T11:13:27.672844194+00:00 |
-| `c-programs/openat2-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.358770132+00:00, kvm candidate 2026-10-05T11:13:50.901333578+00:00 |
-| `c-programs/openat2-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.358770132+00:00, liteinst candidate 2026-10-05T11:13:23.556434812+00:00 |
-| `c-programs/openat2-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.358770132+00:00, sabre candidate 2026-10-05T11:13:29.828754267+00:00 |
-| `c-programs/path-file-ops@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.618777969+00:00, kvm candidate 2026-10-05T11:13:58.038624718+00:00 |
-| `c-programs/path-file-ops@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.618777969+00:00, liteinst candidate 2026-10-05T11:13:28.272715874+00:00 |
-| `c-programs/path-file-ops@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.618777969+00:00, sabre candidate 2026-10-05T11:13:23.040977963+00:00 |
-| `c-programs/personality-domain@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.271716361+00:00, liteinst candidate 2026-10-05T11:13:23.703333883+00:00 |
-| `c-programs/personality-domain@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.271716361+00:00, sabre candidate 2026-10-05T11:13:23.039085292+00:00 |
+| `c-programs/numa-node-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.324429301+00:00, kvm candidate 2026-10-05T12:56:24.071979729+00:00 |
+| `c-programs/numa-node-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.324429301+00:00, sabre candidate 2026-10-05T12:56:57.006103645+00:00 |
+| `c-programs/o-tmpfile-anon@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.204551093+00:00, kvm candidate 2026-10-05T12:56:16.436264339+00:00 |
+| `c-programs/o-tmpfile-anon@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.204551093+00:00, sabre candidate 2026-10-05T12:56:57.070545842+00:00 |
+| `c-programs/openat-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.024087737+00:00, kvm candidate 2026-10-05T12:56:23.079321498+00:00 |
+| `c-programs/openat-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.024087737+00:00, sabre candidate 2026-10-05T12:56:58.775627397+00:00 |
+| `c-programs/openat2-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.189351449+00:00, kvm candidate 2026-10-05T12:56:20.363678083+00:00 |
+| `c-programs/openat2-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.189351449+00:00, sabre candidate 2026-10-05T12:56:58.747681957+00:00 |
+| `c-programs/path-file-ops@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.519282697+00:00, kvm candidate 2026-10-05T12:56:19.457467755+00:00 |
+| `c-programs/path-file-ops@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.519282697+00:00, sabre candidate 2026-10-05T12:56:58.572476459+00:00 |
+| `c-programs/personality-domain@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.297919010+00:00, sabre candidate 2026-10-05T12:56:58.829409924+00:00 |
 | `c-programs/pid-probe@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/pid-probe@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.280378208+00:00, kvm candidate 2026-10-05T11:13:58.896282281+00:00 |
-| `c-programs/pid-probe@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.280378208+00:00, liteinst candidate 2026-10-05T11:13:24.450307251+00:00 |
-| `c-programs/pid-probe@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.280378208+00:00, sabre candidate 2026-10-05T11:13:29.223834094+00:00 |
+| `c-programs/pid-probe@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.093001051+00:00, kvm candidate 2026-10-05T12:56:17.524775458+00:00 |
+| `c-programs/pid-probe@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.093001051+00:00, sabre candidate 2026-10-05T12:56:54.926631798+00:00 |
 | `c-programs/pidfd-open-self-pair@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/pidfd-open-self-pair@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.379759627+00:00, kvm candidate 2026-10-05T11:13:48.968099355+00:00 |
-| `c-programs/pidfd-open-self-pair@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.379759627+00:00, liteinst candidate 2026-10-05T11:13:28.194853826+00:00 |
-| `c-programs/pidfd-open-self-pair@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.379759627+00:00, sabre candidate 2026-10-05T11:13:24.458017412+00:00 |
-| `c-programs/pipe-capacity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.326873205+00:00, kvm candidate 2026-10-05T11:13:50.294293666+00:00 |
-| `c-programs/pipe-capacity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.326873205+00:00, liteinst candidate 2026-10-05T11:13:23.698214314+00:00 |
-| `c-programs/pipe-capacity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.326873205+00:00, sabre candidate 2026-10-05T11:13:29.330163062+00:00 |
-| `c-programs/pipe-capacity-pin@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.450942333+00:00, kvm candidate 2026-10-05T11:14:09.035041079+00:00 |
-| `c-programs/pipe-capacity-pin@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.450942333+00:00, liteinst candidate 2026-10-05T11:13:29.795292023+00:00 |
-| `c-programs/pipe-capacity-pin@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.450942333+00:00, sabre candidate 2026-10-05T11:13:29.860924004+00:00 |
-| `c-programs/pipe-ipc@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.295977609+00:00, kvm candidate 2026-10-05T11:14:09.157776109+00:00 |
-| `c-programs/pipe-ipc@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.295977609+00:00, liteinst candidate 2026-10-05T11:13:28.169632184+00:00 |
-| `c-programs/pipe2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.610304204+00:00, kvm candidate 2026-10-05T11:14:05.585350112+00:00 |
-| `c-programs/pipe2-flags@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.610304204+00:00, liteinst candidate 2026-10-05T11:13:26.115426418+00:00 |
-| `c-programs/pipe2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.610304204+00:00, sabre candidate 2026-10-05T11:13:25.339125905+00:00 |
-| `c-programs/poll-readiness@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.361640361+00:00, kvm candidate 2026-10-05T11:14:06.928049517+00:00 |
-| `c-programs/poll-readiness@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.361640361+00:00, liteinst candidate 2026-10-05T11:13:23.296383280+00:00 |
-| `c-programs/poll-readiness@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.361640361+00:00, sabre candidate 2026-10-05T11:13:26.631882509+00:00 |
+| `c-programs/pidfd-open-self-pair@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.726656364+00:00, kvm candidate 2026-10-05T12:56:18.391202006+00:00 |
+| `c-programs/pidfd-open-self-pair@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.726656364+00:00, sabre candidate 2026-10-05T12:56:55.113214431+00:00 |
+| `c-programs/pipe-capacity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.618522306+00:00, kvm candidate 2026-10-05T12:56:20.905814730+00:00 |
+| `c-programs/pipe-capacity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.618522306+00:00, sabre candidate 2026-10-05T12:56:58.416089517+00:00 |
+| `c-programs/pipe-capacity-pin@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.929571495+00:00, kvm candidate 2026-10-05T12:56:28.147176385+00:00 |
+| `c-programs/pipe-capacity-pin@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.929571495+00:00, sabre candidate 2026-10-05T12:56:57.658608845+00:00 |
+| `c-programs/pipe-ipc@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.620272477+00:00, kvm candidate 2026-10-05T12:56:25.110810656+00:00 |
+| `c-programs/pipe2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.657942219+00:00, kvm candidate 2026-10-05T12:56:22.246958880+00:00 |
+| `c-programs/pipe2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.657942219+00:00, sabre candidate 2026-10-05T12:56:59.368193309+00:00 |
+| `c-programs/poll-readiness@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.730367451+00:00, kvm candidate 2026-10-05T12:56:22.335903413+00:00 |
+| `c-programs/poll-readiness@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.730367451+00:00, sabre candidate 2026-10-05T12:56:59.059772127+00:00 |
 | `c-programs/prctl-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/prctl-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.771441746+00:00, kvm candidate 2026-10-05T11:13:51.385789208+00:00 |
-| `c-programs/prctl-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.771441746+00:00, liteinst candidate 2026-10-05T11:13:25.676920624+00:00 |
-| `c-programs/prctl-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.771441746+00:00, sabre candidate 2026-10-05T11:13:25.491640507+00:00 |
-| `c-programs/prctl-pdeathsig@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.319382695+00:00, liteinst candidate 2026-10-05T11:13:25.146188400+00:00 |
-| `c-programs/prctl-pdeathsig@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.319382695+00:00, sabre candidate 2026-10-05T11:13:29.691438706+00:00 |
-| `c-programs/preadv2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.582009043+00:00, kvm candidate 2026-10-05T11:14:06.263000668+00:00 |
-| `c-programs/preadv2-flags@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.582009043+00:00, liteinst candidate 2026-10-05T11:13:28.616546325+00:00 |
-| `c-programs/preadv2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.582009043+00:00, sabre candidate 2026-10-05T11:13:23.335539341+00:00 |
+| `c-programs/prctl-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.119280303+00:00, kvm candidate 2026-10-05T12:56:19.818488170+00:00 |
+| `c-programs/prctl-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.119280303+00:00, sabre candidate 2026-10-05T12:56:58.753441155+00:00 |
+| `c-programs/prctl-pdeathsig@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.089682472+00:00, sabre candidate 2026-10-05T12:56:56.833900850+00:00 |
+| `c-programs/preadv2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.526007962+00:00, kvm candidate 2026-10-05T12:56:25.891753698+00:00 |
+| `c-programs/preadv2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.526007962+00:00, sabre candidate 2026-10-05T12:56:57.331258211+00:00 |
 | `c-programs/pthread-lifecycle@kvm` | candidate-missing[no-result-row] | — | the kvm candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
-| `c-programs/pthread-lifecycle@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.619969726+00:00, liteinst candidate 2026-10-05T11:13:23.262352646+00:00 |
 | `c-programs/pthread-lifecycle@sabre` | candidate-missing[no-result-row] | — | the sabre candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
-| `c-programs/readdir-entries@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.701782029+00:00, kvm candidate 2026-10-05T11:14:06.484479833+00:00 |
-| `c-programs/readdir-entries@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.701782029+00:00, liteinst candidate 2026-10-05T11:13:27.144439933+00:00 |
-| `c-programs/readdir-entries@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.701782029+00:00, sabre candidate 2026-10-05T11:13:23.707342334+00:00 |
-| `c-programs/readdir-order-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.100016770+00:00, kvm candidate 2026-10-05T11:13:57.172153859+00:00 |
-| `c-programs/readdir-order-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.100016770+00:00, liteinst candidate 2026-10-05T11:13:25.784836341+00:00 |
-| `c-programs/record-lock@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.089282161+00:00, liteinst candidate 2026-10-05T11:13:26.576261711+00:00 |
-| `c-programs/record-lock@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.089282161+00:00, sabre candidate 2026-10-05T11:13:26.356555627+00:00 |
-| `c-programs/rename-ops@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.629617499+00:00, kvm candidate 2026-10-05T11:13:52.812204278+00:00 |
-| `c-programs/rename-ops@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.629617499+00:00, liteinst candidate 2026-10-05T11:13:30.964449091+00:00 |
-| `c-programs/rename-ops@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.629617499+00:00, sabre candidate 2026-10-05T11:13:28.277014068+00:00 |
-| `c-programs/renameat2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.159377131+00:00, kvm candidate 2026-10-05T11:13:52.518740594+00:00 |
-| `c-programs/renameat2-flags@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.159377131+00:00, liteinst candidate 2026-10-05T11:13:25.724382983+00:00 |
-| `c-programs/renameat2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.159377131+00:00, sabre candidate 2026-10-05T11:13:28.617176430+00:00 |
+| `c-programs/readdir-entries@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.615762415+00:00, kvm candidate 2026-10-05T12:56:30.158053311+00:00 |
+| `c-programs/readdir-entries@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.615762415+00:00, sabre candidate 2026-10-05T12:56:56.577237310+00:00 |
+| `c-programs/readdir-order-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.904312582+00:00, kvm candidate 2026-10-05T12:56:31.488992910+00:00 |
+| `c-programs/record-lock@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.509748973+00:00, sabre candidate 2026-10-05T12:56:57.319067342+00:00 |
+| `c-programs/rename-ops@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.670535576+00:00, kvm candidate 2026-10-05T12:56:25.371616071+00:00 |
+| `c-programs/rename-ops@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.670535576+00:00, sabre candidate 2026-10-05T12:56:55.482526951+00:00 |
+| `c-programs/renameat2-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.747816958+00:00, kvm candidate 2026-10-05T12:56:22.005889426+00:00 |
+| `c-programs/renameat2-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.747816958+00:00, sabre candidate 2026-10-05T12:56:59.043586749+00:00 |
 | `c-programs/rlimit-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/rlimit-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.372595450+00:00, kvm candidate 2026-10-05T11:13:48.790984900+00:00 |
-| `c-programs/rlimit-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.372595450+00:00, liteinst candidate 2026-10-05T11:13:23.389781993+00:00 |
-| `c-programs/rlimit-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.372595450+00:00, sabre candidate 2026-10-05T11:13:28.619750210+00:00 |
-| `c-programs/robust-list@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.692426387+00:00, kvm candidate 2026-10-05T11:14:07.083358258+00:00 |
-| `c-programs/robust-list@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.692426387+00:00, liteinst candidate 2026-10-05T11:13:26.412741243+00:00 |
-| `c-programs/robust-list@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.692426387+00:00, sabre candidate 2026-10-05T11:13:29.621077847+00:00 |
+| `c-programs/rlimit-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.849133566+00:00, kvm candidate 2026-10-05T12:56:27.654455021+00:00 |
+| `c-programs/rlimit-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.849133566+00:00, sabre candidate 2026-10-05T12:56:51.653311668+00:00 |
+| `c-programs/robust-list@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.939510478+00:00, kvm candidate 2026-10-05T12:56:30.139561969+00:00 |
+| `c-programs/robust-list@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.939510478+00:00, sabre candidate 2026-10-05T12:56:52.976476229+00:00 |
 | `c-programs/sched-getaffinity-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/sched-getaffinity-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.961164989+00:00, kvm candidate 2026-10-05T11:13:51.327062880+00:00 |
-| `c-programs/sched-getaffinity-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.961164989+00:00, liteinst candidate 2026-10-05T11:13:28.441688853+00:00 |
-| `c-programs/sched-getaffinity-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.961164989+00:00, sabre candidate 2026-10-05T11:13:24.816746754+00:00 |
-| `c-programs/seccomp-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.314346406+00:00, kvm candidate 2026-10-05T11:14:08.535271901+00:00 |
-| `c-programs/seccomp-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.314346406+00:00, liteinst candidate 2026-10-05T11:13:29.256101462+00:00 |
-| `c-programs/seccomp-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.314346406+00:00, sabre candidate 2026-10-05T11:13:28.581546485+00:00 |
-| `c-programs/sendfile-copy@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.760682597+00:00, kvm candidate 2026-10-05T11:14:08.590525640+00:00 |
-| `c-programs/sendfile-copy@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.760682597+00:00, liteinst candidate 2026-10-05T11:13:29.318193876+00:00 |
-| `c-programs/sendfile-copy@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.760682597+00:00, sabre candidate 2026-10-05T11:13:26.463928177+00:00 |
-| `c-programs/set-tid-address@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.235595332+00:00, kvm candidate 2026-10-05T11:14:07.293837233+00:00 |
-| `c-programs/set-tid-address@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.235595332+00:00, liteinst candidate 2026-10-05T11:13:30.856538188+00:00 |
-| `c-programs/set-tid-address@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:24.235595332+00:00, sabre candidate 2026-10-05T11:13:26.425765164+00:00 |
-| `c-programs/short-io-split-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.040095129+00:00, kvm candidate 2026-10-05T11:14:06.375527100+00:00 |
-| `c-programs/short-io-split-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.040095129+00:00, liteinst candidate 2026-10-05T11:13:27.444214846+00:00 |
-| `c-programs/short-io-split-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.040095129+00:00, sabre candidate 2026-10-05T11:13:28.607573244+00:00 |
-| `c-programs/shutdown-socketpair@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.309509132+00:00, kvm candidate 2026-10-05T11:14:08.997776734+00:00 |
-| `c-programs/shutdown-socketpair@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.309509132+00:00, liteinst candidate 2026-10-05T11:13:25.349022787+00:00 |
-| `c-programs/shutdown-socketpair@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.309509132+00:00, sabre candidate 2026-10-05T11:13:26.444517818+00:00 |
-| `c-programs/signal-delivery-sequence@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.126659362+00:00, liteinst candidate 2026-10-05T11:13:30.567151703+00:00 |
+| `c-programs/sched-getaffinity-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.046407990+00:00, kvm candidate 2026-10-05T12:56:29.579386228+00:00 |
+| `c-programs/sched-getaffinity-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.046407990+00:00, sabre candidate 2026-10-05T12:56:55.260875316+00:00 |
+| `c-programs/seccomp-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:53.006098835+00:00, kvm candidate 2026-10-05T12:56:17.444197781+00:00 |
+| `c-programs/seccomp-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:53.006098835+00:00, sabre candidate 2026-10-05T12:56:52.974408566+00:00 |
+| `c-programs/sendfile-copy@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.843811828+00:00, kvm candidate 2026-10-05T12:56:18.242318683+00:00 |
+| `c-programs/sendfile-copy@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.843811828+00:00, sabre candidate 2026-10-05T12:56:59.554971378+00:00 |
+| `c-programs/set-tid-address@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.839675539+00:00, kvm candidate 2026-10-05T12:56:19.916389434+00:00 |
+| `c-programs/set-tid-address@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.839675539+00:00, sabre candidate 2026-10-05T12:56:57.463475657+00:00 |
+| `c-programs/short-io-split-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.310916893+00:00, kvm candidate 2026-10-05T12:56:28.097857594+00:00 |
+| `c-programs/short-io-split-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.310916893+00:00, sabre candidate 2026-10-05T12:56:54.799763161+00:00 |
+| `c-programs/shutdown-socketpair@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.084558474+00:00, kvm candidate 2026-10-05T12:56:19.599227770+00:00 |
+| `c-programs/shutdown-socketpair@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.084558474+00:00, sabre candidate 2026-10-05T12:56:56.525721225+00:00 |
 | `c-programs/signal-waitstatus-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/signal-waitstatus-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.274098496+00:00, liteinst candidate 2026-10-05T11:13:30.601275255+00:00 |
-| `c-programs/signalfd-create@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.641405851+00:00, kvm candidate 2026-10-05T11:13:50.217441123+00:00 |
-| `c-programs/signalfd-create@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.641405851+00:00, liteinst candidate 2026-10-05T11:13:23.461476043+00:00 |
-| `c-programs/signalfd-create@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.641405851+00:00, sabre candidate 2026-10-05T11:13:27.763924061+00:00 |
-| `c-programs/socket-epoll-ordering@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.331077470+00:00, kvm candidate 2026-10-05T11:13:50.040328431+00:00 |
-| `c-programs/socket-epoll-ordering@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.331077470+00:00, liteinst candidate 2026-10-05T11:13:26.412289096+00:00 |
-| `c-programs/socket-epoll-ordering@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.331077470+00:00, sabre candidate 2026-10-05T11:13:23.377148311+00:00 |
-| `c-programs/socket-options@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.435652079+00:00, kvm candidate 2026-10-05T11:13:52.915890060+00:00 |
-| `c-programs/socket-options@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.435652079+00:00, liteinst candidate 2026-10-05T11:13:28.979485040+00:00 |
-| `c-programs/socket-options@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.435652079+00:00, sabre candidate 2026-10-05T11:13:30.593243360+00:00 |
-| `c-programs/socketpair-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.293042416+00:00, kvm candidate 2026-10-05T11:13:52.039603914+00:00 |
-| `c-programs/socketpair-flags@liteinst` | nondeterministic[determinism-mismatch] | — | the liteinst candidate verify cell of c-programs/socketpair-flags failed determinism on attempt 1 (its two runs diverged), so it has no deterministic log to compare: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
-| `c-programs/socketpair-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:29.293042416+00:00, sabre candidate 2026-10-05T11:13:30.312435842+00:00 |
-| `c-programs/sockname-unnamed@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.353613741+00:00, kvm candidate 2026-10-05T11:13:52.742108567+00:00 |
-| `c-programs/sockname-unnamed@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.353613741+00:00, liteinst candidate 2026-10-05T11:13:24.980227430+00:00 |
-| `c-programs/sockname-unnamed@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:26.353613741+00:00, sabre candidate 2026-10-05T11:13:27.491948135+00:00 |
-| `c-programs/stat-metadata-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.613505387+00:00, kvm candidate 2026-10-05T11:14:04.059051584+00:00 |
-| `c-programs/stat-metadata-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.613505387+00:00, liteinst candidate 2026-10-05T11:13:27.271757089+00:00 |
-| `c-programs/stat-metadata-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.613505387+00:00, sabre candidate 2026-10-05T11:13:30.578426450+00:00 |
-| `c-programs/statfs-free-determinism@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.420085202+00:00, kvm candidate 2026-10-05T11:13:48.952580978+00:00 |
-| `c-programs/statfs-free-determinism@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.420085202+00:00, liteinst candidate 2026-10-05T11:13:22.999461313+00:00 |
-| `c-programs/statfs-free-determinism@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.420085202+00:00, sabre candidate 2026-10-05T11:13:29.698640341+00:00 |
-| `c-programs/static-nolibc-syscall-sites@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.248741076+00:00, kvm candidate 2026-10-05T11:13:52.094494461+00:00 |
-| `c-programs/statx-metadata@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.776976532+00:00, kvm candidate 2026-10-05T11:13:51.599309373+00:00 |
-| `c-programs/statx-metadata@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.776976532+00:00, liteinst candidate 2026-10-05T11:13:25.354271336+00:00 |
-| `c-programs/statx-metadata@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:22.776976532+00:00, sabre candidate 2026-10-05T11:13:26.007465831+00:00 |
-| `c-programs/symlink-ops@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.558444305+00:00, kvm candidate 2026-10-05T11:13:58.621160196+00:00 |
-| `c-programs/symlink-ops@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.558444305+00:00, liteinst candidate 2026-10-05T11:13:24.024984163+00:00 |
-| `c-programs/symlink-ops@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.558444305+00:00, sabre candidate 2026-10-05T11:13:27.683455459+00:00 |
-| `c-programs/sync-file-range@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.671411759+00:00, kvm candidate 2026-10-05T11:13:50.453648910+00:00 |
-| `c-programs/sync-file-range@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.671411759+00:00, liteinst candidate 2026-10-05T11:13:24.592980666+00:00 |
-| `c-programs/sync-file-range@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:30.671411759+00:00, sabre candidate 2026-10-05T11:13:26.421085521+00:00 |
-| `c-programs/sysv-ipc-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.278902707+00:00, kvm candidate 2026-10-05T11:14:08.662839200+00:00 |
-| `c-programs/sysv-ipc-refusal@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.278902707+00:00, liteinst candidate 2026-10-05T11:13:23.703393224+00:00 |
-| `c-programs/sysv-ipc-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.278902707+00:00, sabre candidate 2026-10-05T11:13:27.271705585+00:00 |
-| `c-programs/thp-disable@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.532112243+00:00, kvm candidate 2026-10-05T11:13:49.966325541+00:00 |
-| `c-programs/thp-disable@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.532112243+00:00, liteinst candidate 2026-10-05T11:13:25.376820474+00:00 |
-| `c-programs/thp-disable@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:25.532112243+00:00, sabre candidate 2026-10-05T11:13:29.237378082+00:00 |
-| `c-programs/umask-mode@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.623858118+00:00, kvm candidate 2026-10-05T11:14:05.333608992+00:00 |
-| `c-programs/umask-mode@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.623858118+00:00, liteinst candidate 2026-10-05T11:13:23.276611282+00:00 |
-| `c-programs/umask-mode@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.623858118+00:00, sabre candidate 2026-10-05T11:13:28.282674814+00:00 |
-| `c-programs/uname-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.307681747+00:00, kvm candidate 2026-10-05T11:14:04.357766274+00:00 |
-| `c-programs/uname-identity@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.307681747+00:00, liteinst candidate 2026-10-05T11:13:23.033438802+00:00 |
-| `c-programs/uname-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.307681747+00:00, sabre candidate 2026-10-05T11:13:28.791062807+00:00 |
-| `c-programs/utimensat-determinism@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.562218617+00:00, kvm candidate 2026-10-05T11:14:07.380434597+00:00 |
-| `c-programs/utimensat-determinism@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.562218617+00:00, liteinst candidate 2026-10-05T11:13:26.492567255+00:00 |
-| `c-programs/utimensat-determinism@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:27.562218617+00:00, sabre candidate 2026-10-05T11:13:29.091004650+00:00 |
-| `c-programs/vectored-file-io@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.296598352+00:00, kvm candidate 2026-10-05T11:13:49.309982878+00:00 |
-| `c-programs/vectored-file-io@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.296598352+00:00, liteinst candidate 2026-10-05T11:13:27.347092341+00:00 |
-| `c-programs/vectored-file-io@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:28.296598352+00:00, sabre candidate 2026-10-05T11:13:26.441180730+00:00 |
-| `c-programs/vectored-io@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.070045966+00:00, kvm candidate 2026-10-05T11:14:07.522725794+00:00 |
-| `c-programs/vectored-io@liteinst` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.070045966+00:00, liteinst candidate 2026-10-05T11:13:30.077374983+00:00 |
-| `c-programs/vectored-io@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T11:13:23.070045966+00:00, sabre candidate 2026-10-05T11:13:30.274609006+00:00 |
+| `c-programs/signalfd-create@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.537006516+00:00, kvm candidate 2026-10-05T12:56:22.408587705+00:00 |
+| `c-programs/signalfd-create@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:56.537006516+00:00, sabre candidate 2026-10-05T12:56:57.316025355+00:00 |
+| `c-programs/socket-epoll-ordering@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.947058941+00:00, kvm candidate 2026-10-05T12:56:31.666860433+00:00 |
+| `c-programs/socket-epoll-ordering@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.947058941+00:00, sabre candidate 2026-10-05T12:56:52.657914797+00:00 |
+| `c-programs/socket-options@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.256644261+00:00, kvm candidate 2026-10-05T12:56:27.054277174+00:00 |
+| `c-programs/socket-options@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.256644261+00:00, sabre candidate 2026-10-05T12:56:52.196918522+00:00 |
+| `c-programs/socketpair-flags@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.315102849+00:00, kvm candidate 2026-10-05T12:56:27.111166634+00:00 |
+| `c-programs/socketpair-flags@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.315102849+00:00, sabre candidate 2026-10-05T12:56:57.678689316+00:00 |
+| `c-programs/sockname-unnamed@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.507900871+00:00, kvm candidate 2026-10-05T12:56:18.979265890+00:00 |
+| `c-programs/sockname-unnamed@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.507900871+00:00, sabre candidate 2026-10-05T12:56:52.511815881+00:00 |
+| `c-programs/stat-metadata-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.651777196+00:00, kvm candidate 2026-10-05T12:56:18.298221491+00:00 |
+| `c-programs/stat-metadata-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.651777196+00:00, sabre candidate 2026-10-05T12:56:54.919793335+00:00 |
+| `c-programs/statfs-free-determinism@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.527561462+00:00, kvm candidate 2026-10-05T12:56:22.610698669+00:00 |
+| `c-programs/statfs-free-determinism@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.527561462+00:00, sabre candidate 2026-10-05T12:56:54.011972625+00:00 |
+| `c-programs/static-nolibc-syscall-sites@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:52.548440626+00:00, kvm candidate 2026-10-05T12:56:27.254429326+00:00 |
+| `c-programs/statx-metadata@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.531022713+00:00, kvm candidate 2026-10-05T12:56:20.701344653+00:00 |
+| `c-programs/statx-metadata@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.531022713+00:00, sabre candidate 2026-10-05T12:56:52.987512954+00:00 |
+| `c-programs/symlink-ops@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.947116202+00:00, kvm candidate 2026-10-05T12:56:16.790058090+00:00 |
+| `c-programs/symlink-ops@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.947116202+00:00, sabre candidate 2026-10-05T12:56:52.595927030+00:00 |
+| `c-programs/sync-file-range@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.485003540+00:00, kvm candidate 2026-10-05T12:56:31.352730401+00:00 |
+| `c-programs/sync-file-range@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.485003540+00:00, sabre candidate 2026-10-05T12:56:56.749995481+00:00 |
+| `c-programs/sysv-ipc-refusal@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.582077382+00:00, kvm candidate 2026-10-05T12:56:20.992940942+00:00 |
+| `c-programs/sysv-ipc-refusal@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:55.582077382+00:00, sabre candidate 2026-10-05T12:56:52.308116280+00:00 |
+| `c-programs/thp-disable@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.800626381+00:00, kvm candidate 2026-10-05T12:56:25.708796891+00:00 |
+| `c-programs/thp-disable@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:54.800626381+00:00, sabre candidate 2026-10-05T12:56:55.079032962+00:00 |
+| `c-programs/umask-mode@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.378378325+00:00, kvm candidate 2026-10-05T12:56:31.318633953+00:00 |
+| `c-programs/umask-mode@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.378378325+00:00, sabre candidate 2026-10-05T12:56:54.921279366+00:00 |
+| `c-programs/uname-identity@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.557122608+00:00, kvm candidate 2026-10-05T12:56:21.802194063+00:00 |
+| `c-programs/uname-identity@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:59.557122608+00:00, sabre candidate 2026-10-05T12:56:58.238369911+00:00 |
+| `c-programs/utimensat-determinism@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.811121869+00:00, kvm candidate 2026-10-05T12:56:21.352998861+00:00 |
+| `c-programs/utimensat-determinism@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:57.811121869+00:00, sabre candidate 2026-10-05T12:56:55.570752753+00:00 |
+| `c-programs/vectored-file-io@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.780635366+00:00, kvm candidate 2026-10-05T12:56:27.252785026+00:00 |
+| `c-programs/vectored-file-io@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:58.780635366+00:00, sabre candidate 2026-10-05T12:56:55.094744106+00:00 |
+| `c-programs/vectored-io@kvm` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.619961184+00:00, kvm candidate 2026-10-05T12:56:24.781217971+00:00 |
+| `c-programs/vectored-io@sabre` | unavailable[epoch-not-shared] | — | the operands ran with different HERMIT_EPOCH values: ptrace reference 2026-10-05T12:56:51.619961184+00:00, sabre candidate 2026-10-05T12:56:51.484032938+00:00 |
 
 ### pressure-test run `p2-screen1` at `7759159896ab` (partial: selected 14 of 297 committed)
 
@@ -2367,7 +2266,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 66 other parity run(s) in the store
+### 67 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2388,7 +2287,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-2-cfb9d0c86427-1791035312332954244-2326456-5ddbba2a` at Hermit `cfb9d0c86427`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-4-ad4f9cf598a3-1791030814588067897-4023945-e9bb1627` at Hermit `ad4f9cf598a3`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-4-d53ea6ca1711-1791032694966120621-1230314-61570ac3` at Hermit `d53ea6ca1711`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-coord-3589b3edff56-1791203838387883418-1747108-ebb12384` at Hermit `3589b3edff56`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-coord-317a3fd03bb9-1791205881096493745-911901-2bf15639` at Hermit `317a3fd03bb9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.049 over 180 measured; floor 0.048 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.083 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-920ac3d15302-1791200968413850598-605244-9149536b` at Hermit `920ac3d15302`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-coord-a3862b22d7b7-1791198723653873307-3702195-3af6e824` at Hermit `a3862b22d7b7`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, log-diff-failed 180; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-coord-afd1f1d5d227-1791178671086851930-991513-70fd1bb2` at Hermit `afd1f1d5d227`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
@@ -2398,6 +2297,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-coord-tickval-4565b01b66c2-1791139406221186959-1755386-8f2aad77` at Hermit `4565b01b66c2`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-tickval-b3037b11fa56-1791136526911996485-754722-df9fcd8a` at Hermit `b3037b11fa56`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-tipval2-c1312a563dc5-20261003T235258Z` at Hermit `c1312a563dc5`: `parity: 0/208 matched; selected 208 of 208 committed; mean 0.056 over 188 measured; floor 0.055 over 191 of 208 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 1 no golden: crash 1; 16 not compared)`
+- validate run `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` at Hermit `a3d7e201e091`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 278 of 297 selected (counted as 0: 278 unmeasured: no-result-row 3, epoch-not-shared 275; excluded: 3 no golden: determinism-mismatch 3; 16 not compared)`
 - validate run `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` at Hermit `d1744e9fc07e`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 278 of 297 selected (counted as 0: 278 unmeasured: no-result-row 3, epoch-not-shared 275; excluded: 3 no golden: determinism-mismatch 3; 16 not compared)`
 - validate run `validate-d14-queue-a2b1deecaa21-1791037234447726839-773804-79469e5b` at Hermit `a2b1deecaa21`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-gate-select-9e698b862c8e-1791147210324610650-2296438-f7c76258` at Hermit `9e698b862c8e`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 276 measured; floor 0.043 over 279 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 2 no golden: ended 2; 16 not compared)`
@@ -2451,175 +2351,175 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 | Cell | Label | Legacy verdict | Compared records | First divergent record | Hermit commit | Determinism | Current parity |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | `c-programs/aio-refusal@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/aio-refusal@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/aio-refusal@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/append-pwrite@kvm` | legacy-rerun | diverged | 144 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/append-pwrite@liteinst` | legacy-rerun | diverged | 152 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/append-pwrite@liteinst` | legacy-rerun | diverged | 152 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/bind-getsockname@kvm` | legacy-rerun | diverged | 110 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/bind-getsockname@liteinst` | legacy-rerun | diverged | 110 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/bind-getsockname@liteinst` | legacy-rerun | diverged | 110 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/cachestat-refusal@kvm` | legacy-rerun | diverged | 124 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/cachestat-refusal@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/cachestat-refusal@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/child-subreaper-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/child-subreaper-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/child-subreaper-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/close-range-fds@kvm` | legacy-rerun | diverged | 137 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/close-range-fds@liteinst` | legacy-rerun | diverged | 145 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/close-range-fds@liteinst` | legacy-rerun | diverged | 145 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/copy-file-range-refusal@kvm` | legacy-rerun | diverged | 139 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/copy-file-range-refusal@liteinst` | legacy-rerun | diverged | 143 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/copy-file-range-refusal@liteinst` | legacy-rerun | diverged | 143 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/cpu-virtualization@kvm` | legacy-rerun | diverged | 104 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/cpu-virtualization@liteinst` | legacy-rerun | diverged | 104 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/cpu-virtualization@liteinst` | legacy-rerun | diverged | 104 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/cwd-roundtrip@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/cwd-roundtrip@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/cwd-roundtrip@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/dup-shared-offset@kvm` | legacy-rerun | diverged | 148 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/dup-shared-offset@liteinst` | legacy-rerun | diverged | 156 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/epoll-pwait2@liteinst` | legacy-rerun | diverged | 125 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/dup-shared-offset@liteinst` | legacy-rerun | diverged | 156 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/epoll-pwait2@liteinst` | legacy-rerun | diverged | 125 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/epoll-readiness@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/epoll-readiness@liteinst` | legacy-rerun | diverged | 123 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/event-delivery-ordering@liteinst` | legacy-rerun | diverged | 190 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/epoll-readiness@liteinst` | legacy-rerun | diverged | 123 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/event-delivery-ordering@liteinst` | legacy-rerun | diverged | 190 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/eventfd-semantics@kvm` | legacy-rerun | diverged | 169 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/eventfd-semantics@liteinst` | legacy-rerun | diverged | 169 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/eventfd-semantics@liteinst` | legacy-rerun | diverged | 169 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/faccessat2-flags@kvm` | legacy-rerun | diverged | 132 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/faccessat2-flags@liteinst` | legacy-rerun | diverged | 140 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/faccessat2-flags@liteinst` | legacy-rerun | diverged | 140 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/fadvise-hints@kvm` | legacy-rerun | diverged | 124 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/fadvise-hints@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/fadvise-hints@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/fallocate-extents@kvm` | legacy-rerun | diverged | 130 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/fallocate-extents@liteinst` | legacy-rerun | diverged | 138 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/fallocate-extents@liteinst` | legacy-rerun | diverged | 138 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/fchmod-bits@kvm` | legacy-rerun | diverged | 131 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/fchmod-bits@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/fchmodat2-flags@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/fcntl-owner@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/fchmod-bits@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/fchmodat2-flags@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/fcntl-owner@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/fd-duplication@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/fd-duplication@liteinst` | legacy-rerun | diverged | 171 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/fd-duplication@liteinst` | legacy-rerun | diverged | 171 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/file-backed-mmap@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/file-backed-mmap@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/file-backed-mmap@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/file-io-roundtrip@kvm` | legacy-rerun | diverged | 148 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/file-io-roundtrip@liteinst` | legacy-rerun | diverged | 148 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/file-io-roundtrip@liteinst` | legacy-rerun | diverged | 148 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/flock-lifecycle@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/flock-lifecycle@liteinst` | legacy-rerun | diverged | 129 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/flock-lifecycle@liteinst` | legacy-rerun | diverged | 129 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/fork-exec-pipeline@kvm` | legacy-rerun | diverged | 337 | 13 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/fsync-durability@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/fsync-durability@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/ftruncate-sparse@kvm` | legacy-rerun | diverged | 135 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/ftruncate-sparse@liteinst` | legacy-rerun | diverged | 143 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/ftruncate-sparse@liteinst` | legacy-rerun | diverged | 143 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/getcpu-identity@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/getcpu-identity@liteinst` | legacy-rerun | diverged | 123 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/getcpu-identity@liteinst` | legacy-rerun | diverged | 123 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/getpriority-identity@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/getpriority-identity@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/hardware-trap-identity@liteinst` | legacy-rerun | diverged | 312 | 16 | `5ee668223a15` | `diverged` | nondeterministic |
-| `c-programs/host-identity@liteinst` | legacy-rerun | diverged | 117 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/getpriority-identity@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | — |
+| `c-programs/hardware-trap-identity@liteinst` | legacy-rerun | diverged | 312 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/host-identity@liteinst` | legacy-rerun | diverged | 117 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/inline-syscall-sites@kvm` | legacy-rerun | diverged | 165 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/inline-syscall-sites@liteinst` | legacy-rerun | diverged | 165 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/inotify-watch@liteinst` | legacy-rerun | diverged | 110 | 16 | `5ee668223a15` | `diverged` | nondeterministic |
-| `c-programs/ioctl-fionread@liteinst` | legacy-rerun | diverged | 120 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/inline-syscall-sites@liteinst` | legacy-rerun | diverged | 165 | 16 | `5ee668223a15` | `measured-and-passed` | — |
+| `c-programs/inotify-watch@liteinst` | legacy-rerun | diverged | 110 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/ioctl-fionread@liteinst` | legacy-rerun | diverged | 120 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/kcmp-refusal@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/kcmp-refusal@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/kcmp-refusal@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/linkat-flags@kvm` | legacy-rerun | diverged | 146 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/linkat-flags@liteinst` | legacy-rerun | diverged | 154 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/linkat-flags@liteinst` | legacy-rerun | diverged | 154 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/lseek-positioning@kvm` | legacy-rerun | diverged | 143 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/lseek-positioning@liteinst` | legacy-rerun | diverged | 151 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/lseek-positioning@liteinst` | legacy-rerun | diverged | 151 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/mce-kill-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/mce-kill-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/mce-kill-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/membarrier-query@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/membarrier-query@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/membarrier-query@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/memfd-create@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/memfd-create@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/memfd-create@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/mempolicy-default@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/mempolicy-default@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/mempolicy-default@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/mincore-residency@kvm` | legacy-rerun | diverged | 119 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/mincore-residency@liteinst` | legacy-rerun | diverged | 119 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/mincore-residency@liteinst` | legacy-rerun | diverged | 119 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/mixed-inline-and-libc-syscalls@kvm` | legacy-rerun | diverged | 147 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/mixed-inline-and-libc-syscalls@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/mixed-inline-and-libc-syscalls@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/mkdir-rmdir@kvm` | legacy-rerun | diverged | 129 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/mkdir-rmdir@liteinst` | legacy-rerun | diverged | 137 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/mkdir-rmdir@liteinst` | legacy-rerun | diverged | 137 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/mknod-special@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/mknod-special@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/mknod-special@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/mmap-layout-pointer-order@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/mmap-layout-pointer-order@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/msync-writeback@liteinst` | legacy-rerun | diverged | 137 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/mmap-layout-pointer-order@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `measured-and-passed` | — |
+| `c-programs/msync-writeback@liteinst` | legacy-rerun | diverged | 137 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/name-to-handle-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/name-to-handle-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/name-to-handle-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/no-new-privs-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/no-new-privs-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/no-new-privs-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/numa-node-identity@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/numa-node-identity@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/numa-node-identity@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/o-tmpfile-anon@kvm` | legacy-rerun | diverged | 120 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/o-tmpfile-anon@liteinst` | legacy-rerun | diverged | 120 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/o-tmpfile-anon@liteinst` | legacy-rerun | diverged | 120 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/openat-flags@kvm` | legacy-rerun | diverged | 160 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/openat-flags@liteinst` | legacy-rerun | diverged | 168 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/openat-flags@liteinst` | legacy-rerun | diverged | 168 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/openat2-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/openat2-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/openat2-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/path-file-ops@kvm` | legacy-rerun | diverged | 141 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/path-file-ops@liteinst` | legacy-rerun | diverged | 149 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/personality-domain@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/path-file-ops@liteinst` | legacy-rerun | diverged | 149 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/personality-domain@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/pid-probe@kvm` | legacy-rerun | diverged | 101 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/pid-probe@liteinst` | legacy-rerun | diverged | 101 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/pid-probe@liteinst` | legacy-rerun | diverged | 101 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/pid-probe@sabre` | legacy-rerun | diverged | 32 | 3 | `5ee668223a15` | `measured-and-passed` | unavailable |
 | `c-programs/pidfd-open-self-pair@kvm` | legacy-rerun | diverged | 117 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/pidfd-open-self-pair@liteinst` | legacy-rerun | diverged | 117 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/pidfd-open-self-pair@liteinst` | legacy-rerun | diverged | 117 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/pipe-capacity-pin@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/pipe-capacity-pin@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/pipe-capacity-pin@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/pipe-capacity@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/pipe-capacity@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/pipe-capacity@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/pipe-ipc@kvm` | legacy-rerun | diverged | 158 | 13 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/pipe-ipc@liteinst` | legacy-rerun | diverged | 164 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/pipe-ipc@liteinst` | legacy-rerun | diverged | 164 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/pipe2-flags@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/pipe2-flags@liteinst` | legacy-rerun | diverged | 163 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/poll-readiness@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/prctl-identity@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/prctl-pdeathsig@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/preadv2-flags@liteinst` | legacy-rerun | diverged | 140 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/pthread-lifecycle@liteinst` | legacy-rerun | diverged | 214 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/pipe2-flags@liteinst` | legacy-rerun | diverged | 163 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/poll-readiness@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/prctl-identity@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/prctl-pdeathsig@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `measured-and-passed` | — |
+| `c-programs/preadv2-flags@liteinst` | legacy-rerun | diverged | 140 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/pthread-lifecycle@liteinst` | legacy-rerun | diverged | 214 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/readdir-entries@kvm` | legacy-rerun | diverged | 159 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/readdir-entries@liteinst` | legacy-rerun | diverged | 167 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/readdir-entries@liteinst` | legacy-rerun | diverged | 167 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/readdir-order-identity@kvm` | legacy-rerun | diverged | 13669 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/readdir-order-identity@liteinst` | legacy-rerun | diverged | 13677 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/record-lock@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/readdir-order-identity@liteinst` | legacy-rerun | diverged | 13677 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/record-lock@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/rename-ops@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/rename-ops@liteinst` | legacy-rerun | diverged | 171 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/rename-ops@liteinst` | legacy-rerun | diverged | 171 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/renameat2-flags@kvm` | legacy-rerun | diverged | 184 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/renameat2-flags@liteinst` | legacy-rerun | diverged | 192 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/renameat2-flags@liteinst` | legacy-rerun | diverged | 192 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/rlimit-identity@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/rlimit-identity@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/rlimit-identity@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/robust-list@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/robust-list@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/robust-list@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/sched-getaffinity-identity@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/sched-getaffinity-identity@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/sched-getaffinity-identity@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/seccomp-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/seccomp-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/seccomp-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/sendfile-copy@kvm` | legacy-rerun | diverged | 155 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/sendfile-copy@liteinst` | legacy-rerun | diverged | 159 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/sendfile-copy@liteinst` | legacy-rerun | diverged | 159 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/set-tid-address@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/set-tid-address@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/set-tid-address@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/short-io-split-identity@kvm` | legacy-rerun | diverged | 431 | 13 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/short-io-split-identity@liteinst` | legacy-rerun | diverged | 435 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/short-io-split-identity@liteinst` | legacy-rerun | diverged | 435 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/shutdown-socketpair@kvm` | legacy-rerun | diverged | 125 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/shutdown-socketpair@liteinst` | legacy-rerun | diverged | 125 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/signal-delivery-sequence@liteinst` | legacy-rerun | diverged | 997 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/signal-waitstatus-identity@liteinst` | legacy-rerun | diverged | 386 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/shutdown-socketpair@liteinst` | legacy-rerun | diverged | 125 | 16 | `5ee668223a15` | `measured-and-passed` | — |
+| `c-programs/signal-delivery-sequence@liteinst` | legacy-rerun | diverged | 997 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/signal-waitstatus-identity@liteinst` | legacy-rerun | diverged | 386 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/signalfd-create@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/signalfd-create@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/signalfd-create@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/socket-epoll-ordering@kvm` | legacy-rerun | diverged | 250 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/socket-epoll-ordering@liteinst` | legacy-rerun | diverged | 250 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/socket-options@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `diverged` | unavailable |
-| `c-programs/socketpair-flags@liteinst` | legacy-rerun | diverged | 119 | 16 | `5ee668223a15` | `diverged` | nondeterministic |
-| `c-programs/sockname-unnamed@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/socket-epoll-ordering@liteinst` | legacy-rerun | diverged | 250 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/socket-options@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/socketpair-flags@liteinst` | legacy-rerun | diverged | 119 | 16 | `5ee668223a15` | `diverged` | — |
+| `c-programs/sockname-unnamed@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/stat-metadata-identity@kvm` | legacy-rerun | diverged | 233 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/stat-metadata-identity@liteinst` | legacy-rerun | diverged | 233 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/stat-metadata-identity@liteinst` | legacy-rerun | diverged | 233 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/statfs-free-determinism@kvm` | legacy-rerun | diverged | 109 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/statfs-free-determinism@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/statfs-free-determinism@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/static-nolibc-syscall-sites@kvm` | legacy-rerun | diverged | 76 | 64 | `5ee668223a15` | `measured-and-passed` | unavailable |
 | `c-programs/statx-metadata@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/statx-metadata@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/statx-metadata@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/symlink-ops@kvm` | legacy-rerun | diverged | 152 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/symlink-ops@liteinst` | legacy-rerun | diverged | 160 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/symlink-ops@liteinst` | legacy-rerun | diverged | 160 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/sync-file-range@kvm` | legacy-rerun | diverged | 122 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/sync-file-range@liteinst` | legacy-rerun | diverged | 130 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
+| `c-programs/sync-file-range@liteinst` | legacy-rerun | diverged | 130 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/sysv-ipc-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/sysv-ipc-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/thp-disable@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/sysv-ipc-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `measured-and-passed` | — |
+| `c-programs/thp-disable@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/umask-mode@kvm` | legacy-rerun | diverged | 139 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/umask-mode@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/umask-mode@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/uname-identity@kvm` | legacy-rerun | diverged | 101 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/uname-identity@liteinst` | legacy-rerun | diverged | 101 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/uname-identity@liteinst` | legacy-rerun | diverged | 101 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/utimensat-determinism@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/utimensat-determinism@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/vectored-file-io@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/utimensat-determinism@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `measured-and-passed` | — |
+| `c-programs/vectored-file-io@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/vectored-io@kvm` | legacy-rerun | diverged | 126 | 13 | `5ee668223a15` | `measured-and-passed` | unavailable |
-| `c-programs/vectored-io@liteinst` | legacy-rerun | diverged | 126 | 16 | `5ee668223a15` | `diverged` | unavailable |
+| `c-programs/vectored-io@liteinst` | legacy-rerun | diverged | 126 | 16 | `5ee668223a15` | `diverged` | — |
