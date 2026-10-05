@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v2",
   "generated_from": {
-    "store_sha256": "fa89b8b6e24b14190848f7cba66889e97c0b399b70587f5b5d49291ccbc736c2",
-    "series_commit": "4a037848628c74c7e972d03722d8d10718a1db6e",
-    "tool_hermit_commit": "920ac3d15302dad6ed17b302ec18d65718c03b53"
+    "store_sha256": "c7b6ca95378e8deddb775176f065259fc474f30739fa54d84427dbe6ebcaa07e",
+    "series_commit": "a797fa2f15002a9b108c94daf7a65c89292b8948",
+    "tool_hermit_commit": "3589b3edff56948e937b57651dc8f6e1a61c70e4"
   },
   "store_present": true,
-  "rows_read": 15838,
+  "rows_read": 16333,
   "producers": [
     {
       "producer": "validate",
@@ -7851,6 +7851,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-claude-coord-3589b3edff56-1791203838387883418-1747108-ebb12384",
+      "hermit_sha": "3589b3edff56948e937b57651dc8f6e1a61c70e4",
+      "depth": {
+        "commits": 3954,
+        "first_parent": 3879
+      },
+      "emitted_at": "2026-10-05T13:00:08Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-claude-coord-920ac3d15302-1791200968413850598-605244-9149536b",
       "hermit_sha": "920ac3d15302dad6ed17b302ec18d65718c03b53",
       "depth": {
@@ -8069,6 +8082,16 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-netreplay-rework-402e28335c81-1791203834128814949-2026093-7ac832b4",
+      "hermit_sha": "402e28335c817294a6421dd72b327e2280253368",
+      "depth": null,
+      "emitted_at": "2026-10-05T12:58:47Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6",
       "hermit_sha": "7f8e75ff4d3aeedda9be0b7482795c89d41f8ed6",
       "depth": null,
@@ -8094,11 +8117,14 @@
       "producer": "validate",
       "run_id": "validate-netreplay-rework-b60d8231715c-1791200749755855046-1436481-d0fbefdf",
       "hermit_sha": "b60d8231715cdefc2b22a7f6f5a4ef66115290d4",
-      "depth": null,
+      "depth": {
+        "commits": 3954,
+        "first_parent": 3879
+      },
       "emitted_at": "2026-10-05T12:07:48Z",
       "source_tree_dirty": false,
       "headline": false,
-      "line": "parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)"
+      "line": "parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)"
     },
     {
       "producer": "validate",
