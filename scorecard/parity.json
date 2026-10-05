@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v2",
   "generated_from": {
-    "store_sha256": "7fc6c5ef1244ae55b4268b8a501288eca804aeeec30af5ff83ddb3725502cadd",
-    "series_commit": "e54e468280c2419afb591e0c94317d21e08f858b",
-    "tool_hermit_commit": "8b7b189183d55bf1cda7e94d2bcad8e86f335633"
+    "store_sha256": "11c6aa613b5a4e7013fa9a8a8998813f9c7dbc04ad1406336a5a6873ae4d1112",
+    "series_commit": "fa0fe9647888afdc29c79f961cea6e633616a6cf",
+    "tool_hermit_commit": "a3d7e201e091e9f3cd30c72906b5a659b732d637"
   },
   "store_present": true,
-  "rows_read": 14848,
+  "rows_read": 15145,
   "producers": [
     {
       "producer": "validate",
@@ -7942,6 +7942,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017",
+      "hermit_sha": "a3d7e201e091e9f3cd30c72906b5a659b732d637",
+      "depth": {
+        "commits": 3937,
+        "first_parent": 3862
+      },
+      "emitted_at": "2026-10-05T11:17:19Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 278 of 297 selected (counted as 0: 278 unmeasured: no-result-row 3, epoch-not-shared 275; excluded: 3 no golden: determinism-mismatch 3; 16 not compared)"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af",
       "hermit_sha": "d1744e9fc07e5262a93c19971947a6b168b61252",
       "depth": {
@@ -9413,7 +9426,7 @@
           "commits": 3222,
           "first_parent": 3147
         },
-        "determinism": "measured-and-passed",
+        "determinism": "diverged",
         "current_parity_verdict": "unavailable",
         "label": "legacy-rerun"
       },
