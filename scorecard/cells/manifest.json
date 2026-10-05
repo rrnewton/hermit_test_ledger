@@ -1,49 +1,49 @@
 {
-  "bytes": 395812399,
+  "bytes": 400002470,
   "part_max_bytes": 50331648,
   "parts": [
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0000",
-      "sha256": "cbe829d93b183fd6c6d32d26fdfe8b75a3340dcc910f17930521034e4ad4b4c1"
+      "sha256": "576d499b86ebeefb1f7f701b5c12b110d9c67b3e7969e12ac9d61e5d86745339"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0001",
-      "sha256": "2500692f9b49ab09e3a8ad318da08663d6008587eb41fda1914f295d4ec0bcc7"
+      "sha256": "74cb4fec54f3777d8a159fcc44e3e7e7d39dadf455034bd0511f9b42aec02125"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0002",
-      "sha256": "e3d53aaaa3ed339ae62cfe60fd9058960548a62dce0c90f07f5ca72ff29157e6"
+      "sha256": "6e7b82e5f6222c9ff1de498f88d18911bd0247b34a231629d12bfcd82ae60b04"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0003",
-      "sha256": "bd55ba75550713585c55cebec7e644d31bfe2c5f5b219b5fd56fd6200fe14149"
+      "sha256": "5924fa0f551d0dc2ededcb416475d0a9c569213bbd1af2869bbca3a908d5841c"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0004",
-      "sha256": "73d6483a597505a21773875b0cc60989c4b2672e8d5629250a7b69de8bf3e84f"
+      "sha256": "0d6969eed199b574aa0fec3ceca50c9b2936aeccdb869610aa37412d62075235"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0005",
-      "sha256": "4b88a417f3ff5f34ed0279160ceeb1a17884928568a67eb48ce20c0f4656b5ce"
+      "sha256": "14a0bffbea5d4c2d35dbe45c2dc7426ef7648e518d2f5728c0d51513cf649f6e"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0006",
-      "sha256": "bf4df9ea9deda834b003056cb7284f6531180a1c2207e35c51a2116ac51a9b91"
+      "sha256": "efecb7db2e6af9ce6cf340f158c9cce4fecac26e4a0eacc45e3a03176aaf0ecc"
     },
     {
-      "bytes": 43490863,
+      "bytes": 47680934,
       "path": "scorecard/cells/part-0007",
-      "sha256": "46c697933d913109dfd7db62d98f8c0ea51e9c2eedf885b52a89e63f81a0277b"
+      "sha256": "b9feb00e898f8caacd554a15618c0f9bbfc602c856b18aa33647587d5b767343"
     }
   ],
   "path": "scorecard/cells.json",
   "schema": "hermit-test-ledger-scorecard-cells/v1",
-  "sha256": "792a50bf48aae1579a97c69b381fea570bcbe35208768516451c81bb65b8d287"
+  "sha256": "764a08aee23e14f2c35929a7d804c3a942f32c4b1515338f22ed26c7fdb2b17e"
 }
