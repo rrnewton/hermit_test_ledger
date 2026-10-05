@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-05T05:59:07Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `96297ac4937a0a8336fc56398a251514a66df823`, reading 288418 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-netreplay-rework-27ee682e6475-1791179482454733843-2302177-80f2dba6` (1038). Earlier validate runs still supplying comparisons: `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), `validate-ops-tick-cec1ef5f402d-55392313f8a8` current (1042), `validate-tickhub-ops-3446e8af8cc5-1791159936556159007-429447-5717f395` current (1042), `validate-ops-tick-20d49d84ec23-914f280b5537` current (1039), `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), and 24 more.
+Last regenerated **2026-10-05T07:17:02Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `c136975c1cbd40d5951a47493e572b154ea2c2e2`, reading 289658 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6` (1042). Earlier validate runs still supplying comparisons: `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), `validate-ops-tick-cec1ef5f402d-55392313f8a8` current (1042), `validate-tickhub-ops-3446e8af8cc5-1791159936556159007-429447-5717f395` current (1042), `validate-ops-tick-20d49d84ec23-914f280b5537` current (1039), `validate-ops-tick-562b7dd7a635-80161ea9acc1` current (1039), and 25 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -85,10 +85,10 @@ The count table includes all **14800** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1072 | 0 | 3 | 156 | 1231 |
+| Selected by full | 0 | 1071 | 0 | 3 | 157 | 1231 |
 | Not selected by full | 283 | 392 | 11 | 0 | 28 | 714 |
 | Not applicable | 12559 | 199 | 80 | 0 | 17 | 12855 |
-| **Total** | **12842** | **1663** | **91** | **3** | **201** | **14800** |
+| **Total** | **12842** | **1662** | **91** | **3** | **202** | **14800** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -368,7 +368,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/getsockopt-null` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getsockopt-null` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hardware-trap-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
-| `c-programs/hardware-trap-identity` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
+| `c-programs/hardware-trap-identity` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/hardware-trap-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hardware-trap-identity` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/hello-alarm` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
@@ -2419,7 +2419,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 56 other parity run(s) in the store
+### 57 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2452,6 +2452,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` at Hermit `f85de5d891ab`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-hermit-lander-33f1c939a2e4-1791054196460293033-32690-ce1f4789` at Hermit `33f1c939a2e4`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-netreplay-rework-27ee682e6475-1791179482454733843-2302177-80f2dba6` at Hermit `27ee682e6475`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 280 of 297 selected (counted as 0: 280 unmeasured: no-result-row 3, epoch-not-shared 277; excluded: 1 no golden: timeout 1; 16 not compared)`
+- validate run `validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6` at Hermit `7f8e75ff4d3a`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 277 of 297 selected (counted as 0: 277 unmeasured: no-result-row 3, epoch-not-shared 274; excluded: 4 no golden: determinism-mismatch 3, timeout 1; 16 not compared)`
 - validate run `validate-ops-tick-0f028322361f-75248bd48fcd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-0f028322361f-a6fa2a143efd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-20077ee5b19f-63f1efea5c13` at Hermit `20077ee5b19f`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
@@ -2544,7 +2545,7 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 | `c-programs/getcpu-identity@liteinst` | legacy-rerun | diverged | 123 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/getpriority-identity@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/getpriority-identity@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
-| `c-programs/hardware-trap-identity@liteinst` | legacy-rerun | diverged | 312 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/hardware-trap-identity@liteinst` | legacy-rerun | diverged | 312 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/host-identity@liteinst` | legacy-rerun | diverged | 117 | 16 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/inline-syscall-sites@kvm` | legacy-rerun | diverged | 165 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/inline-syscall-sites@liteinst` | legacy-rerun | diverged | 165 | 16 | `5ee668223a15` | `measured-and-passed` | diverged |
