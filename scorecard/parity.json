@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v2",
   "generated_from": {
-    "store_sha256": "057df6901feced953dfcbb5fa7c93d360e2d6c95bea7eab52610aef9b30a2f4b",
-    "series_commit": "fb96055a8285120b7eece7da36ac0fe6ac88fd11",
-    "tool_hermit_commit": "cec1ef5f402d4e36058fe68dc6bde4e61d6bf75f"
+    "store_sha256": "f24671451b57f4760d1cd4feec1d7c107e4cc7a955eac1da03211cc5871546e5",
+    "series_commit": "096d6d0a8b48fac7cf20373557ee82877359d471",
+    "tool_hermit_commit": "4c0b7daa8ae64cf2034960bd412630f9bf6cba35"
   },
   "store_present": true,
-  "rows_read": 12555,
+  "rows_read": 12852,
   "producers": [
     {
       "producer": "validate",
@@ -7519,6 +7519,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86",
+      "hermit_sha": "4c0b7daa8ae64cf2034960bd412630f9bf6cba35",
+      "depth": {
+        "commits": 3904,
+        "first_parent": 3829
+      },
+      "emitted_at": "2026-10-04T23:53:41Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)"
     },
     {
       "producer": "validate",
