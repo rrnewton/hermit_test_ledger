@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-06T14:22:42Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `415beb6d51d502a3de025561e6045f1b2f7d4dc0`, reading 378943 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8` (909). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 62 more.
+Last regenerated **2026-10-06T14:57:38Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `ac5196f58e3ff1f885357c7725c22b6cf2105c78`, reading 380046 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-fa6be3120ef3-1791298381620961842-3364612-79fed6ab` (909). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 63 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -2013,16 +2013,16 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. **Mean credit** divides the credit sum by the measured (matched plus diverged) cells, so a measured cell without credit counts as 0. **Floor credit** divides it by every selected cell except two kinds that could not be compared: a **no golden** cell, where an operand's own outcome (a determinism mismatch, a timeout, a crash and the like) left no deterministic golden log, and a **not compared** cell, whose backend cannot be given the reference's inputs. So an **unmeasured** cell (a golden log could exist, but the harness or the parity tool made no comparison), a record-missing cell and a refused cell each count as 0. No cell of a backend whose inputs cannot be equalized enters any mean or floor, and a mean or floor over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C cells that selection owes, and a run that reported fewer is marked partial. Mean credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is. The `legacy-rerun` history at the end is the retired ptrace rerun's last verdicts; it is not current parity and enters no count here.
 
 
-### validate run `validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8` at `f2f7c0af8091`
+### validate run `validate-claude-coord-fa6be3120ef3-1791298381620961842-3364612-79fed6ab` at `fa6be3120ef3`
 
-`parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 191 of 195 credited: mean 0.056 over 191 with equal inputs; mean 0.025 over 4 with unequal inputs]`
+`parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 
 | Candidate backend | Selected | Measured | Matched | Diverged | No golden | Not compared | Unmeasured | Record-missing | Refused | Mean credit (measured) | Floor credit | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 16 of 16 | 14 | 0 | 14 | 0 | 0 | 2 | 0 | 0 | 0.030 | 0.027 | equalized for 12 of 14 (mean 0.030 equal; 0.035 unequal) |
-| `kvm` | 91 of 91 | 91 | 0 | 91 | 0 | 0 | 0 | 0 | 0 | 0.099 | 0.099 | equalized |
-| `sabre` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.014 | 0.014 | equalized for 88 of 90 (mean 0.014 equal; 0.015 unequal) |
-| **TOTAL** | 198 of 198 | 195 | 0 | 195 | 0 | 0 | 3 | 0 | 0 | 0.055 | 0.054 | equalized for 191 of 195 (mean 0.056 equal; 0.025 unequal) |
+| `dbt` | 16 of 16 | 14 | 0 | 14 | 0 | 0 | 2 | 0 | 0 | 0.030 | 0.027 | equalized for 13 of 14 (mean 0.030 equal; 0.040 unequal) |
+| `kvm` | 91 of 91 | 91 | 1 | 90 | 0 | 0 | 0 | 0 | 0 | 0.121 | 0.121 | equalized |
+| `sabre` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.014 | 0.014 | equalized |
+| **TOTAL** | 198 of 198 | 195 | 1 | 194 | 0 | 0 | 3 | 0 | 0 | 0.065 | 0.064 | equalized for 194 of 195 (mean 0.065 equal; 0.040 unequal) |
 
 Cells that were not measured, by class: a no-golden cell is outside the mean and the floor, and an unmeasured cell counts 0 in the floor.
 
@@ -2030,209 +2030,208 @@ Cells that were not measured, by class: a no-golden cell is outside the mean and
 | --- | --- | ---: | ---: | ---: | ---: |
 | `no-result-row` | unmeasured | 2 | 0 | 1 | 3 |
 
-Most common first divergence: 90 of 195 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` (for example `c-programs/aio-refusal@sabre`).
+Most common first divergence: 90 of 194 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` (for example `c-programs/aio-refusal@sabre`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
 | Cell | Verdict | Credit | First divergence or reason |
 | --- | --- | ---: | --- |
-| `c-programs/aio-refusal@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/aio-refusal@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/aio-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/append-pwrite@kvm` | diverged | 0.083 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/append-pwrite@kvm` | diverged | 0.103 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/append-pwrite@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/bind-getsockname@kvm` | diverged | 0.105 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/bind-getsockname@kvm` | diverged | 0.129 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/bind-getsockname@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/cachestat-refusal@kvm` | diverged | 0.093 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/cachestat-refusal@kvm` | diverged | 0.118 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/cachestat-refusal@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/child-subreaper-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/child-subreaper-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/child-subreaper-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/close-range-fds@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/copy-file-range-refusal@kvm` | diverged | 0.087 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/close-range-fds@kvm` | diverged | 0.105 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/copy-file-range-refusal@kvm` | diverged | 0.107 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/copy-file-range-refusal@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/cpu-virtualization@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cpu-virtualization@kvm` | diverged | 0.110 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/cpu-virtualization@kvm` | diverged | 0.136 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/cpu-virtualization@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/cpuid-probe@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/cpuid-probe@kvm` | diverged | 0.129 | record 14, syscall 2: token 9: `access(0x7ffff7ff3580` vs `access(0x102f580` |
-| `c-programs/cwd-roundtrip@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/cwd-roundtrip@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/cwd-roundtrip@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/dup-shared-offset@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/dup-shared-offset@kvm` | diverged | 0.081 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/dup-shared-offset@kvm` | diverged | 0.100 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/dup-shared-offset@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/epoll-pwait2@kvm` | diverged | 0.094 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/epoll-pwait2@kvm` | diverged | 0.115 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/epoll-pwait2@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/epoll-readiness@kvm` | diverged | 0.095 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/epoll-readiness@kvm` | diverged | 0.117 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/epoll-readiness@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/event-delivery-ordering@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/eventfd-semantics@kvm` | diverged | 0.071 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/eventfd-semantics@kvm` | diverged | 0.087 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/eventfd-semantics@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/faccessat2-flags@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/faccessat2-flags@kvm` | diverged | 0.111 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/faccessat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fadvise-hints@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fadvise-hints@kvm` | diverged | 0.118 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fadvise-hints@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fallocate-extents@kvm` | diverged | 0.092 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fallocate-extents@kvm` | diverged | 0.113 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fallocate-extents@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fchmod-bits@kvm` | diverged | 0.091 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fchmod-bits@kvm` | diverged | 0.112 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fchmod-bits@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fchmodat2-flags@kvm` | diverged | 0.091 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fchmodat2-flags@kvm` | diverged | 0.112 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fchmodat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fcntl-owner@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fcntl-owner@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fcntl-owner@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/fd-duplication@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fd-duplication@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fd-duplication@kvm` | diverged | 0.091 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fd-duplication@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/file-backed-mmap@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/file-backed-mmap@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/file-backed-mmap@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/file-io-roundtrip@kvm` | diverged | 0.080 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/file-io-roundtrip@kvm` | diverged | 0.099 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/file-io-roundtrip@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/flock-lifecycle@kvm` | diverged | 0.098 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/flock-lifecycle@kvm` | diverged | 0.120 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/flock-lifecycle@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.050 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/fsync-durability@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.061 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/fsync-durability@kvm` | diverged | 0.118 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fsync-durability@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/ftruncate-sparse@kvm` | diverged | 0.086 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/ftruncate-sparse@kvm` | diverged | 0.109 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/ftruncate-sparse@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/getcpu-identity@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getcpu-identity@kvm` | diverged | 0.095 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/getcpu-identity@kvm` | diverged | 0.117 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/getcpu-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/getpriority-identity@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getpriority-identity@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/getpriority-identity@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/getpriority-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/hardware-trap-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/hardware-trap-identity has no result row in this run |
-| `c-programs/host-identity@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/host-identity@sabre` | diverged | 0.015 (unequalized) | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/inline-syscall-sites@kvm` | diverged | 0.073 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/host-identity@dbt` | diverged | 0.031 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/host-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/inline-syscall-sites@kvm` | diverged | 0.089 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/inline-syscall-sites@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/inotify-watch@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/ioctl-fionread@kvm` | diverged | 0.097 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/ioctl-fionread@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/ioctl-fionread@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/kcmp-refusal@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/kcmp-refusal@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/kcmp-refusal@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/linkat-flags@kvm` | diverged | 0.082 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/linkat-flags@kvm` | diverged | 0.101 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/linkat-flags@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/lseek-positioning@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/lseek-positioning@kvm` | diverged | 0.084 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/lseek-positioning@kvm` | diverged | 0.103 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/lseek-positioning@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mce-kill-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mce-kill-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mce-kill-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/membarrier-query@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/membarrier-query@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/membarrier-query@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/memfd-create@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/memfd-create@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/memfd-create@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mempolicy-default@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mempolicy-default@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mempolicy-default@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mincore-residency@kvm` | diverged | 0.098 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mincore-residency@kvm` | diverged | 0.120 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mincore-residency@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mixed-inline-and-libc-syscalls@kvm` | diverged | 0.081 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mixed-inline-and-libc-syscalls@kvm` | diverged | 0.099 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mixed-inline-and-libc-syscalls@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mkdir-rmdir@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mkdir-rmdir@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mkdir-rmdir@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mknod-special@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mknod-special@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mknod-special@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mmap-layout-pointer-order@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mmap-layout-pointer-order@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mmap-layout-pointer-order@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/msync-writeback@kvm` | diverged | 0.092 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/msync-writeback@kvm` | diverged | 0.113 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/msync-writeback@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/name-to-handle-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/name-to-handle-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/name-to-handle-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/no-new-privs-refusal@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/no-new-privs-refusal@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/no-new-privs-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/numa-node-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/numa-node-identity@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/numa-node-identity@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/numa-node-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/o-tmpfile-anon@kvm` | diverged | 0.097 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/o-tmpfile-anon@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/o-tmpfile-anon@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/openat-flags@kvm` | diverged | 0.076 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/openat-flags@kvm` | diverged | 0.093 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/openat-flags@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/openat2-refusal@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/openat2-refusal@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/openat2-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/path-file-ops@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/path-file-ops@kvm` | diverged | 0.105 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/path-file-ops@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/personality-domain@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/pid-probe@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pid-probe@kvm` | diverged | 0.113 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pid-probe@kvm` | diverged | 0.139 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pid-probe@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/pidfd-open-self-pair@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pidfd-open-self-pair@kvm` | diverged | 0.099 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pidfd-open-self-pair@kvm` | diverged | 0.122 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pidfd-open-self-pair@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pipe-capacity@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pipe-capacity@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pipe-capacity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pipe-capacity-pin@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pipe-capacity-pin@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pipe-capacity-pin@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pipe-ipc@kvm` | diverged | 0.076 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/pipe2-flags@kvm` | diverged | 0.073 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pipe-ipc@kvm` | diverged | 0.094 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/pipe2-flags@kvm` | diverged | 0.090 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pipe2-flags@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/poll-readiness@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/poll-readiness@kvm` | diverged | 0.105 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/poll-readiness@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/prctl-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/prctl-identity@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/prctl-identity@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/prctl-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/prctl-pdeathsig@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/preadv2-flags@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/preadv2-flags@kvm` | diverged | 0.111 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/preadv2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pthread-lifecycle@kvm` | diverged | 0.057 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pthread-lifecycle@kvm` | diverged | 0.070 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pthread-lifecycle@sabre` | candidate-missing[no-result-row] | — | the sabre candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
-| `c-programs/readdir-entries@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/readdir-entries@kvm` | diverged | 0.094 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/readdir-entries@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/readdir-order-identity@kvm` | diverged | 0.001 | record 14, syscall 2: token 10: `0x7fffffffeb20)` vs `0x3fffeb50)` |
-| `c-programs/record-lock@sabre` | diverged | 0.015 (unequalized) | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/rename-ops@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/readdir-order-identity@kvm` | diverged | 0.001 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/record-lock@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/rename-ops@kvm` | diverged | 0.091 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/rename-ops@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/renameat2-flags@kvm` | diverged | 0.066 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/renameat2-flags@kvm` | diverged | 0.082 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/renameat2-flags@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/rlimit-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/rlimit-identity@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/rlimit-identity@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/rlimit-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/robust-list@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/robust-list@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/robust-list@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/sched-getaffinity-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sched-getaffinity-identity@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sched-getaffinity-identity@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sched-getaffinity-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/seccomp-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/seccomp-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/seccomp-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sendfile-copy@kvm` | diverged | 0.079 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sendfile-copy@kvm` | diverged | 0.097 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sendfile-copy@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/set-tid-address@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/set-tid-address@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/set-tid-address@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/short-io-split-identity@kvm` | diverged | 0.030 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/short-io-split-identity@kvm` | diverged | 0.037 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/short-io-split-identity@sabre` | diverged | 0.005 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/shutdown-socketpair@kvm` | diverged | 0.094 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/shutdown-socketpair@kvm` | diverged | 0.115 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/shutdown-socketpair@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/signal-waitstatus-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/signal-waitstatus-identity has no result row in this run |
-| `c-programs/signalfd-create@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/signalfd-create@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/signalfd-create@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/socket-epoll-ordering@kvm` | diverged | 0.049 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/socket-epoll-ordering@kvm` | diverged | 0.061 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/socket-epoll-ordering@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/socket-options@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/socket-options@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/socket-options@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/socketpair-flags@kvm` | diverged | 0.098 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/socketpair-flags@kvm` | diverged | 0.120 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/socketpair-flags@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sockname-unnamed@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sockname-unnamed@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sockname-unnamed@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/stat-metadata-identity@kvm` | diverged | 0.053 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/stat-metadata-identity@kvm` | diverged | 0.065 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/stat-metadata-identity@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/statfs-free-determinism@kvm` | diverged | 0.106 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/statfs-free-determinism@kvm` | diverged | 0.130 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/statfs-free-determinism@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/static-nolibc-syscall-sites@kvm` | diverged | 0.840 | record 64, syscall 15: token 10: `0x7fffffffec5b,` vs `0x3fffec7b,` |
-| `c-programs/statx-metadata@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/statx-metadata@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/statx-metadata@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/symlink-ops@kvm` | diverged | 0.079 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/symlink-ops@kvm` | diverged | 0.098 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/symlink-ops@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sync-file-range@kvm` | diverged | 0.094 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sync-file-range@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sync-file-range@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sysv-ipc-refusal@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sysv-ipc-refusal@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sysv-ipc-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/thp-disable@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/thp-disable@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/thp-disable@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/umask-mode@kvm` | diverged | 0.086 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/umask-mode@kvm` | diverged | 0.106 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/umask-mode@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/uname-identity@kvm` | diverged | 0.113 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/uname-identity@kvm` | diverged | 0.139 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/uname-identity@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/utimensat-determinism@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/utimensat-determinism@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/utimensat-determinism@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/vectored-file-io@kvm` | diverged | 0.086 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/vectored-file-io@kvm` | diverged | 0.106 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/vectored-file-io@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/vectored-io@kvm` | diverged | 0.093 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/vectored-io@kvm` | diverged | 0.114 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/vectored-io@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 
 ### pressure-test run `p2-screen1` at `7759159896ab` (partial: selected 14 of 297 committed)
@@ -2272,7 +2271,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 135 other parity run(s) in the store
+### 136 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2324,6 +2323,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` at Hermit `d1744e9fc07e`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 275 of 297 selected (counted as 0: 275 unmeasured: no-result-row 3, epoch-not-shared 272; excluded: 6 no golden: determinism-mismatch 6; 16 not compared)`
 - validate run `validate-claude-coord-f1d591e88c3a-1791244197906338526-2918610-080dfb0a` at Hermit `f1d591e88c3a`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-claude-coord-f20e4619e1e5-1791233666988779907-370563-a76b8b84` at Hermit `f20e4619e1e5`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.051 over 180 measured; floor 0.051 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.088 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8` at Hermit `f2f7c0af8091`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 191 of 195 credited: mean 0.056 over 191 with equal inputs; mean 0.025 over 4 with unequal inputs]`
 - validate run `validate-claude-coord-f43c990b3c96-1791237892198194518-3054844-abff85f6` at Hermit `f43c990b3c96`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.049 over 182 measured; floor 0.045 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.082 over 91 with unequal inputs]`
 - validate run `validate-claude-coord-f7b56bd0d3d0-1791265402661147859-705779-d31eb59f` at Hermit `f7b56bd0d3d0`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-f7efac2e8c6a-1791221322434517129-732102-370d21a3` at Hermit `f7efac2e8c6a`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
@@ -2341,14 +2341,14 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-gate-select-9e7dd6e33cf6-1791027490982151389-186043-c4a5cdf6` at Hermit `9e7dd6e33cf6`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` at Hermit `f85de5d891ab`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-hermit-lander-0930a4b59958-1791260460602815700-1427097-b02e49a4` at Hermit `0930a4b59958`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
-- validate run `validate-hermit-lander-0e176d54bdea-1791294089396942292-1881962-abbb853d` at Hermit `0e176d54bdea`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-0e176d54bdea-1791294089396942292-1881962-abbb853d` at Hermit `0e176d54bdea`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-33f1c939a2e4-1791054196460293033-32690-ce1f4789` at Hermit `33f1c939a2e4`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-hermit-lander-48ff0d995aab-1791283456200827282-396969-d8cde876` at Hermit `48ff0d995aab`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-48ff0d995aab-1791284440676935904-2462961-036cb8aa` at Hermit `48ff0d995aab`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-4dc328776550-1791268225059657154-1333575-ba294a11` at Hermit `4dc328776550`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-6eba7f9b579d-1791257736460279076-2526806-48058b89` at Hermit `6eba7f9b579d`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-hermit-lander-77fcf6f85543-1791282153028459842-2065390-7aa78f0e` at Hermit `77fcf6f85543`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-hermit-lander-940f6ac850ba-1791292208237695632-3527024-a8db6d95` at Hermit `940f6ac850ba`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-940f6ac850ba-1791292208237695632-3527024-a8db6d95` at Hermit `940f6ac850ba`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-dd1ce92e34ac-1791251246926096137-473458-56ff8b39` at Hermit `dd1ce92e34ac`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-netreplay-rework-21e5d7325b72-1791269200292403729-2507537-ac1ad381` at Hermit `21e5d7325b72`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-netreplay-rework-27ee682e6475-1791179482454733843-2302177-80f2dba6` at Hermit `27ee682e6475`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 280 of 297 selected (counted as 0: 280 unmeasured: no-result-row 3, epoch-not-shared 277; excluded: 1 no golden: timeout 1; 16 not compared)`
@@ -2578,7 +2578,7 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 | `c-programs/stat-metadata-identity@liteinst` | legacy-rerun | diverged | 233 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/statfs-free-determinism@kvm` | legacy-rerun | diverged | 109 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/statfs-free-determinism@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/static-nolibc-syscall-sites@kvm` | legacy-rerun | diverged | 76 | 64 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/static-nolibc-syscall-sites@kvm` | legacy-rerun | diverged | 76 | 64 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/statx-metadata@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
 | `c-programs/statx-metadata@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/symlink-ops@kvm` | legacy-rerun | diverged | 152 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
