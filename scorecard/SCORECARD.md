@@ -1,33 +1,33 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-06T04:07:45Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `ad762c0bb476c2fa14ad3ac256e990c84621f421`, reading 340392 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-ops-tick-cbef0ac85172-79bdbb42d8ba` (896). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 50 more.
+Last regenerated **2026-10-06T04:33:06Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `2a809bcad815dae39d6a69ea6cf5e13023bbad48`, reading 343673 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-04b389291e0d-1791260959647858637-576130-9fe488be` (909). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 51 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **12576** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1085** are selected by full, **711** are not selected by full, and **10780** are **Not applicable**.
+The count table includes all **12576** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1098** are selected by full, **698** are not selected by full, and **10780** are **Not applicable**.
 
-Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. **189** of the **1075** selected `verify` cells declare `comparator: stripped` (`compat` on `ptrace`: 189). They run Hermit's default `--verify` and pass only on a verified, matched report of a non-empty stripped comparison; they are below L2, never `bitwise_parity`, and are counted in these tables as selected, not as canonical. These same-backend results do not establish cross-backend parity.
+Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. **189** of the **1088** selected `verify` cells declare `comparator: stripped` (`compat` on `ptrace`: 189). They run Hermit's default `--verify` and pass only on a verified, matched report of a non-empty stripped comparison; they are below L2, never `bitwise_parity`, and are counted in these tables as selected, not as canonical. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
 | `ptrace` | 561 | 372 | 1425 | 2358 |
-| `dbt` | 26 | 59 | 2273 | 2358 |
-| `kvm` | 258 | 8 | 2092 | 2358 |
+| `dbt` | 38 | 47 | 2273 | 2358 |
+| `kvm` | 259 | 7 | 2092 | 2358 |
 | `sabre` | 240 | 239 | 1879 | 2358 |
 | `liteinst` | 0 | 0 | 2358 | 2358 |
 | `native` | 0 | 33 | 753 | 786 |
-| **Total** | **1085** | **711** | **10780** | **12576** |
+| **Total** | **1098** | **698** | **10780** | **12576** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **1085 of 12576**, which is **8.63%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **1098 of 12576**, which is **8.73%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **10780 of those 12576 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1796 cells that CAN run, selected by full is **60.41%**.
+⚠️ **10780 of those 12576 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1796 cells that CAN run, selected by full is **61.14%**.
 
-⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1085 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
+⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1098 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
 ⚠️ **Adding or removing a backend or mode changes this denominator and therefore the percentage, without anything about the product changing.** Removing a backend whose cells are mostly not selected RAISES the reported figure; adding manifest cells that are not selected LOWERS it. Neither is progress. Before comparing this percentage against an earlier one, diff the two lists above: if they differ, the numbers are not comparable and the difference is not a result.
 
@@ -35,11 +35,11 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `verify` | 551 / 786 | 26 / 786 | 258 / 786 | 240 / 786 | 0 / 786 | — | 1075 | 538 | 2317 | 3930 |
+| `verify` | 551 / 786 | 38 / 786 | 259 / 786 | 240 / 786 | 0 / 786 | — | 1088 | 525 | 2317 | 3930 |
 | `replay` | 4 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | — | 4 | 139 | 3787 | 3930 |
 | `chaos` | 6 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | — | 6 | 1 | 3923 | 3930 |
 | `naked` | — | — | — | — | — | 0 / 786 | 0 | 33 | 753 | 786 |
-| **Total** | | | | | | | **1085** | **711** | **10780** | **12576** |
+| **Total** | | | | | | | **1098** | **698** | **10780** | **12576** |
 
 ## Ptrace by manifest category
 
@@ -61,7 +61,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | `system-utils` | 39 / 39 | 1 / 39 | 0 / 39 | 40 | 117 |
 | `util-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 
-Ordinary full validation executes 1089 cells: the 1085 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
+Ordinary full validation executes 1102 cells: the 1098 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
 
 ### Selected custom commands outside the comparable denominator
 
@@ -76,7 +76,7 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **346** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **336** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -84,8 +84,8 @@ The count table includes all **12576** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1002 | 0 | 2 | 81 | 1085 |
-| Not selected by full | 328 | 346 | 9 | 0 | 28 | 711 |
+| Selected by full | 0 | 1012 | 0 | 2 | 84 | 1098 |
+| Not selected by full | 328 | 336 | 9 | 0 | 25 | 698 |
 | Not applicable | 10336 | 242 | 82 | 0 | 120 | 10780 |
 | **Total** | **10664** | **1590** | **91** | **2** | **229** | **12576** |
 
@@ -182,7 +182,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/copy-file-range-refusal-probe` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/cpu-virtualization` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/cpu-virtualization` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/cpu-virtualization` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/cpu-virtualization` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/cpu-virtualization` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -231,7 +231,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/dbt-wait-lifecycle` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/dup-shared-offset` | `verify` | `dbt` | `Not selected by full` | `diverged` |
+| `c-programs/dup-shared-offset` | `verify` | `dbt` | `Selected by full` | `diverged` |
 | `c-programs/dup-shared-offset` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dup-shared-offset` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/dup-shared-offset` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -282,7 +282,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/fcntl-owner` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/fcntl-owner` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/fcntl-owner` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/fd-duplication` | `verify` | `dbt` | `Not selected by full` | `diverged` |
+| `c-programs/fd-duplication` | `verify` | `dbt` | `Selected by full` | `diverged` |
 | `c-programs/fd-duplication` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/fd-duplication` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/fd-duplication` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -345,7 +345,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/getcpu` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/getcpu-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/getcpu-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/getcpu-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -354,7 +354,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/getitimer-determinism-probe` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/getitimer-determinism-probe` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getitimer-determinism-probe` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/getpriority-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/getpriority-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getpriority-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getpriority-identity` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/getpriority-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -380,7 +380,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/hello-signals` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/host-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/host-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/host-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/host-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/host-identity` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -450,7 +450,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/liteinst-advanced` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/liteinst-advanced` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/liteinst-advanced` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/lseek-positioning` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/lseek-positioning` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lseek-positioning` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lseek-positioning` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/lseek-positioning` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -614,7 +614,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/no-new-privs-refusal` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/no-new-privs-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/no-new-privs-refusal` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/numa-node-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/numa-node-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/numa-node-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/numa-node-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/numa-node-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -673,7 +673,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/pidfd-open-self` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pidfd-open-self` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-open-self` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/pidfd-open-self-pair` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/pidfd-open-self-pair` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-open-self-pair` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-open-self-pair` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pidfd-open-self-pair` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -725,7 +725,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/prctl-dumpable` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/prctl-dumpable` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prctl-dumpable` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/prctl-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/prctl-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prctl-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/prctl-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/prctl-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -792,7 +792,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/pselect6-simulation` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pselect6-simulation` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pselect6-simulation` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/pthread-lifecycle` | `verify` | `kvm` | `Not selected by full` | `diverged` |
+| `c-programs/pthread-lifecycle` | `verify` | `kvm` | `Selected by full` | `diverged` |
 | `c-programs/pthread-lifecycle` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pthread-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pthread-lifecycle` | `verify` | `sabre` | `Not selected by full` | `diverged` |
@@ -898,7 +898,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/resource-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/resource-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/resource-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/rlimit-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/rlimit-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/rlimit-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/rlimit-identity` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/rlimit-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -907,7 +907,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/robust-list` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/robust-list` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/robust-list` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sched-getaffinity-identity` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/sched-getaffinity-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-getaffinity-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-getaffinity-identity` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sched-getaffinity-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -2013,24 +2013,24 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. **Mean credit** divides the credit sum by the measured (matched plus diverged) cells, so a measured cell without credit counts as 0. **Floor credit** divides it by every selected cell except two kinds that could not be compared: a **no golden** cell, where an operand's own outcome (a determinism mismatch, a timeout, a crash and the like) left no deterministic golden log, and a **not compared** cell, whose backend cannot be given the reference's inputs. So an **unmeasured** cell (a golden log could exist, but the harness or the parity tool made no comparison), a record-missing cell and a refused cell each count as 0. No cell of a backend whose inputs cannot be equalized enters any mean or floor, and a mean or floor over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C cells that selection owes, and a run that reported fewer is marked partial. Mean credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is. The `legacy-rerun` history at the end is the retired ptrace rerun's last verdicts; it is not current parity and enters no count here.
 
 
-### validate run `validate-ops-tick-cbef0ac85172-79bdbb42d8ba` at `cbef0ac85172`
+### validate run `validate-claude-coord-04b389291e0d-1791260959647858637-576130-9fe488be` at `04b389291e0d`
 
-`parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
+`parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 
 | Candidate backend | Selected | Measured | Matched | Diverged | No golden | Not compared | Unmeasured | Record-missing | Refused | Mean credit (measured) | Floor credit | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 16 of 16 | 2 | 0 | 2 | 0 | 0 | 14 | 0 | 0 | 0.037 | 0.005 | not equalized |
-| `kvm` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.099 | 0.098 | equalized |
+| `dbt` | 16 of 16 | 14 | 0 | 14 | 0 | 0 | 2 | 0 | 0 | 0.030 | 0.027 | equalized for 13 of 14 (mean 0.030 equal; 0.040 unequal) |
+| `kvm` | 91 of 91 | 91 | 0 | 91 | 0 | 0 | 0 | 0 | 0 | 0.099 | 0.099 | equalized |
 | `sabre` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.014 | 0.014 | equalized |
-| **TOTAL** | 198 of 198 | 182 | 0 | 182 | 0 | 0 | 16 | 0 | 0 | 0.057 | 0.052 | equalized for 180 of 182 (mean 0.057 equal; 0.037 unequal) |
+| **TOTAL** | 198 of 198 | 195 | 0 | 195 | 0 | 0 | 3 | 0 | 0 | 0.055 | 0.054 | equalized for 194 of 195 (mean 0.055 equal; 0.040 unequal) |
 
 Cells that were not measured, by class: a no-golden cell is outside the mean and the floor, and an unmeasured cell counts 0 in the floor.
 
 | Class | Group | `dbt` | `kvm` | `sabre` | **TOTAL** |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `no-result-row` | unmeasured | 14 | 1 | 1 | 16 |
+| `no-result-row` | unmeasured | 2 | 0 | 1 | 3 |
 
-Most common first divergence: 90 of 182 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` (for example `c-programs/aio-refusal@sabre`).
+Most common first divergence: 90 of 195 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` (for example `c-programs/aio-refusal@sabre`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
@@ -2049,14 +2049,14 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/close-range-fds@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/copy-file-range-refusal@kvm` | diverged | 0.087 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/copy-file-range-refusal@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/cpu-virtualization@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/cpu-virtualization has no result row in this run |
+| `c-programs/cpu-virtualization@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/cpu-virtualization@kvm` | diverged | 0.110 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/cpu-virtualization@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/cpuid-probe@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/cpuid-probe@kvm` | diverged | 0.129 | record 14, syscall 2: token 9: `access(0x7ffff7ff3580` vs `access(0x102f580` |
 | `c-programs/cwd-roundtrip@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/cwd-roundtrip@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/dup-shared-offset@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/dup-shared-offset has no result row in this run |
+| `c-programs/dup-shared-offset@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/dup-shared-offset@kvm` | diverged | 0.081 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/dup-shared-offset@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/epoll-pwait2@kvm` | diverged | 0.094 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
@@ -2078,7 +2078,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/fchmodat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/fcntl-owner@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/fcntl-owner@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fd-duplication@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/fd-duplication has no result row in this run |
+| `c-programs/fd-duplication@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/fd-duplication@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/fd-duplication@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/file-backed-mmap@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
@@ -2092,14 +2092,14 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/fsync-durability@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/ftruncate-sparse@kvm` | diverged | 0.086 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/ftruncate-sparse@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/getcpu-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/getcpu-identity has no result row in this run |
+| `c-programs/getcpu-identity@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/getcpu-identity@kvm` | diverged | 0.095 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/getcpu-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/getpriority-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/getpriority-identity has no result row in this run |
+| `c-programs/getpriority-identity@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/getpriority-identity@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/getpriority-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/hardware-trap-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/hardware-trap-identity has no result row in this run |
-| `c-programs/host-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/host-identity has no result row in this run |
+| `c-programs/host-identity@dbt` | diverged | 0.031 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/host-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/inline-syscall-sites@kvm` | diverged | 0.073 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/inline-syscall-sites@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
@@ -2110,7 +2110,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/kcmp-refusal@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/linkat-flags@kvm` | diverged | 0.082 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/linkat-flags@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/lseek-positioning@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/lseek-positioning has no result row in this run |
+| `c-programs/lseek-positioning@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/lseek-positioning@kvm` | diverged | 0.084 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/lseek-positioning@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/mce-kill-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
@@ -2137,7 +2137,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/name-to-handle-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/no-new-privs-refusal@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/no-new-privs-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/numa-node-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/numa-node-identity has no result row in this run |
+| `c-programs/numa-node-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/numa-node-identity@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/numa-node-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/o-tmpfile-anon@kvm` | diverged | 0.097 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
@@ -2149,10 +2149,10 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/path-file-ops@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/path-file-ops@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/personality-domain@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pid-probe@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pid-probe@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/pid-probe@kvm` | diverged | 0.113 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/pid-probe@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pidfd-open-self-pair@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/pidfd-open-self-pair has no result row in this run |
+| `c-programs/pidfd-open-self-pair@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/pidfd-open-self-pair@kvm` | diverged | 0.099 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/pidfd-open-self-pair@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/pipe-capacity@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
@@ -2164,13 +2164,13 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/pipe2-flags@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/poll-readiness@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/poll-readiness@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/prctl-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/prctl-identity has no result row in this run |
+| `c-programs/prctl-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/prctl-identity@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/prctl-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/prctl-pdeathsig@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/preadv2-flags@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/preadv2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pthread-lifecycle@kvm` | candidate-missing[no-result-row] | — | the kvm candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
+| `c-programs/pthread-lifecycle@kvm` | diverged | 0.057 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/pthread-lifecycle@sabre` | candidate-missing[no-result-row] | — | the sabre candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
 | `c-programs/readdir-entries@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/readdir-entries@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
@@ -2180,12 +2180,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/rename-ops@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/renameat2-flags@kvm` | diverged | 0.066 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/renameat2-flags@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/rlimit-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/rlimit-identity has no result row in this run |
+| `c-programs/rlimit-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/rlimit-identity@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/rlimit-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/robust-list@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/robust-list@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sched-getaffinity-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/sched-getaffinity-identity has no result row in this run |
+| `c-programs/sched-getaffinity-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/sched-getaffinity-identity@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/sched-getaffinity-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/seccomp-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
@@ -2272,7 +2272,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 100 other parity run(s) in the store
+### 103 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2326,6 +2326,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-gate-select-9e698b862c8e-1791147210324610650-2296438-f7c76258` at Hermit `9e698b862c8e`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 276 measured; floor 0.043 over 279 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 2 no golden: ended 2; 16 not compared)`
 - validate run `validate-gate-select-9e7dd6e33cf6-1791027490982151389-186043-c4a5cdf6` at Hermit `9e7dd6e33cf6`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` at Hermit `f85de5d891ab`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-hermit-lander-0930a4b59958-1791260460602815700-1427097-b02e49a4` at Hermit `0930a4b59958`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-hermit-lander-33f1c939a2e4-1791054196460293033-32690-ce1f4789` at Hermit `33f1c939a2e4`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-hermit-lander-6eba7f9b579d-1791257736460279076-2526806-48058b89` at Hermit `6eba7f9b579d`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-hermit-lander-dd1ce92e34ac-1791251246926096137-473458-56ff8b39` at Hermit `dd1ce92e34ac`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
@@ -2334,6 +2335,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-netreplay-rework-42a82cb5f6ab-1791254513937136636-4178080-1dac094b` at Hermit `42a82cb5f6ab`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6` at Hermit `7f8e75ff4d3a`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 277 of 297 selected (counted as 0: 277 unmeasured: no-result-row 3, epoch-not-shared 274; excluded: 4 no golden: determinism-mismatch 3, timeout 1; 16 not compared)`
 - validate run `validate-netreplay-rework-860abc70be07-1791259422918292651-29101-e90937f4` at Hermit `860abc70be07`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
+- validate run `validate-netreplay-rework-860abc70be07-1791260701256957085-1608521-42e7ed95` at Hermit `860abc70be07`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` at Hermit `8b7b189183d5`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 271 of 297 selected (counted as 0: 271 unmeasured: no-result-row 3, epoch-not-shared 268; excluded: 10 no golden: determinism-mismatch 10; 16 not compared)`
 - validate run `validate-netreplay-rework-b60d8231715c-1791200749755855046-1436481-d0fbefdf` at Hermit `b60d8231715c`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-netreplay-rework-ba81b5b2ccd3-1791208385653519318-2518059-e1f4c253` at Hermit `ba81b5b2ccd3`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 180 measured; floor 0.056 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.099 over 89 with unequal inputs]`
@@ -2360,6 +2362,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-a8ee9d5a5733-a07460befccd` at Hermit `a8ee9d5a5733`: `parity: 0/206 matched; selected 206 of 206 committed; mean 0.056 over 187 measured; floor 0.055 over 189 of 206 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 1 no golden: ended 1; 16 not compared)`
 - validate run `validate-ops-tick-b5c378041d84-4990804fc489` at Hermit `b5c378041d84`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 277 measured; floor 0.043 over 280 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 1 no golden: crash 1; 16 not compared)`
 - validate run `validate-ops-tick-b5c378041d84-c53822974f8f` at Hermit `b5c378041d84`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 277 measured; floor 0.043 over 280 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 1 no golden: crash 1; 16 not compared)`
+- validate run `validate-ops-tick-cbef0ac85172-79bdbb42d8ba` at Hermit `cbef0ac85172`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-ops-tick-cec1ef5f402d-55392313f8a8` at Hermit `cec1ef5f402d`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-d5d1072a6f82-20a21bc9fe7b` at Hermit `d5d1072a6f82`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-e02d9f8368a3-03a15e241a7e` at Hermit `e02d9f8368a3`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 188 of 205 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 1 no golden: ended 1; 16 not compared)`
