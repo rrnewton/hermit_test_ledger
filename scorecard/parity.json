@@ -1,23 +1,23 @@
 {
   "schema": "parity-summary/v3",
   "generated_from": {
-    "store_sha256": "3a448020ef79962c10e50ff90927fed1142b70d78b96c816d06b1a2546ed095c",
-    "series_commit": "76f13edefcd3301ddcd6ee7f59ef13b032384178",
-    "tool_hermit_commit": "8db41c6017d5c1f0c782d48ca18e202e5efad589"
+    "store_sha256": "ca1451c069ca8cee5dec9a6905530c9c017792713af11540ff884e2cba5d4b5d",
+    "series_commit": "5b447ea37eb6356aea5ba16438b5e237d2225a90",
+    "tool_hermit_commit": "14b354b3b575afc66d749731ddc86cf48d1f6517"
   },
   "store_present": true,
-  "rows_read": 28807,
+  "rows_read": 29005,
   "producers": [
     {
       "producer": "validate",
-      "run_id": "validate-claude-coord-8db41c6017d5-1791285025149611846-412384-5505f3a7",
-      "hermit_sha": "8db41c6017d5c1f0c782d48ca18e202e5efad589",
+      "run_id": "validate-claude-coord-14b354b3b575-1791286050919798525-3332280-ad53696f",
+      "hermit_sha": "14b354b3b575afc66d749731ddc86cf48d1f6517",
       "conflicting_hermit_shas": [],
       "depth": {
-        "commits": 4079,
-        "first_parent": 4004
+        "commits": 4080,
+        "first_parent": 4005
       },
-      "emitted_at": "2026-10-06T11:23:23Z",
+      "emitted_at": "2026-10-06T11:40:08Z",
       "source_tree_dirty": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]",
       "committed_unknown": null,
@@ -72,7 +72,7 @@
             "first_divergent_record": 5,
             "syscall": null,
             "field": "token 2: `detcore::scheduler:` vs `detcore::random:`",
-            "cells": 14,
+            "cells": 13,
             "of_diverged": 14,
             "example_cell": "c-programs/cpu-virtualization@dbt",
             "reference_message": "INFO detcore::scheduler: [scheduler] guest in queue, scheduler proceeding..",
@@ -1697,7 +1697,7 @@
           "matched_prefix": 4,
           "left_len": 131,
           "right_len": 116,
-          "first_divergent_record": 5,
+          "first_divergent_record": 6,
           "first_difference_field": "token 2: `detcore::scheduler:` vs `detcore::random:`",
           "first_difference_syscall": null,
           "reference_message": "INFO detcore::scheduler: [scheduler] guest in queue, scheduler proceeding..",
@@ -5748,6 +5748,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-claude-coord-14b354b3b575-1791286050919798525-3332280-ad53696f",
+      "hermit_sha": "14b354b3b575afc66d749731ddc86cf48d1f6517",
+      "depth": {
+        "commits": 4080,
+        "first_parent": 4005
+      },
+      "emitted_at": "2026-10-06T11:40:08Z",
+      "source_tree_dirty": false,
+      "headline": true,
+      "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-claude-coord-172396362f8d-1791280868145651672-3308505-4d10eec9",
       "hermit_sha": "172396362f8d2a92275495917653cdc30544525d",
       "depth": {
@@ -5925,7 +5938,7 @@
       },
       "emitted_at": "2026-10-06T11:23:23Z",
       "source_tree_dirty": false,
-      "headline": true,
+      "headline": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
