@@ -1,23 +1,23 @@
 {
   "schema": "parity-summary/v3",
   "generated_from": {
-    "store_sha256": "2da51e24b9819ef842eac234d48e9925bb4b8b23e3ed1d9d96813c421e662d27",
-    "series_commit": "ac5196f58e3ff1f885357c7725c22b6cf2105c78",
-    "tool_hermit_commit": "fa6be3120ef37b2fa622ba933a29452c9f71f9e0"
+    "store_sha256": "fe457a2f9c6a57002090af07abb91c38c665240c8df9290cec9e483eea8cc882",
+    "series_commit": "e8a139549587f48c2f32f4e38acb84faf557ce70",
+    "tool_hermit_commit": "53fcf05b3040a244b9e93c470ff9847e366d43ab"
   },
   "store_present": true,
-  "rows_read": 30193,
+  "rows_read": 30589,
   "producers": [
     {
       "producer": "validate",
-      "run_id": "validate-claude-coord-fa6be3120ef3-1791298381620961842-3364612-79fed6ab",
-      "hermit_sha": "fa6be3120ef37b2fa622ba933a29452c9f71f9e0",
+      "run_id": "validate-claude-coord-53fcf05b3040-1791299910449246459-3421442-82cd8eee",
+      "hermit_sha": "53fcf05b3040a244b9e93c470ff9847e366d43ab",
       "conflicting_hermit_shas": [],
       "depth": {
-        "commits": 4114,
-        "first_parent": 4039
+        "commits": 4115,
+        "first_parent": 4040
       },
-      "emitted_at": "2026-10-06T15:07:47Z",
+      "emitted_at": "2026-10-06T15:34:17Z",
       "source_tree_dirty": false,
       "line": "parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]",
       "committed_unknown": null,
@@ -5930,6 +5930,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-claude-coord-53fcf05b3040-1791299910449246459-3421442-82cd8eee",
+      "hermit_sha": "53fcf05b3040a244b9e93c470ff9847e366d43ab",
+      "depth": {
+        "commits": 4115,
+        "first_parent": 4040
+      },
+      "emitted_at": "2026-10-06T15:34:17Z",
+      "source_tree_dirty": false,
+      "headline": true,
+      "line": "parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-claude-coord-8026bb4941a2-1791268832723581402-2541104-11de8f68",
       "hermit_sha": "8026bb4941a2514f2754ab316da59f2ac2d36226",
       "depth": {
@@ -6172,7 +6185,7 @@
       },
       "emitted_at": "2026-10-06T15:07:47Z",
       "source_tree_dirty": false,
-      "headline": true,
+      "headline": false,
       "line": "parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
@@ -6448,6 +6461,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-hermit-lander-bc7b28836f48-1791299757612823799-3815947-6e48849e",
+      "hermit_sha": "bc7b28836f48c486616aaabf7639e104810eca96",
+      "depth": {
+        "commits": 4118,
+        "first_parent": 4043
+      },
+      "emitted_at": "2026-10-06T15:28:38Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
       "producer": "validate",
