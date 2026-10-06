@@ -1,59 +1,59 @@
 {
-  "bytes": 488583717,
+  "bytes": 492702114,
   "part_max_bytes": 50331648,
   "parts": [
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0000",
-      "sha256": "28e255847a9bc4eb84b188c0571f12f4e2237216369d17d90f5747741d34f746"
+      "sha256": "f498b76327aa49986613b353da9620560a28ea31c3a53e6912208b461377ad51"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0001",
-      "sha256": "d82ffb3653ab78cdc7e6460aa7ae53667561ce9a0ab5b991502ff3b13c8553e0"
+      "sha256": "20530ebaed257de926a7d253a7d50d0fe0d14f6eb4c5e8f5db6309c949655283"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0002",
-      "sha256": "e30b5bd15408d441b74f1b35620b0205a825f0c5694b2d2104f8f55d8f6dd919"
+      "sha256": "6d990c94829fd586f0b0b7eff9b3e34ce0c8bdb57d57f381bcb917ae9166c0cb"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0003",
-      "sha256": "6bfa71224b8d088d8b36b1b4bd5e0c204fd96f9f026b7c6d0c9390b9bf33b4df"
+      "sha256": "78ab038759078651a0192e449e1765e6b02fef7faba3f4fa39c86c0648938a66"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0004",
-      "sha256": "c8057ae64282e29be9932c4e79c7cf38909d4f9bbbd516b6bdf890d1ccc42d2b"
+      "sha256": "ee0d2779fbde42995d70931eb2b05f82615be4e5ea2885e49d2ea482aef31723"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0005",
-      "sha256": "cbd61de6a9ae296d07c47b55587a69d42830b5c1f2fd438744c8823eb8e559be"
+      "sha256": "44fdfc78c6d376d9595ee6758f16456aa0a286d59fd3d978f8114602c81fd5bd"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0006",
-      "sha256": "07c6b87a4298556047c5aac91d13b869a860457445a71181fe435d24a3184d3f"
+      "sha256": "d41e0592afcaa6c274a3701b2bf7d8e77d5df89f9e7e914eac3ddb9899ff6969"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0007",
-      "sha256": "6c8c9b476faadc54da5f5d5ef5abc0ec2c71ef33e6812edefa38e3a0ced66f8e"
+      "sha256": "b3c4bb649fbe74ab9dd7e8726f9bbc50b161ecc892485154569fe0d6c9bf8d68"
     },
     {
       "bytes": 50331648,
       "path": "scorecard/cells/part-0008",
-      "sha256": "4b4604286a500c23be58e5cca154dae7c9f2dbf261613c1e2ceea710d358cb7c"
+      "sha256": "64b5bc9121b9acbc589bf834444c15e42a725e7f6163b6e363d2aa7cdc720f5e"
     },
     {
-      "bytes": 35598885,
+      "bytes": 39717282,
       "path": "scorecard/cells/part-0009",
-      "sha256": "517b61161f5ef8b53868fab17264f925f4a2d07627dc82f88e22057c7183fc4e"
+      "sha256": "e4fb42e04f85abeb153c6aaca2d7e01b3e99b3a2b5347717a5b254879d36d069"
     }
   ],
   "path": "scorecard/cells.json",
   "schema": "hermit-test-ledger-scorecard-cells/v1",
-  "sha256": "0101ae9d6c807ac461e9728247dba3a60abe9df81239b3384c9ca639e0db55d5"
+  "sha256": "d5ac9965096f4668450d2b34d6054e55ab14a430477115d8a8fb553ce3e6702f"
 }
