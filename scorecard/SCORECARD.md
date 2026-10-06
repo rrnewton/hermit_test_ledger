@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-05T20:29:04Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `2c009bed5efebb2013cf905228f584c1f8231b31`, reading 313480 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-1f1b6e8b126d-1791231632802965745-1072482-08f0e10e` (871). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 42 more.
+Last regenerated **2026-10-06T00:51:29Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `e9944a8fc060ed66737b956ed9bf0818d1fa1829`, reading 324388 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-7023ea311aa9-1791247705180542564-348674-db107847` (900). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 43 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -76,7 +76,7 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **341** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **346** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -84,10 +84,10 @@ The count table includes all **12576** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1009 | 0 | 2 | 74 | 1085 |
-| Not selected by full | 333 | 341 | 9 | 0 | 28 | 711 |
+| Selected by full | 0 | 1007 | 0 | 2 | 76 | 1085 |
+| Not selected by full | 328 | 346 | 9 | 0 | 28 | 711 |
 | Not applicable | 10336 | 242 | 82 | 0 | 120 | 10780 |
-| **Total** | **10669** | **1592** | **91** | **2** | **222** | **12576** |
+| **Total** | **10664** | **1595** | **91** | **2** | **224** | **12576** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -413,7 +413,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/ioctl-siocethtool` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ioctl-siocethtool` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-siocethtool` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/ipc-determinism` | `chaos` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ipc-determinism` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
 | `c-programs/ipc-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1271,6 +1271,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/cmp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/col` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/column` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/column` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/comm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1284,6 +1285,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/curl-localhost` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cut` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cxxfilt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/date` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/dc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1335,6 +1337,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/gzip-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
+| `compat/hexdump` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
@@ -1453,6 +1456,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/shred` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/shuf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/size` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/sleep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sort` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1664,6 +1668,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/tar` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tar-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/tcl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/tcl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tee` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1984,7 +1989,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/uuidgen-random` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/uuidgen-random` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `util-c/pmu-skid` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
-| `util-c/pmu-skid` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `util-c/pmu-skid` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `util-c/pmu-skid` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
 | `applications/kvm-python-examples` | `verify` | `kvm` | `Not selected by full` | `diverged` |
 | `applications/kvm-python-examples` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -2008,227 +2013,227 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. **Mean credit** divides the credit sum by the measured (matched plus diverged) cells, so a measured cell without credit counts as 0. **Floor credit** divides it by every selected cell except two kinds that could not be compared: a **no golden** cell, where an operand's own outcome (a determinism mismatch, a timeout, a crash and the like) left no deterministic golden log, and a **not compared** cell, whose backend cannot be given the reference's inputs. So an **unmeasured** cell (a golden log could exist, but the harness or the parity tool made no comparison), a record-missing cell and a refused cell each count as 0. No cell of a backend whose inputs cannot be equalized enters any mean or floor, and a mean or floor over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C cells that selection owes, and a run that reported fewer is marked partial. Mean credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is. The `legacy-rerun` history at the end is the retired ptrace rerun's last verdicts; it is not current parity and enters no count here.
 
 
-### validate run `validate-tickhub-ops-2-f20e4619e1e5-1791231708827814929-164883-96df9a5d` at `f20e4619e1e5`
+### validate run `validate-tickhub-ops-2-7023ea311aa9-1791247705180542564-348674-db107847` at `7023ea311aa9`
 
-`parity: 0/198 matched; selected 198 of 198 committed; mean 0.054 over 180 measured; floor 0.053 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.093 over 89 with unequal inputs]`
+`parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 
 | Candidate backend | Selected | Measured | Matched | Diverged | No golden | Not compared | Unmeasured | Record-missing | Refused | Mean credit (measured) | Floor credit | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 16 of 16 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 0 | n/a | n/a | not compared (inputs cannot be equalized) |
-| `kvm` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.094 | 0.093 | equalized for 1 of 90 (mean 0.129 equal; 0.093 unequal) |
+| `dbt` | 16 of 16 | 2 | 0 | 2 | 0 | 0 | 14 | 0 | 0 | 0.037 | 0.005 | not equalized |
+| `kvm` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.100 | 0.098 | equalized |
 | `sabre` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.014 | 0.014 | equalized |
-| **TOTAL** | 198 of 198 | 180 | 0 | 180 | 0 | 16 | 2 | 0 | 0 | 0.054 | 0.053 | equalized for 91 of 180 (mean 0.016 equal; 0.093 unequal) |
+| **TOTAL** | 198 of 198 | 182 | 0 | 182 | 0 | 0 | 16 | 0 | 0 | 0.057 | 0.052 | equalized for 180 of 182 (mean 0.057 equal; 0.037 unequal) |
 
 Cells that were not measured, by class: a no-golden cell is outside the mean and the floor, and an unmeasured cell counts 0 in the floor.
 
 | Class | Group | `dbt` | `kvm` | `sabre` | **TOTAL** |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `no-result-row` | unmeasured | 0 | 1 | 1 | 2 |
+| `no-result-row` | unmeasured | 14 | 1 | 1 | 16 |
 
-Most common first divergence: 90 of 180 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` (for example `c-programs/aio-refusal@sabre`).
+Most common first divergence: 90 of 182 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` (for example `c-programs/aio-refusal@sabre`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
 | Cell | Verdict | Credit | First divergence or reason |
 | --- | --- | ---: | --- |
-| `c-programs/aio-refusal@kvm` | diverged | 0.083 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/aio-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/append-pwrite@kvm` | diverged | 0.083 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/append-pwrite@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/bind-getsockname@kvm` | diverged | 0.105 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/bind-getsockname@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/cachestat-refusal@kvm` | diverged | 0.074 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/cachestat-refusal@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/child-subreaper-refusal@kvm` | diverged | 0.111 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/child-subreaper-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/close-range-fds@kvm` | diverged | 0.087 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/copy-file-range-refusal@kvm` | diverged | 0.087 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/copy-file-range-refusal@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/cpu-virtualization@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/cpu-virtualization@kvm` | diverged | 0.110 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/cpu-virtualization@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/cpuid-probe@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
+| `c-programs/aio-refusal@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/aio-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/append-pwrite@kvm` | diverged | 0.083 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/append-pwrite@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/bind-getsockname@kvm` | diverged | 0.105 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/bind-getsockname@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/cachestat-refusal@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/cachestat-refusal@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/child-subreaper-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/child-subreaper-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/close-range-fds@kvm` | diverged | 0.087 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/copy-file-range-refusal@kvm` | diverged | 0.087 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/copy-file-range-refusal@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/cpu-virtualization@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/cpu-virtualization has no result row in this run |
+| `c-programs/cpu-virtualization@kvm` | diverged | 0.110 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/cpu-virtualization@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/cpuid-probe@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/cpuid-probe@kvm` | diverged | 0.129 | record 14, syscall 2: token 9: `access(0x7ffff7ff3580` vs `access(0x102f580` |
-| `c-programs/cwd-roundtrip@kvm` | diverged | 0.090 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/cwd-roundtrip@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/dup-shared-offset@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/dup-shared-offset@kvm` | diverged | 0.081 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/dup-shared-offset@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/epoll-pwait2@kvm` | diverged | 0.094 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/epoll-pwait2@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/epoll-readiness@kvm` | diverged | 0.073 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/epoll-readiness@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/event-delivery-ordering@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/eventfd-semantics@kvm` | diverged | 0.071 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/eventfd-semantics@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/faccessat2-flags@kvm` | diverged | 0.090 (unequalized) | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/faccessat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/fadvise-hints@kvm` | diverged | 0.096 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/fadvise-hints@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/fallocate-extents@kvm` | diverged | 0.070 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/fallocate-extents@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/fchmod-bits@kvm` | diverged | 0.070 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/fchmod-bits@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/fchmodat2-flags@kvm` | diverged | 0.088 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/fchmodat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/fcntl-owner@kvm` | diverged | 0.096 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/fcntl-owner@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/fd-duplication@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/fd-duplication@kvm` | diverged | 0.057 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/fd-duplication@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/file-backed-mmap@kvm` | diverged | 0.069 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/file-backed-mmap@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/file-io-roundtrip@kvm` | diverged | 0.062 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/file-io-roundtrip@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/flock-lifecycle@kvm` | diverged | 0.098 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/flock-lifecycle@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.050 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/fsync-durability@kvm` | diverged | 0.071 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/fsync-durability@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/ftruncate-sparse@kvm` | diverged | 0.088 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/ftruncate-sparse@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/getcpu-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/getcpu-identity@kvm` | diverged | 0.095 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/getcpu-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/getpriority-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/getpriority-identity@kvm` | diverged | 0.102 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/getpriority-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/hardware-trap-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/host-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/host-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/inline-syscall-sites@kvm` | diverged | 0.073 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/inline-syscall-sites@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/inotify-watch@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/ioctl-fionread@kvm` | diverged | 0.097 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/ioctl-fionread@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/kcmp-refusal@kvm` | diverged | 0.104 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/kcmp-refusal@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/linkat-flags@kvm` | diverged | 0.082 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/linkat-flags@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/lseek-positioning@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/lseek-positioning@kvm` | diverged | 0.065 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/lseek-positioning@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/mce-kill-refusal@kvm` | diverged | 0.111 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/mce-kill-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/membarrier-query@kvm` | diverged | 0.084 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/membarrier-query@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/memfd-create@kvm` | diverged | 0.096 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/memfd-create@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/mempolicy-default@kvm` | diverged | 0.107 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/mempolicy-default@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/mincore-residency@kvm` | diverged | 0.075 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/mincore-residency@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/mixed-inline-and-libc-syscalls@kvm` | diverged | 0.062 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/mixed-inline-and-libc-syscalls@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/mkdir-rmdir@kvm` | diverged | 0.071 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/mkdir-rmdir@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/mknod-special@kvm` | diverged | 0.090 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/mknod-special@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/mmap-layout-pointer-order@kvm` | diverged | 0.069 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/mmap-layout-pointer-order@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/msync-writeback@kvm` | diverged | 0.092 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/msync-writeback@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/name-to-handle-refusal@kvm` | diverged | 0.111 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/name-to-handle-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/no-new-privs-refusal@kvm` | diverged | 0.109 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/no-new-privs-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/numa-node-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/numa-node-identity@kvm` | diverged | 0.080 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/numa-node-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/o-tmpfile-anon@kvm` | diverged | 0.097 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/o-tmpfile-anon@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/openat-flags@kvm` | diverged | 0.058 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/openat-flags@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/openat2-refusal@kvm` | diverged | 0.109 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/openat2-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/path-file-ops@kvm` | diverged | 0.065 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/path-file-ops@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/personality-domain@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/pid-probe@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/pid-probe@kvm` | diverged | 0.113 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/pid-probe@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/pidfd-open-self-pair@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/pidfd-open-self-pair@kvm` | diverged | 0.099 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/pidfd-open-self-pair@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/pipe-capacity@kvm` | diverged | 0.102 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/pipe-capacity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/pipe-capacity-pin@kvm` | diverged | 0.104 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/pipe-capacity-pin@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/pipe-ipc@kvm` | diverged | 0.058 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/pipe2-flags@kvm` | diverged | 0.073 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/pipe2-flags@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/poll-readiness@kvm` | diverged | 0.085 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/poll-readiness@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/prctl-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/prctl-identity@kvm` | diverged | 0.096 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/prctl-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/prctl-pdeathsig@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/preadv2-flags@kvm` | diverged | 0.090 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/preadv2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
+| `c-programs/cwd-roundtrip@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/cwd-roundtrip@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/dup-shared-offset@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/dup-shared-offset has no result row in this run |
+| `c-programs/dup-shared-offset@kvm` | diverged | 0.081 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/dup-shared-offset@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/epoll-pwait2@kvm` | diverged | 0.094 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/epoll-pwait2@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/epoll-readiness@kvm` | diverged | 0.095 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/epoll-readiness@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/event-delivery-ordering@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/eventfd-semantics@kvm` | diverged | 0.071 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/eventfd-semantics@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/faccessat2-flags@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/faccessat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/fadvise-hints@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fadvise-hints@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/fallocate-extents@kvm` | diverged | 0.092 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fallocate-extents@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/fchmod-bits@kvm` | diverged | 0.091 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fchmod-bits@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/fchmodat2-flags@kvm` | diverged | 0.088 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fchmodat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/fcntl-owner@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fcntl-owner@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/fd-duplication@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/fd-duplication has no result row in this run |
+| `c-programs/fd-duplication@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fd-duplication@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/file-backed-mmap@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/file-backed-mmap@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/file-io-roundtrip@kvm` | diverged | 0.080 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/file-io-roundtrip@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/flock-lifecycle@kvm` | diverged | 0.098 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/flock-lifecycle@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.050 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fsync-durability@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/fsync-durability@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/ftruncate-sparse@kvm` | diverged | 0.088 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/ftruncate-sparse@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/getcpu-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/getcpu-identity has no result row in this run |
+| `c-programs/getcpu-identity@kvm` | diverged | 0.095 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/getcpu-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/getpriority-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/getpriority-identity has no result row in this run |
+| `c-programs/getpriority-identity@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/getpriority-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/hardware-trap-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/hardware-trap-identity has no result row in this run |
+| `c-programs/host-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/host-identity has no result row in this run |
+| `c-programs/host-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/inline-syscall-sites@kvm` | diverged | 0.073 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/inline-syscall-sites@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/inotify-watch@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/ioctl-fionread@kvm` | diverged | 0.097 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/ioctl-fionread@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/kcmp-refusal@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/kcmp-refusal@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/linkat-flags@kvm` | diverged | 0.082 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/linkat-flags@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/lseek-positioning@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/lseek-positioning has no result row in this run |
+| `c-programs/lseek-positioning@kvm` | diverged | 0.084 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/lseek-positioning@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/mce-kill-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mce-kill-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/membarrier-query@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/membarrier-query@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/memfd-create@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/memfd-create@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/mempolicy-default@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mempolicy-default@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/mincore-residency@kvm` | diverged | 0.098 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mincore-residency@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/mixed-inline-and-libc-syscalls@kvm` | diverged | 0.081 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mixed-inline-and-libc-syscalls@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/mkdir-rmdir@kvm` | diverged | 0.092 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mkdir-rmdir@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/mknod-special@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mknod-special@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/mmap-layout-pointer-order@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/mmap-layout-pointer-order@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/msync-writeback@kvm` | diverged | 0.092 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/msync-writeback@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/name-to-handle-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/name-to-handle-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/no-new-privs-refusal@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/no-new-privs-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/numa-node-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/numa-node-identity has no result row in this run |
+| `c-programs/numa-node-identity@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/numa-node-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/o-tmpfile-anon@kvm` | diverged | 0.097 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/o-tmpfile-anon@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/openat-flags@kvm` | diverged | 0.076 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/openat-flags@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/openat2-refusal@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/openat2-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/path-file-ops@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/path-file-ops@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/personality-domain@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/pid-probe@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pid-probe@kvm` | diverged | 0.113 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pid-probe@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/pidfd-open-self-pair@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/pidfd-open-self-pair has no result row in this run |
+| `c-programs/pidfd-open-self-pair@kvm` | diverged | 0.099 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pidfd-open-self-pair@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/pipe-capacity@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pipe-capacity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/pipe-capacity-pin@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pipe-capacity-pin@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/pipe-ipc@kvm` | diverged | 0.076 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pipe2-flags@kvm` | diverged | 0.073 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/pipe2-flags@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/poll-readiness@kvm` | diverged | 0.085 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/poll-readiness@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/prctl-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/prctl-identity has no result row in this run |
+| `c-programs/prctl-identity@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/prctl-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/prctl-pdeathsig@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/preadv2-flags@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/preadv2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/pthread-lifecycle@kvm` | candidate-missing[no-result-row] | — | the kvm candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
 | `c-programs/pthread-lifecycle@sabre` | candidate-missing[no-result-row] | — | the sabre candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
-| `c-programs/readdir-entries@kvm` | diverged | 0.074 (unequalized) | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/readdir-entries@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/readdir-order-identity@kvm` | diverged | 0.001 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb20)` vs `0x3fffeb50)` |
-| `c-programs/record-lock@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/rename-ops@kvm` | diverged | 0.074 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/rename-ops@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/renameat2-flags@kvm` | diverged | 0.066 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/renameat2-flags@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/rlimit-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/rlimit-identity@kvm` | diverged | 0.096 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/rlimit-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/robust-list@kvm` | diverged | 0.109 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/robust-list@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/sched-getaffinity-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/sched-getaffinity-identity@kvm` | diverged | 0.104 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/sched-getaffinity-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/seccomp-refusal@kvm` | diverged | 0.111 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/seccomp-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/sendfile-copy@kvm` | diverged | 0.079 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/sendfile-copy@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/set-tid-address@kvm` | diverged | 0.107 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/set-tid-address@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/short-io-split-identity@kvm` | diverged | 0.030 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/short-io-split-identity@sabre` | diverged | 0.005 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/shutdown-socketpair@kvm` | diverged | 0.072 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/shutdown-socketpair@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/signal-waitstatus-identity@dbt` | inputs-not-equalized | — | the dbt backend refuses --bind and --mount (hermit-cli/src/bin/hermit/run.rs: "its DynamoRIO adapter does not enter the guest mount namespace"), so its guest cannot be given the ptrace cell's input paths |
-| `c-programs/signalfd-create@kvm` | diverged | 0.102 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/signalfd-create@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/socket-epoll-ordering@kvm` | diverged | 0.049 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/socket-epoll-ordering@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/socket-options@kvm` | diverged | 0.090 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/socket-options@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/socketpair-flags@kvm` | diverged | 0.075 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/socketpair-flags@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/sockname-unnamed@kvm` | diverged | 0.102 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/sockname-unnamed@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/stat-metadata-identity@kvm` | diverged | 0.053 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/stat-metadata-identity@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/statfs-free-determinism@kvm` | diverged | 0.106 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/statfs-free-determinism@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/static-nolibc-syscall-sites@kvm` | diverged | 0.840 (unequalized) | record 67, syscall 15: token 10: `0x7fffffffec5b,` vs `0x3fffec7b,` |
-| `c-programs/statx-metadata@kvm` | diverged | 0.096 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/statx-metadata@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/symlink-ops@kvm` | diverged | 0.061 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/symlink-ops@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/sync-file-range@kvm` | diverged | 0.075 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/sync-file-range@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/sysv-ipc-refusal@kvm` | diverged | 0.084 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/sysv-ipc-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/thp-disable@kvm` | diverged | 0.107 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/thp-disable@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/umask-mode@kvm` | diverged | 0.086 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/umask-mode@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/uname-identity@kvm` | diverged | 0.113 (unequalized) | record 16, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/uname-identity@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/utimensat-determinism@kvm` | diverged | 0.096 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/utimensat-determinism@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/vectored-file-io@kvm` | diverged | 0.066 (unequalized) | record 11, syscall ?: token 17: `170,` vs `359,` |
-| `c-programs/vectored-file-io@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
-| `c-programs/vectored-io@kvm` | diverged | 0.093 (unequalized) | record 17, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
-| `c-programs/vectored-io@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::random:` |
+| `c-programs/readdir-entries@kvm` | diverged | 0.076 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/readdir-entries@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/readdir-order-identity@kvm` | diverged | 0.001 | record 14, syscall 2: token 10: `0x7fffffffeb20)` vs `0x3fffeb50)` |
+| `c-programs/record-lock@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/rename-ops@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/rename-ops@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/renameat2-flags@kvm` | diverged | 0.066 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/renameat2-flags@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/rlimit-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/rlimit-identity has no result row in this run |
+| `c-programs/rlimit-identity@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/rlimit-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/robust-list@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/robust-list@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/sched-getaffinity-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/sched-getaffinity-identity has no result row in this run |
+| `c-programs/sched-getaffinity-identity@kvm` | diverged | 0.104 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sched-getaffinity-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/seccomp-refusal@kvm` | diverged | 0.111 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/seccomp-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/sendfile-copy@kvm` | diverged | 0.079 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sendfile-copy@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/set-tid-address@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/set-tid-address@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/short-io-split-identity@kvm` | diverged | 0.030 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/short-io-split-identity@sabre` | diverged | 0.005 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/shutdown-socketpair@kvm` | diverged | 0.094 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/shutdown-socketpair@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/signal-waitstatus-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/signal-waitstatus-identity has no result row in this run |
+| `c-programs/signalfd-create@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/signalfd-create@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/socket-epoll-ordering@kvm` | diverged | 0.049 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/socket-epoll-ordering@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/socket-options@kvm` | diverged | 0.090 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/socket-options@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/socketpair-flags@kvm` | diverged | 0.098 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/socketpair-flags@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/sockname-unnamed@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sockname-unnamed@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/stat-metadata-identity@kvm` | diverged | 0.053 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/stat-metadata-identity@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/statfs-free-determinism@kvm` | diverged | 0.106 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/statfs-free-determinism@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/static-nolibc-syscall-sites@kvm` | diverged | 0.840 | record 64, syscall 15: token 10: `0x7fffffffec5b,` vs `0x3fffec7b,` |
+| `c-programs/statx-metadata@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/statx-metadata@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/symlink-ops@kvm` | diverged | 0.079 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/symlink-ops@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/sync-file-range@kvm` | diverged | 0.097 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sync-file-range@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/sysv-ipc-refusal@kvm` | diverged | 0.109 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/sysv-ipc-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/thp-disable@kvm` | diverged | 0.107 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/thp-disable@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/umask-mode@kvm` | diverged | 0.086 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/umask-mode@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/uname-identity@kvm` | diverged | 0.113 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/uname-identity@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/utimensat-determinism@kvm` | diverged | 0.096 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/utimensat-determinism@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/vectored-file-io@kvm` | diverged | 0.086 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/vectored-file-io@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/vectored-io@kvm` | diverged | 0.093 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
+| `c-programs/vectored-io@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 
 ### pressure-test run `p2-screen1` at `7759159896ab` (partial: selected 14 of 297 committed)
 
@@ -2267,40 +2272,46 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 78 other parity run(s) in the store
+### 88 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
-- validate run `validate-buck-re-3-1931c6ccd8f7-1791054320749237313-288493-c38549d2` at Hermit `1931c6ccd8f7`: `parity: 0/205 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-buck-re-3-5301e9a2dbb2-1791051975076983128-689340-69dc34f7` at Hermit `5301e9a2dbb2`: `parity: 0/205 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-1931c6ccd8f7-1791054320749237313-288493-c38549d2` at Hermit `1931c6ccd8f7`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-5301e9a2dbb2-1791051975076983128-689340-69dc34f7` at Hermit `5301e9a2dbb2`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` at Hermit `66db685c5279`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 297 of 297 selected (counted as 0: 297 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-buck-re-3-75bec89e7db9-1791060150360793710-2018425-d3821d9a` at Hermit `75bec89e7db9`: `parity: 0/206 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 206 of 206 selected (counted as 0: 206 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-75bec89e7db9-1791060150360793710-2018425-d3821d9a` at Hermit `75bec89e7db9`: `parity: 0/206 matched; selected 206 of 206 committed; mean n/a over 0 measured; floor 0.000 over 206 of 206 selected (counted as 0: 206 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-7831ad1c8931-1791056799838919343-1002648-6b3c5041` at Hermit `7831ad1c8931`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-buck-re-3-84821e53edb7-1791041721981051099-2446052-bf662192` at Hermit `84821e53edb7`: `parity: 0/204 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 204 of 204 selected (counted as 0: 204 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-84821e53edb7-1791041721981051099-2446052-bf662192` at Hermit `84821e53edb7`: `parity: 0/204 matched; selected 204 of 204 committed; mean n/a over 0 measured; floor 0.000 over 204 of 204 selected (counted as 0: 204 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` at Hermit `b84faa26c355`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 297 of 297 selected (counted as 0: 297 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-ccccde5f65d6-1791044441627223683-4139778-3d0a278f` at Hermit `ccccde5f65d6`: `parity: 0/204 matched; selected 204 of 204 committed; mean n/a over 0 measured; floor 0.000 over 204 of 204 selected (counted as 0: 204 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-cf2a94ea38d3-1791063611629487524-833061-4b45d912` at Hermit `cf2a94ea38d3`: `parity: 0/206 matched; selected 206 of 206 committed; mean n/a over 0 measured; floor 0.000 over 206 of 206 selected (counted as 0: 206 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-buck-re-3-e81ace1c0be7-1791057684904978741-1891131-b31df65f` at Hermit `e81ace1c0be7`: `parity: 0/205 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-claude-2-118f0bfc4553-1791028466715093346-2549334-529fe13e` at Hermit `118f0bfc4553`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-2-4346217e08d4-1791039676390384316-4107946-e2cf462e` at Hermit `4346217e08d4`: `parity: 0/204 matched; committed selection unknown; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-buck-re-3-e81ace1c0be7-1791057684904978741-1891131-b31df65f` at Hermit `e81ace1c0be7`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-claude-2-118f0bfc4553-1791028466715093346-2549334-529fe13e` at Hermit `118f0bfc4553`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-2-4346217e08d4-1791039676390384316-4107946-e2cf462e` at Hermit `4346217e08d4`: `parity: 0/204 matched; selected 204 of 204 committed; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-2-6b5424c1860a-1791037904455844226-3351413-5eebd499` at Hermit `6b5424c1860a`: `parity: 0/204 matched; selected 204 of 204 committed; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-2-b6ca81b78be8-1791031592862600986-362222-8863246d` at Hermit `b6ca81b78be8`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-2-cfb9d0c86427-1791035312332954244-2326456-5ddbba2a` at Hermit `cfb9d0c86427`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-4-ad4f9cf598a3-1791030814588067897-4023945-e9bb1627` at Hermit `ad4f9cf598a3`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-4-d53ea6ca1711-1791032694966120621-1230314-61570ac3` at Hermit `d53ea6ca1711`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-coord-1f1b6e8b126d-1791231632802965745-1072482-08f0e10e` at Hermit `1f1b6e8b126d`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.054 over 181 measured; floor 0.050 over 197 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 1 no golden: ended 1; 0 not compared) [inputs equalized for 91 of 181 credited: mean 0.016 over 91 with equal inputs; mean 0.094 over 90 with unequal inputs]`
+- validate run `validate-claude-2-cfb9d0c86427-1791035312332954244-2326456-5ddbba2a` at Hermit `cfb9d0c86427`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-4-ad4f9cf598a3-1791030814588067897-4023945-e9bb1627` at Hermit `ad4f9cf598a3`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-4-d53ea6ca1711-1791032694966120621-1230314-61570ac3` at Hermit `d53ea6ca1711`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-coord-1f1b6e8b126d-1791231632802965745-1072482-08f0e10e` at Hermit `1f1b6e8b126d`: `parity: 0/198 matched; committed selection unknown; mean 0.054 over 181 measured; floor 0.050 over 197 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 1 no golden: ended 1; 0 not compared) [inputs equalized for 91 of 181 credited: mean 0.016 over 91 with equal inputs; mean 0.094 over 90 with unequal inputs]`
+- validate run `validate-claude-coord-2bfc43166083-1791242556478430751-3723596-4a48eaa8` at Hermit `2bfc43166083`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-claude-coord-2e6427ad27fa-1791213722643207383-2116557-053fcfe7` at Hermit `2e6427ad27fa`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-317a3fd03bb9-1791205881096493745-911901-2bf15639` at Hermit `317a3fd03bb9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.049 over 180 measured; floor 0.048 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.083 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-3589b3edff56-1791203838387883418-1747108-ebb12384` at Hermit `3589b3edff56`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-coord-3b9776f0af50-1791236416072731756-865179-d9da8f5d` at Hermit `3b9776f0af50`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-3db677887c3a-1791239278135395123-1225938-fc27c9d1` at Hermit `3db677887c3a`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-claude-coord-4e8b0c8348e8-1791216234656993707-648891-43e3c9ea` at Hermit `4e8b0c8348e8`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 180 measured; floor 0.054 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.095 over 89 with unequal inputs]`
-- validate run `validate-claude-coord-5027d1ecb833-1791218508494716430-215676-a7ab65d1` at Hermit `5027d1ecb833`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.096 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-5027d1ecb833-1791218508494716430-215676-a7ab65d1` at Hermit `5027d1ecb833`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.096 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-920ac3d15302-1791200968413850598-605244-9149536b` at Hermit `920ac3d15302`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-coord-a3862b22d7b7-1791198723653873307-3702195-3af6e824` at Hermit `a3862b22d7b7`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, log-diff-failed 180; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-coord-afd1f1d5d227-1791178671086851930-991513-70fd1bb2` at Hermit `afd1f1d5d227`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-coord-d1241596d685-1791208137540279750-506824-202bc69f` at Hermit `d1241596d685`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` at Hermit `d1744e9fc07e`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 275 of 297 selected (counted as 0: 275 unmeasured: no-result-row 3, epoch-not-shared 272; excluded: 6 no golden: determinism-mismatch 6; 16 not compared)`
-- validate run `validate-claude-coord-f7efac2e8c6a-1791221322434517129-732102-370d21a3` at Hermit `f7efac2e8c6a`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
-- validate run `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` at Hermit `4c0b7daa8ae6`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-coord-f1d591e88c3a-1791244197906338526-2918610-080dfb0a` at Hermit `f1d591e88c3a`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
+- validate run `validate-claude-coord-f20e4619e1e5-1791233666988779907-370563-a76b8b84` at Hermit `f20e4619e1e5`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.051 over 180 measured; floor 0.051 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.088 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-f43c990b3c96-1791237892198194518-3054844-abff85f6` at Hermit `f43c990b3c96`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.049 over 182 measured; floor 0.045 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.082 over 91 with unequal inputs]`
+- validate run `validate-claude-coord-f7efac2e8c6a-1791221322434517129-732102-370d21a3` at Hermit `f7efac2e8c6a`: `parity: 0/198 matched; committed selection unknown; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` at Hermit `4c0b7daa8ae6`: `parity: 0/297 matched; committed selection unknown; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-itvfix-57883eff8f3d-1791046213891728858-2276425-f9271a9e` at Hermit `57883eff8f3d`: `parity: 0/204 matched; selected 204 of 204 committed; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-tickval-4565b01b66c2-1791139406221186959-1755386-8f2aad77` at Hermit `4565b01b66c2`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-tickval-b3037b11fa56-1791136526911996485-754722-df9fcd8a` at Hermit `b3037b11fa56`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
@@ -2314,12 +2325,12 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-gate-select-9e7dd6e33cf6-1791027490982151389-186043-c4a5cdf6` at Hermit `9e7dd6e33cf6`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` at Hermit `f85de5d891ab`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-hermit-lander-33f1c939a2e4-1791054196460293033-32690-ce1f4789` at Hermit `33f1c939a2e4`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-netreplay-rework-27ee682e6475-1791179482454733843-2302177-80f2dba6` at Hermit `27ee682e6475`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 280 of 297 selected (counted as 0: 280 unmeasured: no-result-row 3, epoch-not-shared 277; excluded: 1 no golden: timeout 1; 16 not compared)`
-- validate run `validate-netreplay-rework-402e28335c81-1791203834128814949-2026093-7ac832b4` at Hermit `402e28335c81`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6` at Hermit `7f8e75ff4d3a`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 277 of 297 selected (counted as 0: 277 unmeasured: no-result-row 3, epoch-not-shared 274; excluded: 4 no golden: determinism-mismatch 3, timeout 1; 16 not compared)`
+- validate run `validate-netreplay-rework-27ee682e6475-1791179482454733843-2302177-80f2dba6` at Hermit `27ee682e6475`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 280 of 297 selected (counted as 0: 280 unmeasured: no-result-row 3, epoch-not-shared 277; excluded: 1 no golden: timeout 1; 16 not compared)`
+- validate run `validate-netreplay-rework-402e28335c81-1791203834128814949-2026093-7ac832b4` at Hermit `402e28335c81`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6` at Hermit `7f8e75ff4d3a`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 277 of 297 selected (counted as 0: 277 unmeasured: no-result-row 3, epoch-not-shared 274; excluded: 4 no golden: determinism-mismatch 3, timeout 1; 16 not compared)`
 - validate run `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` at Hermit `8b7b189183d5`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 271 of 297 selected (counted as 0: 271 unmeasured: no-result-row 3, epoch-not-shared 268; excluded: 10 no golden: determinism-mismatch 10; 16 not compared)`
 - validate run `validate-netreplay-rework-b60d8231715c-1791200749755855046-1436481-d0fbefdf` at Hermit `b60d8231715c`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-netreplay-rework-ba81b5b2ccd3-1791208385653519318-2518059-e1f4c253` at Hermit `ba81b5b2ccd3`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 180 measured; floor 0.056 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.099 over 89 with unequal inputs]`
+- validate run `validate-netreplay-rework-ba81b5b2ccd3-1791208385653519318-2518059-e1f4c253` at Hermit `ba81b5b2ccd3`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 180 measured; floor 0.056 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.099 over 89 with unequal inputs]`
 - validate run `validate-ops-tick-0f028322361f-75248bd48fcd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-0f028322361f-a6fa2a143efd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-20077ee5b19f-63f1efea5c13` at Hermit `20077ee5b19f`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
@@ -2346,7 +2357,11 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-d5d1072a6f82-20a21bc9fe7b` at Hermit `d5d1072a6f82`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-e02d9f8368a3-03a15e241a7e` at Hermit `e02d9f8368a3`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 188 of 205 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 1 no golden: ended 1; 16 not compared)`
 - validate run `validate-tick-buck-cargo-repro-66378ba1dd58-20261005T010205Z` at Hermit `66378ba1dd58`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-tickhub-ops-2-4a6344d1f44c-1791242634174367856-446832-20cdccfd` at Hermit `4a6344d1f44c`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 182 measured; floor 0.050 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.094 over 91 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-7dd533962923-1791228151831749581-1407633-e05600d6` at Hermit `7dd533962923`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.096 over 89 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-d647d98bd0a6-1791240724863946406-2173492-9504a3c4` at Hermit `d647d98bd0a6`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 182 measured; floor 0.051 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.095 over 91 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-f20e4619e1e5-1791231708827814929-164883-96df9a5d` at Hermit `f20e4619e1e5`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.054 over 180 measured; floor 0.053 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.093 over 89 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-f29c47d2bef4-1791244371926289104-1699228-ca089f63` at Hermit `f29c47d2bef4`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - pressure-test run `p1-green10` at Hermit `7759159896ab`: `parity: not compared: 0 measured of 2 selected (inputs cannot be equalized); selected 2 of 297 committed (partial)`
 - pressure-test run `pressure-c470fa213ee8-20261003T180650Z` at Hermit `c470fa213ee8`: `parity: not compared: 0 measured of 1 selected (inputs cannot be equalized); selected 1 of 205 committed (partial)`
 
