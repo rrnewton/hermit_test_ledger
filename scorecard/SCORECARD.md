@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-06T13:41:50Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `f0bcf64e0c06a603eabf60c40908d892e83751aa`, reading 377841 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-9b495ceb3f9c-1791293903209854871-2908375-6f97e53f` (909). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 61 more.
+Last regenerated **2026-10-06T14:22:42Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `415beb6d51d502a3de025561e6045f1b2f7d4dc0`, reading 378943 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8` (909). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 62 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -2013,16 +2013,16 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. **Mean credit** divides the credit sum by the measured (matched plus diverged) cells, so a measured cell without credit counts as 0. **Floor credit** divides it by every selected cell except two kinds that could not be compared: a **no golden** cell, where an operand's own outcome (a determinism mismatch, a timeout, a crash and the like) left no deterministic golden log, and a **not compared** cell, whose backend cannot be given the reference's inputs. So an **unmeasured** cell (a golden log could exist, but the harness or the parity tool made no comparison), a record-missing cell and a refused cell each count as 0. No cell of a backend whose inputs cannot be equalized enters any mean or floor, and a mean or floor over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C cells that selection owes, and a run that reported fewer is marked partial. Mean credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is. The `legacy-rerun` history at the end is the retired ptrace rerun's last verdicts; it is not current parity and enters no count here.
 
 
-### validate run `validate-claude-coord-9b495ceb3f9c-1791293903209854871-2908375-6f97e53f` at `9b495ceb3f9c`
+### validate run `validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8` at `f2f7c0af8091`
 
-`parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+`parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 191 of 195 credited: mean 0.056 over 191 with equal inputs; mean 0.025 over 4 with unequal inputs]`
 
 | Candidate backend | Selected | Measured | Matched | Diverged | No golden | Not compared | Unmeasured | Record-missing | Refused | Mean credit (measured) | Floor credit | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 16 of 16 | 14 | 0 | 14 | 0 | 0 | 2 | 0 | 0 | 0.030 | 0.027 | equalized for 13 of 14 (mean 0.030 equal; 0.040 unequal) |
+| `dbt` | 16 of 16 | 14 | 0 | 14 | 0 | 0 | 2 | 0 | 0 | 0.030 | 0.027 | equalized for 12 of 14 (mean 0.030 equal; 0.035 unequal) |
 | `kvm` | 91 of 91 | 91 | 0 | 91 | 0 | 0 | 0 | 0 | 0 | 0.099 | 0.099 | equalized |
-| `sabre` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.014 | 0.014 | equalized |
-| **TOTAL** | 198 of 198 | 195 | 0 | 195 | 0 | 0 | 3 | 0 | 0 | 0.055 | 0.054 | equalized for 194 of 195 (mean 0.055 equal; 0.040 unequal) |
+| `sabre` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.014 | 0.014 | equalized for 88 of 90 (mean 0.014 equal; 0.015 unequal) |
+| **TOTAL** | 198 of 198 | 195 | 0 | 195 | 0 | 0 | 3 | 0 | 0 | 0.055 | 0.054 | equalized for 191 of 195 (mean 0.056 equal; 0.025 unequal) |
 
 Cells that were not measured, by class: a no-golden cell is outside the mean and the floor, and an unmeasured cell counts 0 in the floor.
 
@@ -2099,8 +2099,8 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/getpriority-identity@kvm` | diverged | 0.102 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/getpriority-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/hardware-trap-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/hardware-trap-identity has no result row in this run |
-| `c-programs/host-identity@dbt` | diverged | 0.031 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/host-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/host-identity@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/host-identity@sabre` | diverged | 0.015 (unequalized) | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/inline-syscall-sites@kvm` | diverged | 0.073 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/inline-syscall-sites@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/inotify-watch@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
@@ -2175,7 +2175,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/readdir-entries@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/readdir-entries@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/readdir-order-identity@kvm` | diverged | 0.001 | record 14, syscall 2: token 10: `0x7fffffffeb20)` vs `0x3fffeb50)` |
-| `c-programs/record-lock@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
+| `c-programs/record-lock@sabre` | diverged | 0.015 (unequalized) | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/rename-ops@kvm` | diverged | 0.074 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
 | `c-programs/rename-ops@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/renameat2-flags@kvm` | diverged | 0.066 | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x3fffeb90)` |
@@ -2272,7 +2272,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 134 other parity run(s) in the store
+### 135 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2313,6 +2313,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-8026bb4941a2-1791268832723581402-2541104-11de8f68` at Hermit `8026bb4941a2`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-8db41c6017d5-1791285025149611846-412384-5505f3a7` at Hermit `8db41c6017d5`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-920ac3d15302-1791200968413850598-605244-9149536b` at Hermit `920ac3d15302`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-coord-9b495ceb3f9c-1791293903209854871-2908375-6f97e53f` at Hermit `9b495ceb3f9c`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-9ef51175234b-1791267355339590586-3149836-389c0be1` at Hermit `9ef51175234b`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-a25b3fcd3805-1791272687372415424-1525843-8acbb49e` at Hermit `a25b3fcd3805`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-a3862b22d7b7-1791198723653873307-3702195-3af6e824` at Hermit `a3862b22d7b7`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, log-diff-failed 180; excluded: 0 no golden; 16 not compared)`

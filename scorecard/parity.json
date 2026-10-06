@@ -1,25 +1,25 @@
 {
   "schema": "parity-summary/v3",
   "generated_from": {
-    "store_sha256": "e82cd2b06680108b48bc057e965816ba5dace18cc8f7858e6a61e8433b06d4fd",
-    "series_commit": "f0bcf64e0c06a603eabf60c40908d892e83751aa",
-    "tool_hermit_commit": "9b495ceb3f9c9d2cb66b9431bca77f4887e8be8f"
+    "store_sha256": "ee26a3ad00dd05fa5526eccda9e3ab665888d1d6a5b81b04e40c909af6a58331",
+    "series_commit": "415beb6d51d502a3de025561e6045f1b2f7d4dc0",
+    "tool_hermit_commit": "f2f7c0af8091a420596ab2e160d49b0c3cfd323e"
   },
   "store_present": true,
-  "rows_read": 29797,
+  "rows_read": 29995,
   "producers": [
     {
       "producer": "validate",
-      "run_id": "validate-claude-coord-9b495ceb3f9c-1791293903209854871-2908375-6f97e53f",
-      "hermit_sha": "9b495ceb3f9c9d2cb66b9431bca77f4887e8be8f",
+      "run_id": "validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8",
+      "hermit_sha": "f2f7c0af8091a420596ab2e160d49b0c3cfd323e",
       "conflicting_hermit_shas": [],
       "depth": {
-        "commits": 4087,
-        "first_parent": 4012
+        "commits": 4112,
+        "first_parent": 4037
       },
-      "emitted_at": "2026-10-06T13:52:04Z",
+      "emitted_at": "2026-10-06T14:32:03Z",
       "source_tree_dirty": false,
-      "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]",
+      "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 191 of 195 credited: mean 0.056 over 191 with equal inputs; mean 0.025 over 4 with unequal inputs]",
       "committed_unknown": null,
       "committed_cells_without_row": [],
       "cells_outside_committed": [],
@@ -55,15 +55,15 @@
           "record_missing": 0,
           "refused": 0,
           "credited": 14,
-          "clean_credited": 13,
-          "unequalized_credited": 1,
+          "clean_credited": 12,
+          "unequalized_credited": 2,
           "credit_sum": 0.42696957347991593,
-          "clean_credit_sum": 0.3873656130838764,
-          "unequalized_credit_sum": 0.039603960396039604,
+          "clean_credit_sum": 0.3568312619388382,
+          "unequalized_credit_sum": 0.07013831154107777,
           "floor_cells": 16,
           "mean_credit": 0.030497826677136852,
-          "clean_mean_credit": 0.029797354852605876,
-          "unequalized_mean_credit": 0.039603960396039604,
+          "clean_mean_credit": 0.02973593849490318,
+          "unequalized_mean_credit": 0.03506915577053889,
           "floor_credit": 0.026685598342494746,
           "committed": 16,
           "committed_selected": 16,
@@ -72,13 +72,13 @@
             "first_divergent_record": 5,
             "syscall": null,
             "field": "token 2: `detcore::scheduler:` vs `detcore::random:`",
-            "cells": 13,
+            "cells": 14,
             "of_diverged": 14,
             "example_cell": "c-programs/cpu-virtualization@dbt",
             "reference_message": "INFO detcore::scheduler: [scheduler] guest in queue, scheduler proceeding..",
             "candidate_message": "INFO detcore::random: DETLOG [post_exec, dtid 3] init auxv AT_RANDOM value to [162, 205, 24, 211, 0, 83, 122, 92, 176, 131, 220, 72, 219, 250, 14, 242]"
           },
-          "line": "parity: 0/16 matched; selected 16 of 16 committed; mean 0.030 over 14 measured; floor 0.027 over 16 of 16 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 0 not compared) [inputs equalized for 13 of 14 credited: mean 0.030 over 13 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+          "line": "parity: 0/16 matched; selected 16 of 16 committed; mean 0.030 over 14 measured; floor 0.027 over 16 of 16 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 0 not compared) [inputs equalized for 12 of 14 credited: mean 0.030 over 12 with equal inputs; mean 0.035 over 2 with unequal inputs]"
         },
         "kvm": {
           "selected": 91,
@@ -214,15 +214,15 @@
           "record_missing": 0,
           "refused": 0,
           "credited": 90,
-          "clean_credited": 90,
-          "unequalized_credited": 0,
+          "clean_credited": 88,
+          "unequalized_credited": 2,
           "credit_sum": 1.2853043481009283,
-          "clean_credit_sum": 1.2853043481009283,
-          "unequalized_credit_sum": 0.0,
+          "clean_credit_sum": 1.2552223577135944,
+          "unequalized_credit_sum": 0.030081990387333897,
           "floor_cells": 91,
           "mean_credit": 0.014281159423343648,
-          "clean_mean_credit": 0.014281159423343648,
-          "unequalized_mean_credit": null,
+          "clean_mean_credit": 0.014263890428563573,
+          "unequalized_mean_credit": 0.015040995193666949,
           "floor_credit": 0.014124223605504707,
           "committed": 91,
           "committed_selected": 91,
@@ -237,7 +237,7 @@
             "reference_message": "INFO detcore::tool_local: DETLOG USER RAND: seeding PRNG for root thread with seed 0",
             "candidate_message": "INFO detcore::scheduler: [scheduler] guest in queue, scheduler proceeding.."
           },
-          "line": "parity: 0/91 matched; selected 91 of 91 committed; mean 0.014 over 90 measured; floor 0.014 over 91 of 91 selected (counted as 0: 1 unmeasured: no-result-row 1; excluded: 0 no golden; 0 not compared)"
+          "line": "parity: 0/91 matched; selected 91 of 91 committed; mean 0.014 over 90 measured; floor 0.014 over 91 of 91 selected (counted as 0: 1 unmeasured: no-result-row 1; excluded: 0 no golden; 0 not compared) [inputs equalized for 88 of 90 credited: mean 0.014 over 88 with equal inputs; mean 0.015 over 2 with unequal inputs]"
         }
       },
       "total": {
@@ -271,15 +271,15 @@
         "record_missing": 0,
         "refused": 0,
         "credited": 195,
-        "clean_credited": 194,
-        "unequalized_credited": 1,
+        "clean_credited": 191,
+        "unequalized_credited": 4,
         "credit_sum": 10.717535633356862,
-        "clean_credit_sum": 10.677931672960822,
-        "unequalized_credit_sum": 0.039603960396039604,
+        "clean_credit_sum": 10.617315331428452,
+        "unequalized_credit_sum": 0.10022030192841166,
         "floor_cells": 198,
         "mean_credit": 0.054961721196701854,
-        "clean_mean_credit": 0.055040884912169186,
-        "unequalized_mean_credit": 0.039603960396039604,
+        "clean_mean_credit": 0.05558803838444216,
+        "unequalized_mean_credit": 0.025055075482102916,
         "floor_credit": 0.05412896784523668,
         "committed": 198,
         "committed_selected": 198,
@@ -294,7 +294,7 @@
           "reference_message": "INFO detcore::tool_local: DETLOG USER RAND: seeding PRNG for root thread with seed 0",
           "candidate_message": "INFO detcore::scheduler: [scheduler] guest in queue, scheduler proceeding.."
         },
-        "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+        "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 191 of 195 credited: mean 0.056 over 191 with equal inputs; mean 0.025 over 4 with unequal inputs]"
       },
       "cells": [
         {
@@ -1693,11 +1693,11 @@
           "operand": null,
           "reason": null,
           "credit": 0.030534351145038167,
-          "credit_basis": "clean",
+          "credit_basis": "unequalized",
           "matched_prefix": 4,
           "left_len": 131,
           "right_len": 116,
-          "first_divergent_record": 6,
+          "first_divergent_record": 5,
           "first_difference_field": "token 2: `detcore::scheduler:` vs `detcore::random:`",
           "first_difference_syscall": null,
           "reference_message": "INFO detcore::scheduler: [scheduler] guest in queue, scheduler proceeding..",
@@ -1715,7 +1715,7 @@
           "operand": null,
           "reason": null,
           "credit": 0.015267175572519083,
-          "credit_basis": "clean",
+          "credit_basis": "unequalized",
           "matched_prefix": 2,
           "left_len": 131,
           "right_len": 47,
@@ -3365,7 +3365,7 @@
           "operand": null,
           "reason": null,
           "credit": 0.014814814814814815,
-          "credit_basis": "clean",
+          "credit_basis": "unequalized",
           "matched_prefix": 2,
           "left_len": 135,
           "right_len": 52,
@@ -5977,7 +5977,7 @@
       },
       "emitted_at": "2026-10-06T13:52:04Z",
       "source_tree_dirty": false,
-      "headline": true,
+      "headline": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
@@ -6109,6 +6109,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.051 over 180 measured; floor 0.051 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.088 over 89 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8",
+      "hermit_sha": "f2f7c0af8091a420596ab2e160d49b0c3cfd323e",
+      "depth": {
+        "commits": 4112,
+        "first_parent": 4037
+      },
+      "emitted_at": "2026-10-06T14:32:03Z",
+      "source_tree_dirty": false,
+      "headline": true,
+      "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 191 of 195 credited: mean 0.056 over 191 with equal inputs; mean 0.025 over 4 with unequal inputs]"
     },
     {
       "producer": "validate",
