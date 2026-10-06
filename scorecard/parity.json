@@ -1,23 +1,23 @@
 {
   "schema": "parity-summary/v3",
   "generated_from": {
-    "store_sha256": "eccb956718cb9f2c2dc67a87e083df7c4a0149483d77286f4ad0765b75597f7e",
-    "series_commit": "73662aa805564bb4f592f0a7b03c643f691c3fb5",
-    "tool_hermit_commit": "ef7b55b19fcb990621ff42e80781d53b0f42ed29"
+    "store_sha256": "722b88e574ac92c340c665ce4c34ed3f7d11a857863d12128790c2ed244774bb",
+    "series_commit": "7cef7437d105652cbd18ade2dfb642817305b77d",
+    "tool_hermit_commit": "a25b3fcd3805c1889a8bafbe41ae444f4c01f48c"
   },
   "store_present": true,
-  "rows_read": 25837,
+  "rows_read": 26233,
   "producers": [
     {
       "producer": "validate",
-      "run_id": "validate-ops-tick-ef7b55b19fcb-07464fea2ae1",
-      "hermit_sha": "ef7b55b19fcb990621ff42e80781d53b0f42ed29",
+      "run_id": "validate-claude-coord-a25b3fcd3805-1791272687372415424-1525843-8acbb49e",
+      "hermit_sha": "a25b3fcd3805c1889a8bafbe41ae444f4c01f48c",
       "conflicting_hermit_shas": [],
       "depth": {
-        "commits": 4058,
-        "first_parent": 3983
+        "commits": 4062,
+        "first_parent": 3987
       },
-      "emitted_at": "2026-10-06T07:20:20Z",
+      "emitted_at": "2026-10-06T08:00:52Z",
       "source_tree_dirty": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]",
       "committed_unknown": null,
@@ -5891,6 +5891,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-claude-coord-a25b3fcd3805-1791272687372415424-1525843-8acbb49e",
+      "hermit_sha": "a25b3fcd3805c1889a8bafbe41ae444f4c01f48c",
+      "depth": {
+        "commits": 4062,
+        "first_parent": 3987
+      },
+      "emitted_at": "2026-10-06T08:00:52Z",
+      "source_tree_dirty": false,
+      "headline": true,
+      "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-claude-coord-a3862b22d7b7-1791198723653873307-3702195-3af6e824",
       "hermit_sha": "a3862b22d7b77fb5860c79ceb6aef8ff1847bde1",
       "depth": {
@@ -6383,6 +6396,16 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-netreplay-rework-cd4387482b73-1791271294531497324-896439-9f37329d",
+      "hermit_sha": "cd4387482b73c0986636379b6827e2e551063af3",
+      "depth": null,
+      "emitted_at": "2026-10-06T07:35:59Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-netreplay-rework-f53e746779f9-1791262904524962924-173631-7084882a",
       "hermit_sha": "f53e746779f9655ac85adaa23e05c7c4140f96a0",
       "depth": {
@@ -6755,7 +6778,7 @@
       },
       "emitted_at": "2026-10-06T07:20:20Z",
       "source_tree_dirty": false,
-      "headline": true,
+      "headline": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
