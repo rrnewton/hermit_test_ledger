@@ -2,8 +2,8 @@
   "schema": "parity-summary/v5",
   "generated_from": {
     "store_sha256": "0d91005c5ff6f7bb419ef7242ee63d797053a78bf0cad475075a41819ac818b9",
-    "series_commit": "73b12f22e3134e43bfe8a62a3d0dfec1ab6eaa8a",
-    "tool_hermit_commit": "bfdc9a692384c874ec0b4931c491f05c0c01757a"
+    "series_commit": "94e525d2ee734ac2cd22a87fbc5117e87030d0d6",
+    "tool_hermit_commit": "99bd94535fbb6487e4e1130d4ee7110e02b88b45"
   },
   "store_present": true,
   "rows_read": 52206,
