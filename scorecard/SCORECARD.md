@@ -1,31 +1,31 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-06T19:47:18Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `436a03574dbc737f1f6d80635d634f69de6124b2`, reading 395495 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-d5a08a9e6d81-1791315831168565080-2240346-d6038eb0` (909). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 71 more.
+Last regenerated **2026-10-07T02:06:35Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `23a084d3544f94685782947a0d27a19692f4b257`, reading 417546 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-5d76c9f5ae6d-1791338605038802979-406065-f823d39f` (909). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 72 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **12576** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1098** are selected by full, **698** are not selected by full, and **10780** are **Not applicable**.
+The count table includes all **12592** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1098** are selected by full, **699** are not selected by full, and **10795** are **Not applicable**.
 
 Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. **189** of the **1088** selected `verify` cells declare `comparator: stripped` (`compat` on `ptrace`: 189). They run Hermit's default `--verify` and pass only on a verified, matched report of a non-empty stripped comparison; they are below L2, never `bitwise_parity`, and are counted in these tables as selected, not as canonical. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
-| `ptrace` | 561 | 372 | 1425 | 2358 |
-| `dbt` | 38 | 47 | 2273 | 2358 |
-| `kvm` | 259 | 7 | 2092 | 2358 |
-| `sabre` | 240 | 239 | 1879 | 2358 |
-| `liteinst` | 0 | 0 | 2358 | 2358 |
-| `native` | 0 | 33 | 753 | 786 |
-| **Total** | **1098** | **698** | **10780** | **12576** |
+| `ptrace` | 561 | 373 | 1427 | 2361 |
+| `dbt` | 38 | 47 | 2276 | 2361 |
+| `kvm` | 259 | 7 | 2095 | 2361 |
+| `sabre` | 240 | 239 | 1882 | 2361 |
+| `liteinst` | 0 | 0 | 2361 | 2361 |
+| `native` | 0 | 33 | 754 | 787 |
+| **Total** | **1098** | **699** | **10795** | **12592** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **1098 of 12576**, which is **8.73%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **1098 of 12592**, which is **8.72%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **10780 of those 12576 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1796 cells that CAN run, selected by full is **61.14%**.
+⚠️ **10795 of those 12592 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1797 cells that CAN run, selected by full is **61.10%**.
 
 ⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1098 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
@@ -35,11 +35,11 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `verify` | 551 / 786 | 38 / 786 | 259 / 786 | 240 / 786 | 0 / 786 | — | 1088 | 525 | 2317 | 3930 |
-| `replay` | 4 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | — | 4 | 139 | 3787 | 3930 |
-| `chaos` | 6 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | 0 / 786 | — | 6 | 1 | 3923 | 3930 |
-| `naked` | — | — | — | — | — | 0 / 786 | 0 | 33 | 753 | 786 |
-| **Total** | | | | | | | **1098** | **698** | **10780** | **12576** |
+| `verify` | 551 / 787 | 38 / 787 | 259 / 787 | 240 / 787 | 0 / 787 | — | 1088 | 526 | 2321 | 3935 |
+| `replay` | 4 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | — | 4 | 139 | 3792 | 3935 |
+| `chaos` | 6 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | — | 6 | 1 | 3928 | 3935 |
+| `naked` | — | — | — | — | — | 0 / 787 | 0 | 33 | 754 | 787 |
+| **Total** | | | | | | | **1098** | **699** | **10795** | **12592** |
 
 ## Ptrace by manifest category
 
@@ -49,7 +49,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `applications` | 3 / 6 | 0 / 6 | 0 / 6 | 3 | 18 |
 | `bin-c` | 2 / 2 | 0 / 2 | 0 / 2 | 2 | 6 |
-| `c-programs` | 273 / 278 | 3 / 278 | 3 / 278 | 279 | 834 |
+| `c-programs` | 273 / 279 | 3 / 279 | 3 / 279 | 279 | 837 |
 | `chaos-c` | 1 / 1 | 0 / 1 | 1 / 1 | 2 | 3 |
 | `compat` | 189 / 412 | 0 / 412 | 0 / 412 | 189 | 1236 |
 | `data-handling` | 6 / 6 | 0 / 6 | 0 / 6 | 6 | 18 |
@@ -76,18 +76,18 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **336** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **338** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
-The count table includes all **12576** cells in the manifest; no row is omitted. These claims use the same counts printed in the table below.
+The count table includes all **12592** cells in the manifest; no row is omitted. These claims use the same counts printed in the table below.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1011 | 0 | 2 | 85 | 1098 |
-| Not selected by full | 328 | 336 | 9 | 0 | 25 | 698 |
-| Not applicable | 10336 | 242 | 82 | 0 | 120 | 10780 |
-| **Total** | **10664** | **1589** | **91** | **2** | **230** | **12576** |
+| Selected by full | 0 | 1010 | 0 | 2 | 86 | 1098 |
+| Not selected by full | 327 | 338 | 9 | 0 | 25 | 699 |
+| Not applicable | 10351 | 242 | 82 | 0 | 120 | 10795 |
+| **Total** | **10678** | **1590** | **91** | **2** | **231** | **12592** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -1249,6 +1249,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/basename` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bash` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/bc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1266,7 +1267,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/chrt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/clang` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/clang` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/cmake` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cmp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/col` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
@@ -1423,6 +1424,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/ptx` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
+| `compat/python3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/python3` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/python3` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/ranlib` | `verify` | `ptrace` | `Selected by full` | `diverged` |
@@ -2013,16 +2015,16 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. **Mean credit** divides the credit sum by the measured (matched plus diverged) cells, so a measured cell without credit counts as 0. **Floor credit** divides it by every selected cell except two kinds that could not be compared: a **no golden** cell, where an operand's own outcome (a determinism mismatch, a timeout, a crash and the like) left no deterministic golden log, and a **not compared** cell, whose backend cannot be given the reference's inputs. So an **unmeasured** cell (a golden log could exist, but the harness or the parity tool made no comparison), a record-missing cell and a refused cell each count as 0. No cell of a backend whose inputs cannot be equalized enters any mean or floor, and a mean or floor over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C cells that selection owes, and a run that reported fewer is marked partial. Mean credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is. The `legacy-rerun` history at the end is the retired ptrace rerun's last verdicts; it is not current parity and enters no count here.
 
 
-### validate run `validate-tickhub-ops-2-3f28e1654b17-1791314259719526747-1279493-e0d7a55b` at `3f28e1654b17`
+### validate run `validate-claude-coord-0bc1ae1691ad-1791336960266428418-698492-d263bf73` at `0bc1ae1691ad`
 
-`parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+`parity: 85/198 matched; selected 198 of 198 committed; mean 0.462 over 195 measured; floor 0.455 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.464 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 
 | Candidate backend | Selected | Measured | Matched | Diverged | No golden | Not compared | Unmeasured | Record-missing | Refused | Mean credit (measured) | Floor credit | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | `dbt` | 16 of 16 | 14 | 0 | 14 | 0 | 0 | 2 | 0 | 0 | 0.030 | 0.027 | equalized for 13 of 14 (mean 0.030 equal; 0.040 unequal) |
-| `kvm` | 91 of 91 | 91 | 1 | 90 | 0 | 0 | 0 | 0 | 0 | 0.121 | 0.121 | equalized |
+| `kvm` | 91 of 91 | 91 | 85 | 6 | 0 | 0 | 0 | 0 | 0 | 0.971 | 0.971 | equalized |
 | `sabre` | 91 of 91 | 90 | 0 | 90 | 0 | 0 | 1 | 0 | 0 | 0.014 | 0.014 | equalized |
-| **TOTAL** | 198 of 198 | 195 | 1 | 194 | 0 | 0 | 3 | 0 | 0 | 0.065 | 0.064 | equalized for 194 of 195 (mean 0.066 equal; 0.040 unequal) |
+| **TOTAL** | 198 of 198 | 195 | 85 | 110 | 0 | 0 | 3 | 0 | 0 | 0.462 | 0.455 | equalized for 194 of 195 (mean 0.464 equal; 0.040 unequal) |
 
 Cells that were not measured, by class: a no-golden cell is outside the mean and the floor, and an unmeasured cell counts 0 in the floor.
 
@@ -2030,208 +2032,124 @@ Cells that were not measured, by class: a no-golden cell is outside the mean and
 | --- | --- | ---: | ---: | ---: | ---: |
 | `no-result-row` | unmeasured | 2 | 0 | 1 | 3 |
 
-Most common first divergence: 90 of 194 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` (for example `c-programs/aio-refusal@sabre`).
+Most common first divergence: 90 of 110 diverged cell(s) at record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` (for example `c-programs/aio-refusal@sabre`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
 | Cell | Verdict | Credit | First divergence or reason |
 | --- | --- | ---: | --- |
-| `c-programs/aio-refusal@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/aio-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/append-pwrite@kvm` | diverged | 0.103 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/append-pwrite@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/bind-getsockname@kvm` | diverged | 0.129 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/bind-getsockname@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/cachestat-refusal@kvm` | diverged | 0.118 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/cachestat-refusal@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/child-subreaper-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/child-subreaper-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/close-range-fds@kvm` | diverged | 0.107 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
-| `c-programs/copy-file-range-refusal@kvm` | diverged | 0.107 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/copy-file-range-refusal@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/cpu-virtualization@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cpu-virtualization@kvm` | diverged | 0.136 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/cpu-virtualization@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/cpuid-probe@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cpuid-probe@kvm` | diverged | 0.129 | record 14, syscall 2: token 9: `access(0x7ffff7ff3580` vs `access(0x102f580` |
-| `c-programs/cwd-roundtrip@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/cpuid-probe@kvm` | diverged | 0.416 | record 43, syscall 13: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/cwd-roundtrip@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/dup-shared-offset@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/dup-shared-offset@kvm` | diverged | 0.100 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/dup-shared-offset@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/epoll-pwait2@kvm` | diverged | 0.115 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/epoll-pwait2@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/epoll-readiness@kvm` | diverged | 0.117 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/epoll-readiness@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/event-delivery-ordering@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/eventfd-semantics@kvm` | diverged | 0.087 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/eventfd-semantics@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/faccessat2-flags@kvm` | diverged | 0.111 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/faccessat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fadvise-hints@kvm` | diverged | 0.118 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fadvise-hints@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fallocate-extents@kvm` | diverged | 0.113 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fallocate-extents@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fchmod-bits@kvm` | diverged | 0.112 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fchmod-bits@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fchmodat2-flags@kvm` | diverged | 0.112 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fchmodat2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fcntl-owner@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fcntl-owner@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/fd-duplication@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fd-duplication@kvm` | diverged | 0.091 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/fd-duplication@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/file-backed-mmap@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/file-backed-mmap@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/file-io-roundtrip@kvm` | diverged | 0.099 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/file-io-roundtrip@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/flock-lifecycle@kvm` | diverged | 0.120 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/flock-lifecycle@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.061 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
-| `c-programs/fsync-durability@kvm` | diverged | 0.118 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.433 | record 114, syscall 6: token 12: `Ok(93824992264192)` vs `Ok(2129920)` |
 | `c-programs/fsync-durability@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/ftruncate-sparse@kvm` | diverged | 0.109 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/ftruncate-sparse@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/getcpu-identity@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getcpu-identity@kvm` | diverged | 0.117 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/getcpu-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/getpriority-identity@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getpriority-identity@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/getpriority-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/hardware-trap-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/hardware-trap-identity has no result row in this run |
 | `c-programs/host-identity@dbt` | diverged | 0.031 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/host-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/inline-syscall-sites@kvm` | diverged | 0.089 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/inline-syscall-sites@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/inotify-watch@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/ioctl-fionread@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/ioctl-fionread@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/kcmp-refusal@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/kcmp-refusal@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/linkat-flags@kvm` | diverged | 0.101 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/linkat-flags@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/lseek-positioning@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/lseek-positioning@kvm` | diverged | 0.103 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/lseek-positioning@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mce-kill-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mce-kill-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/membarrier-query@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/membarrier-query@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/memfd-create@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/memfd-create@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mempolicy-default@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mempolicy-default@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mincore-residency@kvm` | diverged | 0.120 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mincore-residency@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mixed-inline-and-libc-syscalls@kvm` | diverged | 0.099 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mixed-inline-and-libc-syscalls@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mkdir-rmdir@kvm` | diverged | 0.113 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mkdir-rmdir@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mknod-special@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mknod-special@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/mmap-layout-pointer-order@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/mmap-layout-pointer-order@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/msync-writeback@kvm` | diverged | 0.113 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/msync-writeback@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/name-to-handle-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/name-to-handle-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/no-new-privs-refusal@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/no-new-privs-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/numa-node-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/numa-node-identity@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/numa-node-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/o-tmpfile-anon@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/o-tmpfile-anon@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/openat-flags@kvm` | diverged | 0.093 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/openat-flags@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/openat2-refusal@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/openat2-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/path-file-ops@kvm` | diverged | 0.105 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/path-file-ops@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/personality-domain@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/pid-probe@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pid-probe@kvm` | diverged | 0.139 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pid-probe@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/pidfd-open-self-pair@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pidfd-open-self-pair@kvm` | diverged | 0.122 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pidfd-open-self-pair@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pipe-capacity@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pipe-capacity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pipe-capacity-pin@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/pipe-capacity-pin@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pipe-ipc@kvm` | diverged | 0.094 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
-| `c-programs/pipe2-flags@kvm` | diverged | 0.090 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/pipe-ipc@kvm` | diverged | 0.690 | record 120, syscall 35: token 3: `[dtid` vs `[sched-step5]` |
 | `c-programs/pipe2-flags@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/poll-readiness@kvm` | diverged | 0.105 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/poll-readiness@kvm` | diverged | 0.719 | record 111, syscall 38: token 9: `ppoll(0x7fffffffeab0,` vs `read(3,` |
 | `c-programs/poll-readiness@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/prctl-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/prctl-identity@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/prctl-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/prctl-pdeathsig@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/preadv2-flags@kvm` | diverged | 0.111 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/preadv2-flags@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/pthread-lifecycle@kvm` | diverged | 0.070 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/pthread-lifecycle@kvm` | diverged | 0.531 | record 122, syscall 4: token 2: `detcore:` vs `detcore::syscalls::memory:` |
 | `c-programs/pthread-lifecycle@sabre` | candidate-missing[no-result-row] | — | the sabre candidate verify cell of c-programs/pthread-lifecycle has no result row in this run |
-| `c-programs/readdir-entries@kvm` | diverged | 0.094 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/readdir-entries@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/readdir-order-identity@kvm` | diverged | 0.001 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/record-lock@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/rename-ops@kvm` | diverged | 0.091 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/rename-ops@sabre` | diverged | 0.011 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/renameat2-flags@kvm` | diverged | 0.082 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/renameat2-flags@sabre` | diverged | 0.010 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/rlimit-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/rlimit-identity@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/rlimit-identity@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/robust-list@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/robust-list@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/sched-getaffinity-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sched-getaffinity-identity@kvm` | diverged | 0.128 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sched-getaffinity-identity@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/seccomp-refusal@kvm` | diverged | 0.137 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/seccomp-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sendfile-copy@kvm` | diverged | 0.097 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sendfile-copy@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/set-tid-address@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/set-tid-address@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/short-io-split-identity@kvm` | diverged | 0.037 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
+| `c-programs/short-io-split-identity@kvm` | diverged | 0.595 | record 261, syscall 18: token 3: `[dtid` vs `[sched-step5]` |
 | `c-programs/short-io-split-identity@sabre` | diverged | 0.005 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/shutdown-socketpair@kvm` | diverged | 0.115 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/shutdown-socketpair@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 | `c-programs/signal-waitstatus-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/signal-waitstatus-identity has no result row in this run |
-| `c-programs/signalfd-create@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/signalfd-create@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/socket-epoll-ordering@kvm` | diverged | 0.061 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/socket-epoll-ordering@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/socket-options@kvm` | diverged | 0.110 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/socket-options@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/socketpair-flags@kvm` | diverged | 0.120 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/socketpair-flags@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sockname-unnamed@kvm` | diverged | 0.126 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sockname-unnamed@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/stat-metadata-identity@kvm` | diverged | 0.065 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/stat-metadata-identity@sabre` | diverged | 0.008 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/statfs-free-determinism@kvm` | diverged | 0.130 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/statfs-free-determinism@sabre` | diverged | 0.016 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/statx-metadata@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/statx-metadata@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/symlink-ops@kvm` | diverged | 0.098 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/symlink-ops@sabre` | diverged | 0.012 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sync-file-range@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sync-file-range@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/sysv-ipc-refusal@kvm` | diverged | 0.134 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/sysv-ipc-refusal@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/thp-disable@kvm` | diverged | 0.132 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/thp-disable@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/umask-mode@kvm` | diverged | 0.106 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/umask-mode@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/uname-identity@kvm` | diverged | 0.139 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/uname-identity@sabre` | diverged | 0.017 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/utimensat-determinism@kvm` | diverged | 0.119 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/utimensat-determinism@sabre` | diverged | 0.015 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/vectored-file-io@kvm` | diverged | 0.106 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/vectored-file-io@sabre` | diverged | 0.013 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
-| `c-programs/vectored-io@kvm` | diverged | 0.114 | record 17, syscall 4: token 21: `Ok(140737353850880)` vs `Ok(18067456)` |
 | `c-programs/vectored-io@sabre` | diverged | 0.014 | record 3, syscall ?: token 2: `detcore::tool_local:` vs `detcore::scheduler:` |
 
 ### pressure-test run `p2-screen1` at `7759159896ab` (partial: selected 14 of 297 committed)
@@ -2271,45 +2189,45 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 150 other parity run(s) in the store
+### 171 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
-- validate run `validate-buck-re-3-1931c6ccd8f7-1791054320749237313-288493-c38549d2` at Hermit `1931c6ccd8f7`: `parity: 0/205 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-buck-re-3-5301e9a2dbb2-1791051975076983128-689340-69dc34f7` at Hermit `5301e9a2dbb2`: `parity: 0/205 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-1931c6ccd8f7-1791054320749237313-288493-c38549d2` at Hermit `1931c6ccd8f7`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-5301e9a2dbb2-1791051975076983128-689340-69dc34f7` at Hermit `5301e9a2dbb2`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` at Hermit `66db685c5279`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 297 of 297 selected (counted as 0: 297 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-buck-re-3-75bec89e7db9-1791060150360793710-2018425-d3821d9a` at Hermit `75bec89e7db9`: `parity: 0/206 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 206 of 206 selected (counted as 0: 206 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-75bec89e7db9-1791060150360793710-2018425-d3821d9a` at Hermit `75bec89e7db9`: `parity: 0/206 matched; selected 206 of 206 committed; mean n/a over 0 measured; floor 0.000 over 206 of 206 selected (counted as 0: 206 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-7831ad1c8931-1791056799838919343-1002648-6b3c5041` at Hermit `7831ad1c8931`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-buck-re-3-84821e53edb7-1791041721981051099-2446052-bf662192` at Hermit `84821e53edb7`: `parity: 0/204 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 204 of 204 selected (counted as 0: 204 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-buck-re-3-84821e53edb7-1791041721981051099-2446052-bf662192` at Hermit `84821e53edb7`: `parity: 0/204 matched; selected 204 of 204 committed; mean n/a over 0 measured; floor 0.000 over 204 of 204 selected (counted as 0: 204 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` at Hermit `b84faa26c355`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 297 of 297 selected (counted as 0: 297 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-ccccde5f65d6-1791044441627223683-4139778-3d0a278f` at Hermit `ccccde5f65d6`: `parity: 0/204 matched; selected 204 of 204 committed; mean n/a over 0 measured; floor 0.000 over 204 of 204 selected (counted as 0: 204 record-missing; excluded: 0 no golden; 0 not compared)`
 - validate run `validate-buck-re-3-cf2a94ea38d3-1791063611629487524-833061-4b45d912` at Hermit `cf2a94ea38d3`: `parity: 0/206 matched; selected 206 of 206 committed; mean n/a over 0 measured; floor 0.000 over 206 of 206 selected (counted as 0: 206 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-buck-re-3-e81ace1c0be7-1791057684904978741-1891131-b31df65f` at Hermit `e81ace1c0be7`: `parity: 0/205 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
-- validate run `validate-claude-2-118f0bfc4553-1791028466715093346-2549334-529fe13e` at Hermit `118f0bfc4553`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-2-4346217e08d4-1791039676390384316-4107946-e2cf462e` at Hermit `4346217e08d4`: `parity: 0/204 matched; committed selection unknown; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-buck-re-3-e81ace1c0be7-1791057684904978741-1891131-b31df65f` at Hermit `e81ace1c0be7`: `parity: 0/205 matched; selected 205 of 205 committed; mean n/a over 0 measured; floor 0.000 over 205 of 205 selected (counted as 0: 205 record-missing; excluded: 0 no golden; 0 not compared)`
+- validate run `validate-claude-2-118f0bfc4553-1791028466715093346-2549334-529fe13e` at Hermit `118f0bfc4553`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-2-4346217e08d4-1791039676390384316-4107946-e2cf462e` at Hermit `4346217e08d4`: `parity: 0/204 matched; selected 204 of 204 committed; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-2-6b5424c1860a-1791037904455844226-3351413-5eebd499` at Hermit `6b5424c1860a`: `parity: 0/204 matched; selected 204 of 204 committed; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-2-b6ca81b78be8-1791031592862600986-362222-8863246d` at Hermit `b6ca81b78be8`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-2-cfb9d0c86427-1791035312332954244-2326456-5ddbba2a` at Hermit `cfb9d0c86427`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-4-ad4f9cf598a3-1791030814588067897-4023945-e9bb1627` at Hermit `ad4f9cf598a3`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-4-d53ea6ca1711-1791032694966120621-1230314-61570ac3` at Hermit `d53ea6ca1711`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-2-cfb9d0c86427-1791035312332954244-2326456-5ddbba2a` at Hermit `cfb9d0c86427`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-4-ad4f9cf598a3-1791030814588067897-4023945-e9bb1627` at Hermit `ad4f9cf598a3`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-4-d53ea6ca1711-1791032694966120621-1230314-61570ac3` at Hermit `d53ea6ca1711`: `parity: 0/203 matched; committed selection unknown; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-coord-04b389291e0d-1791260959647858637-576130-9fe488be` at Hermit `04b389291e0d`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-0a2e0c248258-1791256374756074866-436968-5ad00e9e` at Hermit `0a2e0c248258`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-claude-coord-140915362327-1791275358162526279-4176730-e9332c2f` at Hermit `140915362327`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-14b354b3b575-1791286050919798525-3332280-ad53696f` at Hermit `14b354b3b575`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-1597e85bd103-1791287362336447961-2952664-d2442ef5` at Hermit `1597e85bd103`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-172396362f8d-1791280868145651672-3308505-4d10eec9` at Hermit `172396362f8d`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-claude-coord-1f1b6e8b126d-1791231632802965745-1072482-08f0e10e` at Hermit `1f1b6e8b126d`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.054 over 181 measured; floor 0.050 over 197 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 1 no golden: ended 1; 0 not compared) [inputs equalized for 91 of 181 credited: mean 0.016 over 91 with equal inputs; mean 0.094 over 90 with unequal inputs]`
+- validate run `validate-claude-coord-1f1b6e8b126d-1791231632802965745-1072482-08f0e10e` at Hermit `1f1b6e8b126d`: `parity: 0/198 matched; committed selection unknown; mean 0.054 over 181 measured; floor 0.050 over 197 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 1 no golden: ended 1; 0 not compared) [inputs equalized for 91 of 181 credited: mean 0.016 over 91 with equal inputs; mean 0.094 over 90 with unequal inputs]`
 - validate run `validate-claude-coord-1f285b80cbf1-1791308071432928095-1522408-59720006` at Hermit `1f285b80cbf1`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-2bfc43166083-1791242556478430751-3723596-4a48eaa8` at Hermit `2bfc43166083`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-claude-coord-2e6427ad27fa-1791213722643207383-2116557-053fcfe7` at Hermit `2e6427ad27fa`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-317a3fd03bb9-1791205881096493745-911901-2bf15639` at Hermit `317a3fd03bb9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.049 over 180 measured; floor 0.048 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.083 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-3589b3edff56-1791203838387883418-1747108-ebb12384` at Hermit `3589b3edff56`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-claude-coord-3b9776f0af50-1791236416072731756-865179-d9da8f5d` at Hermit `3b9776f0af50`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
-- validate run `validate-claude-coord-3db677887c3a-1791239278135395123-1225938-fc27c9d1` at Hermit `3db677887c3a`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
+- validate run `validate-claude-coord-3db677887c3a-1791239278135395123-1225938-fc27c9d1` at Hermit `3db677887c3a`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-claude-coord-44349791d536-1791279772530548076-3809975-318f8174` at Hermit `44349791d536`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-4a93c7e1a7e8-1791282958274858275-2460570-316f556e` at Hermit `4a93c7e1a7e8`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-4e8b0c8348e8-1791216234656993707-648891-43e3c9ea` at Hermit `4e8b0c8348e8`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 180 measured; floor 0.054 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.095 over 89 with unequal inputs]`
-- validate run `validate-claude-coord-5027d1ecb833-1791218508494716430-215676-a7ab65d1` at Hermit `5027d1ecb833`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.096 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-5027d1ecb833-1791218508494716430-215676-a7ab65d1` at Hermit `5027d1ecb833`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.096 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-53e6393eb4a6-1791305651727982004-525915-7564ab62` at Hermit `53e6393eb4a6`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-53fcf05b3040-1791299910449246459-3421442-82cd8eee` at Hermit `53fcf05b3040`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-661ab1bf9d7f-1791310178065128260-2040869-7947e11f` at Hermit `661ab1bf9d7f`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 193 of 195 credited: mean 0.066 over 193 with equal inputs; mean 0.028 over 2 with unequal inputs]`
@@ -2321,22 +2239,28 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-9ef51175234b-1791267355339590586-3149836-389c0be1` at Hermit `9ef51175234b`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-a25b3fcd3805-1791272687372415424-1525843-8acbb49e` at Hermit `a25b3fcd3805`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-a3862b22d7b7-1791198723653873307-3702195-3af6e824` at Hermit `a3862b22d7b7`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, log-diff-failed 180; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-claude-coord-a9c72e9995d7-1791248877111356256-3751051-adb4667c` at Hermit `a9c72e9995d7`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-a9c72e9995d7-1791248877111356256-3751051-adb4667c` at Hermit `a9c72e9995d7`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-afd1f1d5d227-1791178671086851930-991513-70fd1bb2` at Hermit `afd1f1d5d227`: `parity: 0/198 matched; selected 198 of 198 committed; mean n/a over 0 measured; floor 0.000 over 182 of 198 selected (counted as 0: 182 unmeasured: no-result-row 2, epoch-not-shared 180; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-coord-c4e3b243d2a0-1791324596813967914-2065498-5626860f` at Hermit `c4e3b243d2a0`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-c8168551d2bc-1791262504004550875-1461747-ad6c016a` at Hermit `c8168551d2bc`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-cf0ed8872283-1791330588782596218-2996488-696d3823` at Hermit `cf0ed8872283`: `parity: 85/198 matched; committed selection unknown; mean 0.462 over 195 measured; floor 0.455 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.464 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-cfc69b1d9287-1791327622056290451-785505-84f850aa` at Hermit `cfc69b1d9287`: `parity: 85/198 matched; committed selection unknown; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.039 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-d1241596d685-1791208137540279750-506824-202bc69f` at Hermit `d1241596d685`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-d151bde6aeb7-1791311346239994717-101125-64972237` at Hermit `d151bde6aeb7`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` at Hermit `d1744e9fc07e`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 275 of 297 selected (counted as 0: 275 unmeasured: no-result-row 3, epoch-not-shared 272; excluded: 6 no golden: determinism-mismatch 6; 16 not compared)`
-- validate run `validate-claude-coord-d5a08a9e6d81-1791315831168565080-2240346-d6038eb0` at Hermit `d5a08a9e6d81`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-d5a08a9e6d81-1791315831168565080-2240346-d6038eb0` at Hermit `d5a08a9e6d81`: `parity: 85/198 matched; committed selection unknown; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-d7441caea790-1791326154273426855-1420975-95e8780a` at Hermit `d7441caea790`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-f06ad1931835-1791313107104242182-521762-5dbaad34` at Hermit `f06ad1931835`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-claude-coord-f1d591e88c3a-1791244197906338526-2918610-080dfb0a` at Hermit `f1d591e88c3a`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
+- validate run `validate-claude-coord-f1d591e88c3a-1791244197906338526-2918610-080dfb0a` at Hermit `f1d591e88c3a`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-claude-coord-f20e4619e1e5-1791233666988779907-370563-a76b8b84` at Hermit `f20e4619e1e5`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.051 over 180 measured; floor 0.051 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.088 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-f2f7c0af8091-1791296363327547009-2731639-06b15ce8` at Hermit `f2f7c0af8091`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 191 of 195 credited: mean 0.056 over 191 with equal inputs; mean 0.025 over 4 with unequal inputs]`
 - validate run `validate-claude-coord-f43c990b3c96-1791237892198194518-3054844-abff85f6` at Hermit `f43c990b3c96`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.049 over 182 measured; floor 0.045 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.082 over 91 with unequal inputs]`
 - validate run `validate-claude-coord-f7b56bd0d3d0-1791265402661147859-705779-d31eb59f` at Hermit `f7b56bd0d3d0`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-claude-coord-f7efac2e8c6a-1791221322434517129-732102-370d21a3` at Hermit `f7efac2e8c6a`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-f7efac2e8c6a-1791221322434517129-732102-370d21a3` at Hermit `f7efac2e8c6a`: `parity: 0/198 matched; committed selection unknown; mean 0.056 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-fa6be3120ef3-1791298381620961842-3364612-79fed6ab` at Hermit `fa6be3120ef3`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` at Hermit `4c0b7daa8ae6`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-claude-coord-fb7cb60f6e48-1791334373340857231-3446052-0800573d` at Hermit `fb7cb60f6e48`: `parity: 85/198 matched; committed selection unknown; mean 0.462 over 195 measured; floor 0.455 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.464 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-fcb8a7feedb7-1791318530484448092-3719851-957e332c` at Hermit `fcb8a7feedb7`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` at Hermit `4c0b7daa8ae6`: `parity: 0/297 matched; committed selection unknown; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-itvfix-57883eff8f3d-1791046213891728858-2276425-f9271a9e` at Hermit `57883eff8f3d`: `parity: 0/204 matched; selected 204 of 204 committed; mean 0.055 over 185 measured; floor 0.054 over 188 of 204 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-tickval-4565b01b66c2-1791139406221186959-1755386-8f2aad77` at Hermit `4565b01b66c2`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-coord-tickval-b3037b11fa56-1791136526911996485-754722-df9fcd8a` at Hermit `b3037b11fa56`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
@@ -2353,31 +2277,40 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-hermit-lander-0e176d54bdea-1791294089396942292-1881962-abbb853d` at Hermit `0e176d54bdea`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-0ee0c2860a47-1791307993251780460-3509627-a6b12439` at Hermit `0ee0c2860a47`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-33f1c939a2e4-1791054196460293033-32690-ce1f4789` at Hermit `33f1c939a2e4`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-hermit-lander-48ff0d995aab-1791283456200827282-396969-d8cde876` at Hermit `48ff0d995aab`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-hermit-lander-48ff0d995aab-1791284440676935904-2462961-036cb8aa` at Hermit `48ff0d995aab`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-375a5facdfeb-1791325905326239962-1685580-4c01e653` at Hermit `375a5facdfeb`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-48ff0d995aab-1791283456200827282-396969-d8cde876` at Hermit `48ff0d995aab`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-48ff0d995aab-1791284440676935904-2462961-036cb8aa` at Hermit `48ff0d995aab`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-4dc328776550-1791268225059657154-1333575-ba294a11` at Hermit `4dc328776550`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-hermit-lander-5a221d7f3e26-1791306499653857024-1738282-5ec34052` at Hermit `5a221d7f3e26`: `parity: 1/198 matched; committed selection unknown; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-hermit-lander-6eba7f9b579d-1791257736460279076-2526806-48058b89` at Hermit `6eba7f9b579d`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
-- validate run `validate-hermit-lander-77fcf6f85543-1791282153028459842-2065390-7aa78f0e` at Hermit `77fcf6f85543`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-5a221d7f3e26-1791306499653857024-1738282-5ec34052` at Hermit `5a221d7f3e26`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-5fbb7ddbf1bd-1791328954036719128-761119-b803afe4` at Hermit `5fbb7ddbf1bd`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-6eba7f9b579d-1791257736460279076-2526806-48058b89` at Hermit `6eba7f9b579d`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
+- validate run `validate-hermit-lander-77fcf6f85543-1791282153028459842-2065390-7aa78f0e` at Hermit `77fcf6f85543`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-8b7d8e1f8fc0-1791313332241243436-216306-0cde3c55` at Hermit `8b7d8e1f8fc0`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-940f6ac850ba-1791292208237695632-3527024-a8db6d95` at Hermit `940f6ac850ba`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-98491556e28f-1791302449794791360-1789165-2b3fd50a` at Hermit `98491556e28f`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-9e3f257eedfe-1791318118838179938-488203-1bc9d7d3` at Hermit `9e3f257eedfe`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-bc7b28836f48-1791299757612823799-3815947-6e48849e` at Hermit `bc7b28836f48`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-dd1ce92e34ac-1791251246926096137-473458-56ff8b39` at Hermit `dd1ce92e34ac`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
+- validate run `validate-netreplay-rework-16a9b4e7c612-1791332873572053007-498150-9ce8987c` at Hermit `16a9b4e7c612`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-netreplay-rework-21e5d7325b72-1791269200292403729-2507537-ac1ad381` at Hermit `21e5d7325b72`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-netreplay-rework-27ee682e6475-1791179482454733843-2302177-80f2dba6` at Hermit `27ee682e6475`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 280 of 297 selected (counted as 0: 280 unmeasured: no-result-row 3, epoch-not-shared 277; excluded: 1 no golden: timeout 1; 16 not compared)`
-- validate run `validate-netreplay-rework-402e28335c81-1791203834128814949-2026093-7ac832b4` at Hermit `402e28335c81`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-netreplay-rework-27ee682e6475-1791179482454733843-2302177-80f2dba6` at Hermit `27ee682e6475`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 280 of 297 selected (counted as 0: 280 unmeasured: no-result-row 3, epoch-not-shared 277; excluded: 1 no golden: timeout 1; 16 not compared)`
+- validate run `validate-netreplay-rework-339963a905f2-1791317048068264556-3471224-d0b0f97b` at Hermit `339963a905f2`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-netreplay-rework-402e28335c81-1791203834128814949-2026093-7ac832b4` at Hermit `402e28335c81`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-netreplay-rework-42a82cb5f6ab-1791254513937136636-4178080-1dac094b` at Hermit `42a82cb5f6ab`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-netreplay-rework-47896b1a15dd-1791275634366046702-2110292-fa710e9c` at Hermit `47896b1a15dd`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6` at Hermit `7f8e75ff4d3a`: `parity: 0/297 matched; committed selection unknown; mean n/a over 0 measured; floor 0.000 over 277 of 297 selected (counted as 0: 277 unmeasured: no-result-row 3, epoch-not-shared 274; excluded: 4 no golden: determinism-mismatch 3, timeout 1; 16 not compared)`
+- validate run `validate-netreplay-rework-4cc833f073d5-1791326863038223052-2854588-13f4991e` at Hermit `4cc833f073d5`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-netreplay-rework-7f8e75ff4d3a-1791184155517346601-1394308-0ff4a7b6` at Hermit `7f8e75ff4d3a`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 277 of 297 selected (counted as 0: 277 unmeasured: no-result-row 3, epoch-not-shared 274; excluded: 4 no golden: determinism-mismatch 3, timeout 1; 16 not compared)`
+- validate run `validate-netreplay-rework-83a6123a24d2-1791324503914634595-415693-6f4f5bc7` at Hermit `83a6123a24d2`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-netreplay-rework-860abc70be07-1791259422918292651-29101-e90937f4` at Hermit `860abc70be07`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-netreplay-rework-860abc70be07-1791260701256957085-1608521-42e7ed95` at Hermit `860abc70be07`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-netreplay-rework-887bfd9efe91-1791274239920017981-3860186-7ef63b7a` at Hermit `887bfd9efe91`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` at Hermit `8b7b189183d5`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 271 of 297 selected (counted as 0: 271 unmeasured: no-result-row 3, epoch-not-shared 268; excluded: 10 no golden: determinism-mismatch 10; 16 not compared)`
+- validate run `validate-netreplay-rework-9992f2866452-1791318176679847880-539164-e88d2a6f` at Hermit `9992f2866452`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-netreplay-rework-b60d8231715c-1791200749755855046-1436481-d0fbefdf` at Hermit `b60d8231715c`: `parity: 0/297 matched; selected 297 of 297 committed; mean n/a over 0 measured; floor 0.000 over 281 of 297 selected (counted as 0: 281 unmeasured: no-result-row 3, epoch-not-shared 278; excluded: 0 no golden; 16 not compared)`
-- validate run `validate-netreplay-rework-ba81b5b2ccd3-1791208385653519318-2518059-e1f4c253` at Hermit `ba81b5b2ccd3`: `parity: 0/198 matched; committed selection unknown; mean 0.057 over 180 measured; floor 0.056 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.099 over 89 with unequal inputs]`
-- validate run `validate-netreplay-rework-cd4387482b73-1791271294531497324-896439-9f37329d` at Hermit `cd4387482b73`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-netreplay-rework-ba81b5b2ccd3-1791208385653519318-2518059-e1f4c253` at Hermit `ba81b5b2ccd3`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 180 measured; floor 0.056 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.099 over 89 with unequal inputs]`
+- validate run `validate-netreplay-rework-cd4387482b73-1791271294531497324-896439-9f37329d` at Hermit `cd4387482b73`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-netreplay-rework-f53e746779f9-1791262904524962924-173631-7084882a` at Hermit `f53e746779f9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-netreplay-rework-ff21a882389c-1791331946455444321-3607701-faaf2efb` at Hermit `ff21a882389c`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-ops-tick-0f028322361f-75248bd48fcd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-0f028322361f-a6fa2a143efd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; mean 0.055 over 184 measured; floor 0.054 over 187 of 203 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
 - validate run `validate-ops-tick-20077ee5b19f-63f1efea5c13` at Hermit `20077ee5b19f`: `parity: 0/205 matched; selected 205 of 205 committed; mean 0.055 over 186 measured; floor 0.055 over 189 of 205 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
@@ -2409,22 +2342,28 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-ef7b55b19fcb-07464fea2ae1` at Hermit `ef7b55b19fcb`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-tick-buck-cargo-repro-0a2e0c248258-20261006T034408Z` at Hermit `0a2e0c248258`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.059 over 182 measured; floor 0.054 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.059 over 180 with equal inputs; mean 0.040 over 2 with unequal inputs]`
 - validate run `validate-tick-buck-cargo-repro-66378ba1dd58-20261005T010205Z` at Hermit `66378ba1dd58`: `parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)`
+- validate run `validate-tick-buck-cargo-repro-d7441caea790-20261007T013140Z` at Hermit `d7441caea790`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.058 over 195 measured; floor 0.057 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 181 of 195 credited: mean 0.060 over 181 with equal inputs; mean 0.034 over 14 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-0c3715b402c0-1791279422071821891-2293826-173ce134` at Hermit `0c3715b402c0`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-1768f46eb450-1791333630960984320-1729983-b066ec88` at Hermit `1768f46eb450`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-3f28e1654b17-1791314259719526747-1279493-e0d7a55b` at Hermit `3f28e1654b17`: `parity: 1/198 matched; selected 198 of 198 committed; mean 0.065 over 195 measured; floor 0.064 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-44349791d536-1791278119259879656-980668-b3c102b0` at Hermit `44349791d536`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-tickhub-ops-2-4a6344d1f44c-1791242634174367856-446832-20cdccfd` at Hermit `4a6344d1f44c`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 182 measured; floor 0.050 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.094 over 91 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-4a6344d1f44c-1791242634174367856-446832-20cdccfd` at Hermit `4a6344d1f44c`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 182 measured; floor 0.050 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.094 over 91 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-4ec5b86088ba-1791330353284760243-2250943-1676226b` at Hermit `4ec5b86088ba`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-51b39ee37917-1791267231324811216-60308-a974555f` at Hermit `51b39ee37917`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-5d76c9f5ae6d-1791338605038802979-406065-f823d39f` at Hermit `5d76c9f5ae6d`: `parity: 85/198 matched; selected 198 of 198 committed; mean 0.459 over 195 measured; floor 0.452 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-7023ea311aa9-1791247705180542564-348674-db107847` at Hermit `7023ea311aa9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-7023ea311aa9-1791248928901210934-1906546-528e9564` at Hermit `7023ea311aa9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-7023ea311aa9-1791250086335957848-3355824-3f477601` at Hermit `7023ea311aa9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-7023ea311aa9-1791252496696252285-1929569-23dcf0b9` at Hermit `7023ea311aa9`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-7dd533962923-1791228151831749581-1407633-e05600d6` at Hermit `7dd533962923`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 180 measured; floor 0.055 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.096 over 89 with unequal inputs]`
-- validate run `validate-tickhub-ops-2-a10f2a7b7770-1791270254015742714-3935187-08bf141f` at Hermit `a10f2a7b7770`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-tickhub-ops-2-d647d98bd0a6-1791240724863946406-2173492-9504a3c4` at Hermit `d647d98bd0a6`: `parity: 0/198 matched; committed selection unknown; mean 0.055 over 182 measured; floor 0.051 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.095 over 91 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-a10f2a7b7770-1791270254015742714-3935187-08bf141f` at Hermit `a10f2a7b7770`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-d647d98bd0a6-1791240724863946406-2173492-9504a3c4` at Hermit `d647d98bd0a6`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 182 measured; floor 0.051 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.095 over 91 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-f20e4619e1e5-1791231708827814929-164883-96df9a5d` at Hermit `f20e4619e1e5`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.054 over 180 measured; floor 0.053 over 182 of 198 selected (counted as 0: 2 unmeasured: no-result-row 2; excluded: 0 no golden; 16 not compared) [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.093 over 89 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-f29c47d2bef4-1791244371926289104-1699228-ca089f63` at Hermit `f29c47d2bef4`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.057 over 182 measured; floor 0.052 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-fe87704c025d-1791265742000732494-2716231-2b49f547` at Hermit `fe87704c025d`: `parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - pressure-test run `p1-green10` at Hermit `7759159896ab`: `parity: not compared: 0 measured of 2 selected (inputs cannot be equalized); selected 2 of 297 committed (partial)`
 - pressure-test run `pressure-c470fa213ee8-20261003T180650Z` at Hermit `c470fa213ee8`: `parity: not compared: 0 measured of 1 selected (inputs cannot be equalized); selected 1 of 205 committed (partial)`
+- pressure-test run `pressure-d7441caea790-20261006T230247Z` at Hermit `d7441caea790`: `parity: 0/2 matched; selected 0 of 198 committed (partial); 2 outside the committed selection; mean 0.035 over 1 measured; floor 0.017 over 2 of 2 selected (counted as 0: 1 unmeasured: no-result-row 1; excluded: 0 no golden; 0 not compared) [inputs not equalized]`
 
 ### legacy-rerun history
 
@@ -2438,176 +2377,176 @@ Retired rerun evidence not kept as history, by reason: `no-retained-comparison` 
 
 | Cell | Label | Legacy verdict | Compared records | First divergent record | Hermit commit | Determinism | Current parity |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| `c-programs/aio-refusal@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/aio-refusal@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/aio-refusal@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/append-pwrite@kvm` | legacy-rerun | diverged | 144 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/append-pwrite@kvm` | legacy-rerun | diverged | 144 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/append-pwrite@liteinst` | legacy-rerun | diverged | 152 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/bind-getsockname@kvm` | legacy-rerun | diverged | 110 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/bind-getsockname@kvm` | legacy-rerun | diverged | 110 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/bind-getsockname@liteinst` | legacy-rerun | diverged | 110 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/cachestat-refusal@kvm` | legacy-rerun | diverged | 124 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/cachestat-refusal@kvm` | legacy-rerun | diverged | 124 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/cachestat-refusal@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/child-subreaper-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/child-subreaper-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/child-subreaper-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/close-range-fds@kvm` | legacy-rerun | diverged | 137 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/close-range-fds@kvm` | legacy-rerun | diverged | 137 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/close-range-fds@liteinst` | legacy-rerun | diverged | 145 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/copy-file-range-refusal@kvm` | legacy-rerun | diverged | 139 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/copy-file-range-refusal@kvm` | legacy-rerun | diverged | 139 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/copy-file-range-refusal@liteinst` | legacy-rerun | diverged | 143 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/cpu-virtualization@kvm` | legacy-rerun | diverged | 104 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/cpu-virtualization@kvm` | legacy-rerun | diverged | 104 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/cpu-virtualization@liteinst` | legacy-rerun | diverged | 104 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/cwd-roundtrip@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/cwd-roundtrip@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/cwd-roundtrip@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/dup-shared-offset@kvm` | legacy-rerun | diverged | 148 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/dup-shared-offset@kvm` | legacy-rerun | diverged | 148 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/dup-shared-offset@liteinst` | legacy-rerun | diverged | 156 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/epoll-pwait2@liteinst` | legacy-rerun | diverged | 125 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/epoll-readiness@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/epoll-readiness@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/epoll-readiness@liteinst` | legacy-rerun | diverged | 123 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/event-delivery-ordering@liteinst` | legacy-rerun | diverged | 190 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/eventfd-semantics@kvm` | legacy-rerun | diverged | 169 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/eventfd-semantics@kvm` | legacy-rerun | diverged | 169 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/eventfd-semantics@liteinst` | legacy-rerun | diverged | 169 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/faccessat2-flags@kvm` | legacy-rerun | diverged | 132 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/faccessat2-flags@kvm` | legacy-rerun | diverged | 132 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/faccessat2-flags@liteinst` | legacy-rerun | diverged | 140 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/fadvise-hints@kvm` | legacy-rerun | diverged | 124 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/fadvise-hints@kvm` | legacy-rerun | diverged | 124 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/fadvise-hints@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/fallocate-extents@kvm` | legacy-rerun | diverged | 130 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/fallocate-extents@kvm` | legacy-rerun | diverged | 130 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/fallocate-extents@liteinst` | legacy-rerun | diverged | 138 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/fchmod-bits@kvm` | legacy-rerun | diverged | 131 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/fchmod-bits@kvm` | legacy-rerun | diverged | 131 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/fchmod-bits@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/fchmodat2-flags@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/fcntl-owner@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/fd-duplication@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/fd-duplication@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/fd-duplication@liteinst` | legacy-rerun | diverged | 171 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/file-backed-mmap@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/file-backed-mmap@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/file-backed-mmap@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/file-io-roundtrip@kvm` | legacy-rerun | diverged | 148 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/file-io-roundtrip@kvm` | legacy-rerun | diverged | 148 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/file-io-roundtrip@liteinst` | legacy-rerun | diverged | 148 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/flock-lifecycle@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/flock-lifecycle@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/flock-lifecycle@liteinst` | legacy-rerun | diverged | 129 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/fork-exec-pipeline@kvm` | legacy-rerun | diverged | 337 | 13 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/fsync-durability@liteinst` | legacy-rerun | diverged | 132 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/ftruncate-sparse@kvm` | legacy-rerun | diverged | 135 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/ftruncate-sparse@kvm` | legacy-rerun | diverged | 135 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/ftruncate-sparse@liteinst` | legacy-rerun | diverged | 143 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/getcpu-identity@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/getcpu-identity@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/getcpu-identity@liteinst` | legacy-rerun | diverged | 123 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/getpriority-identity@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/getpriority-identity@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/getpriority-identity@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/hardware-trap-identity@liteinst` | legacy-rerun | diverged | 312 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/host-identity@liteinst` | legacy-rerun | diverged | 117 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/inline-syscall-sites@kvm` | legacy-rerun | diverged | 165 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/inline-syscall-sites@kvm` | legacy-rerun | diverged | 165 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/inline-syscall-sites@liteinst` | legacy-rerun | diverged | 165 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/inotify-watch@liteinst` | legacy-rerun | diverged | 110 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/ioctl-fionread@liteinst` | legacy-rerun | diverged | 120 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/kcmp-refusal@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/kcmp-refusal@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/kcmp-refusal@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/linkat-flags@kvm` | legacy-rerun | diverged | 146 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/linkat-flags@kvm` | legacy-rerun | diverged | 146 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/linkat-flags@liteinst` | legacy-rerun | diverged | 154 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/lseek-positioning@kvm` | legacy-rerun | diverged | 143 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/lseek-positioning@kvm` | legacy-rerun | diverged | 143 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/lseek-positioning@liteinst` | legacy-rerun | diverged | 151 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/mce-kill-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/mce-kill-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/mce-kill-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/membarrier-query@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/membarrier-query@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/membarrier-query@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/memfd-create@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/memfd-create@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/memfd-create@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/mempolicy-default@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/mempolicy-default@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/mempolicy-default@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/mincore-residency@kvm` | legacy-rerun | diverged | 119 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/mincore-residency@kvm` | legacy-rerun | diverged | 119 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/mincore-residency@liteinst` | legacy-rerun | diverged | 119 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/mixed-inline-and-libc-syscalls@kvm` | legacy-rerun | diverged | 147 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/mixed-inline-and-libc-syscalls@kvm` | legacy-rerun | diverged | 147 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/mixed-inline-and-libc-syscalls@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/mkdir-rmdir@kvm` | legacy-rerun | diverged | 129 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/mkdir-rmdir@kvm` | legacy-rerun | diverged | 129 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/mkdir-rmdir@liteinst` | legacy-rerun | diverged | 137 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/mknod-special@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/mknod-special@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/mknod-special@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/mmap-layout-pointer-order@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/mmap-layout-pointer-order@kvm` | legacy-rerun | diverged | 133 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/mmap-layout-pointer-order@liteinst` | legacy-rerun | diverged | 141 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/msync-writeback@liteinst` | legacy-rerun | diverged | 137 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/name-to-handle-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/name-to-handle-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/name-to-handle-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/no-new-privs-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/no-new-privs-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/no-new-privs-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/numa-node-identity@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/numa-node-identity@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/numa-node-identity@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/o-tmpfile-anon@kvm` | legacy-rerun | diverged | 120 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/o-tmpfile-anon@kvm` | legacy-rerun | diverged | 120 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/o-tmpfile-anon@liteinst` | legacy-rerun | diverged | 120 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/openat-flags@kvm` | legacy-rerun | diverged | 160 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/openat-flags@kvm` | legacy-rerun | diverged | 160 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/openat-flags@liteinst` | legacy-rerun | diverged | 168 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/openat2-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/openat2-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/openat2-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/path-file-ops@kvm` | legacy-rerun | diverged | 141 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/path-file-ops@kvm` | legacy-rerun | diverged | 141 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/path-file-ops@liteinst` | legacy-rerun | diverged | 149 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/personality-domain@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/pid-probe@kvm` | legacy-rerun | diverged | 101 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/pid-probe@kvm` | legacy-rerun | diverged | 101 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/pid-probe@liteinst` | legacy-rerun | diverged | 101 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/pid-probe@sabre` | legacy-rerun | diverged | 32 | 3 | `5ee668223a15` | `measured-and-passed` | diverged |
-| `c-programs/pidfd-open-self-pair@kvm` | legacy-rerun | diverged | 117 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/pidfd-open-self-pair@kvm` | legacy-rerun | diverged | 117 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/pidfd-open-self-pair@liteinst` | legacy-rerun | diverged | 117 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/pipe-capacity-pin@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/pipe-capacity-pin@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/pipe-capacity-pin@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/pipe-capacity@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/pipe-capacity@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/pipe-capacity@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/pipe-ipc@kvm` | legacy-rerun | diverged | 158 | 13 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/pipe-ipc@liteinst` | legacy-rerun | diverged | 164 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/pipe2-flags@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/pipe2-flags@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/pipe2-flags@liteinst` | legacy-rerun | diverged | 163 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/poll-readiness@liteinst` | legacy-rerun | diverged | 139 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/prctl-identity@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/prctl-pdeathsig@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/preadv2-flags@liteinst` | legacy-rerun | diverged | 140 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/pthread-lifecycle@liteinst` | legacy-rerun | diverged | 214 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/readdir-entries@kvm` | legacy-rerun | diverged | 159 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/readdir-entries@kvm` | legacy-rerun | diverged | 159 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/readdir-entries@liteinst` | legacy-rerun | diverged | 167 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/readdir-order-identity@kvm` | legacy-rerun | diverged | 13669 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/readdir-order-identity@kvm` | legacy-rerun | diverged | 13669 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/readdir-order-identity@liteinst` | legacy-rerun | diverged | 13677 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/record-lock@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/rename-ops@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/rename-ops@kvm` | legacy-rerun | diverged | 163 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/rename-ops@liteinst` | legacy-rerun | diverged | 171 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/renameat2-flags@kvm` | legacy-rerun | diverged | 184 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/renameat2-flags@kvm` | legacy-rerun | diverged | 184 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/renameat2-flags@liteinst` | legacy-rerun | diverged | 192 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/rlimit-identity@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/rlimit-identity@kvm` | legacy-rerun | diverged | 121 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/rlimit-identity@liteinst` | legacy-rerun | diverged | 121 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/robust-list@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/robust-list@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/robust-list@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/sched-getaffinity-identity@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/sched-getaffinity-identity@kvm` | legacy-rerun | diverged | 111 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/sched-getaffinity-identity@liteinst` | legacy-rerun | diverged | 111 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/seccomp-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/seccomp-refusal@kvm` | legacy-rerun | diverged | 103 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/seccomp-refusal@liteinst` | legacy-rerun | diverged | 103 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/sendfile-copy@kvm` | legacy-rerun | diverged | 155 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/sendfile-copy@kvm` | legacy-rerun | diverged | 155 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/sendfile-copy@liteinst` | legacy-rerun | diverged | 159 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/set-tid-address@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/set-tid-address@kvm` | legacy-rerun | diverged | 107 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/set-tid-address@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/short-io-split-identity@kvm` | legacy-rerun | diverged | 431 | 13 | `5ee668223a15` | `diverged` | diverged |
 | `c-programs/short-io-split-identity@liteinst` | legacy-rerun | diverged | 435 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/shutdown-socketpair@kvm` | legacy-rerun | diverged | 125 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/shutdown-socketpair@kvm` | legacy-rerun | diverged | 125 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/shutdown-socketpair@liteinst` | legacy-rerun | diverged | 125 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/signal-delivery-sequence@liteinst` | legacy-rerun | diverged | 997 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/signal-waitstatus-identity@liteinst` | legacy-rerun | diverged | 386 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/signalfd-create@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/signalfd-create@kvm` | legacy-rerun | diverged | 113 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/signalfd-create@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/socket-epoll-ordering@kvm` | legacy-rerun | diverged | 250 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/socket-epoll-ordering@kvm` | legacy-rerun | diverged | 250 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/socket-epoll-ordering@liteinst` | legacy-rerun | diverged | 250 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/socket-options@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/socketpair-flags@liteinst` | legacy-rerun | diverged | 119 | 16 | `5ee668223a15` | `diverged` | — |
 | `c-programs/sockname-unnamed@liteinst` | legacy-rerun | diverged | 113 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/stat-metadata-identity@kvm` | legacy-rerun | diverged | 233 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/stat-metadata-identity@kvm` | legacy-rerun | diverged | 233 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/stat-metadata-identity@liteinst` | legacy-rerun | diverged | 233 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/statfs-free-determinism@kvm` | legacy-rerun | diverged | 109 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/statfs-free-determinism@kvm` | legacy-rerun | diverged | 109 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/statfs-free-determinism@liteinst` | legacy-rerun | diverged | 109 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/static-nolibc-syscall-sites@kvm` | legacy-rerun | diverged | 76 | 64 | `5ee668223a15` | `measured-and-passed` | matched |
-| `c-programs/statx-metadata@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/statx-metadata@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/statx-metadata@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/symlink-ops@kvm` | legacy-rerun | diverged | 152 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/symlink-ops@kvm` | legacy-rerun | diverged | 152 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/symlink-ops@liteinst` | legacy-rerun | diverged | 160 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/sync-file-range@kvm` | legacy-rerun | diverged | 122 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/sync-file-range@kvm` | legacy-rerun | diverged | 122 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/sync-file-range@liteinst` | legacy-rerun | diverged | 130 | 16 | `5ee668223a15` | `measured-and-passed` | — |
-| `c-programs/sysv-ipc-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/sysv-ipc-refusal@kvm` | legacy-rerun | diverged | 105 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/sysv-ipc-refusal@liteinst` | legacy-rerun | diverged | 105 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/thp-disable@liteinst` | legacy-rerun | diverged | 107 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/umask-mode@kvm` | legacy-rerun | diverged | 139 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/umask-mode@kvm` | legacy-rerun | diverged | 139 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/umask-mode@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/uname-identity@kvm` | legacy-rerun | diverged | 101 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/uname-identity@kvm` | legacy-rerun | diverged | 101 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/uname-identity@liteinst` | legacy-rerun | diverged | 101 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/utimensat-determinism@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/utimensat-determinism@kvm` | legacy-rerun | diverged | 123 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/utimensat-determinism@liteinst` | legacy-rerun | diverged | 131 | 16 | `5ee668223a15` | `measured-and-passed` | — |
 | `c-programs/vectored-file-io@liteinst` | legacy-rerun | diverged | 147 | 16 | `5ee668223a15` | `diverged` | — |
-| `c-programs/vectored-io@kvm` | legacy-rerun | diverged | 126 | 13 | `5ee668223a15` | `measured-and-passed` | diverged |
+| `c-programs/vectored-io@kvm` | legacy-rerun | diverged | 126 | 13 | `5ee668223a15` | `measured-and-passed` | matched |
 | `c-programs/vectored-io@liteinst` | legacy-rerun | diverged | 126 | 16 | `5ee668223a15` | `diverged` | — |
