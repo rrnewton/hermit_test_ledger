@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v3",
   "generated_from": {
-    "store_sha256": "86e6c49b7929aa28abe84b85b97c055947acf31d3dd13feae75838bf6ebd2ab5",
-    "series_commit": "4d33fb19e679668e0d69594791319861b9c59b01",
-    "tool_hermit_commit": "4f9151b7ef7fd2b543aa1389ef20c02100e4797c"
+    "store_sha256": "735894e90a868831fc61875f1f92805a368425040150faa3ba506948fd563b5c",
+    "series_commit": "116b5676985d6b2515e2fc97cffbe5628265af02",
+    "tool_hermit_commit": "1865a98ab24e42bd55390fabcf360db23e077356"
   },
   "store_present": true,
-  "rows_read": 46829,
+  "rows_read": 47423,
   "producers": [
     {
       "producer": "validate",
@@ -5839,6 +5839,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-claude-coord-1865a98ab24e-1791376671864204296-936757-02cda44f",
+      "hermit_sha": "1865a98ab24e42bd55390fabcf360db23e077356",
+      "depth": {
+        "commits": 4274,
+        "first_parent": 4199
+      },
+      "emitted_at": "2026-10-07T13:07:32Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 90/198 matched; selected 198 of 198 committed; mean 0.472 over 195 measured; floor 0.465 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-claude-coord-1f1b6e8b126d-1791231632802965745-1072482-08f0e10e",
       "hermit_sha": "1f1b6e8b126df46b3184e8b155305b10f11e4285",
       "depth": {
@@ -7057,6 +7070,16 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-hermit-lander-b3c0ff36a760-1791377893266177679-373676-f92ef29a",
+      "hermit_sha": "b3c0ff36a760175a8b1c94cf7127c63d4ed23a47",
+      "depth": null,
+      "emitted_at": "2026-10-07T13:11:02Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 90/198 matched; committed selection unknown; mean 0.472 over 195 measured; floor 0.465 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-hermit-lander-b74460068d33-1791345554500847183-2986395-a0f4d304",
       "hermit_sha": "b74460068d3302ca5b36be6cdeddddcd40c48628",
       "depth": {
@@ -7399,6 +7422,16 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/198 matched; committed selection unknown; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-netreplay-rework-e4ddbbf97699-1791377694507707047-4086370-6e1c65f1",
+      "hermit_sha": "e4ddbbf97699790772a00b19b5a2884e52cd8a5f",
+      "depth": null,
+      "emitted_at": "2026-10-07T13:08:21Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 90/198 matched; committed selection unknown; mean 0.472 over 195 measured; floor 0.465 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
       "producer": "validate",
