@@ -1,25 +1,25 @@
 {
   "schema": "parity-summary/v3",
   "generated_from": {
-    "store_sha256": "f195fbe7edb05b6600a903ab8d1a10d834c83ff719c8711e8cf310e25cb02eb4",
-    "series_commit": "4c42c647b9b2f99a51f4d94aafcce5438618d5a6",
-    "tool_hermit_commit": "11f590383355ed486f5f47a313b862346519e4e5"
+    "store_sha256": "ec3de0acc4633ceb430d5e0bf943ed30420a4914e5eaa8f14a4f54d0ac2169bb",
+    "series_commit": "1a7c53a883b93e443fc8cd97e3754ef04e34e3e8",
+    "tool_hermit_commit": "ea69f2123dbfabfaabf8f1b0fa6e7b856a5b8efd"
   },
   "store_present": true,
-  "rows_read": 37125,
+  "rows_read": 37521,
   "producers": [
     {
       "producer": "validate",
-      "run_id": "validate-claude-coord-0bc1ae1691ad-1791336960266428418-698492-d263bf73",
-      "hermit_sha": "0bc1ae1691ad6509e9fafa2836d1ad895bd1565c",
+      "run_id": "validate-claude-coord-8c070294ccab-1791340120789881771-968348-64e89602",
+      "hermit_sha": "8c070294ccabd62dd208bbebd45aa771c7441003",
       "conflicting_hermit_shas": [],
       "depth": {
-        "commits": 4152,
-        "first_parent": 4077
+        "commits": 4154,
+        "first_parent": 4079
       },
-      "emitted_at": "2026-10-07T02:09:42Z",
+      "emitted_at": "2026-10-07T02:49:21Z",
       "source_tree_dirty": false,
-      "line": "parity: 85/198 matched; selected 198 of 198 committed; mean 0.462 over 195 measured; floor 0.455 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.464 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]",
+      "line": "parity: 86/198 matched; selected 198 of 198 committed; mean 0.466 over 195 measured; floor 0.459 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.468 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]",
       "committed_unknown": null,
       "committed_cells_without_row": [],
       "cells_outside_committed": [],
@@ -83,8 +83,8 @@
         "kvm": {
           "selected": 91,
           "measured": 91,
-          "matched": 85,
-          "diverged": 6,
+          "matched": 86,
+          "diverged": 5,
           "no_golden": 0,
           "no_golden_by_class": {
             "determinism-mismatch": 0,
@@ -113,14 +113,14 @@
           "credited": 91,
           "clean_credited": 91,
           "unequalized_credited": 0,
-          "credit_sum": 88.383908556864,
-          "clean_credit_sum": 88.383908556864,
+          "credit_sum": 89.07491599432176,
+          "clean_credit_sum": 89.07491599432176,
           "unequalized_credit_sum": 0.0,
           "floor_cells": 91,
-          "mean_credit": 0.9712517423831208,
-          "clean_mean_credit": 0.9712517423831208,
+          "mean_credit": 0.9788452307068325,
+          "clean_mean_credit": 0.9788452307068325,
           "unequalized_mean_credit": null,
-          "floor_credit": 0.9712517423831208,
+          "floor_credit": 0.9788452307068325,
           "committed": 91,
           "committed_selected": 91,
           "outside_committed": 0,
@@ -129,12 +129,12 @@
             "syscall": 13,
             "field": "token 19: `Ok(140737351716864)` vs `Ok(140737349943296)`",
             "cells": 1,
-            "of_diverged": 6,
+            "of_diverged": 5,
             "example_cell": "c-programs/cpuid-probe@kvm",
             "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] finish syscall #<NUM>: mmap(NULL, 2133584, ProtFlags(PROT_READ), MapFlags(MAP_PRIVATE | MAP_DENYWRITE), 3, 0) = Ok(140737351716864)",
             "candidate_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] finish syscall #<NUM>: mmap(NULL, 2133584, ProtFlags(PROT_READ), MapFlags(MAP_PRIVATE | MAP_DENYWRITE), 3, 0) = Ok(140737349943296)"
           },
-          "line": "parity: 85/91 matched; selected 91 of 91 committed; mean 0.971 over 91 measured; floor 0.971 over 91 of 91 selected (excluded: 0 no golden; 0 not compared)"
+          "line": "parity: 86/91 matched; selected 91 of 91 committed; mean 0.979 over 91 measured; floor 0.979 over 91 of 91 selected (excluded: 0 no golden; 0 not compared)"
         },
         "liteinst": {
           "selected": 0,
@@ -243,8 +243,8 @@
       "total": {
         "selected": 198,
         "measured": 195,
-        "matched": 85,
-        "diverged": 110,
+        "matched": 86,
+        "diverged": 109,
         "no_golden": 0,
         "no_golden_by_class": {
           "determinism-mismatch": 0,
@@ -273,14 +273,14 @@
         "credited": 195,
         "clean_credited": 194,
         "unequalized_credited": 1,
-        "credit_sum": 90.09618247844485,
-        "clean_credit_sum": 90.05657851804881,
+        "credit_sum": 90.78718991590259,
+        "clean_credit_sum": 90.74758595550655,
         "unequalized_credit_sum": 0.039603960396039604,
         "floor_cells": 198,
-        "mean_credit": 0.4620317050176659,
-        "clean_mean_credit": 0.4642091676188083,
+        "mean_credit": 0.46557533290206454,
+        "clean_mean_credit": 0.4677710616263224,
         "unequalized_mean_credit": 0.039603960396039604,
-        "floor_credit": 0.45503122463861034,
+        "floor_credit": 0.4585211611914272,
         "committed": 198,
         "committed_selected": 198,
         "outside_committed": 0,
@@ -289,12 +289,12 @@
           "syscall": null,
           "field": "token 2: `detcore::tool_local:` vs `detcore::scheduler:`",
           "cells": 90,
-          "of_diverged": 110,
+          "of_diverged": 109,
           "example_cell": "c-programs/aio-refusal@sabre",
           "reference_message": "INFO detcore::tool_local: DETLOG USER RAND: seeding PRNG for root thread with seed 0",
           "candidate_message": "INFO detcore::scheduler: [scheduler] guest in queue, scheduler proceeding.."
         },
-        "line": "parity: 85/198 matched; selected 198 of 198 committed; mean 0.462 over 195 measured; floor 0.455 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.464 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+        "line": "parity: 86/198 matched; selected 198 of 198 committed; mean 0.466 over 195 measured; floor 0.459 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.468 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
       },
       "cells": [
         {
@@ -1428,16 +1428,16 @@
           "unavailable_class": null,
           "operand": null,
           "reason": null,
-          "credit": 0.4329501915708812,
+          "credit": 0.842911877394636,
           "credit_basis": "clean",
-          "matched_prefix": 113,
+          "matched_prefix": 220,
           "left_len": 261,
           "right_len": 256,
-          "first_divergent_record": 114,
-          "first_difference_field": "token 12: `Ok(93824992264192)` vs `Ok(2129920)`",
-          "first_difference_syscall": 6,
-          "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 5] finish syscall #<NUM>: brk(NULL) = Ok(93824992264192)",
-          "candidate_message": "INFO detcore: DETLOG [syscall][detcore, dtid 5] finish syscall #<NUM>: brk(NULL) = Ok(2129920)",
+          "first_divergent_record": 222,
+          "first_difference_field": "token 3: `[dtid` vs `[sched-step5]`",
+          "first_difference_syscall": 43,
+          "reference_message": "INFO detcore::scheduler: [dtid 3] Alarm fired, delivering signal SIGCHLD to guest.",
+          "candidate_message": "INFO detcore::scheduler: [sched-step5] >>>>>>>\n\n COMMIT turn 11, dettid 3 using resources {InternalIOPolling: W}, on previously committed 1_791_337_404.007_248_390s",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3021,7 +3021,7 @@
           "first_difference_field": "token 3: `[dtid` vs `[sched-step5]`",
           "first_difference_syscall": 35,
           "reference_message": "INFO detcore::scheduler: [dtid 3] Alarm fired, delivering signal SIGCHLD to guest.",
-          "candidate_message": "INFO detcore::scheduler: [sched-step5] >>>>>>>\n\n COMMIT turn 7, dettid 3 using resources {InternalIOPolling: W}, on previously committed 1_791_336_846.004_871_025s",
+          "candidate_message": "INFO detcore::scheduler: [sched-step5] >>>>>>>\n\n COMMIT turn 7, dettid 3 using resources {InternalIOPolling: W}, on previously committed 1_791_337_404.004_871_025s",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3074,20 +3074,20 @@
           "emitted_cell": null,
           "test_id": "c-programs/poll-readiness",
           "backend": "kvm",
-          "verdict": "diverged",
+          "verdict": "matched",
           "unavailable_class": null,
           "operand": null,
           "reason": null,
-          "credit": 0.7189542483660131,
+          "credit": 1.0,
           "credit_basis": "clean",
-          "matched_prefix": 110,
+          "matched_prefix": 153,
           "left_len": 153,
-          "right_len": 150,
-          "first_divergent_record": 111,
-          "first_difference_field": "token 9: `ppoll(0x7fffffffeab0,` vs `read(3,`",
-          "first_difference_syscall": 38,
-          "reference_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: ppoll(0x7fffffffeab0, 1, 0x7fffffffea60, NULL, 8) = ?",
-          "candidate_message": "INFO detcore: DETLOG [syscall][detcore, dtid 3] inbound syscall: read(3, 0x7fffffffeac0, 8) = ?",
+          "right_len": 153,
+          "first_divergent_record": null,
+          "first_difference_field": null,
+          "first_difference_syscall": null,
+          "reference_message": null,
+          "candidate_message": null,
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -3791,7 +3791,7 @@
           "first_difference_field": "token 3: `[dtid` vs `[sched-step5]`",
           "first_difference_syscall": 18,
           "reference_message": "INFO detcore::scheduler: [dtid 3] Alarm fired, delivering signal SIGCHLD to guest.",
-          "candidate_message": "INFO detcore::scheduler: [sched-step5] >>>>>>>\n\n COMMIT turn 82, dettid 3 using resources {WaitChild { parent: DetPid(3), spec: ChildWaitSpec { selector: Exact(DetPid(5)), owner: None, exit_class: Sigchld } }: R}, on previously committed 1_791_336_846.028_543_455s",
+          "candidate_message": "INFO detcore::scheduler: [sched-step5] >>>>>>>\n\n COMMIT turn 82, dettid 3 using resources {WaitChild { parent: DetPid(3), spec: ChildWaitSpec { selector: Exact(DetPid(5)), owner: None, exit_class: Sigchld } }: R}, on previously committed 1_791_337_404.028_543_455s",
           "lane": "portable",
           "node": "manifest_c_programs"
         },
@@ -5749,7 +5749,7 @@
       },
       "emitted_at": "2026-10-07T02:09:42Z",
       "source_tree_dirty": false,
-      "headline": true,
+      "headline": false,
       "line": "parity: 85/198 matched; selected 198 of 198 committed; mean 0.462 over 195 measured; floor 0.455 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.464 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
@@ -6015,6 +6015,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 195 measured; floor 0.054 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-claude-coord-8c070294ccab-1791340120789881771-968348-64e89602",
+      "hermit_sha": "8c070294ccabd62dd208bbebd45aa771c7441003",
+      "depth": {
+        "commits": 4154,
+        "first_parent": 4079
+      },
+      "emitted_at": "2026-10-07T02:49:21Z",
+      "source_tree_dirty": false,
+      "headline": true,
+      "line": "parity: 86/198 matched; selected 198 of 198 committed; mean 0.466 over 195 measured; floor 0.459 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.468 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
       "producer": "validate",
@@ -7629,6 +7642,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/198 matched; selected 198 of 198 committed; mean 0.055 over 182 measured; floor 0.051 over 198 of 198 selected (counted as 0: 16 unmeasured: no-result-row 16; excluded: 0 no golden; 0 not compared) [inputs equalized for 91 of 182 credited: mean 0.016 over 91 with equal inputs; mean 0.095 over 91 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-tickhub-ops-2-ea69f2123dbf-1791342232008366316-3871079-bff279f8",
+      "hermit_sha": "ea69f2123dbfabfaabf8f1b0fa6e7b856a5b8efd",
+      "depth": {
+        "commits": 4156,
+        "first_parent": 4081
+      },
+      "emitted_at": "2026-10-07T03:17:39Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 86/198 matched; selected 198 of 198 committed; mean 0.466 over 195 measured; floor 0.459 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.468 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
       "producer": "validate",
