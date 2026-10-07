@@ -1,23 +1,23 @@
 {
   "schema": "parity-summary/v4",
   "generated_from": {
-    "store_sha256": "bab938a4d2c959e133893a7446e859e54da99dd27998b0bff993ec7bc3551bb4",
-    "series_commit": "e7583c6129bcdd0cb2116e77fbf8831836c53dd8",
-    "tool_hermit_commit": "1a79c4eea84c27150de7f86c5d8f90ed6f4c474f"
+    "store_sha256": "2f95e9e1f721adc50ea009fd1329e7ba7a8d8b591b70a95655ee18c509179b95",
+    "series_commit": "adfd83a583525bd42a1563a8dee7bf9b7f323a83",
+    "tool_hermit_commit": "4ffb012c16580f14232803e35aebf99f6b11d262"
   },
   "store_present": true,
-  "rows_read": 47819,
+  "rows_read": 48018,
   "producers": [
     {
       "producer": "validate",
-      "run_id": "validate-ops-tick-4f9151b7ef7f-69e7bb36ce3c",
-      "hermit_sha": "4f9151b7ef7fd2b543aa1389ef20c02100e4797c",
+      "run_id": "validate-claude-coord-ccbe5ae86f60-1791379383849802927-3306204-9f2a801f",
+      "hermit_sha": "ccbe5ae86f603c8974ec14eeed18e0d9c3a1a0f5",
       "conflicting_hermit_shas": [],
       "depth": {
-        "commits": 4272,
-        "first_parent": 4197
+        "commits": 4276,
+        "first_parent": 4201
       },
-      "emitted_at": "2026-10-07T12:53:40Z",
+      "emitted_at": "2026-10-07T13:37:15Z",
       "source_tree_dirty": false,
       "line": "parity: 90/198 matched; selected 198 of 198 committed; mean 0.472 over 195 measured; floor 0.465 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]",
       "committed_unknown": null,
@@ -6325,6 +6325,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-claude-coord-ccbe5ae86f60-1791379383849802927-3306204-9f2a801f",
+      "hermit_sha": "ccbe5ae86f603c8974ec14eeed18e0d9c3a1a0f5",
+      "depth": {
+        "commits": 4276,
+        "first_parent": 4201
+      },
+      "emitted_at": "2026-10-07T13:37:15Z",
+      "source_tree_dirty": false,
+      "headline": true,
+      "line": "parity: 90/198 matched; selected 198 of 198 committed; mean 0.472 over 195 measured; floor 0.465 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-claude-coord-cf0ed8872283-1791330588782596218-2996488-696d3823",
       "hermit_sha": "cf0ed88722838ee0f750d8d84c722ce1bdf2dfe3",
       "depth": null,
@@ -6561,19 +6574,6 @@
     },
     {
       "producer": "validate",
-      "run_id": "validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da",
-      "hermit_sha": "d3a0a4ae3d168565595ae4157b25ab8efbb1861a",
-      "depth": {
-        "commits": 3260,
-        "first_parent": 3185
-      },
-      "emitted_at": "2026-09-28T21:40:00Z",
-      "source_tree_dirty": false,
-      "headline": false,
-      "line": "parity: 0/192 matched; selected 192 of 192 committed; mean 0.052 over 175 measured; floor 0.051 over 178 of 192 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 14 not compared) [inputs not equalized]"
-    },
-    {
-      "producer": "validate",
       "run_id": "validate-coord-tickval-4565b01b66c2-1791139406221186959-1755386-8f2aad77",
       "hermit_sha": "4565b01b66c286939cc29728be8bcdb2dc599c21",
       "depth": {
@@ -6714,32 +6714,6 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/297 matched; selected 297 of 297 committed; mean 0.043 over 278 measured; floor 0.043 over 281 of 297 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 16 not compared)"
-    },
-    {
-      "producer": "validate",
-      "run_id": "validate-hermit-call-dirty-false",
-      "hermit_sha": "d3a0a4ae3d168565595ae4157b25ab8efbb1861a",
-      "depth": {
-        "commits": 3260,
-        "first_parent": 3185
-      },
-      "emitted_at": "2026-10-07T05:50:54Z",
-      "source_tree_dirty": false,
-      "headline": false,
-      "line": "parity: 0/2 matched; selected 2 of 192 committed (partial); mean 0.064 over 2 measured; floor 0.064 over 2 of 2 selected (excluded: 0 no golden; 0 not compared) [inputs not equalized]"
-    },
-    {
-      "producer": "validate",
-      "run_id": "validate-hermit-call-dirty-true",
-      "hermit_sha": "d3a0a4ae3d168565595ae4157b25ab8efbb1861a",
-      "depth": {
-        "commits": 3260,
-        "first_parent": 3185
-      },
-      "emitted_at": "2026-10-07T05:50:56Z",
-      "source_tree_dirty": true,
-      "headline": false,
-      "line": "parity: 0/2 matched; selected 2 of 192 committed (partial); mean 0.064 over 2 measured; floor 0.064 over 2 of 2 selected (excluded: 0 no golden; 0 not compared) [inputs not equalized]"
     },
     {
       "producer": "validate",
@@ -7635,7 +7609,7 @@
       },
       "emitted_at": "2026-10-07T12:53:40Z",
       "source_tree_dirty": false,
-      "headline": true,
+      "headline": false,
       "line": "parity: 90/198 matched; selected 198 of 198 committed; mean 0.472 over 195 measured; floor 0.465 over 198 of 198 selected (counted as 0: 3 unmeasured: no-result-row 3; excluded: 0 no golden; 0 not compared) [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
     },
     {
@@ -8430,38 +8404,12 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 0/2 matched; selected 0 of 198 committed (partial); 2 outside the committed selection; mean 0.035 over 1 measured; floor 0.017 over 2 of 2 selected (counted as 0: 1 unmeasured: no-result-row 1; excluded: 0 no golden; 0 not compared) [inputs not equalized]"
-    },
-    {
-      "producer": "pressure-test",
-      "run_id": "pressure-test-hermit-call-dirty-false",
-      "hermit_sha": "d3a0a4ae3d168565595ae4157b25ab8efbb1861a",
-      "depth": {
-        "commits": 3260,
-        "first_parent": 3185
-      },
-      "emitted_at": "2026-10-07T05:50:57Z",
-      "source_tree_dirty": false,
-      "headline": false,
-      "line": "parity: 0/2 matched; selected 2 of 192 committed (partial); mean 0.064 over 2 measured; floor 0.064 over 2 of 2 selected (excluded: 0 no golden; 0 not compared) [inputs not equalized]"
-    },
-    {
-      "producer": "pressure-test",
-      "run_id": "pressure-test-hermit-call-dirty-true",
-      "hermit_sha": "d3a0a4ae3d168565595ae4157b25ab8efbb1861a",
-      "depth": {
-        "commits": 3260,
-        "first_parent": 3185
-      },
-      "emitted_at": "2026-10-07T05:50:59Z",
-      "source_tree_dirty": true,
-      "headline": false,
-      "line": "parity: 0/2 matched; selected 2 of 192 committed (partial); mean 0.064 over 2 measured; floor 0.064 over 2 of 2 selected (excluded: 0 no golden; 0 not compared) [inputs not equalized]"
     }
   ],
   "refused_rows": 0,
   "duplicate_rows": 0,
-  "retracted_rows": 0,
-  "source_tree_dirty_rows": 4,
+  "retracted_rows": 200,
+  "source_tree_dirty_rows": 0,
   "source_tree_unreported_rows": 0,
   "refusals": [],
   "legacy_rerun": {
