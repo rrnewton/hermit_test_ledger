@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-07T22:36:10Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `3dd531eed6c39e02693b5720dd98505a8f6dedce`, reading 516862 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-netreplay-rework-cd56c0d73e1f-1791412317707332927-1895164-02ae0d68` (1099). Earlier validate runs still supplying comparisons: `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), `validate-gate-select-f85de5d891ab-1791150197069282693-1112723-7a425489` current (1042), and 123 more.
+Last regenerated **2026-10-07T23:25:31Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `1503d2ab945a15d1c93150f3c03d0d78b5a56b64`, reading 520180 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-5bb4883a4758-1791415242105512162-1771798-3d1d1232` (1099). Earlier validate runs still supplying comparisons: `validate-netreplay-rework-cd56c0d73e1f-1791412317707332927-1895164-02ae0d68` current (1099), `validate-claude-coord-d1744e9fc07e-1791194186871628473-2231806-38cbc82c` current (1057), `validate-netreplay-rework-8b7b189183d5-1791196936091505003-1516693-ebe3ca6a` current (1056), `validate-buck-re-3-b84faa26c355-1791103535341810231-4116164-a06293f4` current (1050), `validate-buck-re-3-66db685c5279-1791099824835735230-1153730-3be6996b` current (1046), `validate-coord2-a3d7e201e091-1791197685492926552-2311392-b1cd4017` current (1046), `validate-coord2-d1744e9fc07e-1791193403382220055-1138567-499f31af` current (1045), `validate-claude-coord-mega-lander-4c0b7daa8ae6-1791155208411569193-894674-eab4fa86` current (1042), and 124 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -76,7 +76,7 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **338** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **341** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -85,9 +85,9 @@ The count table includes all **12592** cells in the manifest; no row is omitted.
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1011 | 0 | 2 | 86 | 1099 |
-| Not selected by full | 325 | 338 | 10 | 0 | 25 | 698 |
+| Not selected by full | 321 | 341 | 11 | 0 | 25 | 698 |
 | Not applicable | 10313 | 242 | 120 | 0 | 120 | 10795 |
-| **Total** | **10638** | **1591** | **130** | **2** | **231** | **12592** |
+| **Total** | **10634** | **1594** | **131** | **2** | **231** | **12592** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -1363,6 +1363,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/ld` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ln` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/logger` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/logname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/logname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
@@ -1471,6 +1472,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/sleep` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sort` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/split` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/sqlite3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/sqlite3` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ss` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1667,6 +1669,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/strict-zip-unzip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-zstd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-zstd-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strings` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strings` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -1692,6 +1695,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/true` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `compat/tsort` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tty` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
@@ -2224,7 +2228,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 237 other parity run(s) in the store
+### 238 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -2463,6 +2467,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-tickhub-ops-2-f29c47d2bef4-1791244371926289104-1699228-ca089f63` at Hermit `f29c47d2bef4`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.052 over 198 (0 full, 182 partial, 16 zero: no-result-row 16); excluded: 0 reference without golden; 0 not compared; measured mean 0.057 over 182 [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-fe87704c025d-1791265742000732494-2716231-2b49f547` at Hermit `fe87704c025d`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - pressure-test run `p1-green10` at Hermit `7759159896ab`: `parity: not compared: 0 measured of 2 selected (inputs cannot be equalized); selected 2 of 297 committed (partial)`
+- pressure-test run `pressure-3e4959d20555-20261007T230235Z` at Hermit `3e4959d20555`: `parity: 0/1 matched; selected 1 of 2208 committed (partial); population 1: mean 0.000 over 1 (0 full, 0 partial, 1 zero: crash 1); excluded: 0 reference without golden; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-c470fa213ee8-20261003T180650Z` at Hermit `c470fa213ee8`: `parity: not compared: 0 measured of 1 selected (inputs cannot be equalized); selected 1 of 205 committed (partial)`
 - pressure-test run `pressure-d7441caea790-20261006T230247Z` at Hermit `d7441caea790`: `parity: 0/2 matched; selected 0 of 198 committed (partial); 2 outside the committed selection; population 1: mean 0.035 over 1 (0 full, 1 partial, 0 zero); excluded: 1 reference without golden: no-result-row 1; 0 not compared; measured mean 0.035 over 1 [inputs not equalized]`
 

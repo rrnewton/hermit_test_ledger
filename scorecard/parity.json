@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v5",
   "generated_from": {
-    "store_sha256": "0d91005c5ff6f7bb419ef7242ee63d797053a78bf0cad475075a41819ac818b9",
-    "series_commit": "3dd531eed6c39e02693b5720dd98505a8f6dedce",
-    "tool_hermit_commit": "cd56c0d73e1fa82509900e189dbc2b843bea6ce2"
+    "store_sha256": "bdafa18ef400a92ace0551e1e44bf010f7c65e7fc6817a3234ea3930884e9df9",
+    "series_commit": "1503d2ab945a15d1c93150f3c03d0d78b5a56b64",
+    "tool_hermit_commit": "5bb4883a47586e1750464e040a1b3b1e117a8f07"
   },
   "store_present": true,
-  "rows_read": 52206,
+  "rows_read": 52207,
   "producers": [
     {
       "producer": "validate",
@@ -8995,6 +8995,19 @@
       "source_tree_dirty": false,
       "headline": true,
       "line": "parity: not compared: 0 measured of 14 selected (inputs cannot be equalized); selected 14 of 297 committed (partial)"
+    },
+    {
+      "producer": "pressure-test",
+      "run_id": "pressure-3e4959d20555-20261007T230235Z",
+      "hermit_sha": "3e4959d20555c05b9180b3335e45bc1e4c265908",
+      "depth": {
+        "commits": 4310,
+        "first_parent": 4235
+      },
+      "emitted_at": "2026-10-07T23:18:37Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 0/1 matched; selected 1 of 2208 committed (partial); population 1: mean 0.000 over 1 (0 full, 0 partial, 1 zero: crash 1); excluded: 0 reference without golden; 0 not compared; measured mean n/a over 0"
     },
     {
       "producer": "pressure-test",
