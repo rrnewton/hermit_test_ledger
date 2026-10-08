@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-08T19:43:02Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `ffc23208a5f93e494c162f4cad33b53c2e2c2c85`, reading 655823 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-kernel-ctl-250395000575-1791488263601321575-2527720-839ab805` (1337). Earlier validate runs still supplying comparisons: `validate-kernel-ctl-4ae8f915c9b8-1791467330452199734-1941215-d9093a37` current (1338), `validate-qemu-rcb-8d7ba59226c3-1791464903881545662-761787-92e752ad` current (1338), `validate-qemu-rcb-dd656a0e8733-1791466411658975629-3208078-e22bede2` current (1338), `validate-qemu-rcb-f2b36ab9c1d8-1791470326868767847-2853225-c7db5625` current (1338), `validate-tickhub-ops-2-0615818241aa-1791469313175704632-923574-d4e75f27` current (1338), `validate-tickhub-ops-2-48c03aec4a4b-1791466423594341892-3225917-1267dcb9` current (1338), `validate-claude-coord-1d99ff1cd208-1791478936136649781-3446701-c9afb4f8` current (1337), `validate-claude-coord-27eab6dcc344-1791473031174292346-2463460-451b5c5d` current (1337), and 182 more.
+Last regenerated **2026-10-08T20:21:25Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `237353c88b0df428e4ca0dbf270d789d4ae857f0`, reading 659015 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-kernel-ctl-51d6c639a257-1791490612899841202-976813-bf3e54b6` (1337). Earlier validate runs still supplying comparisons: `validate-kernel-ctl-4ae8f915c9b8-1791467330452199734-1941215-d9093a37` current (1338), `validate-qemu-rcb-8d7ba59226c3-1791464903881545662-761787-92e752ad` current (1338), `validate-qemu-rcb-dd656a0e8733-1791466411658975629-3208078-e22bede2` current (1338), `validate-qemu-rcb-f2b36ab9c1d8-1791470326868767847-2853225-c7db5625` current (1338), `validate-tickhub-ops-2-0615818241aa-1791469313175704632-923574-d4e75f27` current (1338), `validate-tickhub-ops-2-48c03aec4a4b-1791466423594341892-3225917-1267dcb9` current (1338), `validate-claude-coord-1d99ff1cd208-1791478936136649781-3446701-c9afb4f8` current (1337), `validate-claude-coord-27eab6dcc344-1791473031174292346-2463460-451b5c5d` current (1337), and 183 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -86,8 +86,8 @@ The count table includes all **12592** cells in the manifest; no row is omitted.
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1250 | 0 | 0 | 87 | 1337 |
 | Not selected by full | 41 | 469 | 138 | 0 | 50 | 698 |
-| Not applicable | 9909 | 250 | 239 | 0 | 159 | 10557 |
-| **Total** | **9950** | **1969** | **377** | **0** | **296** | **12592** |
+| Not applicable | 9909 | 255 | 234 | 0 | 159 | 10557 |
+| **Total** | **9950** | **1974** | **372** | **0** | **296** | **12592** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -100,7 +100,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `applications/c-toolchain-workflow` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `applications/example-timed-progress-bar` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `kvm` | `Not selected by full` | `measured-and-passed` |
-| `applications/example-timed-progress-bar` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
+| `applications/example-timed-progress-bar` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `applications/git-repository-workflow` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -150,7 +150,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/append-pwrite` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/arch-prctl-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/arch-prctl-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/arch-prctl-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/arch-prctl-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/arch-prctl-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/arch-prctl-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/bind-getsockname` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
@@ -235,7 +235,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/dbt-mmap-exec` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-pid-virtualization` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `c-programs/dbt-pid-virtualization` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
-| `c-programs/dbt-pid-virtualization` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/dbt-pid-virtualization` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/dbt-pid-virtualization` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/dbt-pid-virtualization` | `verify` | `sabre` | `Not applicable` | `diverged` |
 | `c-programs/dbt-prlimit-self` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -1275,7 +1275,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/socket-options` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/socket-timestamp-edge-cases` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/socket-timestamp-edge-cases` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/socket-timestamp-timespec` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
@@ -1491,7 +1491,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/vectored-io` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vforkexec` | `verify` | `dbt` | `Selected by full` | `diverged` |
 | `c-programs/vforkexec` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
-| `c-programs/vforkexec` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/vforkexec` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/vforkexec` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vforkexec` | `verify` | `sabre` | `Not applicable` | `diverged` |
 | `c-programs/vmsplice-enosys` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
@@ -4766,7 +4766,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 375 other parity run(s) in the store
+### 376 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -4971,6 +4971,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-kernel-ctl-481c9b4b321d-1791441328000021019-126738-aef32a5c` at Hermit `481c9b4b321d`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-kernel-ctl-4ae863c64dc6-1791438453924519254-3512162-878bdc53` at Hermit `4ae863c64dc6`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 531 of 536 credited: mean 0.438 over 531 with equal inputs; mean 0.047 over 5 with unequal inputs]`
 - validate run `validate-kernel-ctl-4ae8f915c9b8-1791467330452199734-1941215-d9093a37` at Hermit `4ae8f915c9b8`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 527 partial, 1433 zero: candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.391 over 775 [inputs equalized for 772 of 775 credited: mean 0.393 over 772 with equal inputs; mean 0.064 over 3 with unequal inputs]`
+- validate run `validate-kernel-ctl-51d6c639a257-1791490612899841202-976813-bf3e54b6` at Hermit `51d6c639a257`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 526 partial, 1434 zero: candidate-not-enabled 1174, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.392 over 774 [inputs equalized for 771 of 774 credited: mean 0.393 over 771 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-kernel-ctl-79b56aceec04-1791468517428883699-3585620-ad461c25` at Hermit `79b56aceec04`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 527 partial, 1433 zero: candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.391 over 775 [inputs equalized for 772 of 775 credited: mean 0.393 over 772 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-kernel-ctl-816615fcfd72-1791473642041884957-3042428-0a57f6d8` at Hermit `816615fcfd72`: `parity: 247/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (247 full, 525 partial, 1436 zero: ended 2, candidate-not-enabled 1174, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.391 over 772 [inputs equalized for 769 of 772 credited: mean 0.392 over 769 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-kernel-ctl-8a18d3007f5e-1791418012275987188-1485359-a85c8432` at Hermit `8a18d3007f5e`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 532 of 536 credited: mean 0.438 over 532 with equal inputs; mean 0.050 over 4 with unequal inputs]`
