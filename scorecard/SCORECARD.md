@@ -1,33 +1,33 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-08T10:33:06Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `8dd102d6a7423eefd138384e787e23aa7ab805e5`, reading 586792 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-8696ccbef546-1791455310962174181-385656-efa2d79c` (1170). Earlier validate runs still supplying comparisons: `validate-claude-coord-248e99175f3a-1791433098264339396-4170245-0244fd1c` current (1099), `validate-claude-coord-3e77d2c4576f-1791431546217931462-1676702-a73b78b5` current (1099), `validate-claude-coord-5694c1d083b5-1791430189067660013-3636482-4bb2f52a` current (1099), `validate-claude-coord-608ef0deff5e-1791437093959958936-3633674-db73f6eb` current (1099), `validate-claude-coord-6594ea74b388-1791427553880618473-135321-ea209c30` current (1099), `validate-claude-coord-67f54e55ea1b-1791446180146048065-2715904-977f8208` current (1099), `validate-claude-coord-7157747b3234-1791451005660679924-2513424-82231948` current (1099), `validate-claude-coord-80df1443ceaa-1791439913621652527-1537802-8d73e3e0` current (1099), and 157 more.
+Last regenerated **2026-10-08T11:00:25Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `cbfe3932abb8051da9a52f7beab7a2dca6fb4a64`, reading 587895 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-c380f45d09c0-1791457000602484619-2635127-d9170fbc` (1099). Earlier validate runs still supplying comparisons: `validate-claude-coord-8696ccbef546-1791455310962174181-385656-efa2d79c` current (1170), `validate-claude-coord-248e99175f3a-1791433098264339396-4170245-0244fd1c` current (1099), `validate-claude-coord-3e77d2c4576f-1791431546217931462-1676702-a73b78b5` current (1099), `validate-claude-coord-5694c1d083b5-1791430189067660013-3636482-4bb2f52a` current (1099), `validate-claude-coord-608ef0deff5e-1791437093959958936-3633674-db73f6eb` current (1099), `validate-claude-coord-6594ea74b388-1791427553880618473-135321-ea209c30` current (1099), `validate-claude-coord-67f54e55ea1b-1791446180146048065-2715904-977f8208` current (1099), `validate-claude-coord-7157747b3234-1791451005660679924-2513424-82231948` current (1099), and 158 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **12592** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1170** are selected by full, **698** are not selected by full, and **10724** are **Not applicable**.
+The count table includes all **12592** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1099** are selected by full, **698** are not selected by full, and **10795** are **Not applicable**.
 
-Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. None of the **1160** selected `verify` cells declares the stripped comparator. These same-backend results do not establish cross-backend parity.
+Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. None of the **1089** selected `verify` cells declares the stripped comparator. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
 | `ptrace` | 562 | 372 | 1427 | 2361 |
 | `dbt` | 38 | 47 | 2276 | 2361 |
-| `kvm` | 330 | 7 | 2024 | 2361 |
+| `kvm` | 259 | 7 | 2095 | 2361 |
 | `sabre` | 240 | 239 | 1882 | 2361 |
 | `liteinst` | 0 | 0 | 2361 | 2361 |
 | `native` | 0 | 33 | 754 | 787 |
-| **Total** | **1170** | **698** | **10724** | **12592** |
+| **Total** | **1099** | **698** | **10795** | **12592** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **1170 of 12592**, which is **9.29%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **1099 of 12592**, which is **8.73%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **10724 of those 12592 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1868 cells that CAN run, selected by full is **62.63%**.
+⚠️ **10795 of those 12592 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 1797 cells that CAN run, selected by full is **61.16%**.
 
-⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1170 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
+⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1099 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
 ⚠️ **Adding or removing a backend or mode changes this denominator and therefore the percentage, without anything about the product changing.** Removing a backend whose cells are mostly not selected RAISES the reported figure; adding manifest cells that are not selected LOWERS it. Neither is progress. Before comparing this percentage against an earlier one, diff the two lists above: if they differ, the numbers are not comparable and the difference is not a result.
 
@@ -35,11 +35,11 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `verify` | 552 / 787 | 38 / 787 | 330 / 787 | 240 / 787 | 0 / 787 | — | 1160 | 525 | 2250 | 3935 |
+| `verify` | 552 / 787 | 38 / 787 | 259 / 787 | 240 / 787 | 0 / 787 | — | 1089 | 525 | 2321 | 3935 |
 | `replay` | 4 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | — | 4 | 139 | 3792 | 3935 |
 | `chaos` | 6 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | 0 / 787 | — | 6 | 1 | 3928 | 3935 |
 | `naked` | — | — | — | — | — | 0 / 787 | 0 | 33 | 754 | 787 |
-| **Total** | | | | | | | **1170** | **698** | **10724** | **12592** |
+| **Total** | | | | | | | **1099** | **698** | **10795** | **12592** |
 
 ## Ptrace by manifest category
 
@@ -61,7 +61,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | `system-utils` | 39 / 39 | 1 / 39 | 0 / 39 | 40 | 117 |
 | `util-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 
-Ordinary full validation executes 1174 cells: the 1170 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
+Ordinary full validation executes 1103 cells: the 1099 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
 
 ### Selected custom commands outside the comparable denominator
 
@@ -84,16 +84,16 @@ The count table includes all **12592** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 1082 | 0 | 2 | 86 | 1170 |
+| Selected by full | 0 | 1011 | 0 | 2 | 86 | 1099 |
 | Not selected by full | 321 | 341 | 11 | 0 | 25 | 698 |
-| Not applicable | 10242 | 242 | 120 | 0 | 120 | 10724 |
+| Not applicable | 10242 | 313 | 120 | 0 | 120 | 10795 |
 | **Total** | **10563** | **1665** | **131** | **2** | **231** | **12592** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
 | Test | Mode | Backend | Selection by full | Measurement |
 | --- | --- | --- | --- | --- |
-| `applications/c-toolchain-workflow` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `applications/c-toolchain-workflow` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `applications/c-toolchain-workflow` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `applications/c-toolchain-workflow` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `applications/c-toolchain-workflow` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -101,7 +101,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `applications/example-timed-progress-bar` | `verify` | `kvm` | `Not selected by full` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `applications/git-repository-workflow` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `applications/git-repository-workflow` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `applications/git-repository-workflow` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `applications/git-repository-workflow` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `applications/git-repository-workflow` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -227,12 +227,12 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/dbt-unsupported-syscall` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `c-programs/dbt-unsupported-syscall` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/dbt-wait-accounting` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/dbt-wait-accounting` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/dbt-wait-accounting` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/dbt-wait-accounting` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/dbt-wait-accounting` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-wait-accounting` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/dbt-wait-lifecycle` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/dbt-wait-lifecycle` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dbt-wait-lifecycle` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -241,7 +241,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/dup-shared-offset` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/dup-shared-offset` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/dup-shared-offset` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/environment-and-workdir` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/environment-and-workdir` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/environment-and-workdir` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/environment-and-workdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/environment-and-workdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -310,7 +310,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/fork-exec-pipeline` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/fork-exec-pipeline` | `verify` | `sabre` | `Not applicable` | `diverged` |
 | `c-programs/fp-reduction-nondeterminism` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
-| `c-programs/fp-reduction-nondeterminism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/fp-reduction-nondeterminism` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/fp-reduction-nondeterminism` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/fp-reduction-nondeterminism` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `c-programs/fp-reduction-nondeterminism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -346,7 +346,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/get-robust-list-self` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/get-robust-list-self` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/get-robust-list-self` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/get-robust-list-thread` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/get-robust-list-thread` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/get-robust-list-thread` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/get-robust-list-thread` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -367,7 +367,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/getpriority-identity` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/getpriority-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getpriority-identity` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/getrusage-self-accounting` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/getrusage-self-accounting` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/getrusage-self-accounting` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/getrusage-self-accounting` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getrusage-self-accounting` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -379,7 +379,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/hardware-trap-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/hardware-trap-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hardware-trap-identity` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/hello-alarm` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/hello-alarm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/hello-alarm` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/hello-alarm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-alarm` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -387,12 +387,12 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/hello-nostdlib` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/hello-nostdlib` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-nostdlib` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/hello-signals` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/hello-signals` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/host-identity` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/host-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/host-identity` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/host-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/host-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/host-identity` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -426,7 +426,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/ioctl-siocethtool` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-siocethtool` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
-| `c-programs/ipc-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ipc-determinism` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -460,7 +460,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/listmount-enosys` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/listmount-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/listmount-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/liteinst-advanced` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/liteinst-advanced` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/liteinst-advanced` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/liteinst-advanced` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/liteinst-advanced` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -553,12 +553,12 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/mmap-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism-heap` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/mmap-determinism-heap` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mmap-determinism-heap` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/mmap-determinism-heap` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/mmap-determinism-heap` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism-heap` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism-shared` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/mmap-determinism-shared` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/mmap-determinism-shared` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/mmap-determinism-shared` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/mmap-determinism-shared` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism-shared` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -598,7 +598,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/nanosleep-par` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/nanosleep-par` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `c-programs/nanosleep-par` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `c-programs/nanosleep-threads-nocrash` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/nanosleep-threads-nocrash` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/nanosleep-threads-nocrash` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/nanosleep-threads-nocrash` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/nanosleep-threads-simple` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
@@ -653,7 +653,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/path-file-ops` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/path-file-ops` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/path-file-ops` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/pause-alarm-interrupt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pause-alarm-interrupt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pause-alarm-interrupt` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/pause-alarm-interrupt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pause-alarm-interrupt` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -677,7 +677,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/perf-event-watchpoint-enosys` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/perf-event-watchpoint-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/perf-event-watchpoint-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/periodic-setitimer-delivery` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/periodic-setitimer-delivery` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/periodic-setitimer-delivery` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/periodic-setitimer-delivery` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/periodic-setitimer-delivery` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -717,7 +717,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/pipe-ipc` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pipe-ipc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pipe-ipc` | `verify` | `sabre` | `Not applicable` | `diverged` |
-| `c-programs/pipe-multiwriter-ordering` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/pipe-multiwriter-ordering` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pipe-multiwriter-ordering` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/pipe-multiwriter-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pipe-multiwriter-ordering` | `verify` | `sabre` | `Not applicable` | `diverged` |
@@ -739,7 +739,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/ppoll-readv` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ppoll-readv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-readv` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/ppoll-simulation` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/ppoll-simulation` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ppoll-simulation` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ppoll-simulation` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-simulation` | `verify` | `sabre` | `Not selected by full` | `diverged` |
@@ -771,14 +771,14 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/print-memaddrs` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/printf-with-threads` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/printf-with-threads` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/printf-with-threads` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/printf-with-threads` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/printf-with-threads` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `c-programs/proc-fd-link-aliases` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/proc-fd-link-aliases` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/proc-fd-link-aliases` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/proc-fdinfo` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/proc-fdinfo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/proc-fdinfo` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/proc-fdinfo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/proc-fdinfo` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -850,12 +850,12 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/random-readv-stream` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/random-readv-stream` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/random-readv-stream` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/random-sources` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/random-sources` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/random-sources` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/random-sources` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/random-sources` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/random-sources-root-only` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/random-sources-root-only` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/random-sources-root-only` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/random-sources-root-only` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/random-sources-root-only` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/random-sources-root-only` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -880,11 +880,11 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/record-replay-file-state` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/record-replay-file-state` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
 | `c-programs/record-replay-file-state` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/record-replay-file-state-regular-sink` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/record-replay-file-state-regular-sink` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/record-replay-file-state-regular-sink` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/record-replay-file-state-regular-sink` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/record-replay-file-state-regular-sink` | `verify` | `sabre` | `Selected by full` | `diverged` |
-| `c-programs/record-replay-lseek-seek-cur` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/record-replay-lseek-seek-cur` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/record-replay-lseek-seek-cur` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/record-replay-lseek-seek-cur` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/record-replay-lseek-seek-cur` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -924,7 +924,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/request-key-enosys` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/resource-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/resource-determinism` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/resource-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/resource-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/resource-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -954,7 +954,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/sched-setattr-other` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sched-setattr-other` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-setattr-other` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sched-yield-progress` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sched-yield-progress` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sched-yield-progress` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sched-yield-progress` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-yield-progress` | `verify` | `sabre` | `Not selected by full` | `diverged` |
@@ -992,20 +992,20 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/shutdown-socketpair` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/shutdown-socketpair` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigaction-state` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sigaction-state` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sigaction-state` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigaction-state` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigaction-state` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigaction-state` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigaltstack-state` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sigaltstack-state` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sigaltstack-state` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigaltstack-state` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigaltstack-state` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigaltstack-state` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sigmask-preemption` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sigmask-preemption` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigmask-preemption` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigmask-preemption` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigmask-preemption` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `c-programs/signal-delivery-sequence` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signal-delivery-sequence` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/signal-delivery-sequence` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/signal-delivery-sequence` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-delivery-sequence` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1013,12 +1013,12 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/signal-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/signal-disposition` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/signal-disposition` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signal-disposition` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/signal-disposition` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/signal-disposition` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-disposition` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-waitstatus-identity` | `verify` | `dbt` | `Not selected by full` | `measured-no-verdict` |
-| `c-programs/signal-waitstatus-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/signal-waitstatus-identity` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/signal-waitstatus-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/signal-waitstatus-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-waitstatus-identity` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1030,19 +1030,19 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/sigpipe-siginfo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigpipe-siginfo` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigprocmask-state` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sigprocmask-state` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sigprocmask-state` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigprocmask-state` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigprocmask-state` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigprocmask-state` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sigtimedwait-no-timeout` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sigtimedwait-no-timeout` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/sigtimedwait-timeout-0s` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sigtimedwait-timeout-0s` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `c-programs/sigtimedwait-timeout-1s` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sigtimedwait-timeout-1s` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-1s` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-1s` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-1s` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1074,7 +1074,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/socket-epoll-ordering` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/socket-epoll-ordering` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-epoll-ordering` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/socket-ioctl-timestamp` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socket-ioctl-timestamp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/socket-ioctl-timestamp` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/socket-ioctl-timestamp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-ioctl-timestamp` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1082,7 +1082,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/socket-options` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/socket-options` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-options` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/socket-timestamp-edge-cases` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/socket-timestamp-edge-cases` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/socket-timestamp-edge-cases` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1155,11 +1155,11 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/sysfs-enosys` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sysfs-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysfs-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sysinfo` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sysinfo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sysinfo` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sysinfo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysinfo` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sysinfo-uptime` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/sysinfo-uptime` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sysinfo-uptime` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sysinfo-uptime` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysinfo-uptime` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1211,7 +1211,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/thread-sync-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/thread-sync-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thread-sync-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/threadexhaustion` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/threadexhaustion` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `c-programs/threadexhaustion` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/threadexhaustion` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/threadexhaustion` | `verify` | `sabre` | `Not selected by full` | `diverged` |
@@ -1280,7 +1280,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/writev-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/writev-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `chaos-c/lock-granularity` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
-| `chaos-c/lock-granularity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `chaos-c/lock-granularity` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `chaos-c/lock-granularity` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `chaos-c/lock-granularity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `chaos-c/lock-granularity` | `verify` | `sabre` | `Not selected by full` | `diverged` |
@@ -1770,11 +1770,11 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/zip-unzip` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/zstd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/zstd-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `data-handling/archive-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `data-handling/archive-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `data-handling/archive-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `data-handling/archive-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `data-handling/archive-roundtrip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `data-handling/dd-partial-transfers` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `data-handling/dd-partial-transfers` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `data-handling/dd-partial-transfers` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `data-handling/dd-partial-transfers` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `data-handling/dd-partial-transfers` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1782,15 +1782,15 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `data-handling/jq-json-transform` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `data-handling/jq-json-transform` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `data-handling/jq-json-transform` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `data-handling/shell-pipeline` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `data-handling/shell-pipeline` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `data-handling/shell-pipeline` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `data-handling/shell-pipeline` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `data-handling/shell-pipeline` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `data-handling/sqlite-query-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `data-handling/sqlite-query-determinism` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `data-handling/sqlite-query-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `data-handling/sqlite-query-determinism` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `data-handling/sqlite-query-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `data-handling/zstd-multithread` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `data-handling/zstd-multithread` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `data-handling/zstd-multithread` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `data-handling/zstd-multithread` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `data-handling/zstd-multithread` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1801,11 +1801,11 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `determinism-stress/example-race` | `verify` | `kvm` | `Selected by full` | `diverged` |
 | `determinism-stress/example-race` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress/example-race` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `determinism-stress/order-violation` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress/order-violation` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress/order-violation` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress/order-violation` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress/order-violation` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `determinism-stress/process-chains` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress/process-chains` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress/process-chains` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress/process-chains` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `determinism-stress/process-chains` | `verify` | `sabre` | `Not applicable` | `diverged` |
@@ -1819,22 +1819,22 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `determinism-stress/thread-output` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress/thread-output` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress/thread-output` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `determinism-stress-c/fork-tree` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/fork-tree` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/fork-tree` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/fork-tree` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/fork-tree` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `determinism-stress-c/lock-free` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/lock-free` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/lock-free` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/lock-free` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/lock-free` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `determinism-stress-c/mmap-fork-shared` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/mmap-fork-shared` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `determinism-stress-c/mmap-fork-shared` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `determinism-stress-c/pid-tid` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/pid-tid` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/pid-tid` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/pid-tid` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/pid-tid` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `determinism-stress-c/pid-tid-identity` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/pid-tid-identity` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/pid-tid-identity` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/pid-tid-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/pid-tid-identity` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1846,7 +1846,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `determinism-stress-c/pipe-prefill` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/pipe-prefill` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/pipe-prefill` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `determinism-stress-c/producer-consumer` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/producer-consumer` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/producer-consumer` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/producer-consumer` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `determinism-stress-c/producer-consumer` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1854,15 +1854,15 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `determinism-stress-c/signal-order` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/signal-order` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `determinism-stress-c/thread-contention` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
-| `determinism-stress-c/thread-contention` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/thread-contention` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/thread-contention` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/thread-contention` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/thread-contention` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `determinism-stress-c/thread-stress` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `determinism-stress-c/thread-stress` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/thread-stress` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `determinism-stress-c/thread-stress` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `determinism-stress-c/thread-stress` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `language-runtimes/bash-loop-pipe-time` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `language-runtimes/bash-loop-pipe-time` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `language-runtimes/bash-loop-pipe-time` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `language-runtimes/bash-loop-pipe-time` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `language-runtimes/bash-loop-pipe-time` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1883,7 +1883,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `language-runtimes/gawk-random` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `language-runtimes/gawk-random` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `language-runtimes/gawk-random` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `language-runtimes/lua-random` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `language-runtimes/lua-random` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `language-runtimes/lua-random` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `language-runtimes/lua-random` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `language-runtimes/lua-random` | `verify` | `sabre` | `Not applicable` | `diverged` |
@@ -1914,7 +1914,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `language-runtimes/python-hash-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `language-runtimes/python-hash-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `language-runtimes/python-hash-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `language-runtimes/python-hashseed` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `language-runtimes/python-hashseed` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `language-runtimes/python-hashseed` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `language-runtimes/python-hashseed` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `language-runtimes/python-hashseed` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -1941,7 +1941,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `shared-futex-c/qemu-exec-init` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `shared-futex-c/qemu-exec-init` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `shared-futex-c/qemu-exec-init` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `shared-futex-c/qemu-hello` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `shared-futex-c/qemu-hello` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `shared-futex-c/qemu-hello` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `shared-futex-c/qemu-hello` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `shared-futex-c/qemu-hello` | `verify` | `sabre` | `Not applicable` | `diverged` |
@@ -1951,12 +1951,12 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `shared-futex-c/qemu-net-init` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `shared-futex-c/qemu-net-init` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `shared-futex-c/qemu-net-init` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `system-utils/auxv-loader-dump` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/auxv-loader-dump` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/auxv-loader-dump` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/auxv-loader-dump` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `system-utils/auxv-loader-dump` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `system-utils/cat-file-read` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `system-utils/cat-file-read` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/cat-file-read` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/cat-file-read` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/cat-file-read` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/cat-file-read` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -1977,7 +1977,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/du-tree-summary` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `system-utils/du-tree-summary` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
 | `system-utils/echo-stdout` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `system-utils/echo-stdout` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/echo-stdout` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/echo-stdout` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/echo-stdout` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/echo-stdout` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -2012,7 +2012,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/mktemp-name` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/mktemp-name` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/mktemp-name` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `system-utils/nscd-neutralised` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/nscd-neutralised` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/nscd-neutralised` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/nscd-neutralised` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/nscd-neutralised` | `verify` | `sabre` | `Not applicable` | `diverged` |
@@ -2040,7 +2040,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/overflow-gid-resolves` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/overflow-gid-resolves` | `verify` | `sabre` | `Not applicable` | `diverged` |
 | `system-utils/printf-argument-forwarding` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `system-utils/printf-argument-forwarding` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/printf-argument-forwarding` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/printf-argument-forwarding` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/printf-argument-forwarding` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/printf-argument-forwarding` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -2066,7 +2066,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/record-getpid` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/record-getpid` | `verify` | `sabre` | `Selected by full` | `diverged` |
 | `system-utils/sh-exit-status` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `system-utils/sh-exit-status` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/sh-exit-status` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/sh-exit-status` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/sh-exit-status` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/sh-exit-status` | `verify` | `sabre` | `Not applicable` | `diverged` |
@@ -2078,7 +2078,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/shuf-permutation` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/shuf-permutation` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/shuf-permutation` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `system-utils/sort-random` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/sort-random` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/sort-random` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/sort-random` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/sort-random` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -2095,7 +2095,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/startup-tls-guards` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/startup-tls-guards` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `system-utils/true-exit-zero` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
-| `system-utils/true-exit-zero` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `system-utils/true-exit-zero` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `system-utils/true-exit-zero` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/true-exit-zero` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/true-exit-zero` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
@@ -2103,7 +2103,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `system-utils/uuidgen-random` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `system-utils/uuidgen-random` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `system-utils/uuidgen-random` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `util-c/pmu-skid` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `util-c/pmu-skid` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `util-c/pmu-skid` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `util-c/pmu-skid` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `util-c/pmu-skid` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
@@ -4194,7 +4194,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 325 other parity run(s) in the store
+### 326 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -4289,6 +4289,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-afd1f1d5d227-1791178671086851930-991513-70fd1bb2` at Hermit `afd1f1d5d227`: `parity: 0/198 matched; selected 198 of 198 committed; population 182: mean 0.000 over 182 (0 full, 0 partial, 182 zero: no-result-row 2, epoch-not-shared 180); excluded: 0 reference without golden; 16 not compared; measured mean n/a over 0`
 - validate run `validate-claude-coord-bf8e8a83eae8-1791353867149233991-602289-12731a57` at Hermit `bf8e8a83eae8`: `parity: 87/198 matched; selected 198 of 198 committed; population 198: mean 0.461 over 198 (87 full, 108 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.468 over 195 [inputs equalized for 194 of 195 credited: mean 0.470 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-c19f9074b6d1-1791420035180976555-174284-90c81d32` at Hermit `c19f9074b6d1`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
+- validate run `validate-claude-coord-c380f45d09c0-1791457000602484619-2635127-d9170fbc` at Hermit `c380f45d09c0`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-c4e3b243d2a0-1791324596813967914-2065498-5626860f` at Hermit `c4e3b243d2a0`: `parity: 85/198 matched; selected 198 of 198 committed; population 198: mean 0.452 over 198 (85 full, 110 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.459 over 195 [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-c78fa90b7509-1791389885648759317-1381483-76a0ca4e` at Hermit `c78fa90b7509`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-c8168551d2bc-1791262504004550875-1461747-ad6c016a` at Hermit `c8168551d2bc`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
@@ -4456,7 +4457,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-ef7b55b19fcb-07464fea2ae1` at Hermit `ef7b55b19fcb`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-ops-tick-f98ca7660ba9-a7d4427787fc` at Hermit `f98ca7660ba9`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-qemu-rcb-00479ce20ed2-1791408277291132392-766031-f8ea859b` at Hermit `00479ce20ed2`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 1452: mean 0.152 over 1452 (207 full, 329 partial, 916 zero: candidate-not-enabled 841, candidate-not-selected 75); excluded: 756 reference without golden: no-result-row 756; 0 not compared; measured mean 0.413 over 536 [inputs equalized for 529 of 536 credited: mean 0.417 over 529 with equal inputs; mean 0.040 over 7 with unequal inputs]`
-- validate run `validate-qemu-rcb-1ffbe3df7553-1791453802740732666-2244377-f1cdeae1` at Hermit `1ffbe3df7553`: `parity: 207/2208 matched; committed selection unknown; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
+- validate run `validate-qemu-rcb-1ffbe3df7553-1791453802740732666-2244377-f1cdeae1` at Hermit `1ffbe3df7553`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-qemu-rcb-94155d5fe3a4-1791420618745443719-469279-c6d27e31` at Hermit `94155d5fe3a4`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 529 of 536 credited: mean 0.440 over 529 with equal inputs; mean 0.038 over 7 with unequal inputs]`
 - validate run `validate-qemu-rcb-94d872d9a8c1-1791406287274083251-2136085-852da25f` at Hermit `94d872d9a8c1`: `parity: 207/2208 matched; committed selection unknown; population 1452: mean 0.152 over 1452 (207 full, 329 partial, 916 zero: candidate-not-enabled 841, candidate-not-selected 75); excluded: 756 reference without golden: no-result-row 756; 0 not compared; measured mean 0.413 over 536 [inputs equalized for 533 of 536 credited: mean 0.415 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-qemu-rcb-99bd94535fbb-1791402144665996443-633205-0e30bd80` at Hermit `99bd94535fbb`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 1452: mean 0.152 over 1452 (207 full, 329 partial, 916 zero: candidate-not-enabled 841, candidate-not-selected 75); excluded: 756 reference without golden: no-result-row 756; 0 not compared; measured mean 0.413 over 536 [inputs equalized for 530 of 536 credited: mean 0.417 over 530 with equal inputs; mean 0.038 over 6 with unequal inputs]`
@@ -4470,7 +4471,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-tick-buck-cargo-repro-66378ba1dd58-20261005T010205Z` at Hermit `66378ba1dd58`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.043 over 281 (0 full, 278 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 278`
 - validate run `validate-tick-buck-cargo-repro-d7441caea790-20261007T013140Z` at Hermit `d7441caea790`: `parity: 1/198 matched; selected 198 of 198 committed; population 198: mean 0.057 over 198 (1 full, 194 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.058 over 195 [inputs equalized for 181 of 195 credited: mean 0.060 over 181 with equal inputs; mean 0.034 over 14 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-0c3715b402c0-1791279422071821891-2293826-173ce134` at Hermit `0c3715b402c0`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
-- validate run `validate-tickhub-ops-2-0cd0bee4355e-1791453814765902885-2273896-cccb9bbf` at Hermit `0cd0bee4355e`: `parity: 207/2208 matched; committed selection unknown; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
+- validate run `validate-tickhub-ops-2-0cd0bee4355e-1791453814765902885-2273896-cccb9bbf` at Hermit `0cd0bee4355e`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-115d1fee1cb0-1791376661873162277-2717627-de5f36fb` at Hermit `115d1fee1cb0`: `parity: 90/198 matched; committed selection unknown; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-1768f46eb450-1791333630960984320-1729983-b066ec88` at Hermit `1768f46eb450`: `parity: 85/198 matched; selected 198 of 198 committed; population 198: mean 0.452 over 198 (85 full, 110 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.459 over 195 [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-tickhub-ops-2-1a79c4eea84c-1791378756056360787-2732189-4cec2ee8` at Hermit `1a79c4eea84c`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 193 of 195 credited: mean 0.477 over 193 with equal inputs; mean 0.028 over 2 with unequal inputs]`
