@@ -1,22 +1,22 @@
 {
   "local_sources": [],
-  "rows": 641073,
-  "rows_sha256": "60de6d9e9b06d08a2033845df01726ded5caf3956a7c6fdc89bb1f285e2f8e06",
+  "rows": 642414,
+  "rows_sha256": "2e7a1412cd47221aeeec98dcf2e072c3c1b25e3bd0bc66b7dccb6129d5fd51a8",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
-    "scorecard/SCORECARD.md": "1b7094dd8a465ae44d5d1c259f89a63cdb91d91ec72079972936b4fc1b033a40",
-    "scorecard/cells.json": "4ce02999c7b14fc93b094efedfce5a8f1b9a438d0d184c1b5105d629d9060807",
-    "scorecard/finalized/objects/sha256/640c32d6f806074b240451cfc413b5acc7ec4ecc0e482a7e02d230a409625702": "640c32d6f806074b240451cfc413b5acc7ec4ecc0e482a7e02d230a409625702",
-    "scorecard/finalized/objects/sha256/e61edd2f961960d0e7cff25cf5911df566858665cdbc3f0a4ac03f130725e1e7": "e61edd2f961960d0e7cff25cf5911df566858665cdbc3f0a4ac03f130725e1e7",
-    "scorecard/finalized/objects/sha256/e919d9f408fb46af0e973f34ce8149fceef02d3189f5cf45feae5382d883712b": "e919d9f408fb46af0e973f34ce8149fceef02d3189f5cf45feae5382d883712b",
-    "scorecard/finalized/runs/82da817196165ff21aa5e98e93dd15ad38fd9bb65d17503c8773eadb308f6442.json": "69f702408bf7c8a4c24b140ad93b5104ea0f6404ba3cd21cf1fd1cc775d78f4c",
-    "scorecard/parity.json": "9c9eb3cb2eea4aafd8179233a64bbb3b39f1b9072bf65384153ec383309a5768"
+    "scorecard/SCORECARD.md": "6d793c295a4db7e264b1c1c539c4f41754b275a133c771d4aa4bd13239738542",
+    "scorecard/cells.json": "9e37e96d8a22428f4541b7c55b75be1eaa167334b4a23116a512b94e7deb1397",
+    "scorecard/finalized/objects/sha256/12b4dbe98cd57ac79a3a3974e4a0085b90761169bc5f8f3d0538050b9cbbfe49": "12b4dbe98cd57ac79a3a3974e4a0085b90761169bc5f8f3d0538050b9cbbfe49",
+    "scorecard/finalized/objects/sha256/297baa40aaa207a17ed523590fccffa589dcc90fad14f64bc977726f7a9201e2": "297baa40aaa207a17ed523590fccffa589dcc90fad14f64bc977726f7a9201e2",
+    "scorecard/finalized/objects/sha256/eb119bb6bd541c654f87c76f414b65342579154092c85645e5fbae56ee27fcf6": "eb119bb6bd541c654f87c76f414b65342579154092c85645e5fbae56ee27fcf6",
+    "scorecard/finalized/runs/fae1eeacb55197c0f76397d1ce39ad155ada79bb2233492dfb2ba7fb110158e5.json": "b2bad538ad3be0e76eb931461181b8b13a7a825d95d93479fe02fcb08c7f29d9",
+    "scorecard/parity.json": "9a6aa2e93a7a6b824e9a3417e5ebef79676090627a53685f176888dd6d0446a6"
   },
-  "scorecard_hermit_commit": "e6e50618354b5f65cc36c09f716db667dfcbed8b",
-  "scorecard_hermit_commit_time": 1791479822,
-  "scorecard_tool_hermit_commit": "e6e50618354b5f65cc36c09f716db667dfcbed8b",
-  "series_commit": "ad9cdc516080d8c6a0308c179b4904590f4cd0b2",
-  "source_commit": "ad9cdc516080d8c6a0308c179b4904590f4cd0b2",
+  "scorecard_hermit_commit": "6130923c62b75e19eb3d16255a574aa7ea38bc2f",
+  "scorecard_hermit_commit_time": 1791482180,
+  "scorecard_tool_hermit_commit": "6130923c62b75e19eb3d16255a574aa7ea38bc2f",
+  "series_commit": "edcdb9d46fee377ddcac29b0215b8d1f123bddef",
+  "source_commit": "edcdb9d46fee377ddcac29b0215b8d1f123bddef",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
-  "source_tree": "898a73d79e4a12bf9a33f330982297419b16b7db"
+  "source_tree": "0d216c041ff631807240276fe459418d2ef1bc56"
 }
