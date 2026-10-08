@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v5",
   "generated_from": {
-    "store_sha256": "b7f8a8b895a371e0852efc4ad9beba2042d547911b7ea5ecb987c03b68cdb4ca",
-    "series_commit": "483dc42cdb74912d508bde92a770155b4cae50de",
-    "tool_hermit_commit": "48c03aec4a4b4d9099eb43c0d994365aa5e45a78"
+    "store_sha256": "ad6896e08842104fb657a213dd69c42b14cdaf2f1fa4b2ced1256bd5b25593c8",
+    "series_commit": "0b6ad873ef6eb5d21fa26e3cd28603c42c5ee89c",
+    "tool_hermit_commit": "dd656a0e873339b1b3d379501f99c07e95182ec3"
   },
   "store_present": true,
-  "rows_read": 271594,
+  "rows_read": 273802,
   "producers": [
     {
       "producer": "validate",
@@ -52526,6 +52526,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 531 of 536 credited: mean 0.438 over 531 with equal inputs; mean 0.047 over 5 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-kernel-ctl-4ae8f915c9b8-1791467330452199734-1941215-d9093a37",
+      "hermit_sha": "4ae8f915c9b82a51a8fb3a6bb07b6d7539ca31eb",
+      "depth": {
+        "commits": 4371,
+        "first_parent": 4296
+      },
+      "emitted_at": "2026-10-08T14:03:24Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 527 partial, 1433 zero: candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.391 over 775 [inputs equalized for 772 of 775 credited: mean 0.393 over 772 with equal inputs; mean 0.064 over 3 with unequal inputs]"
     },
     {
       "producer": "validate",
