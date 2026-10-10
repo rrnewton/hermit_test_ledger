@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-09T23:16:16Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `6b3d96c6bcade8940c771a98c014b6e2c74aa9eb`, reading 887418 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-hermit-lander-6a2496bb9d48-1791587456826246460-980241-05974450` (1977). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), `validate-netreplay-rework-0aec0d1dddab-1791577964610870732-1302087-1afce6f4` current (1978), `validate-qemu-rcb-dcec85db4748-1791586032477137485-1693382-23f7d37d` current (1978), `validate-claude-coord-9d53b5431231-1791583232588018532-1347186-d6060f90` current (1977), `validate-claude-coord-f64c3a1ad17f-1791585197642343524-3413002-ad142fed` current (1977), `validate-claude-coord-07a37f549dd5-1791500774541375072-1316829-cd2f400d` current (1848), and 200 more.
+Last regenerated **2026-10-09T23:33:34Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `622ddb58893f3acaef224c1bb10aac353e9d0215`, reading 891595 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-8015f368316e-1791588564148498243-2697871-e6489dfa` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), `validate-netreplay-rework-0aec0d1dddab-1791577964610870732-1302087-1afce6f4` current (1978), `validate-qemu-rcb-dcec85db4748-1791586032477137485-1693382-23f7d37d` current (1978), `validate-claude-coord-9d53b5431231-1791583232588018532-1347186-d6060f90` current (1977), `validate-claude-coord-f64c3a1ad17f-1791585197642343524-3413002-ad142fed` current (1977), `validate-hermit-lander-6a2496bb9d48-1791587456826246460-980241-05974450` current (1977), and 201 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -77,7 +77,7 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **545** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **546** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -86,9 +86,9 @@ The count table includes all **14991** cells in the manifest; no row is omitted.
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1792 | 0 | 0 | 186 | 1978 |
-| Not selected by full | 40 | 545 | 138 | 0 | 51 | 774 |
+| Not selected by full | 40 | 546 | 137 | 0 | 51 | 774 |
 | Not applicable | 11837 | 99 | 240 | 0 | 63 | 12239 |
-| **Total** | **11877** | **2436** | **378** | **0** | **300** | **14991** |
+| **Total** | **11877** | **2437** | **377** | **0** | **300** | **14991** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -1982,7 +1982,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/findmnt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/flex` | `replay` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
+| `compat/flex` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/flex` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/flex` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/flock` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
