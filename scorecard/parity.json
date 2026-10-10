@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v5",
   "generated_from": {
-    "store_sha256": "fb071fed5f9e9e73e39206be2e93296d926650334dbd92b5a66f21bcc99744ea",
-    "series_commit": "97a4a65fdf30c589843c1cdc7717e382452d4c35",
-    "tool_hermit_commit": "8d50379e478baed98ef59bfc1bfabe100361149b"
+    "store_sha256": "6eefcaf0037d9ff4f472d25e0690571fd45853a655b82f64a17ac89a41ebf683",
+    "series_commit": "0f7a84d54f15be511d760f77ac9dd339756fe89c",
+    "tool_hermit_commit": "5ca13fb54a88b6269a51c8803050d97fbc32cb2a"
   },
   "store_present": true,
-  "rows_read": 474673,
+  "rows_read": 480213,
   "producers": [
     {
       "producer": "validate",
@@ -64841,6 +64841,19 @@
     },
     {
       "producer": "validate",
+      "run_id": "validate-hermit-lander-08407fd31f36-1791638847061759723-3187492-7f3f8c85",
+      "hermit_sha": "08407fd31f36688f4693bc7f0b638e65d9452d1a",
+      "depth": {
+        "commits": 4530,
+        "first_parent": 4455
+      },
+      "emitted_at": "2026-10-10T13:44:01Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 248/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (248 full, 1148 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.245 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
       "run_id": "validate-hermit-lander-0930a4b59958-1791260460602815700-1427097-b02e49a4",
       "hermit_sha": "0930a4b59958a763bc951ded83afd383cabf68e3",
       "depth": {
@@ -66944,6 +66957,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 532 of 536 credited: mean 0.461 over 532 with equal inputs; mean 0.066 over 4 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-qemu-rcb-5ca13fb54a88-1791639166980059641-3436018-145e4296",
+      "hermit_sha": "5ca13fb54a88b6269a51c8803050d97fbc32cb2a",
+      "depth": {
+        "commits": 4529,
+        "first_parent": 4454
+      },
+      "emitted_at": "2026-10-10T13:48:18Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]"
     },
     {
       "producer": "validate",
