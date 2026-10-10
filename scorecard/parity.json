@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v5",
   "generated_from": {
-    "store_sha256": "2e2ea05eefae583c8a6bc2793698232481fbaf9f05c46bc44acecf22afd77a8d",
-    "series_commit": "f2b506c871b351ea0e4cccb5bf81205066b69f14",
-    "tool_hermit_commit": "553563951a99c72c372b368dc7830f1fbcde880c"
+    "store_sha256": "142b310f88a8cb87210e67b712d5b7eac20e269d68f5aaae84c8a785a625344d",
+    "series_commit": "de2b329f80956510aaa29a31307b7a680f0d5d79",
+    "tool_hermit_commit": "c20c6ec9c97f98701b2b5830291fe5b4426e10f8"
   },
   "store_present": true,
-  "rows_read": 499603,
+  "rows_read": 502373,
   "producers": [
     {
       "producer": "validate",
@@ -65979,6 +65979,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-netreplay-rework-4112e5bb4bcb-1791645698611936870-133210-d9a33df5",
+      "hermit_sha": "4112e5bb4bcbb0a88e6e5c63ebbb7bf0abfde89c",
+      "depth": {
+        "commits": 4536,
+        "first_parent": 4461
+      },
+      "emitted_at": "2026-10-10T15:49:15Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 246/2770 matched; selected 2770 of 2770 committed; population 2765: mean 0.123 over 2765 (246 full, 1145 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 5 reference without golden: ended 5; 0 not compared; measured mean 0.244 over 1391 [inputs equalized for 1352 of 1391 credited: mean 0.250 over 1352 with equal inputs; mean 0.058 over 39 with unequal inputs]"
     },
     {
       "producer": "validate",
