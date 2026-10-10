@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-10T06:48:53Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `5a6a43028964647a3a434b937c6955340e4dccd0`, reading 959951 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-kernel-ctl-83908ba3a175-1791614641598095228-2944340-6c47db04` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-crash-eval-0a6e7e0f8b28-1791604727334479490-3741052-73fe6aaa` current (1978), `validate-crash-eval-20526ae72374-1791606115362161346-1713046-e49ccd4a` current (1978), `validate-crash-eval-aebb32250c1e-1791600088804204241-2109273-972c50b9` current (1978), `validate-hermit-lander-08b03e040200-1791595417046203769-3062555-2cfb2cb3` current (1978), `validate-hermit-lander-b7cd07b0635c-1791599240363759321-4154048-b983fa32` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), and 215 more.
+Last regenerated **2026-10-10T07:09:01Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `1c080a038217d120ee09d87e1fd412ab107d10ac`, reading 965744 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-803c417b0ee8-1791615872708403576-2523917-a7eec233` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-crash-eval-0a6e7e0f8b28-1791604727334479490-3741052-73fe6aaa` current (1978), `validate-crash-eval-20526ae72374-1791606115362161346-1713046-e49ccd4a` current (1978), `validate-crash-eval-aebb32250c1e-1791600088804204241-2109273-972c50b9` current (1978), `validate-hermit-lander-08b03e040200-1791595417046203769-3062555-2cfb2cb3` current (1978), `validate-hermit-lander-b7cd07b0635c-1791599240363759321-4154048-b983fa32` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), and 216 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -87,8 +87,8 @@ The count table includes all **15010** cells in the manifest; no row is omitted.
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1792 | 0 | 0 | 186 | 1978 |
 | Not selected by full | 39 | 546 | 137 | 0 | 52 | 774 |
-| Not applicable | 11419 | 104 | 671 | 0 | 64 | 12258 |
-| **Total** | **11458** | **2442** | **808** | **0** | **302** | **15010** |
+| Not applicable | 10020 | 879 | 1272 | 0 | 87 | 12258 |
+| **Total** | **10059** | **3217** | **1409** | **0** | **325** | **15010** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -1821,1287 +1821,2686 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `chaos-c/lock-granularity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `chaos-c/lock-granularity` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/addr2line` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/addr2line` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/addr2line` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/addr2line` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/addr2line` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/addr2line` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/addr2line` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/ar` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ar` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ar` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ar` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ar` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ar` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ar` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/arch` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/arch` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/arch` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/arch` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/arch` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/arch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/arch` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/as` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/as` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/as` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/as` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/as` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/as` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/as` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/awk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/awk` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/awk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/awk` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/awk` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/awk` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/awk` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/b2sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/b2sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/b2sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/base32` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/base32` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/base32` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/base32` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/base32` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/base32` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/base32` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/base64` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/base64` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/base64` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/base64` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/base64` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/base64` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/base64` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/basename` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/basename` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/basename` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/basename` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/basename` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/basenc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/basenc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/basenc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/basenc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/bash` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bash` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/bash` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/bash` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/bash` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/bc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/bc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/bc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/bc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/bc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bc` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/bracket` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bracket` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/bracket` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/bzip2` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bzip2` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/bzip2` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/bzip2` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/bzip2-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bzip2-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/bzip2-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/bzip2-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cal` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cal` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cal` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/cal` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/cal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cal` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/cargo` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cargo` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cargo` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cargo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cargo` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cargo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cargo` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/cat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/cat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/chmod` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/chmod` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/chmod` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/chmod` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/chmod` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/chmod` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chmod` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/chown` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/chown` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/chown` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/chown` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/chown` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/chown` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chown` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/chrt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/chrt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/chrt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/chrt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/chrt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/chrt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chrt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cksum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cksum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/cksum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/clang` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/clang` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/clang` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/clang` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/clang` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/clang` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/clang` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/cmake` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cmake` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmake` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cmake` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cmake` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmake` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cmake` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cmp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cmp` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cmp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cmp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cmp` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/col` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/col` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/col` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/col` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/col` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/col` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/col` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/colrm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/colrm` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/colrm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/colrm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/column` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/column` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/column` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/column` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/column` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/column` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/column` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/comm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/comm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/comm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/comm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/comm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/comm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/comm` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/cp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cp` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cp` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cpio-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cpio-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpio-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cpio-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cpio-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpio-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cpio-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cpp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cpp` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cpp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cpp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cpp` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/crc32` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/crc32` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/crc32` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/crc32` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/crc32` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/crc32` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/crc32` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cscope` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cscope` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cscope` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cscope` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cscope` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cscope` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/cscope` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/csplit` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/csplit` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/csplit` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/csplit` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/csplit` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/csplit` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/csplit` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/curl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/curl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/curl` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/curl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/curl` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/curl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/curl` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/curl-localhost` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/curl-localhost` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/curl-localhost` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/curl-localhost` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/curl-localhost` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/curl-localhost` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/curl-localhost` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cut` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cut` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cut` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cut` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cut` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cut` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cut` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/cxxfilt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cxxfilt` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/cxxfilt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/cxxfilt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/cxxfilt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cxxfilt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cxxfilt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/date` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/date` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/date` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/date` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/date` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/dc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/dc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/dc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/dc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/dc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dc` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/dd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/dd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/dd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/dd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/dd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dd` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
+| `compat/df` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/df` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/df` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/df` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/df` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/df` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/df-direct` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/df-direct` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/df-direct` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/df-direct` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/diff` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/diff` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/diff` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/diff` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/diff` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/diff` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/diff` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/diff3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/diff3` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/diff3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/diff3` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/diff3` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/diff3` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/diff3` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/dirname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dirname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/dirname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/dos2unix` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dos2unix` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/dos2unix` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/dos2unix` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/dos2unix` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/dos2unix` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/dos2unix` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/du` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/du` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/du` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/du` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/du` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/du` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/du` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/echo` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/echo` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/echo` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/echo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/echo` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/echo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/echo` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/egrep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/egrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/egrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/egrep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/egrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/egrep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/egrep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/elfedit` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/elfedit` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/elfedit` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/elfedit` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/elfedit` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/elfedit` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/elfedit` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/env` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/env` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/env` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/env` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/env` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/env` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/env` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/envsubst` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/envsubst` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/envsubst` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/envsubst` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/envsubst` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/envsubst` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/envsubst` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/expand` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/expand` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/expand` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/expand` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/expand` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/expand` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/expand` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/expr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/expr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/expr` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/expr` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/expr` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/factor` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/factor` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/factor` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/factor` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/factor` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/factor` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/factor` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/fallocate` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fallocate` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/fallocate` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/fallocate` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/fallocate` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fallocate` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/fallocate` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/fgrep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fgrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/fgrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/fgrep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/fgrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fgrep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fgrep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/file` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/file` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/file` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/file` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/file` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/file` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/file` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/find` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/find` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/find` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/find` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/find` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/find` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/find` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/findmnt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/findmnt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/findmnt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/flex` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/flex` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/flex` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/flex` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/flex` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/flex` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/flex` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/flock` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/flock` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/flock` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/flock` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/flock` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/flock` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/flock` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/fmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fmt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/fmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/fmt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/fmt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fmt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fmt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/fold` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fold` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/fold` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/fold` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/fold` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fold` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fold` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/free` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/free` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/free` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/free` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/free` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/free` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/free` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/gcc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gcc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/gcc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/gcc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gcc` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/gcov` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gcov` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcov` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/gcov` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/gcov` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcov` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gcov` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/getconf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/getconf` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/getconf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/getconf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/getconf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/getconf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/getconf` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/getopt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/getopt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/getopt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/git` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/git` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/git` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/git` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/git` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/git` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/git` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/gprof` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gprof` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/gprof` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/gprof` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/gprof` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gprof` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gprof` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/grep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/grep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/grep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/grep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/grep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/grep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/grep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/groups` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/groups` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/groups` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/groups` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/groups` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/groups` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/groups` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/gxx` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gxx` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/gxx` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/gxx` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/gxx` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gxx` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gxx` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/gzip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gzip` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/gzip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/gzip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/gzip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gzip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/gzip-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gzip-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/gzip-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/gzip-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/gzip-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gzip-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/head` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/head` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/head` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/head` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/head` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/hexdump` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/hexdump` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/hexdump` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/hexdump` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/hostname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/hostname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/hostname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/iconv` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/iconv` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/iconv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/iconv` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/iconv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/iconv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/iconv` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/id` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/id` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/id` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/id` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/id` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/id` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/id` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/install` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/install` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/install` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/install` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/install` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/install` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/install` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/ionice` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ionice` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ionice` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ionice` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ionice` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ionice` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ionice` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/iostat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/iostat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/iostat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/iostat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/iostat` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/iostat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/iostat` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/ip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/java` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/java` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/java` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/java` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/java` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/java` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
 | `compat/java` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/javac` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/javac` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/javac` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/javac` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/javac` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/javac` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
 | `compat/javac` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/join` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/join` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/join` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/join` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/join` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/join` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/join` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/jq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/jq` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/jq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/jq` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/jq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/jq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/jq` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/kill` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/kill` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/kill` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/kill` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/kill` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/kill` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/kill` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/ld` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ld` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ld` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ld` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ld` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ld` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ld` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/ln` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ln` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ln` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ln` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ln` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ln` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ln` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/logger` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/logger` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/logger` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/logger` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/logger` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/logger` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/logger` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/logname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/logname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/logname` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/logname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/logname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/logname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/logname` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/ls` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ls` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ls` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/ls` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ls` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/lscpu` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lscpu` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/lscpu` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/lscpu` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/lscpu` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/lscpu` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lscpu` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/lsirq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lsirq` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/lsmod` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lsmod` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lsmod` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/lsmod` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/lsmod` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/lsmod` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/lsof` | `replay` | `ptrace` | `Not selected by full` | `diverged` |
+| `compat/lsof` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/lsof` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/lsof` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/lsof` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/lsof` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/lsof` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/lua` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lua` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/lua` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/lua` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/lua` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lua` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/lua-direct` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lua-direct` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/lua-direct` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/m4` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/m4` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/m4` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/m4` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/m4` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/m4` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/m4` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/make` | `replay` | `ptrace` | `Not selected by full` | `diverged` |
+| `compat/make` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/make` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/make` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/make` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/make` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/make` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/md5sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/md5sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/md5sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/mkdir` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mkdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkdir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/mkdir` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/mkdir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mkdir` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/mkfifo` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mkfifo` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkfifo` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/mkfifo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/mkfifo` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkfifo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mkfifo` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/mktemp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mktemp` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/mktemp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/mktemp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/mktemp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mktemp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mktemp` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/mountpoint` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mountpoint` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/mountpoint` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/mountpoint` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/mountpoint` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mountpoint` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/mountpoint` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/mpstat-softirqs` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mpstat-softirqs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/mpstat-softirqs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/mpstat-softirqs` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/mpstat-softirqs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mpstat-softirqs` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mpstat-softirqs` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/msgfmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/msgfmt` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/msgfmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/msgfmt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/msgfmt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/msgfmt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/msgfmt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/msgunfmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/msgunfmt` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/msgunfmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/msgunfmt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/msgunfmt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/msgunfmt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/msgunfmt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/mv` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mv` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/mv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/mv` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/mv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mv` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/namei` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/namei` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/namei` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/namei` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/namei` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/namei` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/namei` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/netlink-route` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/netlink-route` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/netlink-route` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/netlink-route` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/netlink-route` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/netlink-route` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/netlink-route` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `compat/netlink-sock-diag` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
+| `compat/netlink-sock-diag` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/netlink-sock-diag` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/netlink-sock-diag` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/netlink-sock-diag` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/netlink-sock-diag` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/netlink-sock-diag` | `verify` | `sabre` | `Not applicable` | `diverged` |
 | `compat/nice` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nice` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/nice` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/nice` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/nice` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nice` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nice` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/nl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/nl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/nl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/nl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nl` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/nm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/nm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/nm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/nm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nm` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/node` | `replay` | `ptrace` | `Not selected by full` | `diverged` |
+| `compat/node` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/node` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/node` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/node` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/node` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/node` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/nohup` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nohup` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/nohup` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/nohup` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/nohup` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nohup` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nohup` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/nproc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nproc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/nproc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/numactl-hardware` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/numactl-hardware` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/numastat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/numastat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/numastat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/numfmt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/numfmt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/objcopy` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/objcopy` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/objcopy` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/objcopy` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/objcopy` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/objcopy` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/objcopy` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/objdump` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/objdump` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/objdump` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/objdump` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/objdump` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/objdump` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/objdump` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/od` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/od` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/od` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/od` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/od` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/od` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/od` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/openssl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/openssl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/openssl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/paste` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/paste` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/paste` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/paste` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/paste` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/paste` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/paste` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/patch` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/patch` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/patch` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/patch` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/patch` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/patch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/patch` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/pathchk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pathchk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pathchk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/pathchk` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/pathchk` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pathchk` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/pathchk` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
+| `compat/perl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/perl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/perl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/perl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/perl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/perl` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/perl-direct` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/perl-direct` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/perl-direct` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/pgrep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pgrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/pgrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/pgrep` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/pgrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pgrep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pgrep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/pidstat-disk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pidstat-disk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/pidstat-disk` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pidstat-disk` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/pinky` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pinky` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/pinky` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/pkg-config` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pkg-config` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkg-config` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/pkg-config` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/pkg-config` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkg-config` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pkg-config` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/pkill` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pkill` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkill` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/pkill` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkill` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkill` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pkill` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/pr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pr` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/pr` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/pr` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/pr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pr` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/printenv` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/printenv` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/printenv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/printenv` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/printenv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/printenv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/printenv` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/printf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/printf` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/printf` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/printf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/printf` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/printf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/printf` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/ps` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ps` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ps` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/ps` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/ps` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/ps` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ps` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/ptx` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ptx` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ptx` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ptx` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ptx` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ptx` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ptx` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/pwd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pwd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/pwd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/python3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/python3` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/python3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/python3` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/python3` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/python3` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/python3` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/ranlib` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ranlib` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ranlib` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ranlib` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ranlib` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ranlib` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/ranlib` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/readelf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/readelf` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/readelf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/readelf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/readelf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/readelf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/readelf` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/readlink` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/readlink` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/readlink` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/readlink` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/realpath` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/realpath` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/realpath` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/realpath` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/rev` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rev` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/rev` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/rev` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/rev` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rev` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rev` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/rm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rm` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/rm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/rm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/rm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rm` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/rmdir` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rmdir` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/rmdir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/rmdir` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/rmdir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rmdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rmdir` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/ruby` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ruby` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ruby` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ruby` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ruby` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ruby` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ruby` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/rustc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rustc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/rustc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/rustc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/rustc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rustc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/rustc` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/sar-resource-tables` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sar-resource-tables` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sar-resource-tables` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/sar-resource-tables` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sar-resource-tables` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sar-resource-tables` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/sar-resource-tables` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/sed` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sed` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/sed` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/sed` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sed` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sed` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sed` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/seq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/seq` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/seq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/seq` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/seq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/seq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/seq` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/setfacl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/setfacl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/setfacl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/setfacl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/setfacl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/setfacl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/setfacl` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/setfattr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/setfattr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/setfattr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/setfattr` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/setfattr` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/setfattr` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/setfattr` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/sha1sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha1sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sha1sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha224sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sha224sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha256sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sha256sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha384sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sha384sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha512sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sha512sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/shell-build` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/shell-build` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/shell-build` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/shell-build` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/shell-build` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/shell-build` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/shell-build` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `compat/shred` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/shred` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/shred` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/shred` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/shred` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/shred` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/shred` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/shuf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/shuf` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/shuf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/shuf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/shuf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/shuf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/shuf` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/size` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/size` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/size` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/size` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/size` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/size` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/size` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/sleep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sleep` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sleep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sort` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sort` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sort` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/sort` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sort` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sort` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sort` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/split` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/split` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/split` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/split` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/split` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/split` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/split` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/sqlite3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sqlite3` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/sqlite3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/sqlite3` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sqlite3` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sqlite3` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sqlite3` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/ss` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ss` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ss` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/ss` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/ss` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ss` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ss` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/stat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/stat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/stat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/stat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/stat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/stdbuf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/stdbuf` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/stdbuf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/stdbuf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/stdbuf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/stdbuf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stdbuf` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
+| `compat/strict-addr2line` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-addr2line` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-addr2line` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-addr2line` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-addr2line` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-addr2line` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ar` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ar` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ar` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ar` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ar` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ar` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-arch` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-arch` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-arch` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-arch` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-arch` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-arch` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-as` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-as` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-as` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-as` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-as` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-as` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-awk` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-awk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-awk` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-awk` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-awk` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-awk` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-b2sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-b2sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-b2sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-b2sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-b2sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-b2sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base32` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base32` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base32` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base32` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-base32` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-base32` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base64` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base64` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base64` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-base64` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-base64` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-base64` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-basename` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-basename` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-basename` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-basename` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-basename` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-basename` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bash` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bash` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bash` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bash` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-bash` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bash` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-bc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-bc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bc` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-bracket` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bracket` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bracket` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bracket` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-bracket` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bracket` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bzip2` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-bzip2` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-bzip2` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bzip2` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-bzip2` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bzip2` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-bzip2-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-bzip2-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-bzip2-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bzip2-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-bzip2-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-bzip2-roundtrip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cal` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cal` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cal` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cal` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-cal` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cal` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cargo` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cargo` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cargo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cargo` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cargo` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cargo` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cat` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-cat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cat` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-chmod` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-chmod` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-chmod` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-chmod` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-chmod` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-chmod` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-chown` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-chown` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-chown` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-chown` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-chown` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-chown` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-chrt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-chrt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-chrt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-chrt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-chrt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-chrt` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cksum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cksum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cksum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cksum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-cksum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cksum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-clang` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-clang` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-clang` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-clang` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-clang` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-clang` | `verify` | `sabre` | `Not applicable` | `diverged` |
+| `compat/strict-cmake` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cmake` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cmake` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cmake` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cmake` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cmake` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cmp` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cmp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cmp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cmp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cmp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cmp` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-column` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-column` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-column` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-column` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-column` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-column` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-comm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-comm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-comm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-comm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-comm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-comm` | `verify` | `sabre` | `Not applicable` | `diverged` |
+| `compat/strict-cp` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cp` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cpio-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cpio-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cpio-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cpio-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cpio-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cpio-roundtrip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cpp` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cpp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cpp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cpp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cpp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cpp` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-csplit` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-csplit` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-csplit` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-csplit` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-csplit` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-csplit` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-curl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-curl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-curl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-curl` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-curl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-curl` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-curl-localhost` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-curl-localhost` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-curl-localhost` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-curl-localhost` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-curl-localhost` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-curl-localhost` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cut` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cut` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cut` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cut` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cut` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cut` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cxxfilt` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cxxfilt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-cxxfilt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-cxxfilt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-cxxfilt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-cxxfilt` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-date` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-date` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-date` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-date` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-date` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-date` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-dc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-dc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-dc` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-dd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-dd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-dd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-dd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-df` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-df` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-df` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-df` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-df` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-df` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-diff` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-diff` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-diff` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-diff` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-diff` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-diff` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-dirname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dirname` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dirname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dirname` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-dirname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-dirname` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-du` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-du` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-du` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-du` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-du` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-du` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-echo` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-echo` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-echo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-echo` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-echo` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-echo` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-egrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-egrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-egrep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-egrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-egrep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-egrep` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-elfedit` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-elfedit` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-elfedit` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-elfedit` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-elfedit` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-elfedit` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-env` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-env` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-env` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-env` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-env` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-env` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-expand` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-expand` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-expand` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-expand` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-expand` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-expand` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-expr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-expr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-expr` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-expr` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-expr` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-expr` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-factor` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-factor` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-factor` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-factor` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-factor` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-factor` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-fgrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-fgrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-fgrep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-fgrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-fgrep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-fgrep` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-file` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-file` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-file` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-file` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-file` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-file` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-find` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-find` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-find` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-find` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-find` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-find` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-findmnt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-findmnt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-findmnt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-findmnt` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-findmnt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-findmnt` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-flock` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-flock` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-flock` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-flock` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-flock` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-flock` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-fmt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-fmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-fmt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-fmt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-fmt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-fmt` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-fold` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-fold` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-fold` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-fold` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-fold` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-fold` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-free` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-free` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-free` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-free` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-free` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-free` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gcc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gcc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gcc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gcc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-gcc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gcc` | `verify` | `sabre` | `Not applicable` | `diverged` |
+| `compat/strict-gcov` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gcov` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gcov` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gcov` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-gcov` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gcov` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-getopt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-getopt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-getopt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-getopt` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-getopt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-getopt` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-git` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-git` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-git` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-git` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-git` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-git` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gprof` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gprof` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gprof` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gprof` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-gprof` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gprof` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-grep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-grep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-grep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-grep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-grep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-grep` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-groups` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-groups` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-groups` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-groups` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-groups` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-groups` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gxx` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gxx` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gxx` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gxx` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-gxx` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gxx` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gzip` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gzip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gzip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gzip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-gzip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gzip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gzip-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gzip-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-gzip-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-gzip-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-gzip-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-gzip-roundtrip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-head` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-head` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-head` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-head` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-head` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-head` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-hexdump` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-hexdump` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-hexdump` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-hexdump` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-hexdump` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-hexdump` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-hostname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-hostname` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-hostname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-hostname` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-hostname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-hostname` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-iconv` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-iconv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-iconv` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-iconv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-iconv` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-iconv` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-id` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-id` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-id` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-id` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-id` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-id` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-install` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-install` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-install` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-install` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-install` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-install` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ionice` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ionice` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ionice` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ionice` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ionice` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ionice` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-iostat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-iostat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-iostat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-iostat` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-iostat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-iostat` | `verify` | `sabre` | `Not applicable` | `diverged` |
+| `compat/strict-ip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-java` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-java` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-java` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-java` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-java` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
+| `compat/strict-java` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-javac` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-javac` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-javac` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-javac` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-javac` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
+| `compat/strict-javac` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-join` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-join` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-join` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-join` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-join` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-join` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-jq` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-jq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-jq` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-jq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-jq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-jq` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-kill` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-kill` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-kill` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-kill` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-kill` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-kill` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ld` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ld` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ld` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ld` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ld` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ld` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ln` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ln` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ln` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ln` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ln` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ln` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-logger` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-logger` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-logger` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-logger` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-logger` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-logger` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-logname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-logname` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-logname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-logname` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-logname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-logname` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ls` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ls` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ls` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ls` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-ls` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ls` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lscpu` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lscpu` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lscpu` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lscpu` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-lscpu` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lscpu` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lsirq` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lsirq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lsirq` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-lsirq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lsirq` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lsmod` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lsmod` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lsmod` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-lsmod` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lsmod` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lsof` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lsof` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lsof` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lsof` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-lsof` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lsof` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lua` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lua` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lua` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-lua` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-lua` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-lua` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-m4` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-m4` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-m4` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-m4` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-m4` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-m4` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-make` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-make` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-make` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-make` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-make` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-make` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-md5sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-md5sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-md5sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-md5sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-md5sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-md5sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-mkdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mkdir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mkdir` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-mkdir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-mkdir` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mkdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mkfifo` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mkfifo` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mkfifo` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-mkfifo` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-mkfifo` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mkfifo` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mktemp` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-mktemp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mktemp` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-mktemp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-mktemp` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mktemp` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mpstat-softirqs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mpstat-softirqs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mpstat-softirqs` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-mpstat-softirqs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-mpstat-softirqs` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mpstat-softirqs` | `verify` | `sabre` | `Not applicable` | `diverged` |
+| `compat/strict-mv` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-mv` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-mv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-mv` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-mv` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-netlink-route` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-netlink-route` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-netlink-route` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-netlink-route` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-netlink-route` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-netlink-route` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-netlink-sock-diag` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-netlink-sock-diag` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-netlink-sock-diag` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-netlink-sock-diag` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-netlink-sock-diag` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-netlink-sock-diag` | `verify` | `sabre` | `Not applicable` | `diverged` |
+| `compat/strict-nice` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nice` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nice` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nice` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-nice` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nice` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-nl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nl` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-nm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-node` | `verify` | `dbt` | `Not applicable` | `diverged` |
+| `compat/strict-node` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-node` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-node` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-node` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-node` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nohup` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nohup` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nohup` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nohup` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-nohup` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nohup` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-nproc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nproc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nproc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-nproc` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-nproc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-nproc` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numactl-hardware` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numactl-hardware` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numactl-hardware` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numactl-hardware` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-numactl-hardware` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-numactl-hardware` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numastat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numastat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numastat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numastat` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-numastat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-numastat` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numfmt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numfmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numfmt` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-numfmt` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-numfmt` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-numfmt` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-objcopy` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-objcopy` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-objcopy` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-objcopy` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-objcopy` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-objcopy` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-objdump` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-objdump` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-objdump` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-objdump` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-objdump` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-objdump` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-od` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-od` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-od` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-od` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-od` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-od` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-openssl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-openssl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-openssl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-openssl` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-openssl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-openssl` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-paste` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-paste` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-paste` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-paste` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-paste` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-paste` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-patch` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-patch` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-patch` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-patch` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-patch` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-patch` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-perl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-perl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-perl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-perl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-perl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-perl` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pgrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pgrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pgrep` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pgrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-pgrep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pgrep` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pidstat-disk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pidstat-disk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pidstat-disk` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pidstat-disk` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-pidstat-disk` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pidstat-disk` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pinky` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pinky` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pinky` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pinky` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-pinky` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pinky` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pkg-config` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pkg-config` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pkg-config` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pkg-config` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-pkg-config` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pkg-config` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pkill` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pkill` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pkill` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pkill` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-pkill` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pkill` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pr` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pr` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-pr` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pr` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-printenv` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-printenv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-printenv` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-printenv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-printenv` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-printenv` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-printf` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-printf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-printf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-printf` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-printf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-printf` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ps` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ps` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ps` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ps` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-ps` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ps` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ptx` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ptx` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ptx` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ptx` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ptx` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ptx` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-pwd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pwd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pwd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-pwd` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-pwd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-pwd` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-python3` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-python3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-python3` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-python3` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-python3` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-python3` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ranlib` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ranlib` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ranlib` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ranlib` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ranlib` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ranlib` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-readelf` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-readelf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-readelf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-readelf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-readelf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-readelf` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-readlink` | `verify` | `dbt` | `Not applicable` | `diverged` |
+| `compat/strict-readlink` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-readlink` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-readlink` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-readlink` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-readlink` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-realpath` | `verify` | `dbt` | `Not applicable` | `diverged` |
+| `compat/strict-realpath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-realpath` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-realpath` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-realpath` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-realpath` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rev` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rev` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-rev` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rev` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-rev` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rev` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-rm` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-rm` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-rm` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-rmdir` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rmdir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-rmdir` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rmdir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-rmdir` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rmdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ruby` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ruby` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ruby` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ruby` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ruby` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ruby` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rustc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-rustc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-rustc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-rustc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-rustc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-rustc` | `verify` | `sabre` | `Not applicable` | `diverged` |
+| `compat/strict-sar-resource-tables` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sar-resource-tables` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sar-resource-tables` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sar-resource-tables` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-sar-resource-tables` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sar-resource-tables` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sed` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sed` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sed` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sed` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-sed` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sed` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-seq` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-seq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-seq` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-seq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-seq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-seq` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sha1sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha1sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha1sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha1sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sha1sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha1sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha224sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha224sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha224sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha224sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sha224sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha224sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha256sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha256sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha256sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha256sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sha256sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha256sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha384sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha384sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha384sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha384sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sha384sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha384sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha512sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha512sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha512sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sha512sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sha512sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sha512sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-shell-build` | `verify` | `dbt` | `Not applicable` | `diverged` |
+| `compat/strict-shell-build` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-shell-build` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-shell-build` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-shell-build` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-shell-build` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-shuf` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-shuf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-shuf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-shuf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-shuf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-shuf` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-size` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-size` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-size` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-size` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-size` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-size` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sleep` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sleep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sleep` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sleep` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sleep` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sleep` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sort` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sort` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sort` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sort` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-sort` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sort` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-split` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-split` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-split` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-split` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-split` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-split` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sqlite3` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sqlite3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sqlite3` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sqlite3` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-sqlite3` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sqlite3` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ss` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ss` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-ss` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ss` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ss` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-ss` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-stat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-stat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-stat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-stat` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-stat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-stat` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-stdbuf` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-stdbuf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-stdbuf` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-stdbuf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-stdbuf` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-stdbuf` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-strings` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-strings` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-strings` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-strings` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-strings` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-strings` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-strip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-strip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-strip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-strip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-strip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-strip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sum` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sum` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sum` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sum` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sysctl-random-uuid` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sysctl-random-uuid` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-sysctl-random-uuid` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-sysctl-random-uuid` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-sysctl-random-uuid` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-sysctl-random-uuid` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tac` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tac` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tac` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tac` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tac` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tac` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tar` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tar` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tar` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tar` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tar` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tar` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tar-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tar-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tar-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tar-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tar-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tar-roundtrip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-taskset` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-taskset` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-taskset` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-taskset` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-taskset` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-taskset` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tcl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tcl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tcl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tcl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tcl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tcl` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tee` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tee` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tee` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tee` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tee` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tee` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-test` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-test` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-test` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-test` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-test` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-test` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-time` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-time` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-time` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-time` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-time` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-time` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-top` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-top` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-top` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-top` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-top` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-top` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-touch` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-touch` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-touch` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-touch` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-touch` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-touch` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tr` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tr` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tr` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tr` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-true` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-true` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-true` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-true` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-true` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-true` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tsort` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tsort` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tsort` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tsort` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tsort` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tsort` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tty` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tty` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-tty` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-tty` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-tty` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-tty` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-uname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uname` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uname` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-uname` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-uname` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-unexpand` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-unexpand` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-unexpand` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-unexpand` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-unexpand` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-unexpand` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-uniq` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uniq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-uniq` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uniq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-uniq` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-uniq` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-uptime` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uptime` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uptime` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-uptime` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-uptime` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-uptime` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-users` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-users` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-users` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-users` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-users` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-users` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-vmstat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-vmstat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-vmstat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-vmstat` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-vmstat` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-vmstat` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-vmstat-disk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-vmstat-disk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-vmstat-disk` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-vmstat-disk` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-vmstat-disk` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-vmstat-disk` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-wc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-wc` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc-lines` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc-lines` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc-lines` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wc-lines` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-wc-lines` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-wc-lines` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wget-localhost` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-wget-localhost` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-wget-localhost` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-wget-localhost` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-wget-localhost` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-wget-localhost` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-whoami` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-whoami` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-whoami` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-whoami` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-whoami` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-whoami` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xargs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xargs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xargs` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xargs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-xargs` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xargs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xmllint` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xmllint` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xmllint` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xmllint` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-xmllint` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xmllint` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xxd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xxd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xxd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xxd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-xxd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xxd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xz` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xz` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xz` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xz` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-xz` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xz` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xz-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xz-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-xz-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-xz-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-xz-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-xz-roundtrip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-yes` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-yes` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-yes` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-yes` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-yes` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-yes` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zip-unzip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zip-unzip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zip-unzip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-zip-unzip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-zip-unzip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-zip-unzip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zstd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zstd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zstd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-zstd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-zstd` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-zstd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zstd-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zstd-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-zstd-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-zstd-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-zstd-roundtrip` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strict-zstd-roundtrip` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `compat/strings` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strings` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/strings` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strings` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/strings` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strings` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strings` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/strip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/strip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/strip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/strip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sum` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/sync` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sync` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sync` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/sync` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sync` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sync` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/sync` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/sysctl-random-uuid` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sysctl-random-uuid` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/sysctl-random-uuid` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/sysctl-random-uuid` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/tac` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tac` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tac` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tac` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tac` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tac` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tac` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tar` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tar` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tar` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tar` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tar` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tar-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tar-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tar-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tar-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tar-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/taskset` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/taskset` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/taskset` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/taskset` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tcl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tcl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tcl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tcl` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tcl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tcl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tcl` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tee` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tee` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tee` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tee` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tee` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tee` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tee` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/test` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/test` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/test` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/test` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/test` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/time` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/time` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/time` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/time` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/time` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/time` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/time` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/timeout` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/timeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/timeout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/timeout` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/timeout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/timeout` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/timeout` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/top` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/top` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/top` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/top` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/top` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/top` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/top` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/touch` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/touch` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/touch` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/touch` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/touch` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/touch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/touch` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tr` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tr` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tr` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/true` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/true` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/true` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/true` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/true` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/true` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/true` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/truncate` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/truncate` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/truncate` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/truncate` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tsort` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tsort` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tsort` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tsort` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/tty` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tty` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tty` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/tty` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/tty` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tty` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tty` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/uname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/uname` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/uname` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/uname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/unexpand` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/unexpand` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/unexpand` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/unexpand` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/unexpand` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/unexpand` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/unexpand` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/uniq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uniq` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/uniq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/uniq` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/uniq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/uniq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uniq` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/uptime` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uptime` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/uptime` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/users` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/users` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/users` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/users` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/users` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/users` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/users` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/uuidgen` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uuidgen` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/uuidgen` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/uuidgen` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/uuidgen` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/uuidgen` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/uuidgen` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/vmstat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/vmstat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/vmstat` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/vmstat-disk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/vmstat-disk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/vmstat-disk` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/vmstat-disk` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/wc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/wc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/wc` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/wc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/wc` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/wc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wc` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/wc-lines` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/wc-lines` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/wget-localhost` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/wget-localhost` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/wget-localhost` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/wget-localhost` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/wget-localhost` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/wget-localhost` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wget-localhost` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/whoami` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/whoami` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
+| `compat/whoami` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/xargs` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xargs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/xargs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/xargs` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/xargs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xargs` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xargs` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/xmllint` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xmllint` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/xmllint` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/xmllint` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/xmllint` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xmllint` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xmllint` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/xxd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xxd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/xxd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/xxd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/xxd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xxd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xxd` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/xz` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xz` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/xz` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/xz` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/xz` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xz` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xz` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/xz-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xz-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/xz-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/xz-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/xz-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xz-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xz-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/yes` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/yes` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/yes` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/yes` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/yes` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/yes` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/yes` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/zip-unzip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/zip-unzip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/zip-unzip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/zip-unzip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/zip-unzip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/zip-unzip` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/zip-unzip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/zstd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/zstd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/zstd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/zstd` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/zstd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/zstd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/zstd` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `compat/zstd-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/zstd-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/zstd-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `compat/zstd-roundtrip` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/zstd-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/zstd-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/zstd-roundtrip` | `verify` | `sabre` | `Not selected by full` | `diverged` |
@@ -3654,27 +5053,27 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. The **population** is every test whose ptrace `verify` cell full validation selects, crossed with every candidate backend, so it is the verify matrix itself. Every population cell is scored: a measured cell earns its credit, and a candidate that is not enabled, not selected, left no row or log, timed out, crashed, failed or diverged between its own two runs, a comparison the parity tool could not make, a record-missing cell and a refused cell each score 0 and are counted. **Population mean** divides the credit sum by every population cell (N), zeros included; **Full**, **Partial** and **Zero** count the cells with credit 1, between 0 and 1, and 0. A cell whose ptrace reference left no usable golden log has nothing to compare against: it is outside the population, counted under **Excluded (reference)**, and so is a historical **not compared** dbt cell. In a pressure-test run, which executes a sample, a candidate full validation runs but the sample did not plan is **not sampled**: outside that run's population, counted on its line apart, never 0. **Mean credit (measured)** divides the credit sum by the measured (matched plus diverged) cells only. A mean over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C population cells it owes, and a run that reported fewer is marked partial. Credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is.
 
 
-### validate run `validate-crash-eval-6f2b196731c3-1791607820124221954-872332-ab8e4dd4` at `6f2b196731c3`
+### validate run `validate-tickhub-ops-2-803c417b0ee8-1791615872708403576-2523917-a7eec233` at `803c417b0ee8`
 
-`parity: 248/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.124 over 2770 (248 full, 1153 partial, 1369 zero: candidate-not-enabled 1109, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1401 [inputs equalized for 1362 of 1401 credited: mean 0.250 over 1362 with equal inputs; mean 0.058 over 39 with unequal inputs]`
+`parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 
 | Candidate backend | Selected | Population | Population mean | Full | Partial | Zero | Excluded (reference) | Not compared | Measured | Matched | Mean credit (measured) | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 554 of 554 | 554 | 0.011 | 0 | 205 | 349 | 0 | 0 | 205 | 0 | 0.031 | equalized for 204 of 205 (mean 0.031 equal; 0.040 unequal) |
-| `in-guest-trap` | 554 of 554 | 554 | 0.035 | 0 | 314 | 240 | 0 | 0 | 314 | 0 | 0.062 | equalized for 296 of 314 (mean 0.063 equal; 0.058 unequal) |
-| `kvm` | 554 of 554 | 554 | 0.507 | 248 | 81 | 225 | 0 | 0 | 329 | 248 | 0.854 | equalized for 327 of 329 (mean 0.859 equal; 0.076 unequal) |
-| `liteinst` | 554 of 554 | 554 | 0.035 | 0 | 313 | 241 | 0 | 0 | 313 | 0 | 0.062 | equalized for 295 of 313 (mean 0.063 equal; 0.058 unequal) |
-| `sabre` | 554 of 554 | 554 | 0.029 | 0 | 240 | 314 | 0 | 0 | 240 | 0 | 0.067 | equalized |
-| **TOTAL** | 2770 of 2770 | 2770 | 0.124 | 248 | 1153 | 1369 | 0 | 0 | 1401 | 248 | 0.244 | equalized for 1362 of 1401 (mean 0.250 equal; 0.058 unequal) |
+| `dbt` | 554 of 554 | 554 | 0.011 | 0 | 204 | 350 | 0 | 0 | 204 | 0 | 0.031 | equalized for 203 of 204 (mean 0.031 equal; 0.040 unequal) |
+| `in-guest-trap` | 554 of 554 | 554 | 0.035 | 0 | 313 | 241 | 0 | 0 | 313 | 0 | 0.062 | equalized for 295 of 313 (mean 0.063 equal; 0.058 unequal) |
+| `kvm` | 554 of 554 | 554 | 0.505 | 247 | 81 | 226 | 0 | 0 | 328 | 247 | 0.854 | equalized for 326 of 328 (mean 0.859 equal; 0.076 unequal) |
+| `liteinst` | 554 of 554 | 554 | 0.035 | 0 | 312 | 242 | 0 | 0 | 312 | 0 | 0.062 | equalized for 294 of 312 (mean 0.063 equal; 0.058 unequal) |
+| `sabre` | 554 of 554 | 554 | 0.029 | 0 | 239 | 315 | 0 | 0 | 239 | 0 | 0.067 | equalized |
+| **TOTAL** | 2770 of 2770 | 2770 | 0.123 | 247 | 1149 | 1374 | 0 | 0 | 1396 | 247 | 0.244 | equalized for 1357 of 1396 (mean 0.250 equal; 0.058 unequal) |
 
 Cells that were not measured, by class: a cell whose ptrace reference left no golden is excluded from the population; every other one scores 0 and is counted.
 
 | Class | Group | Counts as | `dbt` | `in-guest-trap` | `kvm` | `liteinst` | `sabre` | **TOTAL** |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `candidate-not-enabled` | candidate not run | 0 | 303 | 240 | 220 | 241 | 105 | 1109 |
+| `candidate-not-enabled` | candidate not run | 0 | 304 | 241 | 221 | 242 | 106 | 1114 |
 | `candidate-not-selected` | candidate not run | 0 | 46 | 0 | 5 | 0 | 209 | 260 |
 
-Most common first divergence: 627 of 1153 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/timed-progress-bar@in-guest-trap`).
+Most common first divergence: 625 of 1149 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/timed-progress-bar@in-guest-trap`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
@@ -3692,7 +5091,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `applications/git-repository-workflow@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec Git qualification must ratchet after the ptrace reference path |
 | `applications/timed-progress-bar@dbt` | diverged | 0.000 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `applications/timed-progress-bar@in-guest-trap` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `applications/timed-progress-bar@kvm` | diverged | 0.023 | record 649, syscall 284: token 17: `1_791_607_682.106_278_595s` vs `1_791_607_682.106_278_575s` |
+| `applications/timed-progress-bar@kvm` | diverged | 0.023 | record 649, syscall 284: token 17: `1_791_615_741.106_278_755s` vs `1_791_615_741.106_278_735s` |
 | `applications/timed-progress-bar@liteinst` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `applications/timed-progress-bar@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/timed-progress-bar is not enabled in the manifest, so it has no log to compare: SaBRe does not yet determinize busy-wait polling on virtual wall-clock advancement; main validation has observed verify failure under load |
 | `bin-c/posix-timer-test@dbt` | diverged | 0.029 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
@@ -3746,10 +5145,11 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/cachestat-refusal@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/cachestat-refusal@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/cachestat-refusal@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/child-subreaper-refusal@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/child-subreaper-refusal@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/child-subreaper-refusal@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/child-subreaper-refusal@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/child-subreaper-support@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: DBT refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); Detcore does not track its process children |
+| `c-programs/child-subreaper-support@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: In-guest LiteInst refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); its asynchronous exits are outside the re-parenting wait model |
+| `c-programs/child-subreaper-support@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: KVM refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); it emulates child waits itself, without re-parenting |
+| `c-programs/child-subreaper-support@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: LiteInst refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); its asynchronous exits are outside the re-parenting wait model |
+| `c-programs/child-subreaper-support@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: SaBRe refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); it reports physical process exits separately, outside the re-parenting wait model |
 | `c-programs/clock-adjtime-deterministic@dbt` | candidate-missing[candidate-not-selected] | — | the dbt candidate verify cell of c-programs/clock-adjtime-deterministic is enabled but not selected by full validation, so it has no log to compare: Canonical full validation could not start either DBT attempt because this backend cannot isolate the required /test workdir; this is an infrastructure result, not a product divergence. |
 | `c-programs/clock-adjtime-deterministic@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/clock-adjtime-deterministic@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
@@ -5931,7 +7331,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/cpp-stl-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/example-python-random@dbt` | candidate-missing[candidate-not-selected] | — | the dbt candidate verify cell of language-runtimes/example-python-random is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `language-runtimes/example-python-random@in-guest-trap` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `language-runtimes/example-python-random@kvm` | diverged | 0.188 | record 649, syscall 284: token 17: `1_791_607_682.106_289_945s` vs `1_791_607_682.106_289_925s` |
+| `language-runtimes/example-python-random@kvm` | diverged | 0.188 | record 649, syscall 284: token 17: `1_791_615_741.106_289_885s` vs `1_791_615_741.106_289_865s` |
 | `language-runtimes/example-python-random@liteinst` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `language-runtimes/example-python-random@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of language-runtimes/example-python-random is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `language-runtimes/gawk-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: DBT awk support is tracked by backend compatibility |
@@ -6158,7 +7558,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/sh-exit-status@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/sh-exit-status is not enabled in the manifest, so it has no log to compare: Added for the DBT contract that replaced the backend-parity matrix; qualify SaBRe against the same oracle separately |
 | `system-utils/shm-coherency-identity@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/shm-coherency-identity@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/shm-coherency-identity@kvm` | diverged | 0.825 | record 138, syscall 47: token 31: `1_791_607_682.005_176_985s` vs `1_791_607_682.005_175_745s` |
+| `system-utils/shm-coherency-identity@kvm` | diverged | 0.825 | record 138, syscall 47: token 31: `1_791_615_741.005_176_985s` vs `1_791_615_741.005_175_745s` |
 | `system-utils/shm-coherency-identity@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `system-utils/shm-coherency-identity@sabre` | diverged | 0.054 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/shuf-permutation@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/shuf-permutation is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
@@ -6240,7 +7640,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 395 other parity run(s) in the store
+### 397 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -6394,6 +7794,8 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-coord2-fd56c3239015-1791212209210828476-1422541-116dd636` at Hermit `fd56c3239015`: `parity: 0/198 matched; selected 198 of 198 committed; population 182: mean 0.056 over 182 (0 full, 180 partial, 2 zero: no-result-row 2); excluded: 0 reference without golden; 16 not compared; measured mean 0.057 over 180 [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.099 over 89 with unequal inputs]`
 - validate run `validate-crash-eval-0a6e7e0f8b28-1791604727334479490-3741052-73fe6aaa` at Hermit `0a6e7e0f8b28`: `parity: 248/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.124 over 2770 (248 full, 1153 partial, 1369 zero: candidate-not-enabled 1109, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1401 [inputs equalized for 1362 of 1401 credited: mean 0.250 over 1362 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-crash-eval-20526ae72374-1791606115362161346-1713046-e49ccd4a` at Hermit `20526ae72374`: `parity: 248/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.124 over 2770 (248 full, 1153 partial, 1369 zero: candidate-not-enabled 1109, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1401 [inputs equalized for 1362 of 1401 credited: mean 0.250 over 1362 with equal inputs; mean 0.058 over 39 with unequal inputs]`
+- validate run `validate-crash-eval-6f2b196731c3-1791607820124221954-872332-ab8e4dd4` at Hermit `6f2b196731c3`: `parity: 248/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.124 over 2770 (248 full, 1153 partial, 1369 zero: candidate-not-enabled 1109, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1401 [inputs equalized for 1362 of 1401 credited: mean 0.250 over 1362 with equal inputs; mean 0.058 over 39 with unequal inputs]`
+- validate run `validate-crash-eval-dd3055026cf7-1791616845217442536-231449-703abaca` at Hermit `dd3055026cf7`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-d14-queue-a2b1deecaa21-1791037234447726839-773804-79469e5b` at Hermit `a2b1deecaa21`: `parity: 0/203 matched; selected 203 of 203 committed; population 187: mean 0.054 over 187 (0 full, 184 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 184`
 - validate run `validate-gate-select-9e698b862c8e-1791147210324610650-2296438-f7c76258` at Hermit `9e698b862c8e`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.043 over 281 (0 full, 276 partial, 5 zero: ended 2, no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 276`
 - validate run `validate-gate-select-9e7dd6e33cf6-1791027490982151389-186043-c4a5cdf6` at Hermit `9e7dd6e33cf6`: `parity: 0/203 matched; selected 203 of 203 committed; population 187: mean 0.054 over 187 (0 full, 184 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 184`
