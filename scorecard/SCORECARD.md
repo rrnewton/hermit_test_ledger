@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-09T23:54:39Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `b9835a7f003db3e7a4a961c14aab54a1b59cd4b9`, reading 895560 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-8015f368316e-1791589867817272735-284082-d001e471` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), `validate-netreplay-rework-0aec0d1dddab-1791577964610870732-1302087-1afce6f4` current (1978), `validate-qemu-rcb-dcec85db4748-1791586032477137485-1693382-23f7d37d` current (1978), `validate-tickhub-ops-2-8015f368316e-1791588564148498243-2697871-e6489dfa` current (1978), `validate-claude-coord-9d53b5431231-1791583232588018532-1347186-d6060f90` current (1977), `validate-claude-coord-f64c3a1ad17f-1791585197642343524-3413002-ad142fed` current (1977), and 202 more.
+Last regenerated **2026-10-10T00:12:24Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `3121449c16d140d9d77cac0a4d59ef0ce3b6633a`, reading 901517 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-qemu-rcb-f1aa155ec73b-1791590865652149132-2498023-cfcb2c06` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), `validate-netreplay-rework-0aec0d1dddab-1791577964610870732-1302087-1afce6f4` current (1978), `validate-qemu-rcb-dcec85db4748-1791586032477137485-1693382-23f7d37d` current (1978), `validate-tickhub-ops-2-8015f368316e-1791588564148498243-2697871-e6489dfa` current (1978), `validate-tickhub-ops-2-8015f368316e-1791589867817272735-284082-d001e471` current (1978), `validate-claude-coord-9d53b5431231-1791583232588018532-1347186-d6060f90` current (1977), and 203 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -86,9 +86,9 @@ The count table includes all **14991** cells in the manifest; no row is omitted.
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1792 | 0 | 0 | 186 | 1978 |
-| Not selected by full | 40 | 546 | 137 | 0 | 51 | 774 |
+| Not selected by full | 39 | 546 | 137 | 0 | 52 | 774 |
 | Not applicable | 11837 | 99 | 240 | 0 | 63 | 12239 |
-| **Total** | **11877** | **2437** | **377** | **0** | **300** | **14991** |
+| **Total** | **11876** | **2437** | **377** | **0** | **301** | **14991** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -794,6 +794,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/nanosleep-threads-nocrash` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/nanosleep-threads-nocrash` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/nanosleep-threads-nocrash` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/nanosleep-threads-nocrash` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `c-programs/nanosleep-threads-simple` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/nanosleep-threads-simple` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/nanosleep-threads-simple` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
@@ -5239,7 +5240,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 382 other parity run(s) in the store
+### 383 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -5623,6 +5624,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - pressure-test run `R1-enabled` at Hermit `7023ea311aa9`: `parity: 0/2 matched; selected 2 of 198 committed (partial); population 1: mean 0.000 over 1 (0 full, 0 partial, 1 zero: determinism-mismatch 1); excluded: 1 reference without golden: no-result-row 1; 0 not compared; measured mean n/a over 0`
 - pressure-test run `p1-green10` at Hermit `7759159896ab`: `parity: not compared: 0 measured of 2 selected (inputs cannot be equalized); selected 2 of 297 committed (partial)`
 - pressure-test run `pressure-3e4959d20555-20261007T230235Z` at Hermit `3e4959d20555`: `parity: 0/1 matched; selected 1 of 2208 committed (partial); population 1: mean 0.000 over 1 (0 full, 0 partial, 1 zero: crash 1); excluded: 0 reference without golden; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-5a6badd839fd-20261010T002232Z` at Hermit `5a6badd839fd`: `parity: 0/3 matched; selected 3 of 2770 committed (partial); population 3: mean 0.026 over 3 (0 full, 1 partial, 2 zero: determinism-mismatch 1, crash 1); excluded: 0 reference without golden; 0 not compared; measured mean 0.079 over 1`
 - pressure-test run `pressure-c470fa213ee8-20261003T180650Z` at Hermit `c470fa213ee8`: `parity: not compared: 0 measured of 1 selected (inputs cannot be equalized); selected 1 of 205 committed (partial)`
 - pressure-test run `pressure-d7441caea790-20261006T230247Z` at Hermit `d7441caea790`: `parity: 0/2 matched; selected 0 of 198 committed (partial); 2 outside the committed selection; population 1: mean 0.035 over 1 (0 full, 1 partial, 0 zero); excluded: 1 reference without golden: no-result-row 1; 0 not compared; measured mean 0.035 over 1 [inputs not equalized]`
 
