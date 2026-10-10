@@ -1,32 +1,32 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-10T16:55:02Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `4e2791c1225bdf5cc110201903ffe67750a54386`, reading 1060845 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-9a9c7338d217-1791650816416596201-845442-3f4ba445` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-230e41dc8bb9-1791634758022133305-3160490-9334dc78` current (1978), `validate-claude-coord-582cdfe2fd5b-1791620441614838649-3852478-5e027b31` current (1978), `validate-claude-coord-98d902968282-1791640733961809888-757075-a44d661d` current (1978), `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-crash-eval-0a6e7e0f8b28-1791604727334479490-3741052-73fe6aaa` current (1978), `validate-crash-eval-20526ae72374-1791606115362161346-1713046-e49ccd4a` current (1978), `validate-crash-eval-2bb68a278208-1791622655144006600-3155805-aae82633` current (1978), `validate-crash-eval-50ff9c8db261-1791633067653699437-1995785-2cb77de9` current (1978), and 236 more.
+Last regenerated **2026-10-10T17:33:32Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `044489e5949e1c95a6c57ce37d404ccf10256417`, reading 1065023 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-7f0d40c8504a-1791653279424681697-1110024-0d84540b` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-230e41dc8bb9-1791634758022133305-3160490-9334dc78` current (1978), `validate-claude-coord-582cdfe2fd5b-1791620441614838649-3852478-5e027b31` current (1978), `validate-claude-coord-98d902968282-1791640733961809888-757075-a44d661d` current (1978), `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-crash-eval-0a6e7e0f8b28-1791604727334479490-3741052-73fe6aaa` current (1978), `validate-crash-eval-20526ae72374-1791606115362161346-1713046-e49ccd4a` current (1978), `validate-crash-eval-2bb68a278208-1791622655144006600-3155805-aae82633` current (1978), `validate-crash-eval-50ff9c8db261-1791633067653699437-1995785-2cb77de9` current (1978), and 237 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **15447** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1978** are selected by full, **797** are not selected by full, and **12672** are **Not applicable**.
+The count table includes all **15504** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1978** are selected by full, **800** are not selected by full, and **12726** are **Not applicable**.
 
 Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. None of the **1968** selected `verify` cells declares the stripped comparator. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
-| `ptrace` | 564 | 471 | 1404 | 2439 |
-| `dbt` | 205 | 47 | 2187 | 2439 |
-| `kvm` | 330 | 7 | 2102 | 2439 |
-| `sabre` | 240 | 239 | 1960 | 2439 |
-| `liteinst` | 319 | 0 | 2120 | 2439 |
-| `in-guest-trap` | 320 | 0 | 2119 | 2439 |
-| `native` | 0 | 33 | 780 | 813 |
-| **Total** | **1978** | **797** | **12672** | **15447** |
+| `ptrace` | 564 | 474 | 1410 | 2448 |
+| `dbt` | 205 | 47 | 2196 | 2448 |
+| `kvm` | 330 | 7 | 2111 | 2448 |
+| `sabre` | 240 | 239 | 1969 | 2448 |
+| `liteinst` | 319 | 0 | 2129 | 2448 |
+| `in-guest-trap` | 320 | 0 | 2128 | 2448 |
+| `native` | 0 | 33 | 783 | 816 |
+| **Total** | **1978** | **800** | **12726** | **15504** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **1978 of 15447**, which is **12.81%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **1978 of 15504**, which is **12.76%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `in-guest-trap`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **12672 of those 15447 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2775 cells that CAN run, selected by full is **71.28%**.
+⚠️ **12726 of those 15504 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2778 cells that CAN run, selected by full is **71.20%**.
 
 ⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1978 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
@@ -36,11 +36,11 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `in-guest-trap` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `verify` | 554 / 813 | 205 / 813 | 330 / 813 | 240 / 813 | 319 / 813 | 320 / 813 | — | 1968 | 548 | 2362 | 4878 |
-| `replay` | 4 / 813 | 0 / 813 | 0 / 813 | 0 / 813 | 0 / 813 | 0 / 813 | — | 4 | 215 | 4659 | 4878 |
-| `chaos` | 6 / 813 | 0 / 813 | 0 / 813 | 0 / 813 | 0 / 813 | 0 / 813 | — | 6 | 1 | 4871 | 4878 |
-| `naked` | — | — | — | — | — | — | 0 / 813 | 0 | 33 | 780 | 813 |
-| **Total** | | | | | | | | **1978** | **797** | **12672** | **15447** |
+| `verify` | 554 / 816 | 205 / 816 | 330 / 816 | 240 / 816 | 319 / 816 | 320 / 816 | — | 1968 | 551 | 2377 | 4896 |
+| `replay` | 4 / 816 | 0 / 816 | 0 / 816 | 0 / 816 | 0 / 816 | 0 / 816 | — | 4 | 215 | 4677 | 4896 |
+| `chaos` | 6 / 816 | 0 / 816 | 0 / 816 | 0 / 816 | 0 / 816 | 0 / 816 | — | 6 | 1 | 4889 | 4896 |
+| `naked` | — | — | — | — | — | — | 0 / 816 | 0 | 33 | 783 | 816 |
+| **Total** | | | | | | | | **1978** | **800** | **12726** | **15504** |
 
 ## Ptrace by manifest category
 
@@ -52,7 +52,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | `bin-c` | 2 / 2 | 0 / 2 | 0 / 2 | 2 | 6 |
 | `c-programs` | 276 / 282 | 3 / 282 | 3 / 282 | 282 | 846 |
 | `chaos-c` | 1 / 1 | 0 / 1 | 1 / 1 | 2 | 3 |
-| `compat` | 189 / 435 | 0 / 435 | 0 / 435 | 189 | 1305 |
+| `compat` | 189 / 438 | 0 / 438 | 0 / 438 | 189 | 1314 |
 | `data-handling` | 6 / 6 | 0 / 6 | 0 / 6 | 6 | 18 |
 | `debugger-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 | `determinism-stress` | 5 / 6 | 0 / 6 | 1 / 6 | 6 | 18 |
@@ -77,18 +77,18 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **569** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **572** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
-The count table includes all **15447** cells in the manifest; no row is omitted. These claims use the same counts printed in the table below.
+The count table includes all **15504** cells in the manifest; no row is omitted. These claims use the same counts printed in the table below.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1787 | 0 | 1 | 190 | 1978 |
-| Not selected by full | 39 | 569 | 137 | 0 | 52 | 797 |
-| Not applicable | 10425 | 879 | 1281 | 0 | 87 | 12672 |
-| **Total** | **10464** | **3235** | **1418** | **1** | **329** | **15447** |
+| Not selected by full | 39 | 572 | 137 | 0 | 52 | 800 |
+| Not applicable | 10479 | 879 | 1281 | 0 | 87 | 12726 |
+| **Total** | **10518** | **3238** | **1418** | **1** | **329** | **15504** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -3294,6 +3294,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/strict-df` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-df` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-df` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-df-direct` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-diff` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-diff` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-diff` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
@@ -3612,6 +3613,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/strict-lua` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-lua` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-lua` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-lua-direct` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-m4` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-m4` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-m4` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
@@ -3773,6 +3775,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/strict-perl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-perl` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-perl` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `compat/strict-perl-direct` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-pgrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-pgrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-pgrep` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
@@ -7672,7 +7675,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 444 other parity run(s) in the store
+### 446 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -7763,6 +7766,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-83078ea2334a-1791428751392576394-1925834-e4cba820` at Hermit `83078ea2334a`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-8383cc832708-1791449088565453811-2793906-e653b50a` at Hermit `8383cc832708`: `parity: 207/2208 matched; committed selection unknown; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-845c3a42681d-1791368413218863571-274685-f49a752d` at Hermit `845c3a42681d`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-85d4557a8b23-1791653947437300680-3141642-b1150d8e` at Hermit `85d4557a8b23`: `parity: 247/2770 matched; committed selection unknown; population 2770: mean 0.123 over 2770 (247 full, 1147 partial, 1376 zero: crash 1, ended 1, candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.245 over 1394 [inputs equalized for 1355 of 1394 credited: mean 0.250 over 1355 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-8696ccbef546-1791455310962174181-385656-efa2d79c` at Hermit `8696ccbef546`: `parity: 248/2208 matched; committed selection unknown; population 2208: mean 0.135 over 2208 (248 full, 359 partial, 1601 zero: candidate-not-enabled 1341, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.491 over 607 [inputs equalized for 604 of 607 credited: mean 0.493 over 604 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-8c070294ccab-1791340120789881771-968348-64e89602` at Hermit `8c070294ccab`: `parity: 86/198 matched; selected 198 of 198 committed; population 198: mean 0.459 over 198 (86 full, 109 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.466 over 195 [inputs equalized for 194 of 195 credited: mean 0.468 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-8c09ed1760f0-1791463325520076832-457393-eeb055e7` at Hermit `8c09ed1760f0`: `parity: 248/2208 matched; committed selection unknown; population 2208: mean 0.137 over 2208 (248 full, 527 partial, 1433 zero: candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.391 over 775 [inputs equalized for 772 of 775 credited: mean 0.393 over 772 with equal inputs; mean 0.064 over 3 with unequal inputs]`
@@ -7884,6 +7888,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-hermit-lander-88c96501889f-1791466467102738273-3280653-3da97dc0` at Hermit `88c96501889f`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 527 partial, 1433 zero: candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.391 over 775 [inputs equalized for 772 of 775 credited: mean 0.393 over 772 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-hermit-lander-89e93899a458-1791420630430681267-485966-81878085` at Hermit `89e93899a458`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-hermit-lander-8b7d8e1f8fc0-1791313332241243436-216306-0cde3c55` at Hermit `8b7d8e1f8fc0`: `parity: 1/198 matched; selected 198 of 198 committed; population 198: mean 0.064 over 198 (1 full, 194 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.065 over 195 [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-hermit-lander-91f8ecdbce2d-1791654445174903469-2852434-de9f292e` at Hermit `91f8ecdbce2d`: `parity: 248/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (248 full, 1148 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.245 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-hermit-lander-940f6ac850ba-1791292208237695632-3527024-a8db6d95` at Hermit `940f6ac850ba`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-982d6606910f-1791374089710266358-3064113-f482a925` at Hermit `982d6606910f`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-hermit-lander-98491556e28f-1791302449794791360-1789165-2b3fd50a` at Hermit `98491556e28f`: `parity: 1/198 matched; selected 198 of 198 committed; population 198: mean 0.064 over 198 (1 full, 194 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.065 over 195 [inputs equalized for 194 of 195 credited: mean 0.066 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
