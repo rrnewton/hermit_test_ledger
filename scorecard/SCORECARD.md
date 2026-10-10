@@ -1,32 +1,32 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-10T01:27:50Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `4e0d59b00b9c2456245c6ab2a8d0512b137e1d53`, reading 914071 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-hermit-lander-08b03e040200-1791595417046203769-3062555-2cfb2cb3` (1978). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), `validate-kernel-ctl-69d33ac1c252-1791592089404307450-1029052-e76b30f9` current (1978), `validate-netreplay-rework-0aec0d1dddab-1791577964610870732-1302087-1afce6f4` current (1978), `validate-qemu-rcb-dcec85db4748-1791586032477137485-1693382-23f7d37d` current (1978), `validate-qemu-rcb-dd8dd8419ba7-1791594185252715326-190429-e25f8244` current (1978), `validate-qemu-rcb-f1aa155ec73b-1791590865652149132-2498023-cfcb2c06` current (1978), and 206 more.
+Last regenerated **2026-10-10T02:07:04Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `c2d9d4aac4aaf0c210c74e563a4f0ced03e0f5a5`, reading 916266 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-netreplay-rework-5f16b861486a-1791597671657646927-2732053-0f06287a` (213). Earlier validate runs still supplying comparisons: `validate-claude-coord-d8b096c91642-1791574849660510384-2598426-cc003f8c` current (1978), `validate-hermit-lander-08b03e040200-1791595417046203769-3062555-2cfb2cb3` current (1978), `validate-hermit-lander-bbec67f8e68a-1791580118930679650-40529-ed7d25db` current (1978), `validate-kernel-ctl-349e19ad1f41-1791582677616136095-4053594-68aef4c1` current (1978), `validate-kernel-ctl-69d33ac1c252-1791592089404307450-1029052-e76b30f9` current (1978), `validate-netreplay-rework-0aec0d1dddab-1791577964610870732-1302087-1afce6f4` current (1978), `validate-qemu-rcb-dcec85db4748-1791586032477137485-1693382-23f7d37d` current (1978), `validate-qemu-rcb-dd8dd8419ba7-1791594185252715326-190429-e25f8244` current (1978), and 207 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **15010** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1978** are selected by full, **774** are not selected by full, and **12258** are **Not applicable**.
+The count table includes all **14991** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **1978** are selected by full, **774** are not selected by full, and **12239** are **Not applicable**.
 
 Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. None of the **1968** selected `verify` cells declares the stripped comparator. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
-| `ptrace` | 564 | 448 | 1358 | 2370 |
-| `dbt` | 205 | 47 | 2118 | 2370 |
-| `kvm` | 330 | 7 | 2033 | 2370 |
-| `sabre` | 240 | 239 | 1891 | 2370 |
-| `liteinst` | 319 | 0 | 2051 | 2370 |
-| `in-guest-trap` | 320 | 0 | 2050 | 2370 |
-| `native` | 0 | 33 | 757 | 790 |
-| **Total** | **1978** | **774** | **12258** | **15010** |
+| `ptrace` | 564 | 448 | 1355 | 2367 |
+| `dbt` | 205 | 47 | 2115 | 2367 |
+| `kvm` | 330 | 7 | 2030 | 2367 |
+| `sabre` | 240 | 239 | 1888 | 2367 |
+| `liteinst` | 319 | 0 | 2048 | 2367 |
+| `in-guest-trap` | 320 | 0 | 2047 | 2367 |
+| `native` | 0 | 33 | 756 | 789 |
+| **Total** | **1978** | **774** | **12239** | **14991** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **1978 of 15010**, which is **13.18%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **1978 of 14991**, which is **13.19%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `in-guest-trap`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **12258 of those 15010 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2752 cells that CAN run, selected by full is **71.88%**.
+⚠️ **12239 of those 14991 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2752 cells that CAN run, selected by full is **71.88%**.
 
 ⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 1978 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
@@ -36,11 +36,11 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `in-guest-trap` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `verify` | 554 / 790 | 205 / 790 | 330 / 790 | 240 / 790 | 319 / 790 | 320 / 790 | — | 1968 | 525 | 2247 | 4740 |
-| `replay` | 4 / 790 | 0 / 790 | 0 / 790 | 0 / 790 | 0 / 790 | 0 / 790 | — | 4 | 215 | 4521 | 4740 |
-| `chaos` | 6 / 790 | 0 / 790 | 0 / 790 | 0 / 790 | 0 / 790 | 0 / 790 | — | 6 | 1 | 4733 | 4740 |
-| `naked` | — | — | — | — | — | — | 0 / 790 | 0 | 33 | 757 | 790 |
-| **Total** | | | | | | | | **1978** | **774** | **12258** | **15010** |
+| `verify` | 554 / 789 | 205 / 789 | 330 / 789 | 240 / 789 | 319 / 789 | 320 / 789 | — | 1968 | 525 | 2241 | 4734 |
+| `replay` | 4 / 789 | 0 / 789 | 0 / 789 | 0 / 789 | 0 / 789 | 0 / 789 | — | 4 | 215 | 4515 | 4734 |
+| `chaos` | 6 / 789 | 0 / 789 | 0 / 789 | 0 / 789 | 0 / 789 | 0 / 789 | — | 6 | 1 | 4727 | 4734 |
+| `naked` | — | — | — | — | — | — | 0 / 789 | 0 | 33 | 756 | 789 |
+| **Total** | | | | | | | | **1978** | **774** | **12239** | **14991** |
 
 ## Ptrace by manifest category
 
@@ -50,7 +50,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `applications` | 3 / 6 | 0 / 6 | 0 / 6 | 3 | 18 |
 | `bin-c` | 2 / 2 | 0 / 2 | 0 / 2 | 2 | 6 |
-| `c-programs` | 276 / 282 | 3 / 282 | 3 / 282 | 282 | 846 |
+| `c-programs` | 276 / 281 | 3 / 281 | 3 / 281 | 282 | 843 |
 | `chaos-c` | 1 / 1 | 0 / 1 | 1 / 1 | 2 | 3 |
 | `compat` | 189 / 412 | 0 / 412 | 0 / 412 | 189 | 1236 |
 | `data-handling` | 6 / 6 | 0 / 6 | 0 / 6 | 6 | 18 |
@@ -81,14 +81,14 @@ Selection and observation answer different questions. The first column says whet
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
-The count table includes all **15010** cells in the manifest; no row is omitted. These claims use the same counts printed in the table below.
+The count table includes all **14991** cells in the manifest; no row is omitted. These claims use the same counts printed in the table below.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1792 | 0 | 0 | 186 | 1978 |
 | Not selected by full | 39 | 546 | 137 | 0 | 52 | 774 |
-| Not applicable | 11419 | 104 | 671 | 0 | 64 | 12258 |
-| **Total** | **11458** | **2442** | **808** | **0** | **302** | **15010** |
+| Not applicable | 11401 | 103 | 671 | 0 | 64 | 12239 |
+| **Total** | **11440** | **2441** | **808** | **0** | **302** | **14991** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -194,9 +194,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/child-subreaper-refusal` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/child-subreaper-refusal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/child-subreaper-refusal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
-| `c-programs/child-subreaper-refusal` | `verify` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/child-subreaper-refusal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/child-subreaper-refusal` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/child-subreaper-support` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/clock-adjtime-deterministic` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/clock-adjtime-deterministic` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/clock-adjtime-deterministic` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
