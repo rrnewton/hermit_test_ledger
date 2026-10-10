@@ -1,12 +1,12 @@
 {
   "schema": "parity-summary/v5",
   "generated_from": {
-    "store_sha256": "7c74a12ae0ecba236b217236699687ebc90ebe0f291095a3397bb73e144d0866",
-    "series_commit": "f5f3370db565b2485e2ea0b713d34a4ca378e936",
-    "tool_hermit_commit": "9dc5a718ed18edc977679ac4b931b5dcfe6281d2"
+    "store_sha256": "04ed8d056dc860daa0dfec8dc92541aa35b26c8e0525cf960034d0fa91a00f86",
+    "series_commit": "132086fb9d024cfa3adff0dcbab3bc36b5772a4a",
+    "tool_hermit_commit": "8ef5ec5a426541ffa88a9f94c9b81910d1efc033"
   },
   "store_present": true,
-  "rows_read": 377723,
+  "rows_read": 380493,
   "producers": [
     {
       "producer": "validate",
@@ -65389,6 +65389,19 @@
       "source_tree_dirty": false,
       "headline": false,
       "line": "parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 532 of 536 credited: mean 0.438 over 532 with equal inputs; mean 0.050 over 4 with unequal inputs]"
+    },
+    {
+      "producer": "validate",
+      "run_id": "validate-kernel-ctl-8ef5ec5a4265-1791613184775159273-736863-498c6bb7",
+      "hermit_sha": "8ef5ec5a426541ffa88a9f94c9b81910d1efc033",
+      "depth": {
+        "commits": 4510,
+        "first_parent": 4435
+      },
+      "emitted_at": "2026-10-10T06:35:33Z",
+      "source_tree_dirty": false,
+      "headline": false,
+      "line": "parity: 248/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.124 over 2770 (248 full, 1153 partial, 1369 zero: candidate-not-enabled 1109, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1401 [inputs equalized for 1362 of 1401 credited: mean 0.250 over 1362 with equal inputs; mean 0.058 over 39 with unequal inputs]"
     },
     {
       "producer": "validate",
