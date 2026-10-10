@@ -2,7 +2,7 @@
   "schema": "parity-summary/v5",
   "generated_from": {
     "store_sha256": "1a091fc87273d6c09825e5622611d88b696015da798b0656a39bceb164137bae",
-    "series_commit": "622ddb58893f3acaef224c1bb10aac353e9d0215",
+    "series_commit": "b9835a7f003db3e7a4a961c14aab54a1b59cd4b9",
     "tool_hermit_commit": "8015f368316ec570ad9c172bc1839344a64af9ba"
   },
   "store_present": true,
