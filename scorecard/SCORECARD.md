@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-11T14:12:07Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `44a4479dbc8e90d01e7906b4defca1fbaa8fc5fe`, reading 1264963 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-crash-eval-5fcd17ea44be-1791727258091011997-1528651-cc7128b8` (1980). Earlier validate runs still supplying comparisons: `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (2370), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (2350), `validate-tickhub-ops-2-42c1f9243552-1791711976285066700-4168700-282b0f0d` current (1981), `validate-claude-coord-40ec8312c326-1791696975230945811-1199440-63753277` current (1980), `validate-claude-coord-6c0043760f71-1791716216713412883-4030607-924affe5` current (1980), `validate-claude-coord-927574d8d72a-1791689811619839004-1702703-7fd89858` current (1980), `validate-claude-coord-b7c0c6a5702e-1791724572930580986-2847874-b09b372a` current (1980), `validate-claude-coord-eba3c978e0eb-1791687981400722702-2972047-294d2d97` current (1980), and 266 more.
+Last regenerated **2026-10-11T14:34:30Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `9b9675ad234dfb0916f5d8628eb8bcaa16810fae`, reading 1271280 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tickhub-ops-2-911c1d851138-1791728658302492500-209759-2c8c72d9` (1980). Earlier validate runs still supplying comparisons: `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (2370), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (2350), `validate-tickhub-ops-2-42c1f9243552-1791711976285066700-4168700-282b0f0d` current (1981), `validate-claude-coord-40ec8312c326-1791696975230945811-1199440-63753277` current (1980), `validate-claude-coord-6c0043760f71-1791716216713412883-4030607-924affe5` current (1980), `validate-claude-coord-927574d8d72a-1791689811619839004-1702703-7fd89858` current (1980), `validate-claude-coord-b7c0c6a5702e-1791724572930580986-2847874-b09b372a` current (1980), `validate-claude-coord-eba3c978e0eb-1791687981400722702-2972047-294d2d97` current (1980), and 267 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -87,8 +87,8 @@ The count table includes all **15523** cells in the manifest; no row is omitted.
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 1788 | 0 | 1 | 191 | 1980 |
 | Not selected by full | 39 | 572 | 137 | 0 | 52 | 800 |
-| Not applicable | 10361 | 1042 | 1207 | 0 | 133 | 12743 |
-| **Total** | **10400** | **3402** | **1344** | **1** | **376** | **15523** |
+| Not applicable | 10361 | 1035 | 1207 | 0 | 140 | 12743 |
+| **Total** | **10400** | **3395** | **1344** | **1** | **383** | **15523** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -1910,7 +1910,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/bash` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/bc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
-| `compat/bc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/bc` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/bc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/bc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/bc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -2224,7 +2224,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/expr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
 | `compat/factor` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
-| `compat/factor` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/factor` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/factor` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/factor` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/factor` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -2755,7 +2755,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/patch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/patch` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/pathchk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
-| `compat/pathchk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/pathchk` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/pathchk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/pathchk` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/pathchk` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -3013,7 +3013,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/shuf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/shuf` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
 | `compat/size` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
-| `compat/size` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/size` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/size` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/size` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/size` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -3134,7 +3134,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/strict-bash` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-bash` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-bash` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
-| `compat/strict-bc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-bc` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/strict-bc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-bc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-bc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -3308,7 +3308,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/strict-date` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-date` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-date` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
-| `compat/strict-dc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-dc` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/strict-dc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-dc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-dc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -4112,7 +4112,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/strict-sqlite3` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-sqlite3` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/strict-sqlite3` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `compat/strict-ss` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
+| `compat/strict-ss` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/strict-ss` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strict-ss` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/strict-ss` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -5225,7 +5225,7 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. The **population** is every test whose ptrace `verify` cell full validation selects, crossed with every candidate backend, so it is the verify matrix itself. Every population cell is scored: a measured cell earns its credit, and a candidate that is not enabled, not selected, left no row or log, timed out, crashed, failed or diverged between its own two runs, a comparison the parity tool could not make, a record-missing cell and a refused cell each score 0 and are counted. **Population mean** divides the credit sum by every population cell (N), zeros included; **Full**, **Partial** and **Zero** count the cells with credit 1, between 0 and 1, and 0. A cell whose ptrace reference left no usable golden log has nothing to compare against: it is outside the population, counted under **Excluded (reference)**, and so is a historical **not compared** dbt cell. In a pressure-test run, which executes a sample, a candidate full validation runs but the sample did not plan is **not sampled**: outside that run's population, counted on its line apart, never 0. **Mean credit (measured)** divides the credit sum by the measured (matched plus diverged) cells only. A mean over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C population cells it owes, and a run that reported fewer is marked partial. Credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is.
 
 
-### validate run `validate-crash-eval-9b033499fe06-1791718719261929362-3086829-2a3e065d` at `9b033499fe06`
+### validate run `validate-tickhub-ops-2-911c1d851138-1791728658302492500-209759-2c8c72d9` at `911c1d851138`
 
 `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 
@@ -5263,7 +5263,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `applications/git-repository-workflow@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec Git qualification must ratchet after the ptrace reference path |
 | `applications/timed-progress-bar@dbt` | diverged | 0.000 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `applications/timed-progress-bar@in-guest-trap` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `applications/timed-progress-bar@kvm` | diverged | 0.023 | record 649, syscall 284: token 17: `1_791_718_149.106_278_755s` vs `1_791_718_149.106_278_735s` |
+| `applications/timed-progress-bar@kvm` | diverged | 0.023 | record 649, syscall 284: token 17: `1_791_728_638.106_278_595s` vs `1_791_728_638.106_278_575s` |
 | `applications/timed-progress-bar@liteinst` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `applications/timed-progress-bar@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/timed-progress-bar is not enabled in the manifest, so it has no log to compare: SaBRe does not yet determinize busy-wait polling on virtual wall-clock advancement; main validation has observed verify failure under load |
 | `bin-c/posix-timer-test@dbt` | diverged | 0.029 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
@@ -7508,7 +7508,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/cpp-stl-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/example-python-random@dbt` | candidate-missing[candidate-not-selected] | — | the dbt candidate verify cell of language-runtimes/example-python-random is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `language-runtimes/example-python-random@in-guest-trap` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `language-runtimes/example-python-random@kvm` | diverged | 0.188 | record 649, syscall 284: token 17: `1_791_718_149.106_289_885s` vs `1_791_718_149.106_289_865s` |
+| `language-runtimes/example-python-random@kvm` | diverged | 0.188 | record 649, syscall 284: token 17: `1_791_728_638.106_289_945s` vs `1_791_728_638.106_289_925s` |
 | `language-runtimes/example-python-random@liteinst` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `language-runtimes/example-python-random@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of language-runtimes/example-python-random is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `language-runtimes/gawk-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: DBT awk support is tracked by backend compatibility |
@@ -7735,7 +7735,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/sh-exit-status@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/sh-exit-status is not enabled in the manifest, so it has no log to compare: Added for the DBT contract that replaced the backend-parity matrix; qualify SaBRe against the same oracle separately |
 | `system-utils/shm-coherency-identity@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/shm-coherency-identity@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/shm-coherency-identity@kvm` | diverged | 0.825 | record 138, syscall 47: token 31: `1_791_718_149.005_176_985s` vs `1_791_718_149.005_175_745s` |
+| `system-utils/shm-coherency-identity@kvm` | diverged | 0.825 | record 138, syscall 47: token 31: `1_791_728_638.005_176_985s` vs `1_791_728_638.005_175_745s` |
 | `system-utils/shm-coherency-identity@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `system-utils/shm-coherency-identity@sabre` | diverged | 0.054 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/shuf-permutation@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/shuf-permutation is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
@@ -7817,7 +7817,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 548 other parity run(s) in the store
+### 550 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -7933,6 +7933,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-9b66187f85de-1791425299762966515-1117174-cd8d155a` at Hermit `9b66187f85de`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-9e2cb92dae63-1791692337340110111-1060616-e51e5265` at Hermit `9e2cb92dae63`: `parity: 247/2775 matched; committed selection unknown; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-9ef51175234b-1791267355339590586-3149836-389c0be1` at Hermit `9ef51175234b`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-9fd0b1892a39-1791727101312669775-2213596-3af2f918` at Hermit `9fd0b1892a39`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-a1be3c9d059f-1791619019091030262-1866938-ed4137f1` at Hermit `a1be3c9d059f`: `parity: 247/2770 matched; committed selection unknown; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-a25b3fcd3805-1791272687372415424-1525843-8acbb49e` at Hermit `a25b3fcd3805`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-a2ed81aa17e1-1791356102721314066-1019516-ed5bb8a0` at Hermit `a2ed81aa17e1`: `parity: 87/198 matched; committed selection unknown; population 198: mean 0.461 over 198 (87 full, 108 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.468 over 195 [inputs equalized for 194 of 195 credited: mean 0.470 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
@@ -8023,6 +8024,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-crash-eval-865b1ecae999-1791721600467736661-875693-01d9c0d9` at Hermit `865b1ecae999`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-crash-eval-8d50379e478b-1791636423866368885-4006542-7e704e08` at Hermit `8d50379e478b`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-crash-eval-8e78f85fc912-1791697315681221791-1650877-03858e0d` at Hermit `8e78f85fc912`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
+- validate run `validate-crash-eval-9b033499fe06-1791718719261929362-3086829-2a3e065d` at Hermit `9b033499fe06`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-crash-eval-9d59092e1f4d-1791704622328973094-2114536-1b1a48ac` at Hermit `9d59092e1f4d`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-crash-eval-9fc056da6543-1791640178779934967-1676931-1cc6015a` at Hermit `9fc056da6543`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-crash-eval-d22ec083c322-1791667310932740731-1642799-a77f88bd` at Hermit `d22ec083c322`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
