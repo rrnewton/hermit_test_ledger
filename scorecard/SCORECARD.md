@@ -1,34 +1,34 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-15T12:04:23Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `7c6a5077fa3d40a323bb871de86036e700474cb1`, reading 2106930 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-c311d6a3841f-1792065713020713333-3456102-9f3f8fd8` (307). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (679), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (678), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (389), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (369), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), `validate-liteinst-lane-claude-20260927-inodes-78e69b8de6d1-1790665034398292621-2080784-da1f272e` current (278), and 38 more.
+Last regenerated **2026-10-15T14:35:50Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `9ba4df8e1fb3c4affd9de412a8fe9aa2835254b0`, reading 2122862 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-39d822fb7ecd-1792074797610592779-715333-13beb0e8` (337). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (679), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (678), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (389), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (369), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), `validate-liteinst-lane-claude-20260927-inodes-78e69b8de6d1-1790665034398292621-2080784-da1f272e` current (278), and 38 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **11381** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **2242** are selected by full, **549** are not selected by full, and **8590** are **Not applicable**.
+The count table includes all **11381** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **2272** are selected by full, **549** are not selected by full, and **8560** are **Not applicable**.
 
 Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. None of the **2232** selected `verify` cells declares the stripped comparator. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
-| `ptrace` | 595 | 226 | 976 | 1797 |
+| `ptrace` | 625 | 226 | 946 | 1797 |
 | `dbt` | 209 | 46 | 1542 | 1797 |
 | `kvm` | 557 | 5 | 1235 | 1797 |
 | `sabre` | 240 | 239 | 1318 | 1797 |
 | `liteinst` | 321 | 0 | 1476 | 1797 |
 | `in-guest-trap` | 320 | 0 | 1477 | 1797 |
 | `native` | 0 | 33 | 566 | 599 |
-| **Total** | **2242** | **549** | **8590** | **11381** |
+| **Total** | **2272** | **549** | **8560** | **11381** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **2242 of 11381**, which is **19.70%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **2272 of 11381**, which is **19.96%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `in-guest-trap`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **8590 of those 11381 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2791 cells that CAN run, selected by full is **80.33%**.
+⚠️ **8560 of those 11381 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2821 cells that CAN run, selected by full is **80.54%**.
 
-⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 2242 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
+⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 2272 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
 ⚠️ **Adding or removing a backend or mode changes this denominator and therefore the percentage, without anything about the product changing.** Removing a backend whose cells are mostly not selected RAISES the reported figure; adding manifest cells that are not selected LOWERS it. Neither is progress. Before comparing this percentage against an earlier one, diff the two lists above: if they differ, the numbers are not comparable and the difference is not a result.
 
@@ -37,10 +37,10 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `in-guest-trap` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `verify` | 585 / 599 | 209 / 599 | 557 / 599 | 240 / 599 | 321 / 599 | 320 / 599 | — | 2232 | 300 | 1062 | 3594 |
-| `replay` | 4 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | — | 4 | 215 | 3375 | 3594 |
+| `replay` | 34 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | — | 34 | 215 | 3345 | 3594 |
 | `chaos` | 6 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | 0 / 599 | — | 6 | 1 | 3587 | 3594 |
 | `naked` | — | — | — | — | — | — | 0 / 599 | 0 | 33 | 566 | 599 |
-| **Total** | | | | | | | | **2242** | **549** | **8590** | **11381** |
+| **Total** | | | | | | | | **2272** | **549** | **8560** | **11381** |
 
 ## Ptrace by manifest category
 
@@ -50,7 +50,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `applications` | 3 / 6 | 0 / 6 | 0 / 6 | 3 | 18 |
 | `bin-c` | 2 / 2 | 0 / 2 | 0 / 2 | 2 | 6 |
-| `c-programs` | 282 / 284 | 3 / 284 | 3 / 284 | 288 | 852 |
+| `c-programs` | 282 / 284 | 33 / 284 | 3 / 284 | 318 | 852 |
 | `chaos-c` | 1 / 1 | 0 / 1 | 1 / 1 | 2 | 3 |
 | `compat` | 214 / 219 | 0 / 219 | 0 / 219 | 214 | 657 |
 | `data-handling` | 6 / 6 | 0 / 6 | 0 / 6 | 6 | 18 |
@@ -62,7 +62,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | `system-utils` | 39 / 39 | 1 / 39 | 0 / 39 | 40 | 117 |
 | `util-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 
-Ordinary full validation executes 2246 cells: the 2242 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
+Ordinary full validation executes 2276 cells: the 2272 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
 
 ### Selected custom commands outside the comparable denominator
 
@@ -85,9 +85,9 @@ The count table includes all **11381** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 2034 | 0 | 1 | 207 | 2242 |
+| Selected by full | 0 | 2064 | 0 | 1 | 207 | 2272 |
 | Not selected by full | 39 | 328 | 135 | 0 | 47 | 549 |
-| Not applicable | 7501 | 324 | 629 | 0 | 136 | 8590 |
+| Not applicable | 7501 | 294 | 629 | 0 | 136 | 8560 |
 | **Total** | **7540** | **2686** | **764** | **1** | **390** | **11381** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
@@ -160,7 +160,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/append-pwrite` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/append-pwrite` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/append-pwrite` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/arch-prctl-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/arch-prctl-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/arch-prctl-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/arch-prctl-determinism` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/arch-prctl-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -317,7 +317,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/environment-and-workdir` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/environment-and-workdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/environment-and-workdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/epoll-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/epoll-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/epoll-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/epoll-determinism` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/epoll-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -474,7 +474,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/get-robust-list-thread` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/get-robust-list-thread` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/get-robust-list-thread` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `c-programs/getcpu` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/getcpu` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/getcpu` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -517,7 +517,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/hardware-trap-identity` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/hardware-trap-identity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hardware-trap-identity` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/hello-alarm` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/hello-alarm` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-alarm` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-alarm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/hello-alarm` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -530,7 +530,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/hello-nostdlib` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/hello-nostdlib` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-nostdlib` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/hello-signals` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/hello-signals` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/hello-signals` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/hello-signals` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -555,7 +555,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/inotify-watch` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/inotify-watch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/inotify-watch` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/io-uring-fallback` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/io-uring-fallback` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/io-uring-fallback` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/io-uring-fallback` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/io-uring-fallback` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -587,14 +587,14 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/ioctl-siocethtool` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ioctl-siocethtool` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
-| `c-programs/ipc-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/ipc-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/ipc-determinism` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/ipc-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ipc-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/just-spin` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/just-spin` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/just-spin` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/just-spin` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/just-spin` | `verify` | `kvm` | `Not selected by full` | `diverged` |
@@ -666,7 +666,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/lsm-set-self-attr-enosys` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lsm-set-self-attr-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/lsm-set-self-attr-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/madvise-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/madvise-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/madvise-determinism` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/madvise-determinism` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/madvise-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -721,7 +721,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/meminfo-free-deterministic` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/meminfo-free-deterministic` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/meminfo-free-deterministic` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/memorypress` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/memorypress` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/memorypress` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/memorypress` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/memorypress` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -758,7 +758,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/mknod-special` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/mknod-special` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mknod-special` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/mmap-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/mmap-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/mmap-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -825,7 +825,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/name-to-handle-regular-eopnotsupp` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-regular-eopnotsupp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/name-to-handle-regular-eopnotsupp` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/nanosleep-par` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/nanosleep-par` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/nanosleep-par` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/nanosleep-par` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/nanosleep-par` | `verify` | `kvm` | `Selected by full` | `diverged` |
@@ -1043,7 +1043,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/ppoll-readv` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-readv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-readv` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/ppoll-simulation` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/ppoll-simulation` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/ppoll-simulation` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/ppoll-simulation` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/ppoll-simulation` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1086,14 +1086,14 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/preadv2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/preadv2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/preadv2-flags` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/print-memaddrs` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/print-memaddrs` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/printf-with-threads` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/printf-with-threads` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/printf-with-threads` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/printf-with-threads` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/printf-with-threads` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1210,7 +1210,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/random-readv-stream` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/random-readv-stream` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/random-readv-stream` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/random-sources` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/random-sources` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/random-sources` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/random-sources` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/random-sources` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1223,7 +1223,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/random-sources-root-only` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/random-sources-root-only` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/random-sources-root-only` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/rcx-canonicalization` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/rcx-canonicalization` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/rcx-canonicalization` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/rcx-canonicalization` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/rcx-canonicalization` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1319,7 +1319,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/request-key-enosys` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/request-key-enosys` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/resource-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/resource-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/resource-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/resource-determinism` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/resource-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1362,7 +1362,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/sched-setattr-other` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-setattr-other` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-setattr-other` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sched-yield-progress` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/sched-yield-progress` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sched-yield-progress` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/sched-yield-progress` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/sched-yield-progress` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1399,7 +1399,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/set-tid-address` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/set-tid-address` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/set-tid-address` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/setitimer-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/setitimer-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/setitimer-determinism` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/setitimer-determinism` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/setitimer-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1442,7 +1442,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/signal-delivery-sequence` | `verify` | `liteinst` | `Not applicable` | `diverged` |
 | `c-programs/signal-delivery-sequence` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-delivery-sequence` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/signal-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/signal-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/signal-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/signal-determinism` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/signal-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1485,21 +1485,21 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/sigsuspend-sibling-signal-wake` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/sigsuspend-sibling-signal-wake` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigsuspend-sibling-signal-wake` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/sigtimedwait-no-timeout` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/sigtimedwait-no-timeout` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-no-timeout` | `verify` | `sabre` | `Not applicable` | `diverged` |
-| `c-programs/sigtimedwait-timeout-0s` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/sigtimedwait-timeout-0s` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-0s` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `c-programs/sigtimedwait-timeout-1s` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/sigtimedwait-timeout-1s` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sigtimedwait-timeout-1s` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/sigtimedwait-timeout-1s` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/sigtimedwait-timeout-1s` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1668,7 +1668,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/sysinfo` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysinfo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysinfo` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/sysinfo-uptime` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/sysinfo-uptime` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysinfo-uptime` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/sysinfo-uptime` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/sysinfo-uptime` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1736,14 +1736,14 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/thread-self-procfs-handoff` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thread-self-procfs-handoff` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `c-programs/thread-sync-determinism` | `chaos` | `ptrace` | `Selected by full` | `diverged` |
-| `c-programs/thread-sync-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/thread-sync-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thread-sync-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/thread-sync-determinism` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/thread-sync-determinism` | `verify` | `kvm` | `Selected by full` | `diverged` |
 | `c-programs/thread-sync-determinism` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `c-programs/thread-sync-determinism` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/thread-sync-determinism` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `c-programs/threadexhaustion` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/threadexhaustion` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/threadexhaustion` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `c-programs/threadexhaustion` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/threadexhaustion` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1752,7 +1752,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/threadexhaustion` | `verify` | `sabre` | `Not selected by full` | `diverged` |
 | `c-programs/threads-fd-churn` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/threads-fd-churn` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
-| `c-programs/timer-create-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/timer-create-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/timer-create-determinism` | `verify` | `dbt` | `Selected by full` | `measured-and-passed` |
 | `c-programs/timer-create-determinism` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/timer-create-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1831,7 +1831,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/vectored-io` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/vectored-io` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vectored-io` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/vforkexec` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/vforkexec` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vforkexec` | `verify` | `dbt` | `Selected by full` | `diverged` |
 | `c-programs/vforkexec` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `c-programs/vforkexec` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -1850,7 +1850,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/wait-on-child` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/wait-on-child` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/wait-on-child` | `verify` | `sabre` | `Selected by full` | `measured-and-passed` |
-| `c-programs/writev-determinism` | `replay` | `ptrace` | `Not applicable` | `measured-and-passed` |
+| `c-programs/writev-determinism` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/writev-determinism` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/writev-determinism` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/writev-determinism` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -3943,7 +3943,7 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. The **population** is every test whose ptrace `verify` cell full validation selects, crossed with every candidate backend, so it is the verify matrix itself. Every population cell is scored: a measured cell earns its credit, and a candidate that is not enabled, not selected, left no row or log, timed out, crashed, failed or diverged between its own two runs, a comparison the parity tool could not make, a record-missing cell and a refused cell each score 0 and are counted. **Population mean** divides the credit sum by every population cell (N), zeros included; **Full**, **Partial** and **Zero** count the cells with credit 1, between 0 and 1, and 0. A cell whose ptrace reference left no usable golden log has nothing to compare against: it is outside the population, counted under **Excluded (reference)**, and so is a historical **not compared** dbt cell. In a pressure-test run, which executes a sample, a candidate full validation runs but the sample did not plan is **not sampled**: outside that run's population, counted on its line apart, never 0. **Mean credit (measured)** divides the credit sum by the measured (matched plus diverged) cells only. A mean over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C population cells it owes, and a run that reported fewer is marked partial. Credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is.
 
 
-### validate run `validate-claude-coord-c311d6a3841f-1792065713020713333-3456102-9f3f8fd8` at `c311d6a3841f`
+### validate run `validate-claude-coord-39d822fb7ecd-1792074797610592779-715333-13beb0e8` at `39d822fb7ecd`
 
 `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 
@@ -3981,7 +3981,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `applications/git-repository-workflow@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec Git qualification must ratchet after the ptrace reference path |
 | `applications/timed-progress-bar@dbt` | diverged | 0.000 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `applications/timed-progress-bar@in-guest-trap` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `applications/timed-progress-bar@kvm` | diverged | 0.022 | record 649, syscall 284: token 17: `1_792_065_598.106_257_215s` vs `1_792_065_598.106_257_195s` |
+| `applications/timed-progress-bar@kvm` | diverged | 0.022 | record 649, syscall 284: token 17: `1_792_074_727.106_257_215s` vs `1_792_074_727.106_257_195s` |
 | `applications/timed-progress-bar@liteinst` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `applications/timed-progress-bar@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/timed-progress-bar is not enabled in the manifest, so it has no log to compare: SaBRe does not yet determinize busy-wait polling on virtual wall-clock advancement; main validation has observed verify failure under load |
 | `bin-c/posix-timer-test@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
@@ -4733,7 +4733,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/racewrite-nostdlib@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/racewrite-nostdlib is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `c-programs/random-readv-stream@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/random-readv-stream@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/random-readv-stream is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/random-readv-stream@kvm` | diverged | 0.087 | record 266, syscall 86: token 21: `Ok(4294967296)` vs `Ok(794812416)` |
+| `c-programs/random-readv-stream@kvm` | diverged | 0.087 | record 266, syscall 86: token 21: `Ok(4294967296)` vs `Ok(2405425152)` |
 | `c-programs/random-readv-stream@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/random-readv-stream is not enabled in the manifest, so it has no log to compare: Random-device cursor, access-mode, and fault semantics have not been qualified on LiteInst |
 | `c-programs/random-readv-stream@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/random-readv-stream is not enabled in the manifest, so it has no log to compare: Random-device cursor, access-mode, and fault semantics have not been qualified on SaBRe |
 | `c-programs/random-sources@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/random-sources is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
@@ -5592,7 +5592,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/ionice@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ionice is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/iostat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/iostat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
 | `compat/iostat@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/iostat is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/iostat@kvm` | diverged | 0.010 | record 161, syscall 59: token 10: `0x555555569700,` vs `0x55555556a710,` |
+| `compat/iostat@kvm` | diverged | 0.011 | record 172, syscall 63: token 10: `0x555555569700,` vs `0x55555556a710,` |
 | `compat/iostat@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/iostat is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): a guest process exited without deregistering from the in-guest runtime (determinism loss) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/iostat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/iostat is enabled but not selected by full validation, so it has no log to compare: Diverges at an inbound-signal scheduler commit under SaBRe in 4 of 4 runs; ptrace passes 3 of 3 |
 | `compat/ip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
@@ -5704,7 +5704,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/mountpoint@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mountpoint is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/mpstat-softirqs@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mpstat-softirqs is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
 | `compat/mpstat-softirqs@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mpstat-softirqs is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/mpstat-softirqs@kvm` | diverged | 0.376 | record 205, syscall 76: token 10: `0x555555562570,` vs `0x555555564fe0,` |
+| `compat/mpstat-softirqs@kvm` | diverged | 0.397 | record 216, syscall 80: token 10: `0x555555562570,` vs `0x555555564fe0,` |
 | `compat/mpstat-softirqs@liteinst` | diverged | 0.017 (unequalized) | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/mpstat-softirqs@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mpstat-softirqs is enabled but not selected by full validation, so it has no log to compare: Diverges at an inbound-signal scheduler commit under SaBRe in 4 of 4 runs; ptrace passes 3 of 3 |
 | `compat/msgfmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/msgfmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
@@ -5822,7 +5822,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/pgrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pgrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/pidstat-disk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pidstat-disk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
 | `compat/pidstat-disk@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pidstat-disk is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/pidstat-disk@kvm` | diverged | 0.371 | record 153, syscall 56: token 10: `0x5555555668a0,` vs `0x5555555678b0,` |
+| `compat/pidstat-disk@kvm` | diverged | 0.398 | record 164, syscall 60: token 10: `0x5555555668a0,` vs `0x5555555678b0,` |
 | `compat/pidstat-disk@liteinst` | diverged | 0.022 (unequalized) | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pidstat-disk@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pidstat-disk is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/pinky@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pinky is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
@@ -5867,7 +5867,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/pwd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pwd is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/python3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
 | `compat/python3@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: Kept off by coordinator ruling: in-guest-trap diverged in 1 of 10 runs before the in-guest start-up heap-layout fix; the second local survey of 2026-10-08, at the fixed tree 81f3e50d, passed 10 of 10 on both backends (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/python3@kvm` | diverged | 0.231 | record 647, syscall 283: token 17: `1_792_065_598.106_241_665s` vs `1_792_065_598.106_241_645s` |
+| `compat/python3@kvm` | diverged | 0.231 | record 647, syscall 283: token 17: `1_792_074_727.106_241_665s` vs `1_792_074_727.106_241_645s` |
 | `compat/python3@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: Kept off by coordinator ruling: in-guest-trap diverged in 1 of 10 runs before the in-guest start-up heap-layout fix; the second local survey of 2026-10-08, at the fixed tree 81f3e50d, passed 10 of 10 on both backends (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/python3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/python3 is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/ranlib@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
@@ -6070,7 +6070,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/time@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/time is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/top@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
 | `compat/top@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/top@kvm` | diverged | 0.217 (unequalized) | record 330, syscall 133: token 12: `Ok(0)` vs `Ok(3)` |
+| `compat/top@kvm` | diverged | 0.214 (unequalized) | record 330, syscall 133: token 12: `Ok(0)` vs `Ok(3)` |
 | `compat/top@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/top@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/top is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/touch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
@@ -6122,8 +6122,8 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/uptime@liteinst` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/uptime@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/uptime is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/users@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/users is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
-| `compat/users@in-guest-trap` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `compat/users@liteinst` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `compat/users@in-guest-trap` | diverged | 0.027 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `compat/users@liteinst` | diverged | 0.027 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/users@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/users is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/uuidgen@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
 | `compat/uuidgen@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
@@ -6326,7 +6326,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/cpp-stl-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/example-python-random@dbt` | candidate-missing[candidate-not-selected] | — | the dbt candidate verify cell of language-runtimes/example-python-random is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `language-runtimes/example-python-random@in-guest-trap` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `language-runtimes/example-python-random@kvm` | diverged | 0.189 | record 647, syscall 283: token 17: `1_792_065_598.106_256_895s` vs `1_792_065_598.106_256_875s` |
+| `language-runtimes/example-python-random@kvm` | diverged | 0.189 | record 647, syscall 283: token 17: `1_792_074_727.106_256_895s` vs `1_792_074_727.106_256_875s` |
 | `language-runtimes/example-python-random@liteinst` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `language-runtimes/example-python-random@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of language-runtimes/example-python-random is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `language-runtimes/gawk-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: DBT awk support is tracked by backend compatibility |
@@ -6654,7 +6654,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 899 other parity run(s) in the store
+### 906 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -6686,6 +6686,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-0bc1ae1691ad-1791336960266428418-698492-d263bf73` at Hermit `0bc1ae1691ad`: `parity: 85/198 matched; selected 198 of 198 committed; population 198: mean 0.455 over 198 (85 full, 110 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.462 over 195 [inputs equalized for 194 of 195 credited: mean 0.464 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-0d25b6f7ef33-1791395825428422771-81284-b6735ff6` at Hermit `0d25b6f7ef33`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 1452: mean 0.153 over 1452 (207 full, 329 partial, 916 zero: candidate-not-enabled 841, candidate-not-selected 75); excluded: 756 reference without golden: no-result-row 756; 0 not compared; measured mean 0.413 over 536 [inputs equalized for 533 of 536 credited: mean 0.415 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-0d9198d8fa0f-1791706834256833838-1591717-1ae95a33` at Hermit `0d9198d8fa0f`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
+- validate run `validate-claude-coord-10406c4ab1e2-1792068326744710671-3901480-0836f81b` at Hermit `10406c4ab1e2`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-10ab6eb5fd93-1791874855076166888-2416846-62f54e6a` at Hermit `10ab6eb5fd93`: `parity: 252/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.126 over 2775 (252 full, 1331 partial, 1192 zero: candidate-not-enabled 934, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.221 over 1583 [inputs equalized for 1470 of 1583 credited: mean 0.236 over 1470 with equal inputs; mean 0.031 over 113 with unequal inputs]`
 - validate run `validate-claude-coord-11e8c850d6d9-1791402772806383023-2229749-59e7778f` at Hermit `11e8c850d6d9`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 1452: mean 0.152 over 1452 (207 full, 329 partial, 916 zero: candidate-not-enabled 841, candidate-not-selected 75); excluded: 756 reference without golden: no-result-row 756; 0 not compared; measured mean 0.413 over 536 [inputs equalized for 533 of 536 credited: mean 0.415 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-13bb2abc26d8-1792036235575075047-272917-ed4072a7` at Hermit `13bb2abc26d8`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1335 partial, 1291 zero: candidate-not-enabled 1008, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1634 [inputs equalized for 1627 of 1634 credited: mean 0.274 over 1627 with equal inputs; mean 0.068 over 7 with unequal inputs]`
@@ -6717,6 +6718,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-2cd56771196c-1791996855941609731-1826141-3f8a3668` at Hermit `2cd56771196c`: `parity: 280/2920 matched; selected 2920 of 2920 committed; population 2920: mean 0.151 over 2920 (280 full, 1353 partial, 1287 zero: candidate-not-enabled 1004, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.270 over 1633 [inputs equalized for 1518 of 1633 credited: mean 0.274 over 1518 with equal inputs; mean 0.213 over 115 with unequal inputs]`
 - validate run `validate-claude-coord-2e1cfef3e992-1791932998490000084-3131308-9799c86f` at Hermit `2e1cfef3e992`: `parity: 242/2905 matched; selected 2905 of 2905 committed; population 2905: mean 0.122 over 2905 (242 full, 1385 partial, 1278 zero: candidate-not-enabled 995, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.217 over 1627 [inputs equalized for 1512 of 1627 credited: mean 0.231 over 1512 with equal inputs; mean 0.031 over 115 with unequal inputs]`
 - validate run `validate-claude-coord-2e6427ad27fa-1791213722643207383-2116557-053fcfe7` at Hermit `2e6427ad27fa`: `parity: 0/198 matched; selected 198 of 198 committed; population 182: mean 0.055 over 182 (0 full, 180 partial, 2 zero: no-result-row 2); excluded: 0 reference without golden; 16 not compared; measured mean 0.056 over 180 [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.097 over 89 with unequal inputs]`
+- validate run `validate-claude-coord-2ee7190125ff-1792069711534363340-1938852-a1b9c713` at Hermit `2ee7190125ff`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-317a3fd03bb9-1791205881096493745-911901-2bf15639` at Hermit `317a3fd03bb9`: `parity: 0/198 matched; selected 198 of 198 committed; population 182: mean 0.048 over 182 (0 full, 180 partial, 2 zero: no-result-row 2); excluded: 0 reference without golden; 16 not compared; measured mean 0.049 over 180 [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.083 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-34a802a8f803-1791460735823081303-1026614-c2cbd617` at Hermit `34a802a8f803`: `parity: 247/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (247 full, 527 partial, 1434 zero: ended 1, candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.391 over 774 [inputs equalized for 771 of 774 credited: mean 0.392 over 771 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-3589b3edff56-1791203838387883418-1747108-ebb12384` at Hermit `3589b3edff56`: `parity: 0/198 matched; selected 198 of 198 committed; population 182: mean 0.000 over 182 (0 full, 0 partial, 182 zero: no-result-row 2, epoch-not-shared 180); excluded: 0 reference without golden; 16 not compared; measured mean n/a over 0`
@@ -6744,6 +6746,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-4e8b0c8348e8-1791216234656993707-648891-43e3c9ea` at Hermit `4e8b0c8348e8`: `parity: 0/198 matched; selected 198 of 198 committed; population 182: mean 0.054 over 182 (0 full, 180 partial, 2 zero: no-result-row 2); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 180 [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.095 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-5027d1ecb833-1791218508494716430-215676-a7ab65d1` at Hermit `5027d1ecb833`: `parity: 0/198 matched; selected 198 of 198 committed; population 182: mean 0.055 over 182 (0 full, 180 partial, 2 zero: no-result-row 2); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 180 [inputs equalized for 91 of 180 credited: mean 0.016 over 91 with equal inputs; mean 0.096 over 89 with unequal inputs]`
 - validate run `validate-claude-coord-5108f6dc30a6-1791393498173709879-3728041-426222b9` at Hermit `5108f6dc30a6`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
+- validate run `validate-claude-coord-51417c0eae7f-1792067012894291756-1817053-0138fa67` at Hermit `51417c0eae7f`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-51e94e751d5f-1791924865219910377-305039-908f9201` at Hermit `51e94e751d5f`: `parity: 242/2780 matched; selected 2780 of 2780 committed; population 2780: mean 0.127 over 2780 (242 full, 1355 partial, 1183 zero: candidate-not-enabled 925, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.221 over 1597 [inputs equalized for 1482 of 1597 credited: mean 0.236 over 1482 with equal inputs; mean 0.031 over 115 with unequal inputs]`
 - validate run `validate-claude-coord-5219b5f73592-1792048327269133972-3139794-ef40b641` at Hermit `5219b5f73592`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1336 partial, 1290 zero: candidate-not-enabled 1007, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1635 [inputs equalized for 1628 of 1635 credited: mean 0.274 over 1628 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-53e6393eb4a6-1791305651727982004-525915-7564ab62` at Hermit `53e6393eb4a6`: `parity: 1/198 matched; selected 198 of 198 committed; population 198: mean 0.064 over 198 (1 full, 194 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.065 over 195 [inputs equalized for 194 of 195 credited: mean 0.065 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
@@ -6775,6 +6778,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-711d087f4fc9-1791482283386151590-2903939-f0357272` at Hermit `711d087f4fc9`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 526 partial, 1434 zero: candidate-not-enabled 1174, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.392 over 774 [inputs equalized for 771 of 774 credited: mean 0.393 over 771 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-712102a91012-1791629320891627342-1293988-683373e6` at Hermit `712102a91012`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-7157747b3234-1791451005660679924-2513424-82231948` at Hermit `7157747b3234`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 531 of 536 credited: mean 0.462 over 531 with equal inputs; mean 0.062 over 5 with unequal inputs]`
+- validate run `validate-claude-coord-71e738abfc2b-1792072453528245980-1482548-b4d8961e` at Hermit `71e738abfc2b`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-72998320c0ff-1791623001198502086-2510427-fbe3cfab` at Hermit `72998320c0ff`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-73f89ea9d575-1792030473461095661-3329126-5b3e10bd` at Hermit `73f89ea9d575`: `parity: 300/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (300 full, 1334 partial, 1291 zero: candidate-not-enabled 1008, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1634 [inputs equalized for 1627 of 1634 credited: mean 0.274 over 1627 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-740f1d933d2c-1791830345149878222-737490-066107ff` at Hermit `740f1d933d2c`: `parity: 249/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (249 full, 1149 partial, 1377 zero: ended 1, candidate-not-enabled 1118, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.245 over 1398 [inputs equalized for 1359 of 1398 credited: mean 0.250 over 1359 with equal inputs; mean 0.058 over 39 with unequal inputs]`
@@ -6842,6 +6846,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-bf8e8a83eae8-1791353867149233991-602289-12731a57` at Hermit `bf8e8a83eae8`: `parity: 87/198 matched; selected 198 of 198 committed; population 198: mean 0.461 over 198 (87 full, 108 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.468 over 195 [inputs equalized for 194 of 195 credited: mean 0.470 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-bf999ae34f41-1791476482638076098-1507220-d0e9d3eb` at Hermit `bf999ae34f41`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 526 partial, 1434 zero: candidate-not-enabled 1174, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.392 over 774 [inputs equalized for 771 of 774 credited: mean 0.393 over 771 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-c19f9074b6d1-1791420035180976555-174284-90c81d32` at Hermit `c19f9074b6d1`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
+- validate run `validate-claude-coord-c311d6a3841f-1792065713020713333-3456102-9f3f8fd8` at Hermit `c311d6a3841f`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-c380f45d09c0-1791457000602484619-2635127-d9170fbc` at Hermit `c380f45d09c0`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-c4e3b243d2a0-1791324596813967914-2065498-5626860f` at Hermit `c4e3b243d2a0`: `parity: 85/198 matched; selected 198 of 198 committed; population 198: mean 0.452 over 198 (85 full, 110 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.459 over 195 [inputs equalized for 194 of 195 credited: mean 0.461 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-c78fa90b7509-1791389885648759317-1381483-76a0ca4e` at Hermit `c78fa90b7509`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
@@ -7267,6 +7272,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-0d7f16f39c6a-9adfe6b42c49` at Hermit `0d7f16f39c6a`: `parity: 300/2920 matched; selected 2920 of 2920 committed; population 2920: mean 0.153 over 2920 (300 full, 1333 partial, 1287 zero: candidate-not-enabled 1004, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1633 [inputs equalized for 1626 of 1633 credited: mean 0.274 over 1626 with equal inputs; mean 0.064 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-0f028322361f-75248bd48fcd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; population 187: mean 0.054 over 187 (0 full, 184 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 184`
 - validate run `validate-ops-tick-0f028322361f-a6fa2a143efd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; population 187: mean 0.054 over 187 (0 full, 184 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 184`
+- validate run `validate-ops-tick-10406c4ab1e2-0fd8772e1aa5` at Hermit `10406c4ab1e2`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.064 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-20077ee5b19f-63f1efea5c13` at Hermit `20077ee5b19f`: `parity: 0/205 matched; selected 205 of 205 committed; population 189: mean 0.055 over 189 (0 full, 186 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 186`
 - validate run `validate-ops-tick-20d49d84ec23-914f280b5537` at Hermit `20d49d84ec23`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.043 over 281 (0 full, 278 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 278`
 - validate run `validate-ops-tick-24ebc762c041-555ef24b85a1` at Hermit `24ebc762c041`: `parity: 280/2920 matched; selected 2920 of 2920 committed; population 2920: mean 0.151 over 2920 (280 full, 1353 partial, 1287 zero: candidate-not-enabled 1004, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.270 over 1633 [inputs equalized for 1518 of 1633 credited: mean 0.274 over 1518 with equal inputs; mean 0.213 over 115 with unequal inputs]`
@@ -7302,6 +7308,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-8503b4fc2c30-57d1aa9b1fa2` at Hermit `8503b4fc2c30`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.043 over 281 (0 full, 278 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 278`
 - validate run `validate-ops-tick-8503b4fc2c30-f0c6c4842871` at Hermit `8503b4fc2c30`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.043 over 281 (0 full, 278 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 278`
 - validate run `validate-ops-tick-95ab5d77f29f-bbbc434c56b7` at Hermit `95ab5d77f29f`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 193 of 195 credited: mean 0.477 over 193 with equal inputs; mean 0.025 over 2 with unequal inputs]`
+- validate run `validate-ops-tick-97ea57335950-f91592acc7f2` at Hermit `97ea57335950`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.064 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-9a86568eff85-2a7b1b568766` at Hermit `9a86568eff85`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 526 partial, 1434 zero: determinism-mismatch 1, candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.392 over 774 [inputs equalized for 771 of 774 credited: mean 0.393 over 771 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-ops-tick-9af999677494-4ea4d2816eaf` at Hermit `9af999677494`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.043 over 281 (0 full, 278 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 278`
 - validate run `validate-ops-tick-9c18b120af28-e9b9a4103c5c` at Hermit `9c18b120af28`: `parity: 248/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (248 full, 1149 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.245 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
