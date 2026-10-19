@@ -5,11 +5,11 @@
     {
       "bytes": 38287763,
       "path": "scorecard/cells/part-0000",
-      "sha256": "b3f6afc0f23768887554229a3878c0e64aaaf2fb86b8f47eea3d571b91b7ecbc"
+      "sha256": "c3389256523fb70437c5282b296e2a7e5d27c774f8359fd53844e7fe112caca2"
     }
   ],
-  "parts_commit": "a13833d464bf505078dfdafcf0213e36bd2a910c",
+  "parts_commit": "a3e8748d249ab16730730a982adecad9783f1ef4",
   "path": "scorecard/cells.json",
   "schema": "hermit-test-ledger-scorecard-cells/v2",
-  "sha256": "b3f6afc0f23768887554229a3878c0e64aaaf2fb86b8f47eea3d571b91b7ecbc"
+  "sha256": "c3389256523fb70437c5282b296e2a7e5d27c774f8359fd53844e7fe112caca2"
 }
