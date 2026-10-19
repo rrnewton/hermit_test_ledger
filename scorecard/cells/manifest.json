@@ -1,0 +1,15 @@
+{
+  "bytes": 38197784,
+  "part_max_bytes": 50331648,
+  "parts": [
+    {
+      "bytes": 38197784,
+      "path": "scorecard/cells/part-0000",
+      "sha256": "3718436420139e580c6968e223f91cc3c6ebb56c1944cf47a476bbd15ea9636e"
+    }
+  ],
+  "parts_commit": "aa198aa5561eebff66ab7d04bc8d3bdfc12a530b",
+  "path": "scorecard/cells.json",
+  "schema": "hermit-test-ledger-scorecard-cells/v2",
+  "sha256": "3718436420139e580c6968e223f91cc3c6ebb56c1944cf47a476bbd15ea9636e"
+}
