@@ -1,34 +1,34 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-20T23:36:52Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `5a6a0641e71bb0a25325d1314f91109895214cbb`, reading 2837624 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-claude-coord-0efddbbd1323-1792538849401893803-1215420-606a23ea` (290). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (670), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (669), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), `validate-liteinst-lane-claude-20260927-inodes-78e69b8de6d1-1790665034398292621-2080784-da1f272e` current (274), and 41 more.
+Last regenerated **2026-10-21T02:22:22Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `38d3702ebe01c3c58768e737ecc93c2cd90e232a`, reading 2849560 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-ops-tick-7648e94e84f5-a26c503a66a6` (294). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (670), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (669), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), `validate-liteinst-lane-claude-20260927-inodes-78e69b8de6d1-1790665034398292621-2080784-da1f272e` current (274), and 41 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
-The count table includes all **11229** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **2255** are selected by full, **496** are not selected by full, and **8478** are **Not applicable**.
+The count table includes all **11229** cells in the manifest; no row is omitted. A cell is **Selected by full** exactly when it appears in `ci/expected-e2e-plan.json`. A cell is **Not selected by full** when it is in the manifest but absent from that plan. Selection is not a test result: a cell not selected by full may have passed, failed, produced no verdict, or never run. Of these cells, **2469** are selected by full, **282** are not selected by full, and **8478** are **Not applicable**.
 
-Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. None of the **2214** selected `verify` cells declares the stripped comparator. These same-backend results do not establish cross-backend parity.
+Every selected `verify` cell that does not declare the stripped comparator, and every seed in a selected `chaos` cell, runs the same backend twice. The manifest runner adds `--verify-strict` when the selected Hermit binary supports it, and accepts a result only when the typed report says `verified=true`, `verdict=matched`, `bitwise_parity=true`, `strictness=canonical`, `compare_logs=true`, a named canonical `record_envelope`, and both INFO-message counts are nonzero. Bare `--verify` remains a Stripped comparison when invoked directly and does not satisfy this regression plan. None of the **2216** selected `verify` cells declares the stripped comparator. These same-backend results do not establish cross-backend parity.
 
 | Backend | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: |
-| `ptrace` | 618 | 226 | 929 | 1773 |
+| `ptrace` | 831 | 13 | 929 | 1773 |
 | `dbt` | 247 | 2 | 1524 | 1773 |
-| `kvm` | 550 | 2 | 1221 | 1773 |
+| `kvm` | 551 | 1 | 1221 | 1773 |
 | `sabre` | 235 | 233 | 1305 | 1773 |
 | `liteinst` | 303 | 0 | 1470 | 1773 |
 | `in-guest-trap` | 302 | 0 | 1471 | 1773 |
 | `native` | 0 | 33 | 558 | 591 |
-| **Total** | **2255** | **496** | **8478** | **11229** |
+| **Total** | **2469** | **282** | **8478** | **11229** |
 
 ## Denominator, and why the percentage is not comparable across changes to it
 
-Selected by full is **2255 of 11229**, which is **20.08%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
+Selected by full is **2469 of 11229**, which is **21.99%** — over THIS population and no other. The population is every combination the manifest declares, and it is composed of:
 
 - backends: `ptrace`, `dbt`, `kvm`, `sabre`, `liteinst`, `in-guest-trap`, `native`
 - modes: `chaos`, `naked`, `replay`, `verify`
 
-⚠️ **8478 of those 11229 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2751 cells that CAN run, selected by full is **81.97%**.
+⚠️ **8478 of those 11229 cells are NOT APPLICABLE** — their backend is not applicable for their mode, so they were never asked to run and cannot pass or fail. Over the 2751 cells that CAN run, selected by full is **89.75%**.
 
-⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 2255 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
+⚠️ **DO NOT QUOTE THAT SECOND FIGURE AS PROGRESS.** It is the same 2469 cells selected by full measured against a smaller denominator. Nothing was fixed to produce it; it is what the first figure always meant once the cells that cannot run are excluded. Quote both or neither, and never compare one against the other as though something moved.
 
 ⚠️ **Adding or removing a backend or mode changes this denominator and therefore the percentage, without anything about the product changing.** Removing a backend whose cells are mostly not selected RAISES the reported figure; adding manifest cells that are not selected LOWERS it. Neither is progress. Before comparing this percentage against an earlier one, diff the two lists above: if they differ, the numbers are not comparable and the difference is not a result.
 
@@ -36,11 +36,11 @@ The mode view makes the current order of work explicit: expand `verify` first, t
 
 | Mode | `ptrace` | `dbt` | `kvm` | `sabre` | `liteinst` | `in-guest-trap` | `native` | Selected by full | Not selected by full | Not applicable | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `verify` | 577 / 591 | 247 / 591 | 550 / 591 | 235 / 591 | 303 / 591 | 302 / 591 | — | 2214 | 247 | 1085 | 3546 |
-| `replay` | 35 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | — | 35 | 215 | 3296 | 3546 |
+| `verify` | 578 / 591 | 247 / 591 | 551 / 591 | 235 / 591 | 303 / 591 | 302 / 591 | — | 2216 | 245 | 1085 | 3546 |
+| `replay` | 247 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | — | 247 | 3 | 3296 | 3546 |
 | `chaos` | 6 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | 0 / 591 | — | 6 | 1 | 3539 | 3546 |
 | `naked` | — | — | — | — | — | — | 0 / 591 | 0 | 33 | 558 | 591 |
-| **Total** | | | | | | | | **2255** | **496** | **8478** | **11229** |
+| **Total** | | | | | | | | **2469** | **282** | **8478** | **11229** |
 
 ## Ptrace by manifest category
 
@@ -48,11 +48,11 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 
 | Manifest category | Verify | Replay | Chaos | Selected by full | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `applications` | 3 / 6 | 0 / 6 | 0 / 6 | 3 | 18 |
+| `applications` | 4 / 6 | 0 / 6 | 0 / 6 | 4 | 18 |
 | `bin-c` | 2 / 2 | 0 / 2 | 0 / 2 | 2 | 6 |
 | `c-programs` | 275 / 277 | 34 / 277 | 3 / 277 | 312 | 831 |
 | `chaos-c` | 1 / 1 | 0 / 1 | 1 / 1 | 2 | 3 |
-| `compat` | 214 / 219 | 0 / 219 | 0 / 219 | 214 | 657 |
+| `compat` | 214 / 219 | 212 / 219 | 0 / 219 | 426 | 657 |
 | `data-handling` | 6 / 6 | 0 / 6 | 0 / 6 | 6 | 18 |
 | `debugger-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 | `determinism-stress` | 5 / 6 | 0 / 6 | 1 / 6 | 6 | 18 |
@@ -62,7 +62,7 @@ This view uses the same Basic Sanity Milestone 1 contracts as the tables above, 
 | `system-utils` | 38 / 38 | 1 / 38 | 0 / 38 | 39 | 114 |
 | `util-c` | 1 / 1 | 0 / 1 | 0 / 1 | 1 | 3 |
 
-Ordinary full validation executes 2259 cells: the 2255 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
+Ordinary full validation executes 2473 cells: the 2469 comparable compatibility cells selected by full above (including 6 chaos-mode race-exposure checks), and 4 explicit custom commands outside the comparable denominator. A passing validate must produce a fresh result for all of them; a failing selected cell is a regression, not permission to remove it from the plan.
 
 ### Selected custom commands outside the comparable denominator
 
@@ -77,7 +77,7 @@ These rows are part of the selected regression denominator even though they are 
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **284** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **73** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -85,8 +85,8 @@ The count table includes all **11229** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 0 | 2038 | 0 | 1 | 216 | 2255 |
-| Not selected by full | 33 | 284 | 124 | 0 | 55 | 496 |
+| Selected by full | 0 | 2249 | 0 | 1 | 219 | 2469 |
+| Not selected by full | 33 | 73 | 124 | 0 | 52 | 282 |
 | Not applicable | 7404 | 315 | 623 | 0 | 136 | 8478 |
 | **Total** | **7437** | **2637** | **747** | **1** | **407** | **11229** |
 
@@ -104,7 +104,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `applications/example-timed-progress-bar` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `kvm` | `Not selected by full` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
-| `applications/example-timed-progress-bar` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `applications/example-timed-progress-bar` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `applications/example-timed-progress-bar` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `applications/git-repository-workflow` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `applications/git-repository-workflow` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -1818,231 +1818,231 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `chaos-c/lock-granularity` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `chaos-c/lock-granularity` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `chaos-c/lock-granularity` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/addr2line` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/addr2line` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/addr2line` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/addr2line` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/addr2line` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/addr2line` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/addr2line` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/addr2line` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/ar` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ar` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ar` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ar` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ar` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ar` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ar` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ar` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/arch` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/arch` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/arch` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/arch` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/arch` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/arch` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/arch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/arch` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/as` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/as` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/as` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/as` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/as` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/as` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/as` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/as` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/awk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/awk` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/awk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/awk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/awk` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/awk` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/awk` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/awk` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/b2sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/b2sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/b2sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/base32` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/base32` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/base32` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/base32` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/base32` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/base32` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/base32` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/base32` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/base64` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/base64` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/base64` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/base64` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/base64` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/base64` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/base64` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/base64` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/basename` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/basename` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/basename` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/basename` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/basenc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/basenc` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/basenc` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/basenc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/basenc` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/bash` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bash` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/bash` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bash` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/bc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bc` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bc` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/bc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/bc` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/bc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/bc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bc` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/bracket` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bracket` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bracket` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/bzip2` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bzip2` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/bzip2` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/bzip2-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/bzip2-roundtrip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/bzip2-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/bzip2-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/bzip2-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/cal` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cal` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cal` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cal` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/cal` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cal` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/cal` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cal` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/cargo` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cargo` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cargo` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/cargo` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cargo` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cargo` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cargo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cargo` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/cat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cat` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/cat` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/cat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/chmod` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/chmod` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chmod` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/chmod` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/chmod` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/chmod` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/chmod` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chmod` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/chown` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/chown` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chown` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/chown` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/chown` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/chown` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/chown` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chown` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/chrt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/chrt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chrt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/chrt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/chrt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/chrt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/chrt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/chrt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/cksum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cksum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cksum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/clang` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/clang` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/clang` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/clang` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/clang` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/clang` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/clang` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/clang` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/cmake` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cmake` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cmake` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/cmake` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmake` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cmake` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmake` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cmake` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/cmp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cmp` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cmp` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cmp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmp` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cmp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cmp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cmp` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/col` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/col` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/col` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/col` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/col` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/col` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/col` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/col` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/colrm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/colrm` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/colrm` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/colrm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/colrm` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/column` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/column` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/column` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/column` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/column` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/column` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/column` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/column` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/comm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/comm` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/comm` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/comm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/comm` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/comm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/comm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/comm` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/cp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cp` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cp` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cp` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cp` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/cpio-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cpio-roundtrip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cpio-roundtrip` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/cpio-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpio-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cpio-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpio-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cpio-roundtrip` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/cpp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cpp` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cpp` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/cpp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpp` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cpp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cpp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cpp` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/crc32` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/crc32` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/crc32` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/crc32` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/crc32` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -2056,56 +2056,56 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/cscope` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cscope` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cscope` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/csplit` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/csplit` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/csplit` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/csplit` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/csplit` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/csplit` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/csplit` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/csplit` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/curl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/curl` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/curl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/curl` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/curl` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/curl` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/curl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/curl` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/curl-localhost` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/curl-localhost` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/curl-localhost` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/curl-localhost` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/curl-localhost` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/curl-localhost` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/curl-localhost` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/curl-localhost` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/cut` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cut` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cut` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cut` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cut` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cut` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cut` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cut` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/cxxfilt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/cxxfilt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cxxfilt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/cxxfilt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/cxxfilt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/cxxfilt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/cxxfilt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/cxxfilt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/date` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/date` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/date` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/date` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/dc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dc` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/dc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/dc` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/dc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/dc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dc` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/dd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dd` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/dd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/dd` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -2118,399 +2118,399 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/df` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/df` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/df` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/df-direct` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/df-direct` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/df-direct` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/df-direct` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/diff` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/diff` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/diff` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/diff` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/diff` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/diff` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/diff` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/diff` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/diff3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/diff3` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/diff3` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/diff3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/diff3` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/diff3` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/diff3` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/diff3` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/dirname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dirname` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dirname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/dos2unix` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/dos2unix` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dos2unix` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/dos2unix` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/dos2unix` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/dos2unix` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/dos2unix` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/dos2unix` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/du` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/du` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/du` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/du` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/du` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/du` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/du` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/du` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/echo` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/echo` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/echo` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/echo` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/echo` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/echo` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/echo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/echo` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/egrep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/egrep` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/egrep` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/egrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/egrep` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/egrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/egrep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/egrep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/elfedit` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/elfedit` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/elfedit` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/elfedit` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/elfedit` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/elfedit` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/elfedit` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/elfedit` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/env` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/env` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/env` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/env` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/env` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/env` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/env` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/env` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/envsubst` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/envsubst` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/envsubst` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/envsubst` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/envsubst` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/envsubst` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/envsubst` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/envsubst` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/expand` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/expand` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/expand` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/expand` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/expand` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/expand` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/expand` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/expand` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/expr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/expr` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/expr` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/expr` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/factor` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/factor` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/factor` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/factor` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/factor` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/factor` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/factor` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/factor` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/fallocate` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fallocate` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fallocate` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/fallocate` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/fallocate` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/fallocate` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fallocate` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fallocate` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/fgrep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fgrep` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fgrep` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/fgrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/fgrep` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/fgrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fgrep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fgrep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/file` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/file` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/file` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/file` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/file` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/file` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/file` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/file` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/find` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/find` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/find` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/find` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/find` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/find` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/find` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/find` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/findmnt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/findmnt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/findmnt` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/flex` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/flex` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/flex` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/flex` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/flex` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/flex` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/flex` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/flex` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/flock` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/flock` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/flock` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/flock` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/flock` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/flock` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/flock` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/flock` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/fmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fmt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fmt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/fmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/fmt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/fmt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fmt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fmt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/fold` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/fold` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fold` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/fold` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/fold` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/fold` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/fold` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/fold` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/free` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/free` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/free` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/free` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/free` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/free` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/free` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/free` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/gcc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gcc` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gcc` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/gcc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcc` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/gcc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gcc` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/gcov` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gcov` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gcov` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/gcov` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcov` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/gcov` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gcov` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gcov` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/getconf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/getconf` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/getconf` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/getconf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/getconf` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/getconf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/getconf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/getconf` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/getopt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/getopt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/getopt` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/git` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/git` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/git` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/git` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/git` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/git` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/git` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/git` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/gprof` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gprof` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gprof` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/gprof` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/gprof` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/gprof` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gprof` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gprof` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/grep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/grep` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/grep` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/grep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/grep` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/grep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/grep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/grep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/groups` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/groups` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/groups` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/groups` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/groups` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/groups` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/groups` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/groups` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/gxx` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gxx` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gxx` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/gxx` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/gxx` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/gxx` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gxx` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gxx` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/gzip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gzip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/gzip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/gzip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gzip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/gzip-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/gzip-roundtrip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip-roundtrip` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/gzip-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/gzip-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/gzip-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/gzip-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/head` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/head` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/head` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/head` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/hexdump` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/hexdump` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/hexdump` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/hexdump` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hexdump` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/hostname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/hostname` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/hostname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/iconv` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/iconv` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/iconv` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/iconv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/iconv` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/iconv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/iconv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/iconv` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/id` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/id` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/id` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/id` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/id` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/id` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/id` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/id` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/install` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/install` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/install` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/install` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/install` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/install` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/install` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/install` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/ionice` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ionice` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ionice` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ionice` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ionice` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ionice` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ionice` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ionice` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/iostat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/iostat` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/iostat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/iostat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/iostat` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/iostat` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/iostat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/iostat` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/ip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ip` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/java` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/java` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/java` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/java` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/java` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/java` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/java` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
 | `compat/java` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/javac` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/javac` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/javac` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/javac` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/javac` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/javac` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/javac` | `verify` | `ptrace` | `Not selected by full` | `diverged` |
 | `compat/javac` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/join` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/join` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/join` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/join` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/join` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/join` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/join` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/join` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/jq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/jq` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/jq` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/jq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/jq` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/jq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/jq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/jq` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/kill` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/kill` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/kill` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/kill` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/kill` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/kill` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/kill` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/kill` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/ld` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ld` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ld` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/ld` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ld` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ld` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ld` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ld` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/ln` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ln` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ln` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ln` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ln` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ln` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ln` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ln` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/logger` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/logger` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/logger` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/logger` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/logger` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/logger` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/logger` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/logger` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/logname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/logname` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/logname` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/logname` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
 | `compat/logname` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/logname` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/logname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/logname` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/ls` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ls` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ls` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ls` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/lscpu` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lscpu` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lscpu` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lscpu` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/lscpu` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/lscpu` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/lscpu` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lscpu` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/lsirq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lsirq` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lsirq` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/lsmod` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lsmod` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lsmod` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lsmod` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/lsmod` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
@@ -2530,98 +2530,98 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/lua` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/lua` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lua` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/lua-direct` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/lua-direct` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/lua-direct` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/m4` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/m4` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/m4` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/m4` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/m4` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/m4` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/m4` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/m4` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/make` | `replay` | `ptrace` | `Not selected by full` | `diverged` |
+| `compat/make` | `replay` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/make` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/make` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/make` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/make` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/make` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/make` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/md5sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/md5sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/md5sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/mkdir` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mkdir` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mkdir` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/mkdir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkdir` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/mkdir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mkdir` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/mkfifo` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mkfifo` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mkfifo` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/mkfifo` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkfifo` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/mkfifo` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mkfifo` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mkfifo` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/mktemp` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mktemp` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mktemp` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/mktemp` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/mktemp` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/mktemp` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mktemp` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mktemp` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/mountpoint` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mountpoint` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mountpoint` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/mountpoint` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/mountpoint` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/mountpoint` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mountpoint` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mountpoint` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/mpstat-softirqs` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mpstat-softirqs` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mpstat-softirqs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/mpstat-softirqs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/mpstat-softirqs` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/mpstat-softirqs` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/mpstat-softirqs` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mpstat-softirqs` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/msgfmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/msgfmt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/msgfmt` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/msgfmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/msgfmt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/msgfmt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/msgfmt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/msgfmt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/msgunfmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/msgunfmt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/msgunfmt` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/msgunfmt` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/msgunfmt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/msgunfmt` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/msgunfmt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/msgunfmt` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/mv` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/mv` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mv` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/mv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/mv` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/mv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/mv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/mv` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/namei` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/namei` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/namei` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/namei` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/namei` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/namei` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/namei` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/namei` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/netlink-route` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/netlink-route` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/netlink-route` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/netlink-route` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/netlink-route` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -2635,112 +2635,112 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/netlink-sock-diag` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/netlink-sock-diag` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/netlink-sock-diag` | `verify` | `sabre` | `Not applicable` | `diverged` |
-| `compat/nice` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nice` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nice` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/nice` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/nice` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/nice` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nice` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nice` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/nl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nl` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/nl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/nl` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/nl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nl` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/nm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nm` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nm` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/nm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/nm` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/nm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nm` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/node` | `replay` | `ptrace` | `Not selected by full` | `diverged` |
+| `compat/node` | `replay` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/node` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/node` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/node` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/node` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/node` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/node` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/nohup` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nohup` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nohup` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/nohup` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/nohup` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/nohup` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/nohup` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nohup` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/nproc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/nproc` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/nproc` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/numactl-hardware` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/numactl-hardware` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numactl-hardware` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/numastat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/numastat` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numastat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/numfmt` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/numfmt` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/numfmt` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/objcopy` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/objcopy` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/objcopy` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/objcopy` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/objcopy` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/objcopy` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/objcopy` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/objcopy` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/objdump` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/objdump` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/objdump` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/objdump` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/objdump` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/objdump` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/objdump` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/objdump` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/od` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/od` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/od` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/od` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/od` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/od` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/od` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/od` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/openssl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/openssl` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/openssl` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/paste` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/paste` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/paste` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/paste` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/paste` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/paste` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/paste` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/paste` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/patch` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/patch` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/patch` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/patch` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/patch` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/patch` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/patch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/patch` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/pathchk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pathchk` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pathchk` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/pathchk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/pathchk` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -2753,574 +2753,574 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/perl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/perl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/perl` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/perl-direct` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/perl-direct` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/perl-direct` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/pgrep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pgrep` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pgrep` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/pgrep` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/pgrep` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/pgrep` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pgrep` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/pgrep` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/pidstat-disk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pidstat-disk` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/pidstat-disk` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pidstat-disk` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/pinky` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pinky` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pinky` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/pkg-config` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pkg-config` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pkg-config` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/pkg-config` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkg-config` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/pkg-config` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkg-config` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pkg-config` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/pkill` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pkill` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pkill` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkill` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkill` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkill` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/pkill` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/pkill` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/pr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pr` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pr` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/pr` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/pr` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/pr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pr` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/printenv` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/printenv` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/printenv` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/printenv` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/printenv` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/printenv` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/printenv` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/printenv` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/printf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/printf` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/printf` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/printf` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/printf` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/printf` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/printf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/printf` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/ps` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ps` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ps` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/ps` | `verify` | `in-guest-trap` | `Selected by full` | `diverged` |
 | `compat/ps` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/ps` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `compat/ps` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/ps` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/ptx` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ptx` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ptx` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ptx` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ptx` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ptx` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ptx` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ptx` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/pwd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/pwd` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/pwd` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/python3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/python3` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/python3` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/python3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-and-passed` |
 | `compat/python3` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/python3` | `verify` | `liteinst` | `Not applicable` | `measured-and-passed` |
 | `compat/python3` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/python3` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/ranlib` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ranlib` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ranlib` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/ranlib` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ranlib` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ranlib` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ranlib` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/ranlib` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/readelf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/readelf` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/readelf` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/readelf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/readelf` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/readelf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/readelf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/readelf` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/readlink` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/readlink` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/readlink` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/readlink` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/realpath` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/realpath` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/realpath` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/realpath` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/rev` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rev` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rev` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/rev` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/rev` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/rev` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rev` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rev` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/rm` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rm` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rm` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/rm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/rm` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/rm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rm` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rm` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/rmdir` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rmdir` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rmdir` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/rmdir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/rmdir` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/rmdir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rmdir` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rmdir` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/ruby` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ruby` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ruby` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ruby` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ruby` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ruby` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ruby` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ruby` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/rustc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/rustc` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/rustc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/rustc` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/rustc` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/rustc` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/rustc` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/rustc` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/sar-resource-tables` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sar-resource-tables` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sar-resource-tables` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sar-resource-tables` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/sar-resource-tables` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sar-resource-tables` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sar-resource-tables` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/sar-resource-tables` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/sed` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sed` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sed` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sed` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/sed` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sed` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sed` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sed` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/seq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/seq` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/seq` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/seq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/seq` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/seq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/seq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/seq` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/setfacl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/setfacl` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/setfacl` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/setfacl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/setfacl` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/setfacl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/setfacl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/setfacl` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/setfattr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/setfattr` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/setfattr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/setfattr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/setfattr` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/setfattr` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/setfattr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/setfattr` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/sha1sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha1sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha1sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/sha224sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha224sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha224sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/sha256sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha256sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha256sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/sha384sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha384sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha384sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/sha512sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sha512sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sha512sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/shell-build` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/shell-build` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/shell-build` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/shell-build` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/shell-build` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/shell-build` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/shell-build` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/shell-build` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
-| `compat/shred` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/shred` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/shred` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/shred` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/shred` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/shred` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/shred` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/shred` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/shuf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/shuf` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/shuf` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/shuf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/shuf` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/shuf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/shuf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/shuf` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/size` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/size` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/size` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/size` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/size` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/size` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/size` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/size` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/sleep` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sleep` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sleep` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/sort` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sort` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sort` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sort` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/sort` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sort` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sort` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sort` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/split` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/split` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/split` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/split` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/split` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/split` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/split` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/split` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/sqlite3` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sqlite3` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sqlite3` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/sqlite3` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/sqlite3` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sqlite3` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sqlite3` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sqlite3` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/ss` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/ss` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ss` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/ss` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/ss` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/ss` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/ss` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/ss` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/stat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/stat` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/stat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/stdbuf` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/stdbuf` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stdbuf` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/stdbuf` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/stdbuf` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/stdbuf` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/stdbuf` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/stdbuf` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/strings` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strings` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strings` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/strings` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strings` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/strings` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strings` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strings` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/strip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/strip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strip` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/strip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/strip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/strip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/strip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/strip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/sum` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sum` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sum` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sum` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/sync` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sync` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sync` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/sync` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/sync` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/sync` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/sync` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sync` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/sysctl-random-uuid` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/sysctl-random-uuid` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/sysctl-random-uuid` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/tac` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tac` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tac` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tac` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tac` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tac` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tac` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tac` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/tar` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tar` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tar` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/tar` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tar` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tar` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/tar-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tar-roundtrip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tar-roundtrip` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tar-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tar-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tar-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tar-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/taskset` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/taskset` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/taskset` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/taskset` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/taskset` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/tcl` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tcl` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tcl` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/tcl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tcl` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tcl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tcl` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tcl` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/tee` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tee` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tee` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tee` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tee` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tee` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tee` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tee` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/test` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/test` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/test` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/test` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/time` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/time` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/time` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/time` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/time` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/time` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/time` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/time` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/timeout` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/timeout` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/timeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `compat/timeout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/timeout` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/timeout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/timeout` | `verify` | `ptrace` | `Not selected by full` | `measured-and-passed` |
 | `compat/timeout` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/top` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/top` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/top` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/top` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/top` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/top` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/top` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/top` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/touch` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/touch` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/touch` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/touch` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/touch` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/touch` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/touch` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/touch` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/tr` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tr` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tr` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tr` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tr` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tr` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tr` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/true` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/true` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/true` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/true` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/true` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/true` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/true` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/true` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/truncate` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/truncate` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/truncate` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/truncate` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/truncate` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/tsort` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tsort` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tsort` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tsort` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tsort` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/tty` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/tty` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tty` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/tty` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/tty` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/tty` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/tty` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/tty` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/uname` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uname` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/uname` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uname` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/unexpand` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/unexpand` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/unexpand` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/unexpand` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/unexpand` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/unexpand` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/unexpand` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/unexpand` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/uniq` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uniq` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uniq` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/uniq` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/uniq` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/uniq` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/uniq` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uniq` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/uptime` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uptime` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uptime` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/users` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/users` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/users` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/users` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/users` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/users` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/users` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/users` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/uuidgen` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/uuidgen` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uuidgen` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/uuidgen` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/uuidgen` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/uuidgen` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/uuidgen` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/uuidgen` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/vmstat` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/vmstat` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/vmstat-disk` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/vmstat-disk` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `kvm` | `Not applicable` | `measured-no-verdict` |
 | `compat/vmstat-disk` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/vmstat-disk` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/wc` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/wc` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wc` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/wc` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/wc` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/wc` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/wc` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wc` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/wc-lines` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/wc-lines` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wc-lines` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/wget-localhost` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/wget-localhost` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wget-localhost` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/wget-localhost` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/wget-localhost` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/wget-localhost` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/wget-localhost` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/wget-localhost` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/whoami` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/whoami` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/whoami` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
-| `compat/xargs` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xargs` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xargs` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/xargs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/xargs` | `verify` | `kvm` | `Not applicable` | `measured-and-passed` |
 | `compat/xargs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xargs` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xargs` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/xmllint` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xmllint` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xmllint` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/xmllint` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/xmllint` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/xmllint` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xmllint` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xmllint` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/xxd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xxd` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xxd` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/xxd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/xxd` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/xxd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xxd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xxd` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/xz` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xz` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xz` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/xz` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/xz` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/xz` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xz` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xz` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/xz-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/xz-roundtrip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xz-roundtrip` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/xz-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/xz-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/xz-roundtrip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/xz-roundtrip` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/xz-roundtrip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/yes` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/yes` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/yes` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `compat/yes` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/yes` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -3334,14 +3334,14 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `compat/zip-unzip` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/zip-unzip` | `verify` | `ptrace` | `Selected by full` | `diverged` |
 | `compat/zip-unzip` | `verify` | `sabre` | `Not selected by full` | `measured-no-verdict` |
-| `compat/zstd` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/zstd` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/zstd` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/zstd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/zstd` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `compat/zstd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `compat/zstd` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/zstd` | `verify` | `sabre` | `Not selected by full` | `diverged` |
-| `compat/zstd-roundtrip` | `replay` | `ptrace` | `Not selected by full` | `measured-and-passed` |
+| `compat/zstd-roundtrip` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `compat/zstd-roundtrip` | `verify` | `dbt` | `Not applicable` | `diverged` |
 | `compat/zstd-roundtrip` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `compat/zstd-roundtrip` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
@@ -3864,7 +3864,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `util-c/pmu-skid` | `verify` | `sabre` | `Not applicable` | `measured-and-passed` |
 | `applications/kvm-python-examples` | `verify` | `dbt` | `Not applicable` | `measured-and-passed` |
 | `applications/kvm-python-examples` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
-| `applications/kvm-python-examples` | `verify` | `kvm` | `Not selected by full` | `diverged` |
+| `applications/kvm-python-examples` | `verify` | `kvm` | `Selected by full` | `diverged` |
 | `applications/kvm-python-examples` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `applications/kvm-python-examples` | `verify` | `ptrace` | `Not applicable` | `measured-and-passed` |
 | `applications/kvm-python-examples` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
@@ -3894,29 +3894,27 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. The **population** is every test whose ptrace `verify` cell full validation selects, crossed with every candidate backend, so it is the verify matrix itself. Every population cell is scored: a measured cell earns its credit, and a candidate that is not enabled, not selected, left no row or log, timed out, crashed, failed or diverged between its own two runs, a comparison the parity tool could not make, a record-missing cell and a refused cell each score 0 and are counted. **Population mean** divides the credit sum by every population cell (N), zeros included; **Full**, **Partial** and **Zero** count the cells with credit 1, between 0 and 1, and 0. A cell whose ptrace reference left no usable golden log has nothing to compare against: it is outside the population, counted under **Excluded (reference)**, and so is a historical **not compared** dbt cell. In a pressure-test run, which executes a sample, a candidate full validation runs but the sample did not plan is **not sampled**: outside that run's population, counted on its line apart, never 0. **Mean credit (measured)** divides the credit sum by the measured (matched plus diverged) cells only. A mean over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C population cells it owes, and a run that reported fewer is marked partial. Credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is.
 
 
-### validate run `validate-claude-coord-0efddbbd1323-1792540655002154579-252220-78234072` at `0efddbbd1323`
+### validate run `validate-ops-tick-7648e94e84f5-a26c503a66a6` at `7648e94e84f5`
 
-`parity: 314/2885 matched; selected 2885 of 2885 committed; population 2880: mean 0.166 over 2880 (314 full, 1310 partial, 1256 zero: ended 1, candidate-not-enabled 1026, candidate-not-selected 229); excluded: 5 reference without golden: timeout 5; 0 not compared; measured mean 0.294 over 1624 [inputs equalized for 1618 of 1624 credited: mean 0.295 over 1618 with equal inputs; mean 0.101 over 6 with unequal inputs]`
+`parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.166 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 
 | Candidate backend | Selected | Population | Population mean | Full | Partial | Zero | Excluded (reference) | Not compared | Measured | Matched | Mean credit (measured) | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 577 of 577 | 576 | 0.013 | 0 | 245 | 331 | 1 | 0 | 245 | 0 | 0.030 | equalized for 244 of 245 (mean 0.030 equal; 0.040 unequal) |
-| `in-guest-trap` | 577 of 577 | 576 | 0.032 | 0 | 299 | 277 | 1 | 0 | 299 | 0 | 0.062 | equalized |
-| `kvm` | 577 of 577 | 576 | 0.727 | 314 | 231 | 31 | 1 | 0 | 545 | 314 | 0.768 | equalized for 542 of 545 (mean 0.772 equal; 0.175 unequal) |
-| `liteinst` | 577 of 577 | 576 | 0.032 | 0 | 301 | 275 | 1 | 0 | 301 | 0 | 0.062 | equalized for 299 of 301 (mean 0.062 equal; 0.021 unequal) |
-| `sabre` | 577 of 577 | 576 | 0.026 | 0 | 234 | 342 | 1 | 0 | 234 | 0 | 0.065 | equalized |
-| **TOTAL** | 2885 of 2885 | 2880 | 0.166 | 314 | 1310 | 1256 | 5 | 0 | 1624 | 314 | 0.294 | equalized for 1618 of 1624 (mean 0.295 equal; 0.101 unequal) |
+| `dbt` | 578 of 578 | 578 | 0.013 | 0 | 246 | 332 | 0 | 0 | 246 | 0 | 0.030 | equalized for 245 of 246 (mean 0.030 equal; 0.040 unequal) |
+| `in-guest-trap` | 578 of 578 | 578 | 0.032 | 0 | 301 | 277 | 0 | 0 | 301 | 0 | 0.062 | equalized |
+| `kvm` | 578 of 578 | 578 | 0.725 | 314 | 232 | 32 | 0 | 0 | 546 | 314 | 0.767 | equalized for 543 of 546 (mean 0.770 equal; 0.175 unequal) |
+| `liteinst` | 578 of 578 | 578 | 0.032 | 0 | 302 | 276 | 0 | 0 | 302 | 0 | 0.061 | equalized for 300 of 302 (mean 0.062 equal; 0.021 unequal) |
+| `sabre` | 578 of 578 | 578 | 0.026 | 0 | 234 | 344 | 0 | 0 | 234 | 0 | 0.065 | equalized |
+| **TOTAL** | 2890 of 2890 | 2890 | 0.166 | 314 | 1315 | 1261 | 0 | 0 | 1629 | 314 | 0.294 | equalized for 1623 of 1629 (mean 0.294 equal; 0.101 unequal) |
 
 Cells that were not measured, by class: a cell whose ptrace reference left no golden is excluded from the population; every other one scores 0 and is counted.
 
 | Class | Group | Counts as | `dbt` | `in-guest-trap` | `kvm` | `liteinst` | `sabre` | **TOTAL** |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `timeout` | no golden | excluded (reference) | 1 | 1 | 1 | 1 | 1 | 5 |
-| `ended` | no golden | 0 | 0 | 1 | 0 | 0 | 0 | 1 |
-| `candidate-not-enabled` | candidate not run | 0 | 329 | 276 | 31 | 275 | 115 | 1026 |
-| `candidate-not-selected` | candidate not run | 0 | 2 | 0 | 0 | 0 | 227 | 229 |
+| `candidate-not-enabled` | candidate not run | 0 | 330 | 277 | 31 | 276 | 116 | 1030 |
+| `candidate-not-selected` | candidate not run | 0 | 2 | 0 | 1 | 0 | 228 | 231 |
 
-Most common first divergence: 600 of 1310 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/timed-progress-bar@in-guest-trap`).
+Most common first divergence: 603 of 1315 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/example-timed-progress-bar@in-guest-trap`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
@@ -3927,6 +3925,11 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `applications/c-toolchain-workflow@kvm` | diverged | 0.052 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
 | `applications/c-toolchain-workflow@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of applications/c-toolchain-workflow is not enabled in the manifest, so it has no log to compare: LiteInst multi-exec toolchain qualification must ratchet after the ptrace reference path |
 | `applications/c-toolchain-workflow@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/c-toolchain-workflow is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec toolchain qualification must ratchet after the ptrace reference path |
+| `applications/example-timed-progress-bar@dbt` | diverged | 0.000 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `applications/example-timed-progress-bar@in-guest-trap` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `applications/example-timed-progress-bar@kvm` | candidate-missing[candidate-not-selected] | — | the kvm candidate verify cell of applications/example-timed-progress-bar is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained an understood infrastructure failure; this cell did not pass every repetition cleanly. Retained detail: verification recorded no comparison at all (verdict=no_result), so there is no canonical INFO evidence to admit |
+| `applications/example-timed-progress-bar@liteinst` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `applications/example-timed-progress-bar@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/example-timed-progress-bar is not enabled in the manifest, so it has no log to compare: SaBRe does not yet determinize busy-wait polling on virtual wall-clock advancement; keep the identical example workload unqualified |
 | `applications/git-repository-workflow@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: Establish the shared Git transaction on the ptrace reference path before backend ratchets |
 | `applications/git-repository-workflow@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `applications/git-repository-workflow@kvm` | diverged | 0.041 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
@@ -3934,7 +3937,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `applications/git-repository-workflow@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec Git qualification must ratchet after the ptrace reference path |
 | `applications/timed-progress-bar@dbt` | diverged | 0.000 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `applications/timed-progress-bar@in-guest-trap` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `applications/timed-progress-bar@kvm` | diverged | 0.022 | record 649, syscall 284: token 17: `1_792_538_353.106_257_215s` vs `1_792_538_353.106_257_195s` |
+| `applications/timed-progress-bar@kvm` | diverged | 0.022 | record 649, syscall 284: token 17: `1_792_547_885.106_257_215s` vs `1_792_547_885.106_257_195s` |
 | `applications/timed-progress-bar@liteinst` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `applications/timed-progress-bar@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/timed-progress-bar is not enabled in the manifest, so it has no log to compare: SaBRe does not yet determinize busy-wait polling on virtual wall-clock advancement; main validation has observed verify failure under load |
 | `bin-c/posix-timer-test@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
@@ -4073,7 +4076,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/dup-shared-offset@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/dup-shared-offset@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/environment-and-workdir@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/environment-and-workdir is not enabled in the manifest, so it has no log to compare: DBT does not enter the per-cell /test mount namespace |
-| `c-programs/environment-and-workdir@in-guest-trap` | unavailable[ended] | — | the in-guest-trap candidate verify cell of c-programs/environment-and-workdir ended ERROR with no typed result (import-history): imported rows are not one producer history: cell result attempt 2 does not follow the preceding attempts; expected 1; attempt 1 wrote no row: Tpx RERUN (unmanaged), details 'No details found', after 18.7 s; the command's status Success, exit code 0, after 18.7 s of wall time |
+| `c-programs/environment-and-workdir@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/environment-and-workdir@kvm` | diverged | 0.323 | record 43, syscall 13: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/environment-and-workdir@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/environment-and-workdir@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/environment-and-workdir is not enabled in the manifest, so it has no log to compare: Canonical SaBRe verification has not been qualified for this environment-control fixture |
@@ -5110,200 +5113,200 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `chaos-c/lock-granularity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of chaos-c/lock-granularity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `chaos-c/lock-granularity@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of chaos-c/lock-granularity is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `chaos-c/lock-granularity@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of chaos-c/lock-granularity is enabled but not selected by full validation, so it has no log to compare: Historical canonical verification diverged at recorded positions. The later clean observations do not erase that retained failure, so this backend remains excluded pending separate qualification. |
-| `compat/addr2line@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/addr2line is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/addr2line@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/addr2line is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/addr2line@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/addr2line is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/addr2line@kvm` | diverged | 0.133 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/addr2line@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/addr2line is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/addr2line@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/addr2line is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/ar@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ar is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ar@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ar is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ar@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ar is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ar@kvm` | diverged | 0.146 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/ar@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ar is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ar@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ar is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/arch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/arch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/arch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/arch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/arch@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/arch@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/arch@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/arch is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/as@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/as is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/as@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/as is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/as@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/as is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/as@kvm` | diverged | 0.219 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/as@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/as is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/as@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/as is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/awk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/awk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/awk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/awk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/awk@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/awk is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/awk@kvm` | diverged | 0.416 | record 502, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/awk@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/awk is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/awk@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/awk is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/b2sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/b2sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/b2sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/b2sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/b2sum@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/b2sum@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/b2sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/b2sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/base32@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/base32 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/base32@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/base32 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/base32@in-guest-trap` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/base32@liteinst` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/base32@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/base32 is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/base64@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/base64 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/base64@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/base64 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/base64@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/base64@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/base64@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/base64 is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/basename@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/basename is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/basename@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/basename is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/basename@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/basename@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/basename@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/basename is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/basenc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/basenc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/basenc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/basenc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/basenc@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/basenc is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/basenc@kvm` | diverged | 0.465 | record 486, syscall 16: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/basenc@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/basenc is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/basenc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/basenc is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/bash@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bash is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/bash@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bash is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/bash@in-guest-trap` | diverged | 0.027 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/bash@liteinst` | diverged | 0.027 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/bash@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bash is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/bc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/bc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/bc@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/bc is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bc@kvm` | diverged | 0.659 | record 486, syscall 16: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/bc@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/bc is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bc is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/bracket@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bracket is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/bracket@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bracket is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/bracket@in-guest-trap` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/bracket@liteinst` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/bracket@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bracket is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/bzip2@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bzip2 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/bzip2@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bzip2 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/bzip2@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/bzip2 is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bzip2@kvm` | diverged | 0.939 | record 857, syscall 100: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/bzip2@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/bzip2 is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bzip2@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bzip2 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/bzip2-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/bzip2-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/bzip2-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bzip2-roundtrip@kvm` | diverged | 0.163 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/bzip2-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bzip2-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bzip2-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cal@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cal is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cal@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cal is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cal@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/cal@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/cal@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cal is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/cargo@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cargo is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cargo@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cargo is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cargo@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cargo is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cargo@kvm` | diverged | 0.136 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cargo@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cargo is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cargo@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cargo is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cat@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/cat@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/cat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cat is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/chmod@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/chmod is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/chmod@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/chmod is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/chmod@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/chmod is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chmod@kvm` | diverged | 0.403 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/chmod@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/chmod is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chmod@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/chmod is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/chown@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/chown is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/chown@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/chown is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/chown@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/chown is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chown@kvm` | diverged | 0.380 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/chown@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/chown is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chown@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/chown is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/chrt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/chrt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/chrt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/chrt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/chrt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/chrt is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chrt@kvm` | diverged | 0.940 | record 538, syscall 55: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/chrt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/chrt is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chrt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/chrt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cksum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cksum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cksum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cksum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cksum@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/cksum@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/cksum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cksum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/clang@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/clang is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/clang@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/clang is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/clang@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/clang is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/clang@kvm` | diverged | 0.072 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/clang@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/clang is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/clang@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/clang is enabled but not selected by full validation, so it has no log to compare: Waiting for a child it just started returns ECHILD under SaBRe (make: "wait: No child processes"; clang: "Error waiting for child process"; rustc: "could not exec the linker `/usr/bin/clang`: No child processes") |
-| `compat/cmake@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cmake is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cmake@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cmake is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cmake@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cmake is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cmake@kvm` | diverged | 0.228 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cmake@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cmake is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cmake@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cmake is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cmp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cmp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cmp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cmp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cmp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cmp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cmp@kvm` | diverged | 0.475 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cmp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cmp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cmp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cmp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/col@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/col is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/col@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/col is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/col@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/col is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/col@kvm` | diverged | 0.706 | record 486, syscall 16: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/col@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/col is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/col@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/col is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/colrm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/colrm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/colrm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/colrm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/colrm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/colrm is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/colrm@kvm` | diverged | 0.706 | record 486, syscall 16: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/colrm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/colrm is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/colrm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/colrm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/column@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/column is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/column@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/column is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/column@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/column is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/column@kvm` | diverged | 0.725 | record 489, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/column@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/column is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/column@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/column is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/comm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/comm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/comm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/comm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/comm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/comm is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/comm@kvm` | diverged | 0.538 | record 627, syscall 23: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/comm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/comm is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/comm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/comm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cp@kvm` | diverged | 0.313 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cpio-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cpio-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cpio-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cpio-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cpio-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cpio-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cpio-roundtrip@kvm` | diverged | 0.154 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cpio-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cpio-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cpio-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cpio-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cpp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cpp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cpp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cpp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cpp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cpp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cpp@kvm` | diverged | 0.223 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cpp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cpp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cpp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cpp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/crc32@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/crc32 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/crc32@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/crc32 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/crc32@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/crc32 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/crc32@kvm` | diverged | 0.117 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/crc32@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/crc32 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/crc32@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/crc32 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cscope@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cscope is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cscope@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cscope is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cscope@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cscope is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cscope@kvm` | diverged | 0.190 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cscope@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cscope is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cscope@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cscope is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/csplit@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/csplit is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/csplit@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/csplit is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/csplit@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/csplit is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/csplit@kvm` | diverged | 0.356 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/csplit@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/csplit is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/csplit@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/csplit is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/curl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/curl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/curl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/curl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/curl@in-guest-trap` | diverged | 0.009 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/curl@liteinst` | diverged | 0.009 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/curl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/curl is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/curl-localhost@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/curl-localhost is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/curl-localhost@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/curl-localhost is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/curl-localhost@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/curl-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/curl-localhost@kvm` | diverged | 0.123 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/curl-localhost@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/curl-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/curl-localhost@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/curl-localhost is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cut@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cut is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cut@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cut is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cut@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cut is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cut@kvm` | diverged | 0.498 | record 499, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/cut@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cut is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cut@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cut is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/cxxfilt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cxxfilt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/cxxfilt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cxxfilt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/cxxfilt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cxxfilt is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cxxfilt@kvm` | diverged | 0.432 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/cxxfilt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cxxfilt is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cxxfilt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cxxfilt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/date@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/date is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/date@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/date is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/date@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/date@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/date@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/date is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/dc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/dc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/dc@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/dc is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/dc@kvm` | diverged | 0.608 | record 486, syscall 16: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/dc@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/dc is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/dc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/dc is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/dd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/dd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/dd@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/dd is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/dd@kvm` | diverged | 0.677 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/dd@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/dd is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
@@ -5313,268 +5316,268 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/df@kvm` | diverged | 0.365 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/df@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/df is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/df@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/df is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/df-direct@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/df-direct is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/df-direct@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/df-direct is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/df-direct@in-guest-trap` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/df-direct@liteinst` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/df-direct@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/df-direct is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/diff@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/diff is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/diff@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/diff is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/diff@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/diff is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/diff@kvm` | diverged | 0.350 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/diff@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/diff is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/diff@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/diff is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/diff3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/diff3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/diff3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/diff3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/diff3@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/diff3 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/diff3@kvm` | diverged | 0.269 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/diff3@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/diff3 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/diff3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/diff3 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/dirname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dirname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/dirname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dirname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/dirname@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/dirname@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/dirname@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/dirname is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/dos2unix@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dos2unix is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/dos2unix@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/dos2unix is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/dos2unix@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/dos2unix is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/dos2unix@kvm` | diverged | 0.345 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/dos2unix@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/dos2unix is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/dos2unix@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/dos2unix is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/du@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/du is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/du@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/du is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/du@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/du@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/du@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/du is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/echo@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/echo is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/echo@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/echo is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/echo@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/echo@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/echo@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/echo is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/egrep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/egrep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/egrep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/egrep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/egrep@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/egrep is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/egrep@kvm` | diverged | 0.346 | record 502, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/egrep@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/egrep is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/egrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/egrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/elfedit@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/elfedit@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/elfedit@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/elfedit@kvm` | diverged | 0.183 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/elfedit@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/elfedit@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/elfedit is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/env@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/env is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/env@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/env is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/env@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/env is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/env@kvm` | diverged | 0.460 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/env@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/env is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/env@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/env is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/envsubst@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/envsubst is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/envsubst@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/envsubst is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/envsubst@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/envsubst is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/envsubst@kvm` | diverged | 0.850 | record 526, syscall 51: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/envsubst@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/envsubst is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/envsubst@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/envsubst is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/expand@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/expand is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/expand@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/expand is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/expand@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/expand is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/expand@kvm` | diverged | 0.754 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/expand@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/expand is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/expand@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/expand is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/expr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/expr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/expr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/expr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/expr@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/expr@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/expr@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/expr is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/factor@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/factor is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/factor@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/factor is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/factor@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/factor is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/factor@kvm` | diverged | 0.483 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/factor@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/factor is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/factor@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/factor is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/fallocate@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fallocate is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/fallocate@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fallocate is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/fallocate@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/fallocate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fallocate@kvm` | diverged | 0.350 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/fallocate@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/fallocate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fallocate@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/fallocate is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/fgrep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fgrep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/fgrep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fgrep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/fgrep@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/fgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fgrep@kvm` | diverged | 0.345 | record 499, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/fgrep@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/fgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fgrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/fgrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/file@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/file is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/file@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/file is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/file@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/file is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/file@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/file is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/file@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/file is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/find@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/find is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/find@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/find is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/find@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/find is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/find@kvm` | diverged | 0.259 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/find@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/find is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/find@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/find is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/findmnt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/findmnt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/findmnt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/findmnt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/findmnt@in-guest-trap` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/findmnt@liteinst` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/findmnt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/findmnt is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/flex@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/flex is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/flex@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/flex is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/flex@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/flex is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/flex@kvm` | diverged | 0.231 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/flex@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/flex is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/flex@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/flex is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/flock@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/flock is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/flock@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/flock is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/flock@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/flock is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/flock@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/flock is not enabled in the manifest, so it has no log to compare: KVM refuses every flock lock operation by name (ENOSYS with the typed refusal UnsupportedOperation::Flock): it cannot keep a host lock's lifetime equal to the guest description's. This cell passed only because KVM flock used to be a silent no-op (https://github.com/rrnewton/reverie/issues/1069) |
 | `compat/flock@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/flock is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/flock@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/flock is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/fmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/fmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/fmt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/fmt is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fmt@kvm` | diverged | 0.756 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/fmt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/fmt is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fmt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/fmt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/fold@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fold is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/fold@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fold is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/fold@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/fold is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fold@kvm` | diverged | 0.754 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/fold@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/fold is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fold@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/fold is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/free@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/free is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/free@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/free is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/free@in-guest-trap` | diverged | 0.033 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/free@liteinst` | diverged | 0.033 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/free@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/free is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/gcc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gcc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/gcc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gcc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gcc@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gcc is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gcc@kvm` | diverged | 0.172 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/gcc@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gcc is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gcc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gcc is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/gcov@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/gcov@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gcov@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gcov@kvm` | diverged | 0.268 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/gcov@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gcov@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gcov is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/getconf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/getconf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/getconf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/getconf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/getconf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/getconf is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/getconf@kvm` | diverged | 0.654 | record 479, syscall 55: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/getconf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/getconf is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/getconf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/getconf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/getopt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/getopt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/getopt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/getopt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/getopt@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/getopt@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/getopt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/getopt is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/git@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/git is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/git@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/git is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/git@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/git is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/git@kvm` | diverged | 0.059 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/git@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/git is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/git@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/git is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/gprof@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/gprof@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gprof@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gprof@kvm` | diverged | 0.332 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/gprof@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gprof@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gprof is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/grep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/grep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/grep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/grep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/grep@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/grep is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/grep@kvm` | diverged | 0.480 | record 505, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/grep@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/grep is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/grep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/grep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/groups@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/groups is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/groups@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/groups is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/groups@in-guest-trap` | diverged | 0.047 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/groups@kvm` | diverged | 0.821 | record 157, syscall 60: token 13: `Ok(21)` vs `Ok(1)` |
 | `compat/groups@liteinst` | diverged | 0.047 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/groups@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/groups is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/gxx@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gxx is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/gxx@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gxx is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gxx@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gxx is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gxx@kvm` | diverged | 0.058 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/gxx@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gxx is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gxx@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gxx is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/gzip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gzip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/gzip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gzip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gzip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gzip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gzip@kvm` | diverged | 0.752 | record 657, syscall 85: token 9: `openat(-100,` vs `rt_sigaction(25,` |
 | `compat/gzip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gzip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gzip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gzip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/gzip-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gzip-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/gzip-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gzip-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gzip-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gzip-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gzip-roundtrip@kvm` | diverged | 0.164 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/gzip-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gzip-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gzip-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gzip-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/head@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/head is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/head@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/head is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/head@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/head@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/head@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/head is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/hexdump@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/hexdump is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/hexdump@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/hexdump is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/hexdump@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/hexdump is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/hexdump@kvm` | diverged | 0.728 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/hexdump@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/hexdump is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/hexdump@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/hexdump is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/hostname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/hostname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/hostname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/hostname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/hostname@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/hostname@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/hostname@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/hostname is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/iconv@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/iconv is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/iconv@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/iconv is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/iconv@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/iconv is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/iconv@kvm` | diverged | 0.724 | record 426, syscall 16: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/iconv@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/iconv is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/iconv@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/iconv is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/id@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/id is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/id@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/id is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/id@in-guest-trap` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/id@liteinst` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/id@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/id is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/install@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/install is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/install@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/install is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/install@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/install is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/install@kvm` | diverged | 0.359 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/install@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/install is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/install@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/install is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/ionice@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ionice is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ionice@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ionice is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ionice@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ionice is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ionice@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ionice is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ionice@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ionice is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/iostat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/iostat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/iostat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/iostat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/iostat@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/iostat is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/iostat@kvm` | diverged | 0.638 | record 9842, syscall 2913: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/iostat@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/iostat is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): a guest process exited without deregistering from the in-guest runtime (determinism loss) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/iostat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/iostat is enabled but not selected by full validation, so it has no log to compare: Diverges at an inbound-signal scheduler commit under SaBRe in 4 of 4 runs; ptrace passes 3 of 3 |
-| `compat/ip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ip@kvm` | diverged | 0.404 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/ip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/join@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/join is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/join@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/join is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/join@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/join is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/join@kvm` | diverged | 0.540 | record 630, syscall 23: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/join@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/join is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/join@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/join is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/jq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/jq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/jq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/jq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/jq@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/jq is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/jq@kvm` | diverged | 0.368 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/jq@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/jq is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/jq@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/jq is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/kill@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/kill is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/kill@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/kill is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/kill@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/kill@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/kill is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/kill@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/kill@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/kill is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/ld@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ld is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ld@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ld is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ld@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ld is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ld@kvm` | diverged | 0.104 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/ld@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ld is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ld@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ld is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/ln@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ln is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ln@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ln is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ln@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ln is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ln@kvm` | diverged | 0.299 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/ln@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ln is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ln@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ln is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/logger@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/logger is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/logger@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/logger is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/logger@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/logger is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/logger@kvm` | diverged | 0.661 | record 468, syscall 30: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/logger@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/logger is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/logger@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/logger is enabled but not selected by full validation, so it has no log to compare: logger --stderr --no-act exits 1 with no output under SaBRe |
-| `compat/logname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/logname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/logname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/logname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/logname@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/logname is not enabled in the manifest, so it has no log to compare: Its verify runs end as a named policy refusal on in-guest-trap: the row's shell runs /usr/bin/logname in a command substitution, a forked child that execs it, and the in-guest runtime refuses exec with a typed refusal that ends the run (HERMIT_POLICY_REFUSAL; hermit 16f99cd0, reverie 2f10ec67). It passed before only because that exec failed with EOPNOTSUPP in both runs, so the row printed logname:no-login-record without running logname. |
 | `compat/logname@kvm` | diverged | 0.740 | record 448, syscall 21: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/logname@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/logname is not enabled in the manifest, so it has no log to compare: Its verify runs end as a named policy refusal on liteinst: the row's shell runs /usr/bin/logname in a command substitution, a forked child that execs it, and the in-guest runtime refuses exec with a typed refusal that ends the run (HERMIT_POLICY_REFUSAL; hermit 16f99cd0, reverie 2f10ec67). It passed before only because that exec failed with EOPNOTSUPP in both runs, so the row printed logname:no-login-record without running logname. |
 | `compat/logname@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/logname is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/ls@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ls is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ls@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ls is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ls@in-guest-trap` | diverged | 0.041 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/ls@liteinst` | diverged | 0.041 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/ls@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ls is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/lscpu@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/lscpu@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/lscpu@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/lscpu@kvm` | diverged | 0.240 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/lscpu@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/lscpu@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lscpu is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/lsirq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lsirq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/lsirq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lsirq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/lsirq@in-guest-trap` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/lsirq@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/lsirq is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/lsirq@liteinst` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/lsirq@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lsirq is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/lsmod@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lsmod is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/lsmod@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lsmod is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/lsmod@in-guest-trap` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/lsmod@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/lsmod is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/lsmod@liteinst` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/lsmod@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lsmod is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/lsof@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lsof is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, and a focused run type's replay cell on ptrace |
+| `compat/lsof@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lsof is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/lsof@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/lsof is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/lsof@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/lsof is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/lsof@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/lsof is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
@@ -5584,70 +5587,70 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/lua@kvm` | diverged | 0.677 | record 428, syscall 37: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/lua@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/lua is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/lua@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lua is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/lua-direct@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lua-direct is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/lua-direct@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lua-direct is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/lua-direct@in-guest-trap` | diverged | 0.042 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/lua-direct@liteinst` | diverged | 0.042 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/lua-direct@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lua-direct is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/m4@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/m4@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/m4@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/m4@kvm` | diverged | 0.332 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/m4@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/m4@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/m4 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/make@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/make@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/make@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/make@kvm` | diverged | 0.274 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/make@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/make@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/make is enabled but not selected by full validation, so it has no log to compare: Waiting for a child it just started returns ECHILD under SaBRe (make: "wait: No child processes"; clang: "Error waiting for child process"; rustc: "could not exec the linker `/usr/bin/clang`: No child processes") |
-| `compat/md5sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/md5sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/md5sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/md5sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/md5sum@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/md5sum@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/md5sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/md5sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/mkdir@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mkdir is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/mkdir@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mkdir is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/mkdir@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mkdir is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mkdir@kvm` | diverged | 0.447 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/mkdir@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mkdir is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mkdir@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mkdir is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/mkfifo@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mkfifo is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/mkfifo@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mkfifo is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/mkfifo@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mkfifo is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mkfifo@kvm` | diverged | 0.394 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/mkfifo@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mkfifo is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mkfifo@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mkfifo is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/mktemp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mktemp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/mktemp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mktemp is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/mktemp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mktemp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mktemp@kvm` | diverged | 0.633 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/mktemp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mktemp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mktemp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mktemp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/mountpoint@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mountpoint is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/mountpoint@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mountpoint is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/mountpoint@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mountpoint is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mountpoint@kvm` | diverged | 0.604 | record 568, syscall 96: token 16: `Err(Errno(EINVAL))` vs `Err(Errno(EACCES))` |
 | `compat/mountpoint@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mountpoint is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mountpoint@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mountpoint is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/mpstat-softirqs@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mpstat-softirqs is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/mpstat-softirqs@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mpstat-softirqs is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/mpstat-softirqs@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mpstat-softirqs is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mpstat-softirqs@kvm` | diverged | 0.532 | record 247, syscall 91: token 2: `detcore::scheduler:` vs `detcore:` |
 | `compat/mpstat-softirqs@liteinst` | diverged | 0.019 (unequalized) | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/mpstat-softirqs@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mpstat-softirqs is enabled but not selected by full validation, so it has no log to compare: Diverges at an inbound-signal scheduler commit under SaBRe in 4 of 4 runs; ptrace passes 3 of 3 |
-| `compat/msgfmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/msgfmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/msgfmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/msgfmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/msgfmt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/msgfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/msgfmt@kvm` | diverged | 0.364 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/msgfmt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/msgfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/msgfmt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/msgfmt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/msgunfmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/msgunfmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/msgunfmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/msgunfmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/msgunfmt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/msgunfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/msgunfmt@kvm` | diverged | 0.243 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/msgunfmt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/msgunfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/msgunfmt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/msgunfmt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/mv@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mv is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/mv@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/mv is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/mv@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mv is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mv@kvm` | diverged | 0.373 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/mv@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mv is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mv@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mv is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/namei@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/namei is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/namei@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/namei is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/namei@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/namei is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/namei@kvm` | diverged | 0.210 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/namei@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/namei is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/namei@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/namei is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/netlink-route@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/netlink-route is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, and a focused run type's replay cell on ptrace |
+| `compat/netlink-route@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/netlink-route is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/netlink-route@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/netlink-route is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/netlink-route@kvm` | diverged | 0.155 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/netlink-route@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/netlink-route is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
@@ -5657,71 +5660,71 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/netlink-sock-diag@kvm` | diverged | 0.154 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/netlink-sock-diag@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/netlink-sock-diag is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/netlink-sock-diag@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of compat/netlink-sock-diag is not enabled in the manifest, so it has no log to compare: Not in the SaBRe corpus this replaced (ci/compat/corpus-sabre.json had no netlink-sock-diag row) |
-| `compat/nice@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nice is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/nice@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nice is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/nice@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/nice is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nice@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/nice is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nice@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nice is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/nl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/nl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/nl@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/nl is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nl@kvm` | diverged | 0.755 | record 489, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/nl@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/nl is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/nm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/nm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/nm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nm@kvm` | diverged | 0.190 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/nm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/nohup@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nohup is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/nohup@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nohup is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/nohup@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/nohup is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nohup@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/nohup is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nohup@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nohup is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/nproc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nproc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/nproc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nproc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/nproc@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/nproc@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/nproc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nproc is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/numactl-hardware@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/numactl-hardware is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/numactl-hardware@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/numactl-hardware is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/numactl-hardware@in-guest-trap` | diverged | 0.037 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/numactl-hardware@kvm` | diverged | 0.512 | record 127, syscall 46: token 11: `1024)` vs `4096)` |
 | `compat/numactl-hardware@liteinst` | diverged | 0.037 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/numactl-hardware@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/numactl-hardware is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/numastat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/numastat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/numastat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/numastat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/numastat@in-guest-trap` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/numastat@liteinst` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/numastat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/numastat is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/numfmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/numfmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/numfmt@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/numfmt is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/numfmt@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/numfmt@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/numfmt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/numfmt is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/objcopy@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/objcopy is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/objcopy@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/objcopy is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/objcopy@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/objcopy is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/objcopy@kvm` | diverged | 0.192 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/objcopy@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/objcopy is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/objcopy@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/objcopy is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/objdump@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/objdump is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/objdump@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/objdump is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/objdump@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/objdump is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/objdump@kvm` | diverged | 0.197 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/objdump@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/objdump is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/objdump@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/objdump is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/od@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/od is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/od@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/od is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/od@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/od is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/od@kvm` | diverged | 0.756 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/od@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/od is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/od@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/od is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/openssl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/openssl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/openssl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/openssl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/openssl@in-guest-trap` | diverged | 0.030 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/openssl@liteinst` | diverged | 0.030 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/openssl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/openssl is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/paste@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/paste is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/paste@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/paste is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/paste@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/paste is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/paste@kvm` | diverged | 0.540 | record 630, syscall 23: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/paste@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/paste is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/paste@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/paste is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/patch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/patch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/patch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/patch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/patch@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/patch is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/patch@kvm` | diverged | 0.316 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/patch@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/patch is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/patch@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/patch is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/pathchk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pathchk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pathchk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pathchk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pathchk@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pathchk is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pathchk@kvm` | diverged | 0.445 | record 456, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/pathchk@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/pathchk is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
@@ -5731,395 +5734,395 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/perl@kvm` | diverged | 0.525 | record 426, syscall 36: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/perl@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/perl is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/perl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/perl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/perl-direct@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/perl-direct is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/perl-direct@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/perl-direct is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/perl-direct@in-guest-trap` | diverged | 0.023 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/perl-direct@liteinst` | diverged | 0.023 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/perl-direct@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/perl-direct is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/pgrep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pgrep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pgrep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pgrep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pgrep@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pgrep@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/pgrep is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/pgrep@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/pgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pgrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pgrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/pidstat-disk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pidstat-disk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pidstat-disk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pidstat-disk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pidstat-disk@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pidstat-disk is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pidstat-disk@kvm` | diverged | 0.425 | record 177, syscall 64: token 2: `detcore::syscalls::files:` vs `detcore:` |
 | `compat/pidstat-disk@liteinst` | diverged | 0.022 (unequalized) | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pidstat-disk@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pidstat-disk is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/pinky@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pinky is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pinky@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pinky is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pinky@in-guest-trap` | diverged | 0.053 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pinky@liteinst` | diverged | 0.053 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pinky@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pinky is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/pkg-config@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pkg-config is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pkg-config@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pkg-config is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pkg-config@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pkg-config is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pkg-config@kvm` | diverged | 0.070 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/pkg-config@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/pkg-config is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pkg-config@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pkg-config is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/pkill@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pkill is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pkill@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pkill is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pkill@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pkill is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pkill@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/pkill is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/pkill@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/pkill is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pkill@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pkill is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/pr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pr@in-guest-trap` | diverged | 0.048 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pr@liteinst` | diverged | 0.048 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pr@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pr is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/printenv@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/printenv is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/printenv@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/printenv is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/printenv@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/printenv is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/printenv@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/printenv is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/printenv@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/printenv is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/printf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/printf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/printf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/printf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/printf@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/printf@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/printf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/printf is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/ps@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ps is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ps@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ps is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ps@in-guest-trap` | diverged | 0.017 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/ps@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/ps is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/ps@liteinst` | diverged | 0.017 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/ps@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ps is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/ptx@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ptx is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ptx@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ptx is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ptx@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ptx is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ptx@kvm` | diverged | 0.756 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/ptx@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ptx is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ptx@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ptx is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/pwd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pwd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/pwd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/pwd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/pwd@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pwd@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pwd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pwd is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/python3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/python3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/python3@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: Kept off by coordinator ruling: in-guest-trap diverged in 1 of 10 runs before the in-guest start-up heap-layout fix; the second local survey of 2026-10-08, at the fixed tree 81f3e50d, passed 10 of 10 on both backends (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/python3@kvm` | diverged | 0.231 | record 647, syscall 283: token 17: `1_792_538_353.106_241_665s` vs `1_792_538_353.106_241_645s` |
+| `compat/python3@kvm` | diverged | 0.231 | record 647, syscall 283: token 17: `1_792_547_885.106_241_665s` vs `1_792_547_885.106_241_645s` |
 | `compat/python3@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: Kept off by coordinator ruling: in-guest-trap diverged in 1 of 10 runs before the in-guest start-up heap-layout fix; the second local survey of 2026-10-08, at the fixed tree 81f3e50d, passed 10 of 10 on both backends (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/python3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/python3 is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/ranlib@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ranlib@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ranlib@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ranlib@kvm` | diverged | 0.134 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/ranlib@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ranlib@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ranlib is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/readelf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/readelf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/readelf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/readelf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/readelf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/readelf is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/readelf@kvm` | diverged | 0.189 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/readelf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/readelf is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/readelf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/readelf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/readlink@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/readlink is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/readlink@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/readlink is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/readlink@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/readlink@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/readlink@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/readlink is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/realpath@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/realpath is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/realpath@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/realpath is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/realpath@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/realpath@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/realpath@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/realpath is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/rev@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/rev is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/rev@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/rev is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/rev@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/rev is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rev@kvm` | diverged | 0.750 | record 489, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/rev@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/rev is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rev@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/rev is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/rm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/rm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/rm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/rm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/rm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/rm is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rm@kvm` | diverged | 0.488 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/rm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/rm is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/rm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/rmdir@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/rmdir is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/rmdir@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/rmdir is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/rmdir@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/rmdir is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rmdir@kvm` | diverged | 0.633 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/rmdir@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/rmdir is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rmdir@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/rmdir is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/ruby@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ruby is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ruby@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ruby is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ruby@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ruby is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ruby@kvm` | diverged | 0.297 | record 232, syscall 92: token 11: `1024)` vs `4096)` |
 | `compat/ruby@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ruby is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): a guest process exited without deregistering from the in-guest runtime (determinism loss) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ruby@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ruby is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/sar-resource-tables@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sar-resource-tables is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sar-resource-tables@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sar-resource-tables is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sar-resource-tables@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/sar-resource-tables is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sar-resource-tables@kvm` | diverged | 0.033 | record 174, syscall 22: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/sar-resource-tables@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/sar-resource-tables is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sar-resource-tables@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sar-resource-tables is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/sed@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sed is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sed@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sed is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sed@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/sed is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sed@kvm` | diverged | 0.461 | record 499, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/sed@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/sed is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sed@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sed is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/seq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/seq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/seq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/seq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/seq@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/seq is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/seq@kvm` | diverged | 0.411 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/seq@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/seq is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/seq@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/seq is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/setfacl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/setfacl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/setfacl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/setfacl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/setfacl@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/setfacl is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/setfacl@kvm` | diverged | 0.239 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/setfacl@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/setfacl is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/setfacl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/setfacl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/setfattr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/setfattr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/setfattr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/setfattr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/setfattr@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/setfattr is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/setfattr@kvm` | diverged | 0.301 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/setfattr@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/setfattr is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/setfattr@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/setfattr is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/sha1sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha1sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sha1sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha1sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sha1sum@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha1sum@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha1sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sha1sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/sha224sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha224sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sha224sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha224sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sha224sum@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha224sum@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha224sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sha224sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/sha256sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha256sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sha256sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha256sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sha256sum@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha256sum@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha256sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sha256sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/sha384sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha384sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sha384sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha384sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sha384sum@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha384sum@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha384sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sha384sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/sha512sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha512sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sha512sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sha512sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sha512sum@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha512sum@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sha512sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sha512sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/shell-build@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, and a focused run type's replay cell on ptrace |
+| `compat/shell-build@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/shell-build@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shell-build@kvm` | diverged | 0.058 | record 571, syscall 81: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/shell-build@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shell-build@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: Not in the SaBRe corpus this replaced (ci/compat/corpus-sabre.json had no shell-build row) |
-| `compat/shred@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/shred is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/shred@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/shred is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/shred@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/shred is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shred@kvm` | diverged | 0.302 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/shred@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/shred is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shred@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/shred is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/shuf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/shuf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/shuf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shuf@kvm` | diverged | 0.359 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/shuf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shuf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/shuf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/size@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/size is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/size@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/size is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/size@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/size is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/size@kvm` | diverged | 0.280 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/size@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/size is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/size@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/size is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/sleep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sleep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sleep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sleep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sleep@in-guest-trap` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sleep@liteinst` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sleep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sleep is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/sort@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sort is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sort@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sort is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sort@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/sort is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sort@kvm` | diverged | 0.643 | record 492, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/sort@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/sort is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sort@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sort is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/split@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/split is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/split@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/split is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/split@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/split is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/split@kvm` | diverged | 0.380 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/split@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/split is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/split@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/split is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/sqlite3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sqlite3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sqlite3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sqlite3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sqlite3@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/sqlite3 is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sqlite3@kvm` | diverged | 0.417 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/sqlite3@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/sqlite3 is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sqlite3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sqlite3 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/ss@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ss is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/ss@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ss is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/ss@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ss is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ss@kvm` | diverged | 0.415 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/ss@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ss is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ss@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ss is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/stat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/stat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/stat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/stat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/stat@in-guest-trap` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/stat@liteinst` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/stat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/stat is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/stdbuf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/stdbuf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/stdbuf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/stdbuf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/stdbuf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/stdbuf is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/stdbuf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/stdbuf is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/stdbuf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/stdbuf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/strings@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/strings is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/strings@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/strings is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/strings@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/strings is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/strings@kvm` | diverged | 0.710 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/strings@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/strings is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/strings@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/strings is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/strip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/strip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/strip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/strip@kvm` | diverged | 0.211 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/strip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/strip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/strip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sum@in-guest-trap` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sum@liteinst` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/sync@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sync is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sync@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sync is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sync@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/sync is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sync@kvm` | diverged | 0.363 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/sync@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/sync is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sync@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sync is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/sysctl-random-uuid@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sysctl-random-uuid is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/sysctl-random-uuid@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sysctl-random-uuid is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/sysctl-random-uuid@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sysctl-random-uuid@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/sysctl-random-uuid is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/sysctl-random-uuid@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/sysctl-random-uuid@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sysctl-random-uuid is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/tac@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tac is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tac@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tac is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tac@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tac is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tac@kvm` | diverged | 0.736 | record 492, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/tac@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tac is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tac@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tac is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/tar@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tar is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tar@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tar is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tar@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tar is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tar@kvm` | diverged | 0.283 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/tar@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tar is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tar@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tar is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/tar-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tar-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tar-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tar-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tar-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tar-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tar-roundtrip@kvm` | diverged | 0.156 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/tar-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tar-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tar-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tar-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/taskset@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/taskset is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/taskset@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/taskset is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/taskset@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/taskset is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/taskset@kvm` | diverged | 0.941 | record 541, syscall 56: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/taskset@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/taskset is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/taskset@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/taskset is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/tcl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tcl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tcl@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tcl is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tcl@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tcl is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tcl@kvm` | diverged | 0.490 | record 486, syscall 16: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/tcl@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tcl is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tcl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tcl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/tee@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tee is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tee@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tee is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tee@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tee is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tee@kvm` | diverged | 0.748 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/tee@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tee is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tee@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tee is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/test@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/test is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/test@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/test is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/test@in-guest-trap` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/test@liteinst` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/test@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/test is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/time@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/time is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/time@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/time is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/time@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/time is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/time@kvm` | diverged | 0.360 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/time@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/time is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/time@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/time is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/top@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/top@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/top@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/top@kvm` | diverged | 0.372 (unequalized) | record 661, syscall 118: token 14: `Ok(130)` vs `Ok(111)` |
 | `compat/top@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/top@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/top is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/touch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/touch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/touch@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/touch@kvm` | diverged | 0.403 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/touch@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/touch@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/touch is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/tr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tr@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tr is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tr@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tr is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tr@kvm` | diverged | 0.756 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/tr@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tr is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tr@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tr is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/true@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/true is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/true@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/true is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/true@in-guest-trap` | diverged | 0.091 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/true@liteinst` | diverged | 0.091 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/true@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/true is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/truncate@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/truncate is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/truncate@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/truncate is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/truncate@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/truncate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/truncate@kvm` | diverged | 0.247 | record 534, syscall 83: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/truncate@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/truncate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/truncate@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/truncate is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/tsort@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tsort is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tsort@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tsort is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tsort@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tsort is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tsort@kvm` | diverged | 0.755 | record 489, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/tsort@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tsort is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tsort@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tsort is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/tty@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tty is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/tty@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/tty is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/tty@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tty is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tty@kvm` | diverged | 0.883 | record 584, syscall 51: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/tty@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tty is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tty@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tty is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/uname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/uname@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uname is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/uname@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/uname@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/uname@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/uname is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/unexpand@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/unexpand is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/unexpand@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/unexpand is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/unexpand@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/unexpand is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/unexpand@kvm` | diverged | 0.754 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/unexpand@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/unexpand is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/unexpand@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/unexpand is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/uniq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uniq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/uniq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uniq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/uniq@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/uniq is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/uniq@kvm` | diverged | 0.502 | record 508, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/uniq@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/uniq is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/uniq@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/uniq is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/uptime@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uptime is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/uptime@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uptime is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/uptime@in-guest-trap` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/uptime@liteinst` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/uptime@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/uptime is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/users@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/users is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/users@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/users is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/users@in-guest-trap` | diverged | 0.015 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/users@liteinst` | diverged | 0.015 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/users@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/users is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/uuidgen@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/uuidgen@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/uuidgen@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/uuidgen@kvm` | diverged | 0.730 | record 426, syscall 36: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/uuidgen@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/uuidgen@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/uuidgen is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/vmstat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/vmstat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/vmstat@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/vmstat is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/vmstat@in-guest-trap` | diverged | 0.023 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/vmstat@liteinst` | diverged | 0.023 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/vmstat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/vmstat is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/vmstat-disk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/vmstat-disk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/vmstat-disk@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/vmstat-disk is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/vmstat-disk@in-guest-trap` | diverged | 0.004 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/vmstat-disk@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/vmstat-disk is not enabled in the manifest, so it has no log to compare: Not in the 2026-10-13 KVM survey: its KVM verify cell was not green on the compatibility ledger |
 | `compat/vmstat-disk@liteinst` | diverged | 0.004 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/vmstat-disk@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/vmstat-disk is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/wc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/wc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/wc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/wc is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/wc@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/wc@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/wc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/wc is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/wc-lines@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/wc-lines is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/wc-lines@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/wc-lines is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/wc-lines@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/wc-lines@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/wc-lines@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/wc-lines is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/wget-localhost@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/wget-localhost is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/wget-localhost@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/wget-localhost is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/wget-localhost@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/wget-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/wget-localhost@kvm` | diverged | 0.135 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/wget-localhost@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/wget-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/wget-localhost@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/wget-localhost is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/whoami@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/whoami is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/whoami@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/whoami is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/whoami@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/whoami@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/whoami@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/whoami is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
-| `compat/xargs@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xargs is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/xargs@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xargs is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/xargs@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xargs is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xargs@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of compat/xargs is not enabled in the manifest, so it has no log to compare: Exceeded the default 22-second CPU budget in 10 of 10 KVM verify runs on 2026-10-13 |
 | `compat/xargs@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xargs is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xargs@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xargs is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/xmllint@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xmllint is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/xmllint@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xmllint is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/xmllint@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xmllint is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xmllint@kvm` | diverged | 0.272 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/xmllint@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xmllint is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xmllint@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xmllint is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/xxd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xxd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/xxd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xxd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/xxd@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xxd is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xxd@kvm` | diverged | 0.756 | record 486, syscall 46: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/xxd@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xxd is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xxd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xxd is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/xz@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xz is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/xz@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xz is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/xz@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xz is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xz@kvm` | diverged | 0.755 | record 742, syscall 113: token 9: `rt_sigprocmask(0,` vs `rt_sigaction(25,` |
 | `compat/xz@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xz is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xz@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xz is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/xz-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xz-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/xz-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/xz-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/xz-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xz-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xz-roundtrip@kvm` | diverged | 0.157 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/xz-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xz-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xz-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xz-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/yes@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/yes is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/yes@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/yes is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/yes@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/yes is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/yes@kvm` | diverged | 0.916 | record 717, syscall 76: token 28: `signal_state_task:` vs `decides_signal_interruption_itself:` |
 | `compat/yes@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/yes is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/yes@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/yes is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/zip-unzip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/zip-unzip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/zip-unzip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/zip-unzip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/zip-unzip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/zip-unzip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/zip-unzip@kvm` | diverged | 0.232 | record 526, syscall 51: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/zip-unzip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/zip-unzip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/zip-unzip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/zip-unzip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/zstd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/zstd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a focused run type's replay cell on ptrace |
+| `compat/zstd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/zstd is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/zstd@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/zstd is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/zstd@kvm` | diverged | 0.806 | record 907, syscall 2: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/zstd@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/zstd is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/zstd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/zstd is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
-| `compat/zstd-roundtrip@dbt` | unavailable[timeout] | — | the ptrace reference verify cell of compat/zstd-roundtrip ended ERROR with result timeout (wall-timeout): cell exceeded 60 wall s backstop (59 s CPU budget) |
-| `compat/zstd-roundtrip@in-guest-trap` | unavailable[timeout] | — | the ptrace reference verify cell of compat/zstd-roundtrip ended ERROR with result timeout (wall-timeout): cell exceeded 60 wall s backstop (59 s CPU budget) |
-| `compat/zstd-roundtrip@kvm` | unavailable[timeout] | — | the ptrace reference verify cell of compat/zstd-roundtrip ended ERROR with result timeout (wall-timeout): cell exceeded 60 wall s backstop (59 s CPU budget) |
-| `compat/zstd-roundtrip@liteinst` | unavailable[timeout] | — | the ptrace reference verify cell of compat/zstd-roundtrip ended ERROR with result timeout (wall-timeout): cell exceeded 60 wall s backstop (59 s CPU budget) |
-| `compat/zstd-roundtrip@sabre` | unavailable[timeout] | — | the ptrace reference verify cell of compat/zstd-roundtrip ended ERROR with result timeout (wall-timeout): cell exceeded 60 wall s backstop (59 s CPU budget) |
+| `compat/zstd-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/zstd-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
+| `compat/zstd-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/zstd-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
+| `compat/zstd-roundtrip@kvm` | diverged | 0.147 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/zstd-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/zstd-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
+| `compat/zstd-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/zstd-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `data-handling/archive-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of data-handling/archive-roundtrip is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `data-handling/archive-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/archive-roundtrip is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `data-handling/archive-roundtrip@kvm` | diverged | 0.239 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
@@ -6242,7 +6245,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/cpp-stl-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/example-python-random@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `language-runtimes/example-python-random@in-guest-trap` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `language-runtimes/example-python-random@kvm` | diverged | 0.189 | record 647, syscall 283: token 17: `1_792_538_353.106_256_895s` vs `1_792_538_353.106_256_875s` |
+| `language-runtimes/example-python-random@kvm` | diverged | 0.189 | record 647, syscall 283: token 17: `1_792_547_885.106_256_895s` vs `1_792_547_885.106_256_875s` |
 | `language-runtimes/example-python-random@liteinst` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `language-runtimes/example-python-random@sabre` | diverged | 0.003 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `language-runtimes/gawk-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: DBT awk support is tracked by backend compatibility |
@@ -6285,7 +6288,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/python-dict-hash-iteration@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-dict-hash-iteration is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/python-hash-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: DBT Python support is tracked by backend compatibility |
 | `language-runtimes/python-hash-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/python-hash-determinism@kvm` | diverged | 0.336 | record 1090, syscall 473: token 17: `1_792_538_353.115_084_865s` vs `1_792_538_353.115_084_845s` |
+| `language-runtimes/python-hash-determinism@kvm` | diverged | 0.336 | record 1090, syscall 473: token 17: `1_792_547_885.115_084_865s` vs `1_792_547_885.115_084_845s` |
 | `language-runtimes/python-hash-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: LiteInst Python support is tracked by backend compatibility |
 | `language-runtimes/python-hash-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: SaBRe and ptrace each reach L2, but consume different deterministic entropy positions at Python exec and produce different hash seeds and stdout |
 | `language-runtimes/python-hashseed@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-hashseed is not enabled in the manifest, so it has no log to compare: DBT Python support is tracked by backend compatibility |
@@ -6300,7 +6303,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/python-io-subprocess-time@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-io-subprocess-time is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/python-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: DBT Python support is tracked by backend compatibility |
 | `language-runtimes/python-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/python-random@kvm` | diverged | 0.284 | record 1090, syscall 473: token 17: `1_792_538_353.114_817_065s` vs `1_792_538_353.114_817_045s` |
+| `language-runtimes/python-random@kvm` | diverged | 0.284 | record 1090, syscall 473: token 17: `1_792_547_885.114_817_065s` vs `1_792_547_885.114_817_045s` |
 | `language-runtimes/python-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: LiteInst Python support is tracked by backend compatibility |
 | `language-runtimes/python-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/ruby-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/ruby-random is not enabled in the manifest, so it has no log to compare: DBT Ruby support is tracked by backend compatibility |
@@ -6427,12 +6430,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/proc-uptime@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/proc-uptime is not enabled in the manifest, so it has no log to compare: Under in-guest-trap, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/proc-uptime@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/proc-uptime is not enabled in the manifest, so it has no log to compare: Under in-guest LiteInst, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/proc-uptime@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/proc-uptime is not enabled in the manifest, so it has no log to compare: Under SaBRe this guest's verify matches, but the harness refuses the run because SaBRe used fallback or native sites for bash and the utilities it runs (https://github.com/rrnewton/hermit/issues/4477) |
-| `system-utils/procfs-sanitized-paths@dbt` | diverged | 0.003 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/procfs-sanitized-paths@dbt` | diverged | 0.003 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/procfs-sanitized-paths@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: Under in-guest-trap, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/procfs-sanitized-paths@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: KVM's own /proc refuses /proc/self/smaps with EACCES, so the guest fails (https://github.com/rrnewton/hermit/issues/4479, https://github.com/rrnewton/hermit/issues/4282) |
 | `system-utils/procfs-sanitized-paths@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: Under in-guest LiteInst, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/procfs-sanitized-paths@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: Under SaBRe this guest's verify matches, but the harness refuses the run because SaBRe used fallback or native sites for bash and the utilities it runs (https://github.com/rrnewton/hermit/issues/4477) |
-| `system-utils/ps-proc-table@dbt` | diverged | 0.001 | record 6, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/ps-proc-table@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/ps-proc-table@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under in-guest-trap, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/ps-proc-table@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: ps exits 1 with no output on KVM, whose own /proc cannot open a process's directory (https://github.com/rrnewton/hermit/issues/4479, https://github.com/rrnewton/hermit/issues/4282) |
 | `system-utils/ps-proc-table@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under in-guest LiteInst, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
@@ -6766,7 +6769,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 1234 other parity run(s) in the store
+### 1239 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -6811,6 +6814,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-0d25b6f7ef33-1791395825428422771-81284-b6735ff6` at Hermit `0d25b6f7ef33`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 1452: mean 0.153 over 1452 (207 full, 329 partial, 916 zero: candidate-not-enabled 841, candidate-not-selected 75); excluded: 756 reference without golden: no-result-row 756; 0 not compared; measured mean 0.413 over 536 [inputs equalized for 533 of 536 credited: mean 0.415 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-0d9198d8fa0f-1791706834256833838-1591717-1ae95a33` at Hermit `0d9198d8fa0f`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-0efddbbd1323-1792538849401893803-1215420-606a23ea` at Hermit `0efddbbd1323`: `parity: 314/2885 matched; selected 2885 of 2885 committed; population 2880: mean 0.166 over 2880 (314 full, 1311 partial, 1255 zero: candidate-not-enabled 1026, candidate-not-selected 229); excluded: 5 reference without golden: timeout 5; 0 not compared; measured mean 0.294 over 1625 [inputs equalized for 1619 of 1625 credited: mean 0.295 over 1619 with equal inputs; mean 0.101 over 6 with unequal inputs]`
+- validate run `validate-claude-coord-0efddbbd1323-1792540655002154579-252220-78234072` at Hermit `0efddbbd1323`: `parity: 314/2885 matched; selected 2885 of 2885 committed; population 2880: mean 0.166 over 2880 (314 full, 1310 partial, 1256 zero: ended 1, candidate-not-enabled 1026, candidate-not-selected 229); excluded: 5 reference without golden: timeout 5; 0 not compared; measured mean 0.294 over 1624 [inputs equalized for 1618 of 1624 credited: mean 0.295 over 1618 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-10406c4ab1e2-1792068326744710671-3901480-0836f81b` at Hermit `10406c4ab1e2`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.068 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-10ab6eb5fd93-1791874855076166888-2416846-62f54e6a` at Hermit `10ab6eb5fd93`: `parity: 252/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.126 over 2775 (252 full, 1331 partial, 1192 zero: candidate-not-enabled 934, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.221 over 1583 [inputs equalized for 1470 of 1583 credited: mean 0.236 over 1470 with equal inputs; mean 0.031 over 113 with unequal inputs]`
 - validate run `validate-claude-coord-10af3db2b34a-1792494595797254756-3797095-fb1ff206` at Hermit `10af3db2b34a`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1304 partial, 1269 zero: candidate-not-enabled 1029, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.295 over 1610 with equal inputs; mean 0.101 over 6 with unequal inputs]`
@@ -6908,6 +6912,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-445bca7fa564-1792402397253636997-311034-028be523` at Hermit `445bca7fa564`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1304 partial, 1269 zero: candidate-not-enabled 1029, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.295 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.295 over 1610 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-449c4666a2cb-1791680344136861821-3248484-008cfeb6` at Hermit `449c4666a2cb`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-465ea55701e0-1792221201951605148-3272217-788d1db2` at Hermit `465ea55701e0`: `parity: 319/2935 matched; selected 2935 of 2935 committed; population 2935: mean 0.166 over 2935 (319 full, 1352 partial, 1264 zero: candidate-not-enabled 1024, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.292 over 1671 [inputs equalized for 1664 of 1671 credited: mean 0.293 over 1664 with equal inputs; mean 0.094 over 7 with unequal inputs]`
+- validate run `validate-claude-coord-46d9473b7a7f-1792547517264307580-1645063-c486a500` at Hermit `46d9473b7a7f`: `parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.166 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-489051ee7fc9-1792105388356188557-2915333-e87d8c87` at Hermit `489051ee7fc9`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1381 partial, 1245 zero: candidate-not-enabled 1005, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.267 over 1680 [inputs equalized for 1673 of 1680 credited: mean 0.268 over 1673 with equal inputs; mean 0.067 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-4911b28fe127-1791694726413311021-1880290-17405e3d` at Hermit `4911b28fe127`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-4a93c7e1a7e8-1791282958274858275-2460570-316f556e` at Hermit `4a93c7e1a7e8`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
@@ -7071,6 +7076,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-a44778b383d2-1791410351084918487-4075454-559de54e` at Hermit `a44778b383d2`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.100 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.413 over 536 [inputs equalized for 533 of 536 credited: mean 0.415 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-a47cbc73d1b0-1791486231026173690-1540975-d30a6d34` at Hermit `a47cbc73d1b0`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2204: mean 0.138 over 2204 (248 full, 525 partial, 1431 zero: candidate-not-enabled 1171, candidate-not-selected 260); excluded: 4 reference without golden: ended 4; 0 not compared; measured mean 0.392 over 773 [inputs equalized for 770 of 773 credited: mean 0.394 over 770 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-a4a0f4bee83f-1792012278706073726-3482227-38dcae1a` at Hermit `a4a0f4bee83f`: `parity: 300/2920 matched; selected 2920 of 2920 committed; population 2920: mean 0.153 over 2920 (300 full, 1333 partial, 1287 zero: candidate-not-enabled 1004, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.274 over 1633 [inputs equalized for 1626 of 1633 credited: mean 0.274 over 1626 with equal inputs; mean 0.068 over 7 with unequal inputs]`
+- validate run `validate-claude-coord-a615b7cb294f-1792545330206043749-2591293-af8222eb` at Hermit `a615b7cb294f`: `parity: 314/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.166 over 2885 (314 full, 1312 partial, 1259 zero: candidate-not-enabled 1029, candidate-not-selected 230); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1626 [inputs equalized for 1620 of 1626 credited: mean 0.295 over 1620 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-a75953044674-1791382747744484271-2736135-69b20db3` at Hermit `a75953044674`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-a9c72e9995d7-1791248877111356256-3751051-adb4667c` at Hermit `a9c72e9995d7`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-aa3f7ee06624-1791700674501575051-1485236-0b6eb539` at Hermit `aa3f7ee06624`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
@@ -7586,12 +7592,14 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-02b38932c742-d089fd13931f` at Hermit `02b38932c742`: `parity: 319/2935 matched; selected 2935 of 2935 committed; population 2935: mean 0.166 over 2935 (319 full, 1352 partial, 1264 zero: candidate-not-enabled 1024, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.292 over 1671 [inputs equalized for 1664 of 1671 credited: mean 0.293 over 1664 with equal inputs; mean 0.092 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-0369cdae1786-a50d6548d6ea` at Hermit `0369cdae1786`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1304 partial, 1269 zero: candidate-not-enabled 1029, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.295 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.295 over 1610 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-061d997d9ef1-9eaacd2a8399` at Hermit `061d997d9ef1`: `parity: 242/2905 matched; selected 2905 of 2905 committed; population 2905: mean 0.122 over 2905 (242 full, 1385 partial, 1278 zero: candidate-not-enabled 995, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.217 over 1627 [inputs equalized for 1512 of 1627 credited: mean 0.231 over 1512 with equal inputs; mean 0.031 over 115 with unequal inputs]`
+- validate run `validate-ops-tick-0640d53332ce-f9ef543a748f` at Hermit `0640d53332ce`: `parity: 314/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.166 over 2885 (314 full, 1312 partial, 1259 zero: candidate-not-enabled 1029, candidate-not-selected 230); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1626 [inputs equalized for 1620 of 1626 credited: mean 0.295 over 1620 with equal inputs; mean 0.090 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-068fb0986f3e-72c48b35d9b6` at Hermit `068fb0986f3e`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1304 partial, 1269 zero: candidate-not-enabled 1029, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.295 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.295 over 1610 with equal inputs; mean 0.092 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-0889c52b2e21-ce7ef4e075e6` at Hermit `0889c52b2e21`: `parity: 250/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.124 over 2775 (250 full, 1149 partial, 1376 zero: candidate-not-enabled 1118, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.246 over 1399 [inputs equalized for 1360 of 1399 credited: mean 0.251 over 1360 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-ops-tick-0923c6a175c8-f29462336bdb` at Hermit `0923c6a175c8`: `parity: 250/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.124 over 2775 (250 full, 1149 partial, 1376 zero: candidate-not-enabled 1118, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.246 over 1399 [inputs equalized for 1360 of 1399 credited: mean 0.251 over 1360 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-ops-tick-0d52184a301c-e196a3721450` at Hermit `0d52184a301c`: `parity: 250/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.124 over 2775 (250 full, 1149 partial, 1376 zero: candidate-not-enabled 1118, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.246 over 1399 [inputs equalized for 1360 of 1399 credited: mean 0.251 over 1360 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-ops-tick-0d7f16f39c6a-9adfe6b42c49` at Hermit `0d7f16f39c6a`: `parity: 300/2920 matched; selected 2920 of 2920 committed; population 2920: mean 0.153 over 2920 (300 full, 1333 partial, 1287 zero: candidate-not-enabled 1004, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1633 [inputs equalized for 1626 of 1633 credited: mean 0.274 over 1626 with equal inputs; mean 0.064 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-0de6cecd8f73-2e3e645bb671` at Hermit `0de6cecd8f73`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1304 partial, 1269 zero: candidate-not-enabled 1029, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.295 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.295 over 1610 with equal inputs; mean 0.101 over 6 with unequal inputs]`
+- validate run `validate-ops-tick-0efddbbd1323-f665199041a6` at Hermit `0efddbbd1323`: `parity: 314/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.166 over 2885 (314 full, 1311 partial, 1260 zero: determinism-mismatch 1, candidate-not-enabled 1029, candidate-not-selected 230); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1625 [inputs equalized for 1619 of 1625 credited: mean 0.295 over 1619 with equal inputs; mean 0.090 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-0f028322361f-75248bd48fcd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; population 187: mean 0.054 over 187 (0 full, 184 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 184`
 - validate run `validate-ops-tick-0f028322361f-a6fa2a143efd` at Hermit `0f028322361f`: `parity: 0/203 matched; selected 203 of 203 committed; population 187: mean 0.054 over 187 (0 full, 184 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.055 over 184`
 - validate run `validate-ops-tick-10406c4ab1e2-0fd8772e1aa5` at Hermit `10406c4ab1e2`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.064 over 7 with unequal inputs]`
