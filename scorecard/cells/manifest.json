@@ -1,15 +1,15 @@
 {
-  "bytes": 38193779,
+  "bytes": 38365541,
   "part_max_bytes": 50331648,
   "parts": [
     {
-      "bytes": 38193779,
+      "bytes": 38365541,
       "path": "scorecard/cells/part-0000",
-      "sha256": "6c839057b089ed4fa3ce567b3d9f0314312be4bdddeb7d1c5c7c7239adb17c91"
+      "sha256": "dfb8a8d009f72b60b03b086a4ca551ac2cbbdbf541c53348e2bf88f2d3d846d2"
     }
   ],
-  "parts_commit": "f9ac37a7607093f7817eafdb7775d896612c47a7",
+  "parts_commit": "eca71832a64987889669b7a1440f40373946d384",
   "path": "scorecard/cells.json",
   "schema": "hermit-test-ledger-scorecard-cells/v2",
-  "sha256": "6c839057b089ed4fa3ce567b3d9f0314312be4bdddeb7d1c5c7c7239adb17c91"
+  "sha256": "dfb8a8d009f72b60b03b086a4ca551ac2cbbdbf541c53348e2bf88f2d3d846d2"
 }

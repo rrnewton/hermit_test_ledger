@@ -1,6 +1,6 @@
 # Compatibility scorecard
 
-Last regenerated **2026-10-21T02:22:22Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `38d3702ebe01c3c58768e737ecc93c2cd90e232a`, reading 2849560 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-ops-tick-7648e94e84f5-a26c503a66a6` (294). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (670), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (669), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), `validate-liteinst-lane-claude-20260927-inodes-78e69b8de6d1-1790665034398292621-2080784-da1f272e` current (274), and 41 more.
+Last regenerated **2026-10-21T04:54:26Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `7c733664444371f246df37dad5cd5823a124faeb`, reading 2864398 series row(s). Validate run published in this series snapshot, with its cell comparisons: `validate-tick-buck-cargo-repro-9b30cb9a9e32-20261021T044831Z` (294). Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (670), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (669), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), `validate-liteinst-lane-claude-20260927-inodes-78e69b8de6d1-1790665034398292621-2080784-da1f272e` current (274), and 41 more.
 
 This table is derived from the manifest, not from a separately maintained parent-workspace CSV. `./ci/compat-envelope/scorecard.rs check` verifies it.
 
@@ -3894,18 +3894,18 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. The **population** is every test whose ptrace `verify` cell full validation selects, crossed with every candidate backend, so it is the verify matrix itself. Every population cell is scored: a measured cell earns its credit, and a candidate that is not enabled, not selected, left no row or log, timed out, crashed, failed or diverged between its own two runs, a comparison the parity tool could not make, a record-missing cell and a refused cell each score 0 and are counted. **Population mean** divides the credit sum by every population cell (N), zeros included; **Full**, **Partial** and **Zero** count the cells with credit 1, between 0 and 1, and 0. A cell whose ptrace reference left no usable golden log has nothing to compare against: it is outside the population, counted under **Excluded (reference)**, and so is a historical **not compared** dbt cell. In a pressure-test run, which executes a sample, a candidate full validation runs but the sample did not plan is **not sampled**: outside that run's population, counted on its line apart, never 0. **Mean credit (measured)** divides the credit sum by the measured (matched plus diverged) cells only. A mean over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C population cells it owes, and a run that reported fewer is marked partial. Credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is.
 
 
-### validate run `validate-ops-tick-7648e94e84f5-a26c503a66a6` at `7648e94e84f5`
+### validate run `validate-tick-buck-cargo-repro-9b30cb9a9e32-20261021T044831Z` at `9b30cb9a9e32`
 
-`parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.166 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.101 over 6 with unequal inputs]`
+`parity: 63/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.097 over 2890 (63 full, 1566 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.172 over 1629 [inputs equalized for 1379 of 1629 credited: mean 0.197 over 1379 with equal inputs; mean 0.033 over 250 with unequal inputs]`
 
 | Candidate backend | Selected | Population | Population mean | Full | Partial | Zero | Excluded (reference) | Not compared | Measured | Matched | Mean credit (measured) | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 578 of 578 | 578 | 0.013 | 0 | 246 | 332 | 0 | 0 | 246 | 0 | 0.030 | equalized for 245 of 246 (mean 0.030 equal; 0.040 unequal) |
-| `in-guest-trap` | 578 of 578 | 578 | 0.032 | 0 | 301 | 277 | 0 | 0 | 301 | 0 | 0.062 | equalized |
-| `kvm` | 578 of 578 | 578 | 0.725 | 314 | 232 | 32 | 0 | 0 | 546 | 314 | 0.767 | equalized for 543 of 546 (mean 0.770 equal; 0.175 unequal) |
-| `liteinst` | 578 of 578 | 578 | 0.032 | 0 | 302 | 276 | 0 | 0 | 302 | 0 | 0.061 | equalized for 300 of 302 (mean 0.062 equal; 0.021 unequal) |
-| `sabre` | 578 of 578 | 578 | 0.026 | 0 | 234 | 344 | 0 | 0 | 234 | 0 | 0.065 | equalized |
-| **TOTAL** | 2890 of 2890 | 2890 | 0.166 | 314 | 1315 | 1261 | 0 | 0 | 1629 | 314 | 0.294 | equalized for 1623 of 1629 (mean 0.294 equal; 0.101 unequal) |
+| `dbt` | 578 of 578 | 578 | 0.014 | 0 | 246 | 332 | 0 | 0 | 246 | 0 | 0.032 | not equalized |
+| `in-guest-trap` | 578 of 578 | 578 | 0.035 | 0 | 301 | 277 | 0 | 0 | 301 | 0 | 0.067 | equalized |
+| `kvm` | 578 of 578 | 578 | 0.372 | 63 | 483 | 32 | 0 | 0 | 546 | 63 | 0.393 | equalized for 544 of 546 (mean 0.394 equal; 0.114 unequal) |
+| `liteinst` | 578 of 578 | 578 | 0.035 | 0 | 302 | 276 | 0 | 0 | 302 | 0 | 0.066 | equalized for 300 of 302 (mean 0.067 equal; 0.021 unequal) |
+| `sabre` | 578 of 578 | 578 | 0.029 | 0 | 234 | 344 | 0 | 0 | 234 | 0 | 0.071 | equalized |
+| **TOTAL** | 2890 of 2890 | 2890 | 0.097 | 63 | 1566 | 1261 | 0 | 0 | 1629 | 63 | 0.172 | equalized for 1379 of 1629 (mean 0.197 equal; 0.033 unequal) |
 
 Cells that were not measured, by class: a cell whose ptrace reference left no golden is excluded from the population; every other one scores 0 and is counted.
 
@@ -3914,7 +3914,7 @@ Cells that were not measured, by class: a cell whose ptrace reference left no go
 | `candidate-not-enabled` | candidate not run | 0 | 330 | 277 | 31 | 276 | 116 | 1030 |
 | `candidate-not-selected` | candidate not run | 0 | 2 | 0 | 1 | 0 | 228 | 231 |
 
-Most common first divergence: 603 of 1315 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/example-timed-progress-bar@in-guest-trap`).
+Most common first divergence: 603 of 1566 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/example-timed-progress-bar@in-guest-trap`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
@@ -3922,941 +3922,1112 @@ Every cell that did not match, with its first divergence or the reason it was no
 | --- | --- | ---: | --- |
 | `applications/c-toolchain-workflow@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of applications/c-toolchain-workflow is not enabled in the manifest, so it has no log to compare: Establish the shared C toolchain transaction on the ptrace reference path before backend ratchets |
 | `applications/c-toolchain-workflow@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of applications/c-toolchain-workflow is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `applications/c-toolchain-workflow@kvm` | diverged | 0.052 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `applications/c-toolchain-workflow@kvm` | diverged | 0.007 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `applications/c-toolchain-workflow@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of applications/c-toolchain-workflow is not enabled in the manifest, so it has no log to compare: LiteInst multi-exec toolchain qualification must ratchet after the ptrace reference path |
 | `applications/c-toolchain-workflow@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/c-toolchain-workflow is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec toolchain qualification must ratchet after the ptrace reference path |
-| `applications/example-timed-progress-bar@dbt` | diverged | 0.000 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `applications/example-timed-progress-bar@dbt` | diverged | 0.000 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `applications/example-timed-progress-bar@in-guest-trap` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `applications/example-timed-progress-bar@kvm` | candidate-missing[candidate-not-selected] | — | the kvm candidate verify cell of applications/example-timed-progress-bar is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained an understood infrastructure failure; this cell did not pass every repetition cleanly. Retained detail: verification recorded no comparison at all (verdict=no_result), so there is no canonical INFO evidence to admit |
 | `applications/example-timed-progress-bar@liteinst` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `applications/example-timed-progress-bar@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/example-timed-progress-bar is not enabled in the manifest, so it has no log to compare: SaBRe does not yet determinize busy-wait polling on virtual wall-clock advancement; keep the identical example workload unqualified |
 | `applications/git-repository-workflow@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: Establish the shared Git transaction on the ptrace reference path before backend ratchets |
 | `applications/git-repository-workflow@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `applications/git-repository-workflow@kvm` | diverged | 0.041 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `applications/git-repository-workflow@kvm` | diverged | 0.007 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `applications/git-repository-workflow@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: LiteInst multi-exec Git qualification must ratchet after the ptrace reference path |
 | `applications/git-repository-workflow@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/git-repository-workflow is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec Git qualification must ratchet after the ptrace reference path |
-| `applications/timed-progress-bar@dbt` | diverged | 0.000 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `applications/timed-progress-bar@dbt` | diverged | 0.000 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `applications/timed-progress-bar@in-guest-trap` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `applications/timed-progress-bar@kvm` | diverged | 0.022 | record 649, syscall 284: token 17: `1_792_547_885.106_257_215s` vs `1_792_547_885.106_257_195s` |
+| `applications/timed-progress-bar@kvm` | diverged | 0.001 | record 34, syscall 10: token 19: `Ok(140737346404352)` vs `Ok(140737345748992)` |
 | `applications/timed-progress-bar@liteinst` | diverged | 0.000 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `applications/timed-progress-bar@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of applications/timed-progress-bar is not enabled in the manifest, so it has no log to compare: SaBRe does not yet determinize busy-wait polling on virtual wall-clock advancement; main validation has observed verify failure under load |
-| `bin-c/posix-timer-test@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `bin-c/posix-timer-test@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `bin-c/posix-timer-test@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of bin-c/posix-timer-test is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `bin-c/posix-timer-test@kvm` | diverged | 0.748 | record 105, syscall 36: token 2: `detcore::scheduler:` vs `detcore:` |
+| `bin-c/posix-timer-test@kvm` | diverged | 0.315 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `bin-c/posix-timer-test@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of bin-c/posix-timer-test is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
-| `bin-c/posix-timer-test@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `bin-c/posix-timer-test@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `bin-c/robust-futex-test@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of bin-c/robust-futex-test is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `bin-c/robust-futex-test@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of bin-c/robust-futex-test is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `bin-c/robust-futex-test@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of bin-c/robust-futex-test is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify KVM separately |
 | `bin-c/robust-futex-test@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of bin-c/robust-futex-test is not enabled in the manifest, so it has no log to compare: The LiteInst host-hybrid backend refuses clone3 with ENOTSUPP before the guest creates its first thread, so this multi-threaded guest cannot run there yet; unrelated to robust-futex owner death |
 | `bin-c/robust-futex-test@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of bin-c/robust-futex-test is not enabled in the manifest, so it has no log to compare: Robust-futex owner-death wakeup exercises core Detcore scheduling and currently times out under SaBRe; owner review is required |
-| `c-programs/acct-refusal-probe@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/acct-refusal-probe@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/acct-refusal-probe@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/acct-refusal-probe@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/add-key-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/add-key-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/add-key-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/add-key-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/adjtimex-deterministic@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/adjtimex-deterministic@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/adjtimex-deterministic@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/adjtimex-deterministic@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/aio-refusal@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/aio-refusal@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/aio-refusal@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/aio-refusal@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/append-pwrite@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/append-pwrite@in-guest-trap` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/append-pwrite@liteinst` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/append-pwrite@sabre` | diverged | 0.058 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/acct-refusal-probe@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/acct-refusal-probe@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/acct-refusal-probe@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/acct-refusal-probe@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/acct-refusal-probe@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/add-key-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/add-key-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/add-key-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/add-key-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/add-key-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/adjtimex-deterministic@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/adjtimex-deterministic@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/adjtimex-deterministic@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/adjtimex-deterministic@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/adjtimex-deterministic@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/aio-refusal@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/aio-refusal@in-guest-trap` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/aio-refusal@kvm` | diverged | 0.368 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/aio-refusal@liteinst` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/aio-refusal@sabre` | diverged | 0.085 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/append-pwrite@dbt` | diverged | 0.028 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/append-pwrite@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/append-pwrite@kvm` | diverged | 0.273 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/append-pwrite@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/append-pwrite@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/arch-prctl-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/arch-prctl-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/arch-prctl-determinism@in-guest-trap` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/arch-prctl-determinism@liteinst` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/arch-prctl-determinism@in-guest-trap` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/arch-prctl-determinism@kvm` | diverged | 0.264 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/arch-prctl-determinism@liteinst` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/arch-prctl-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/arch-prctl-determinism is not enabled in the manifest, so it has no log to compare: Path evidence found one raw libc syscall site per execution; trusted shared-object native execution is not SaBRe support |
-| `c-programs/bind-getsockname@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/bind-getsockname@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/bind-getsockname@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/bind-getsockname@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/bpf-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/bpf-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/bpf-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/bpf-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/cachestat-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cachestat-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cachestat-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cachestat-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/cachestat-refusal@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cachestat-refusal@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cachestat-refusal@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cachestat-refusal@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/capability-set-prctls@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/capability-set-prctls@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/capability-set-prctls@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/capability-set-prctls@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/bind-getsockname@dbt` | diverged | 0.037 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/bind-getsockname@in-guest-trap` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/bind-getsockname@kvm` | diverged | 0.358 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/bind-getsockname@liteinst` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/bind-getsockname@sabre` | diverged | 0.083 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/bpf-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/bpf-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/bpf-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/bpf-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/bpf-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/cachestat-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/cachestat-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cachestat-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/cachestat-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cachestat-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/cachestat-refusal@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/cachestat-refusal@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cachestat-refusal@kvm` | diverged | 0.317 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/cachestat-refusal@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cachestat-refusal@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/capability-set-prctls@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/capability-set-prctls@in-guest-trap` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/capability-set-prctls@kvm` | diverged | 0.342 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/capability-set-prctls@liteinst` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/capability-set-prctls@sabre` | diverged | 0.079 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/child-subreaper-support@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: DBT refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); Detcore does not track its process children |
 | `c-programs/child-subreaper-support@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: In-guest LiteInst refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); its asynchronous exits are outside the re-parenting wait model |
 | `c-programs/child-subreaper-support@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: KVM refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); it emulates child waits itself, without re-parenting |
 | `c-programs/child-subreaper-support@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: LiteInst refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); its asynchronous exits are outside the re-parenting wait model |
 | `c-programs/child-subreaper-support@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/child-subreaper-support is not enabled in the manifest, so it has no log to compare: SaBRe refuses the subreaper prctls with ENOSYS (c-programs/child-subreaper-refusal); it reports physical process exits separately, outside the re-parenting wait model |
-| `c-programs/clock-adjtime-deterministic@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/clock-adjtime-deterministic@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/clock-adjtime-deterministic@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/clock-adjtime-deterministic@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/clock-adjtime-deterministic@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/clock-adjtime-deterministic@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/clock-adjtime-deterministic@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/clock-adjtime-deterministic@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/clock-adjtime-deterministic@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/clone@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/clone is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/clone@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/clone is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/clone@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/clone is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify KVM separately |
 | `c-programs/clone@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/clone is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/clone@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/clone is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/close-range-fds@dbt` | diverged | 0.027 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/close-range-fds@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/close-range-fds@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/close-range-fds@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/close-range-fds@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/close-range-fds@kvm` | diverged | 0.287 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/close-range-fds@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/close-range-fds@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/close-range-fds is not enabled in the manifest, so it has no log to compare: Not evaluated in the source backend-parity matrix; qualify SaBRe separately |
-| `c-programs/copy-file-range-refusal@dbt` | diverged | 0.027 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/copy-file-range-refusal@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/copy-file-range-refusal@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/copy-file-range-refusal@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/copy-file-range-refusal-probe@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/copy-file-range-refusal-probe@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/copy-file-range-refusal-probe@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/copy-file-range-refusal-probe@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/cpu-virtualization@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cpu-virtualization@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cpu-virtualization@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cpu-virtualization@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/cpuid-probe@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cpuid-probe@in-guest-trap` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cpuid-probe@kvm` | diverged | 0.416 | record 43, syscall 13: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
-| `c-programs/cpuid-probe@liteinst` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/copy-file-range-refusal@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/copy-file-range-refusal@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/copy-file-range-refusal@kvm` | diverged | 0.283 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/copy-file-range-refusal@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/copy-file-range-refusal@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/copy-file-range-refusal-probe@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/copy-file-range-refusal-probe@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/copy-file-range-refusal-probe@kvm` | diverged | 0.345 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/copy-file-range-refusal-probe@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/copy-file-range-refusal-probe@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/cpu-virtualization@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/cpu-virtualization@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cpu-virtualization@kvm` | diverged | 0.379 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/cpu-virtualization@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cpu-virtualization@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/cpuid-probe@dbt` | diverged | 0.041 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/cpuid-probe@in-guest-trap` | diverged | 0.092 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cpuid-probe@kvm` | diverged | 0.398 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/cpuid-probe@liteinst` | diverged | 0.092 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/cpuid-probe@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/cpuid-probe is not enabled in the manifest, so it has no log to compare: SaBRe does not virtualize CPUID; this oracle requires Hermit's synthetic CPU identity |
-| `c-programs/cwd-roundtrip@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/cwd-roundtrip@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cwd-roundtrip@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/cwd-roundtrip@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/dbt-copied-tiocgpgrp@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/dbt-copied-tiocgpgrp@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-copied-tiocgpgrp@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-copied-tiocgpgrp@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/dbt-exec-failure@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/cwd-roundtrip@dbt` | diverged | 0.030 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/cwd-roundtrip@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cwd-roundtrip@kvm` | diverged | 0.295 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/cwd-roundtrip@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/cwd-roundtrip@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-copied-tiocgpgrp@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/dbt-copied-tiocgpgrp@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-copied-tiocgpgrp@kvm` | diverged | 0.312 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/dbt-copied-tiocgpgrp@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-copied-tiocgpgrp@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-exec-failure@dbt` | diverged | 0.030 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/dbt-exec-failure@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/dbt-exec-failure is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/dbt-exec-failure@kvm` | diverged | 0.436 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/dbt-exec-failure@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/dbt-exec-failure is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/dbt-exec-failure@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-exec-failure@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/dbt-execveat-unsupported@dbt` | candidate-missing[candidate-not-selected] | — | the dbt candidate verify cell of c-programs/dbt-execveat-unsupported is enabled but not selected by full validation, so it has no log to compare: Canonical full validation could not start either DBT attempt because this backend cannot isolate the required /test workdir; this is an infrastructure result, not a product divergence. |
 | `c-programs/dbt-execveat-unsupported@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/dbt-execveat-unsupported is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/dbt-execveat-unsupported@kvm` | diverged | 0.147 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/dbt-execveat-unsupported@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/dbt-execveat-unsupported is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/dbt-execveat-unsupported@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/dbt-execveat-unsupported is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
-| `c-programs/dbt-mmap-exec@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/dbt-mmap-exec@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-mmap-exec@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-mmap-exec@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-mmap-exec@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/dbt-mmap-exec@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-mmap-exec@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/dbt-mmap-exec@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-mmap-exec@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/dbt-pid-virtualization@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/dbt-pid-virtualization is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/dbt-pid-virtualization@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/dbt-pid-virtualization is not enabled in the manifest, so it has no log to compare: The in-guest runtime cannot replace the process image, so it refuses execve and execveat with a typed refusal that ends the run (test-unify, 2026-10-16); this guest execs a child after vfork, so its run is refused. It passed before only because that exec failed with EOPNOTSUPP in both verify runs and the exec'd image never ran. |
-| `c-programs/dbt-pid-virtualization@kvm` | diverged | 0.519 | record 331, syscall 44: token 11: `1024)` vs `4096)` |
+| `c-programs/dbt-pid-virtualization@kvm` | diverged | 0.071 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/dbt-pid-virtualization@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/dbt-pid-virtualization is not enabled in the manifest, so it has no log to compare: The in-guest runtime cannot replace the process image, so it refuses execve and execveat with a typed refusal that ends the run (test-unify, 2026-10-16); this guest execs a child after vfork, so its run is refused. It passed before only because that exec failed with EOPNOTSUPP in both verify runs and the exec'd image never ran. |
 | `c-programs/dbt-pid-virtualization@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/dbt-pid-virtualization is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `c-programs/dbt-prlimit-self@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/dbt-prlimit-self is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/dbt-prlimit-self@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-prlimit-self@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-prlimit-self@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/dbt-self-sigqueue@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/dbt-prlimit-self@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-prlimit-self@kvm` | diverged | 0.423 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/dbt-prlimit-self@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-prlimit-self@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-self-sigqueue@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/dbt-self-sigqueue@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/dbt-self-sigqueue is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/dbt-self-sigqueue@kvm` | diverged | 0.342 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/dbt-self-sigqueue@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/dbt-self-sigqueue is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/dbt-self-sigqueue@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/dbt-wait-accounting@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/dbt-wait-accounting@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-wait-accounting@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dbt-wait-accounting@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/dbt-wait-lifecycle@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/dbt-self-sigqueue@sabre` | diverged | 0.079 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-wait-accounting@dbt` | diverged | 0.023 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/dbt-wait-accounting@in-guest-trap` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-wait-accounting@kvm` | diverged | 0.328 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/dbt-wait-accounting@liteinst` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dbt-wait-accounting@sabre` | diverged | 0.051 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-wait-lifecycle@dbt` | diverged | 0.022 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/dbt-wait-lifecycle@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/dbt-wait-lifecycle is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/dbt-wait-lifecycle@kvm` | diverged | 0.656 | record 109, syscall 34: token 3: `[dtid` vs `[sched-step5]` |
+| `c-programs/dbt-wait-lifecycle@kvm` | diverged | 0.320 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/dbt-wait-lifecycle@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/dbt-wait-lifecycle is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/dbt-wait-lifecycle@sabre` | diverged | 0.055 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/dup-shared-offset@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/dup-shared-offset@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dup-shared-offset@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/dup-shared-offset@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dbt-wait-lifecycle@sabre` | diverged | 0.050 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/dup-shared-offset@dbt` | diverged | 0.027 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/dup-shared-offset@in-guest-trap` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dup-shared-offset@kvm` | diverged | 0.265 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/dup-shared-offset@liteinst` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/dup-shared-offset@sabre` | diverged | 0.061 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/environment-and-workdir@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/environment-and-workdir is not enabled in the manifest, so it has no log to compare: DBT does not enter the per-cell /test mount namespace |
-| `c-programs/environment-and-workdir@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/environment-and-workdir@kvm` | diverged | 0.323 | record 43, syscall 13: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
-| `c-programs/environment-and-workdir@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/environment-and-workdir@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/environment-and-workdir@kvm` | diverged | 0.307 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/environment-and-workdir@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/environment-and-workdir@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/environment-and-workdir is not enabled in the manifest, so it has no log to compare: Canonical SaBRe verification has not been qualified for this environment-control fixture |
 | `c-programs/epoll-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/epoll-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/epoll-determinism@in-guest-trap` | diverged | 0.052 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/epoll-determinism@liteinst` | diverged | 0.052 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/epoll-determinism@sabre` | diverged | 0.052 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/epoll-pwait2@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/epoll-pwait2@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/epoll-pwait2@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/epoll-pwait2@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/epoll-readiness@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/epoll-readiness@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/epoll-readiness@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/epoll-readiness@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/epoll-determinism@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/epoll-determinism@kvm` | diverged | 0.324 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/epoll-determinism@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/epoll-determinism@sabre` | diverged | 0.050 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/epoll-pwait2@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/epoll-pwait2@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/epoll-pwait2@kvm` | diverged | 0.315 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/epoll-pwait2@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/epoll-pwait2@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/epoll-readiness@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/epoll-readiness@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/epoll-readiness@kvm` | diverged | 0.320 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/epoll-readiness@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/epoll-readiness@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/event-delivery-ordering@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/event-delivery-ordering is not enabled in the manifest, so it has no log to compare: Measured: the guest produces NO stdout and the run is killed at 150s under --backend dbi, so the event-delivery legs never complete there. Observed gap, not diagnosed by this change |
-| `c-programs/event-delivery-ordering@in-guest-trap` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/event-delivery-ordering@liteinst` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/event-delivery-ordering@sabre` | diverged | 0.046 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/eventfd-semantics@dbt` | diverged | 0.022 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/eventfd-semantics@in-guest-trap` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/eventfd-semantics@liteinst` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/eventfd-semantics@sabre` | diverged | 0.049 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/exec-pipe-state@dbt` | diverged | 0.004 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/event-delivery-ordering@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/event-delivery-ordering@kvm` | diverged | 0.215 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/event-delivery-ordering@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/event-delivery-ordering@sabre` | diverged | 0.050 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/eventfd-semantics@dbt` | diverged | 0.024 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/eventfd-semantics@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/eventfd-semantics@kvm` | diverged | 0.232 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/eventfd-semantics@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/eventfd-semantics@sabre` | diverged | 0.054 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/exec-pipe-state@dbt` | diverged | 0.005 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/exec-pipe-state@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/exec-pipe-state is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/exec-pipe-state@kvm` | diverged | 0.450 | record 403, syscall 37: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `c-programs/exec-pipe-state@kvm` | diverged | 0.047 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/exec-pipe-state@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/exec-pipe-state is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; LiteInst ratchets against it separately |
 | `c-programs/exec-pipe-state@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/exec-pipe-state is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; SaBRe ratchets against it separately |
-| `c-programs/faccessat2-flags@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/faccessat2-flags@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/faccessat2-flags@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/faccessat2-flags@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/fadvise-hints@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fadvise-hints@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fadvise-hints@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fadvise-hints@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/fallocate-extents@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fallocate-extents@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fallocate-extents@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fallocate-extents@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/fchmod-bits@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fchmod-bits@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fchmod-bits@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fchmod-bits@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/fchmodat2-flags@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fchmodat2-flags@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fchmodat2-flags@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fchmodat2-flags@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/fcntl-owner@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fcntl-owner@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fcntl-owner@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fcntl-owner@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/fd-duplication@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fd-duplication@in-guest-trap` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fd-duplication@liteinst` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fd-duplication@sabre` | diverged | 0.051 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/file-backed-mmap@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/file-backed-mmap@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/file-backed-mmap@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/file-backed-mmap@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/file-io-roundtrip@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/file-io-roundtrip@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/file-io-roundtrip@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/file-io-roundtrip@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/flock-lifecycle@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/flock-lifecycle@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/faccessat2-flags@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/faccessat2-flags@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/faccessat2-flags@kvm` | diverged | 0.298 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/faccessat2-flags@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/faccessat2-flags@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/fadvise-hints@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fadvise-hints@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fadvise-hints@kvm` | diverged | 0.317 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/fadvise-hints@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fadvise-hints@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/fallocate-extents@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fallocate-extents@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fallocate-extents@kvm` | diverged | 0.302 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/fallocate-extents@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fallocate-extents@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/fchmod-bits@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fchmod-bits@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fchmod-bits@kvm` | diverged | 0.300 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/fchmod-bits@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fchmod-bits@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/fchmodat2-flags@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fchmodat2-flags@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fchmodat2-flags@kvm` | diverged | 0.300 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/fchmodat2-flags@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fchmodat2-flags@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/fcntl-owner@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fcntl-owner@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fcntl-owner@kvm` | diverged | 0.325 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/fcntl-owner@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fcntl-owner@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/fd-duplication@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fd-duplication@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fd-duplication@kvm` | diverged | 0.241 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/fd-duplication@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fd-duplication@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/file-backed-mmap@dbt` | diverged | 0.030 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/file-backed-mmap@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/file-backed-mmap@kvm` | diverged | 0.295 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/file-backed-mmap@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/file-backed-mmap@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/file-io-roundtrip@dbt` | diverged | 0.027 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/file-io-roundtrip@in-guest-trap` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/file-io-roundtrip@kvm` | diverged | 0.265 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/file-io-roundtrip@liteinst` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/file-io-roundtrip@sabre` | diverged | 0.061 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/flock-lifecycle@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/flock-lifecycle@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/flock-lifecycle@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/flock-lifecycle is not enabled in the manifest, so it has no log to compare: KVM refuses every flock lock operation by name (ENOSYS with the typed refusal UnsupportedOperation::Flock): it cannot keep a host lock's lifetime equal to the guest description's. This cell passed only because KVM flock used to be a silent no-op (https://github.com/rrnewton/reverie/issues/1069) |
-| `c-programs/flock-lifecycle@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/flock-lifecycle@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/flock-lifecycle@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/flock-lifecycle@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/fork-exec-pipeline@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/fork-exec-pipeline is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; DBI ratchets against it separately |
 | `c-programs/fork-exec-pipeline@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/fork-exec-pipeline is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.844 | record 217, syscall 43: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `c-programs/fork-exec-pipeline@kvm` | diverged | 0.116 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/fork-exec-pipeline@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/fork-exec-pipeline is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; LiteInst ratchets against it separately |
 | `c-programs/fork-exec-pipeline@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/fork-exec-pipeline is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; SaBRe ratchets against it separately |
-| `c-programs/fp-reduction-nondeterminism@dbt` | diverged | 0.003 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fp-reduction-nondeterminism@dbt` | diverged | 0.003 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/fp-reduction-nondeterminism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/fp-reduction-nondeterminism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/fp-reduction-nondeterminism@kvm` | diverged | 0.067 | record 88, syscall 32: token 19: `Ok(140737351360512)` vs `Ok(140737349943296)` |
 | `c-programs/fp-reduction-nondeterminism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/fp-reduction-nondeterminism is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/fp-reduction-nondeterminism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/fp-reduction-nondeterminism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/fsync-durability@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/fsync-durability@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fsync-durability@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/fsync-durability@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ftruncate-sparse@dbt` | diverged | 0.027 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ftruncate-sparse@in-guest-trap` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ftruncate-sparse@liteinst` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ftruncate-sparse@sabre` | diverged | 0.061 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/futex-requeue-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/futex-requeue-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/futex-requeue-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/futex-requeue-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/futex-waitv-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/futex-waitv-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/futex-waitv-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/futex-waitv-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/futex-wake-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/futex-wake-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/futex-wake-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/futex-wake-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/get-robust-list-child@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/get-robust-list-child@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/get-robust-list-child@kvm` | diverged | 0.774 | record 124, syscall 38: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
-| `c-programs/get-robust-list-child@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/get-robust-list-child@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/fsync-durability@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/fsync-durability@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fsync-durability@kvm` | diverged | 0.317 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/fsync-durability@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/fsync-durability@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ftruncate-sparse@dbt` | diverged | 0.030 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ftruncate-sparse@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ftruncate-sparse@kvm` | diverged | 0.291 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ftruncate-sparse@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ftruncate-sparse@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/futex-requeue-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/futex-requeue-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/futex-requeue-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/futex-requeue-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/futex-requeue-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/futex-waitv-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/futex-waitv-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/futex-waitv-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/futex-waitv-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/futex-waitv-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/futex-wake-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/futex-wake-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/futex-wake-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/futex-wake-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/futex-wake-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/get-robust-list-child@dbt` | diverged | 0.027 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/get-robust-list-child@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/get-robust-list-child@kvm` | diverged | 0.260 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/get-robust-list-child@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/get-robust-list-child@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/get-robust-list-thread@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/get-robust-list-thread is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/get-robust-list-thread@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/get-robust-list-thread is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/get-robust-list-thread@kvm` | diverged | 0.845 | record 148, syscall 47: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `c-programs/get-robust-list-thread@kvm` | diverged | 0.241 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/get-robust-list-thread@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/get-robust-list-thread is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/get-robust-list-thread@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/get-robust-list-thread is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
-| `c-programs/getcpu@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getcpu@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getcpu@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getcpu@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/getcpu-identity@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getcpu-identity@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getcpu-identity@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getcpu-identity@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/getitimer-determinism-probe@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getitimer-determinism-probe@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getitimer-determinism-probe@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getitimer-determinism-probe@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/getpriority-identity@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getpriority-identity@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getpriority-identity@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getpriority-identity@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/getrusage-self-accounting@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getrusage-self-accounting@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getrusage-self-accounting@kvm` | diverged | 0.728 | record 92, syscall 32: token 6: `inbound` vs `ending` |
-| `c-programs/getrusage-self-accounting@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getcpu@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/getcpu@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getcpu@kvm` | diverged | 0.479 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/getcpu@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getcpu@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/getcpu-identity@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/getcpu-identity@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getcpu-identity@kvm` | diverged | 0.320 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/getcpu-identity@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getcpu-identity@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/getitimer-determinism-probe@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/getitimer-determinism-probe@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getitimer-determinism-probe@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/getitimer-determinism-probe@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getitimer-determinism-probe@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/getpriority-identity@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/getpriority-identity@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getpriority-identity@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/getpriority-identity@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getpriority-identity@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/getrusage-self-accounting@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/getrusage-self-accounting@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getrusage-self-accounting@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/getrusage-self-accounting@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/getrusage-self-accounting@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/getrusage-self-accounting is not enabled in the manifest, so it has no log to compare: Not evaluated in the source backend-parity matrix; qualify SaBRe separately |
-| `c-programs/getsockopt-null@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/getsockopt-null@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getsockopt-null@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/getsockopt-null@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/hardware-trap-identity@dbt` | diverged | 0.014 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/getsockopt-null@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/getsockopt-null@in-guest-trap` | diverged | 0.086 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getsockopt-null@kvm` | diverged | 0.371 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/getsockopt-null@liteinst` | diverged | 0.086 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/getsockopt-null@sabre` | diverged | 0.086 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/hardware-trap-identity@dbt` | diverged | 0.013 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/hardware-trap-identity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/hardware-trap-identity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/hardware-trap-identity@kvm` | diverged | 0.509 | record 145, syscall 41: token 10: `0x7fffffffddd0,` vs `0x7fffffffe460,` |
+| `c-programs/hardware-trap-identity@kvm` | diverged | 0.129 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/hardware-trap-identity@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/hardware-trap-identity is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/hardware-trap-identity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/hardware-trap-identity is not enabled in the manifest, so it has no log to compare: MEASURED 2026-08-06: does not deliver #UD to a child with no handler installed (child runs past ud2 and exits 99), and then HANGS on the hardware #DE case until the harness timeout. Re-enable when both are fixed. |
-| `c-programs/hello-alarm@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/hello-alarm@dbt` | diverged | 0.030 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/hello-alarm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/hello-alarm is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/hello-alarm@kvm` | diverged | 0.844 | record 109, syscall 38: token 2: `detcore::scheduler:` vs `detcore:` |
+| `c-programs/hello-alarm@kvm` | diverged | 0.433 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/hello-alarm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/hello-alarm is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
-| `c-programs/hello-alarm@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/hello-nostdlib@dbt` | diverged | 0.250 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/hello-alarm@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/hello-nostdlib@dbt` | diverged | 0.250 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/hello-nostdlib@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/hello-nostdlib is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/hello-nostdlib@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/hello-nostdlib is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/hello-nostdlib@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/hello-nostdlib is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/hello-signals@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/hello-signals@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/hello-signals@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/hello-signals is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/hello-signals@kvm` | diverged | 0.446 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/hello-signals@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/hello-signals is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
-| `c-programs/hello-signals@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/host-identity@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/host-identity@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/host-identity@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/host-identity@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/inline-syscall-sites@dbt` | diverged | 0.022 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/inline-syscall-sites@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/inline-syscall-sites@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/hello-signals@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/host-identity@dbt` | diverged | 0.012 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/host-identity@in-guest-trap` | diverged | 0.027 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/host-identity@kvm` | diverged | 0.117 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/host-identity@liteinst` | diverged | 0.027 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/host-identity@sabre` | diverged | 0.027 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/inline-syscall-sites@dbt` | diverged | 0.024 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/inline-syscall-sites@in-guest-trap` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/inline-syscall-sites@kvm` | diverged | 0.238 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/inline-syscall-sites@liteinst` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/inline-syscall-sites@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/inline-syscall-sites is not enabled in the manifest, so it has no log to compare: NAMED GAP (dh-dk8kv): SaBRe crashes this guest since Reverie 80fc77fa ("SaBRe loader: keep address space free above a PIE client's image for its program break", picked up by Hermit 5f2d987e5). The guest, built by the pinned image's GCC 15.3.0 as a PIE, has two syscall sites 10 bytes apart; under that loader the first site's trampoline returns into the middle of the second site's patch (SIGSEGV at offset 0x1096, 3 of 3 runs), while a loader built from its parent 94513271 passes 3 of 3. Kept as a named gap, not fixed, under the owner's ruling that SaBRe is a drop candidate. Disabled on every route: the Buck route builds this guest with another compiler and passed only because its binary does not trigger the bug. |
-| `c-programs/inotify-watch@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/inotify-watch@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/inotify-watch@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/inotify-watch@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/io-uring-fallback@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/io-uring-fallback@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/io-uring-fallback@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/io-uring-fallback@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/io-uring-ring-determinism@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/io-uring-ring-determinism@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/io-uring-ring-determinism@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/io-uring-ring-determinism@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ioctl-fioclex@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ioctl-fioclex@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ioctl-fioclex@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ioctl-fioclex@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ioctl-fionread@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ioctl-fionread@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ioctl-fionread@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ioctl-fionread@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ioctl-siocethtool@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ioctl-siocethtool@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ioctl-siocethtool@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ioctl-siocethtool@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/inotify-watch@dbt` | diverged | 0.037 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/inotify-watch@in-guest-trap` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/inotify-watch@kvm` | diverged | 0.358 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/inotify-watch@liteinst` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/inotify-watch@sabre` | diverged | 0.083 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/io-uring-fallback@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/io-uring-fallback@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/io-uring-fallback@kvm` | diverged | 0.443 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/io-uring-fallback@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/io-uring-fallback@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/io-uring-ring-determinism@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/io-uring-ring-determinism@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/io-uring-ring-determinism@kvm` | diverged | 0.479 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/io-uring-ring-determinism@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/io-uring-ring-determinism@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ioctl-fioclex@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ioctl-fioclex@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ioctl-fioclex@kvm` | diverged | 0.305 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ioctl-fioclex@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ioctl-fioclex@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ioctl-fionread@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ioctl-fionread@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ioctl-fionread@kvm` | diverged | 0.328 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ioctl-fionread@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ioctl-fionread@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ioctl-siocethtool@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ioctl-siocethtool@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ioctl-siocethtool@kvm` | diverged | 0.460 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/ioctl-siocethtool@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ioctl-siocethtool@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/ipc-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/ipc-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/ipc-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/ipc-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/ipc-determinism@kvm` | diverged | 0.419 | record 203, syscall 4: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `c-programs/ipc-determinism@kvm` | diverged | 0.118 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/ipc-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/ipc-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/ipc-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/ipc-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `c-programs/just-spin@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/just-spin is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/just-spin@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/just-spin is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (no thread ever runs) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
+| `c-programs/just-spin@kvm` | diverged | 0.389 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/just-spin@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/just-spin is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (no thread ever runs) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
 | `c-programs/just-spin@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/just-spin is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
-| `c-programs/kcmp-eperm@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/kcmp-eperm@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/kcmp-eperm@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/kcmp-eperm@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/kcmp-refusal@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/kcmp-refusal@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/kcmp-refusal@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/kcmp-refusal@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/keyctl-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/keyctl-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/keyctl-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/keyctl-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/keyctl-passthrough@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/keyctl-passthrough@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/keyctl-passthrough@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/keyctl-passthrough@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/linkat-flags@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/linkat-flags@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/linkat-flags@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/linkat-flags@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/listmount-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/listmount-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/listmount-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/listmount-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/kcmp-eperm@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/kcmp-eperm@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/kcmp-eperm@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/kcmp-eperm@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/kcmp-eperm@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/kcmp-refusal@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/kcmp-refusal@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/kcmp-refusal@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/kcmp-refusal@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/kcmp-refusal@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/keyctl-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/keyctl-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/keyctl-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/keyctl-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/keyctl-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/keyctl-passthrough@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/keyctl-passthrough@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/keyctl-passthrough@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/keyctl-passthrough@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/keyctl-passthrough@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/linkat-flags@dbt` | diverged | 0.028 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/linkat-flags@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/linkat-flags@kvm` | diverged | 0.269 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/linkat-flags@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/linkat-flags@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/listmount-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/listmount-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/listmount-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/listmount-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/listmount-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/liteinst-advanced@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/liteinst-advanced is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/liteinst-advanced@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/liteinst-advanced is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/liteinst-advanced@kvm` | diverged | 0.003 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/liteinst-advanced@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/liteinst-advanced is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/liteinst-advanced@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/liteinst-advanced is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/lseek-positioning@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/lseek-positioning@in-guest-trap` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/lseek-positioning@liteinst` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/lseek-positioning@sabre` | diverged | 0.058 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/lsm-refusals@dbt` | diverged | 0.019 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/lsm-refusals@in-guest-trap` | diverged | 0.043 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/lsm-refusals@liteinst` | diverged | 0.043 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/lsm-refusals@sabre` | diverged | 0.043 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/madvise-determinism@dbt` | diverged | 0.018 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/madvise-determinism@in-guest-trap` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/madvise-determinism@kvm` | diverged | 0.057 (unequalized) | record 14, syscall 2: token 10: `0x7fffffffeb70)` vs `0x7fffffffeb60)` |
-| `c-programs/madvise-determinism@liteinst` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/madvise-determinism@sabre` | diverged | 0.039 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/map-shadow-stack-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/map-shadow-stack-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/map-shadow-stack-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/map-shadow-stack-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mce-kill-refusal@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mce-kill-refusal@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mce-kill-refusal@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mce-kill-refusal@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/membarrier-query@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/membarrier-query@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/membarrier-query@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/membarrier-query@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/memfd-create@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/memfd-create@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/memfd-create@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/memfd-create@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/memfd-secret-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/memfd-secret-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/memfd-secret-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/memfd-secret-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/meminfo-available-deterministic@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/meminfo-available-deterministic@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/meminfo-available-deterministic@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/meminfo-available-deterministic@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/meminfo-cached-deterministic@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/meminfo-cached-deterministic@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/meminfo-cached-deterministic@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/meminfo-cached-deterministic@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/meminfo-free-deterministic@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/meminfo-free-deterministic@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/meminfo-free-deterministic@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/meminfo-free-deterministic@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/memorypress@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/memorypress@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/memorypress@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/memorypress@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mempolicy-default@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mempolicy-default@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mempolicy-default@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mempolicy-default@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mincore-residency@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mincore-residency@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mincore-residency@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mincore-residency@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mixed-inline-and-libc-syscalls@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mixed-inline-and-libc-syscalls@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mixed-inline-and-libc-syscalls@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mixed-inline-and-libc-syscalls@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mkdir-rmdir@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mkdir-rmdir@in-guest-trap` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mkdir-rmdir@liteinst` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mkdir-rmdir@sabre` | diverged | 0.064 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mknod-special@dbt` | diverged | 0.027 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mknod-special@in-guest-trap` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mknod-special@kvm` | diverged | 0.776 | record 115, syscall 42: token 2: `detcore::fifo_peer:` vs `detcore:` |
-| `c-programs/mknod-special@liteinst` | diverged | 0.061 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mknod-special@sabre` | diverged | 0.061 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mmap-determinism@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mmap-determinism@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-determinism@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-determinism@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mmap-determinism-heap@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mmap-determinism-heap@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-determinism-heap@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-determinism-heap@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mmap-determinism-shared@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mmap-determinism-shared@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-determinism-shared@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-determinism-shared@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mmap-layout-pointer-order@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/mmap-layout-pointer-order@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-layout-pointer-order@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/mmap-layout-pointer-order@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/mmap-stress-determinism@dbt` | diverged | 0.006 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/lseek-positioning@dbt` | diverged | 0.028 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/lseek-positioning@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/lseek-positioning@kvm` | diverged | 0.275 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/lseek-positioning@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/lseek-positioning@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/lsm-refusals@dbt` | diverged | 0.020 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/lsm-refusals@in-guest-trap` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/lsm-refusals@kvm` | diverged | 0.193 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/lsm-refusals@liteinst` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/lsm-refusals@sabre` | diverged | 0.045 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/madvise-determinism@dbt` | diverged | 0.018 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/madvise-determinism@in-guest-trap` | diverged | 0.041 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/madvise-determinism@kvm` | diverged | 0.081 (unequalized) | record 19, syscall 4: token 10: `0x7fffffffdc70` vs `0x7fffffffdc50` |
+| `c-programs/madvise-determinism@liteinst` | diverged | 0.041 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/madvise-determinism@sabre` | diverged | 0.041 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/map-shadow-stack-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/map-shadow-stack-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/map-shadow-stack-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/map-shadow-stack-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/map-shadow-stack-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mce-kill-refusal@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mce-kill-refusal@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mce-kill-refusal@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mce-kill-refusal@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mce-kill-refusal@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/membarrier-query@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/membarrier-query@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/membarrier-query@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/membarrier-query@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/membarrier-query@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/memfd-create@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/memfd-create@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/memfd-create@kvm` | diverged | 0.325 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/memfd-create@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/memfd-create@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/memfd-secret-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/memfd-secret-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/memfd-secret-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/memfd-secret-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/memfd-secret-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/meminfo-available-deterministic@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/meminfo-available-deterministic@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/meminfo-available-deterministic@kvm` | diverged | 0.305 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/meminfo-available-deterministic@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/meminfo-available-deterministic@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/meminfo-cached-deterministic@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/meminfo-cached-deterministic@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/meminfo-cached-deterministic@kvm` | diverged | 0.305 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/meminfo-cached-deterministic@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/meminfo-cached-deterministic@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/meminfo-free-deterministic@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/meminfo-free-deterministic@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/meminfo-free-deterministic@kvm` | diverged | 0.305 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/meminfo-free-deterministic@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/meminfo-free-deterministic@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/memorypress@dbt` | diverged | 0.037 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/memorypress@in-guest-trap` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/memorypress@kvm` | diverged | 0.361 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/memorypress@liteinst` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/memorypress@sabre` | diverged | 0.083 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mempolicy-default@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mempolicy-default@in-guest-trap` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mempolicy-default@kvm` | diverged | 0.368 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mempolicy-default@liteinst` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mempolicy-default@sabre` | diverged | 0.085 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mincore-residency@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mincore-residency@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mincore-residency@kvm` | diverged | 0.331 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mincore-residency@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mincore-residency@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mixed-inline-and-libc-syscalls@dbt` | diverged | 0.027 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mixed-inline-and-libc-syscalls@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mixed-inline-and-libc-syscalls@kvm` | diverged | 0.267 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mixed-inline-and-libc-syscalls@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mixed-inline-and-libc-syscalls@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mkdir-rmdir@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mkdir-rmdir@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mkdir-rmdir@kvm` | diverged | 0.305 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mkdir-rmdir@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mkdir-rmdir@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mknod-special@dbt` | diverged | 0.030 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mknod-special@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mknod-special@kvm` | diverged | 0.291 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mknod-special@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mknod-special@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mmap-determinism@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mmap-determinism@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-determinism@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mmap-determinism@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-determinism@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mmap-determinism-heap@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mmap-determinism-heap@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-determinism-heap@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mmap-determinism-heap@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-determinism-heap@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mmap-determinism-shared@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mmap-determinism-shared@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-determinism-shared@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mmap-determinism-shared@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-determinism-shared@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mmap-layout-pointer-order@dbt` | diverged | 0.030 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/mmap-layout-pointer-order@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-layout-pointer-order@kvm` | diverged | 0.295 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/mmap-layout-pointer-order@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-layout-pointer-order@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/mmap-stress-determinism@dbt` | diverged | 0.006 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/mmap-stress-determinism@in-guest-trap` | diverged | 0.014 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/mmap-stress-determinism@kvm` | diverged | 0.090 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/mmap-stress-determinism@liteinst` | diverged | 0.014 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/mmap-stress-determinism@sabre` | diverged | 0.014 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/msync-writeback@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/msync-writeback@in-guest-trap` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/msync-writeback@liteinst` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/msync-writeback@sabre` | diverged | 0.064 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/name-to-handle-at-eopnotsupp@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/name-to-handle-at-eopnotsupp@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-at-eopnotsupp@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-at-eopnotsupp@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/name-to-handle-directory-eopnotsupp@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/name-to-handle-directory-eopnotsupp@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-directory-eopnotsupp@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-directory-eopnotsupp@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/name-to-handle-empty-path-eopnotsupp@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/name-to-handle-empty-path-eopnotsupp@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-empty-path-eopnotsupp@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-empty-path-eopnotsupp@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/name-to-handle-refusal@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/name-to-handle-refusal@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-refusal@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-refusal@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/name-to-handle-regular-eopnotsupp@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/name-to-handle-regular-eopnotsupp@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-regular-eopnotsupp@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/name-to-handle-regular-eopnotsupp@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/nanosleep-par@dbt` | diverged | 0.016 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/nanosleep-par@in-guest-trap` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/nanosleep-par@liteinst` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/nanosleep-par@sabre` | diverged | 0.035 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/msync-writeback@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/msync-writeback@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/msync-writeback@kvm` | diverged | 0.305 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/msync-writeback@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/msync-writeback@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/name-to-handle-at-eopnotsupp@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/name-to-handle-at-eopnotsupp@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-at-eopnotsupp@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/name-to-handle-at-eopnotsupp@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-at-eopnotsupp@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/name-to-handle-directory-eopnotsupp@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/name-to-handle-directory-eopnotsupp@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-directory-eopnotsupp@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/name-to-handle-directory-eopnotsupp@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-directory-eopnotsupp@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/name-to-handle-empty-path-eopnotsupp@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/name-to-handle-empty-path-eopnotsupp@in-guest-trap` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-empty-path-eopnotsupp@kvm` | diverged | 0.368 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/name-to-handle-empty-path-eopnotsupp@liteinst` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-empty-path-eopnotsupp@sabre` | diverged | 0.085 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/name-to-handle-refusal@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/name-to-handle-refusal@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-refusal@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/name-to-handle-refusal@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-refusal@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/name-to-handle-regular-eopnotsupp@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/name-to-handle-regular-eopnotsupp@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-regular-eopnotsupp@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/name-to-handle-regular-eopnotsupp@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/name-to-handle-regular-eopnotsupp@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/nanosleep-par@dbt` | diverged | 0.015 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/nanosleep-par@in-guest-trap` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/nanosleep-par@kvm` | diverged | 0.219 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/nanosleep-par@liteinst` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/nanosleep-par@sabre` | diverged | 0.034 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/nanosleep-threads-nocrash@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/nanosleep-threads-nocrash is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/nanosleep-threads-nocrash@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/nanosleep-threads-nocrash is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (no thread ever runs) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
+| `c-programs/nanosleep-threads-nocrash@kvm` | diverged | 0.358 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/nanosleep-threads-nocrash@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/nanosleep-threads-nocrash is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (no thread ever runs) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
 | `c-programs/nanosleep-threads-nocrash@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/nanosleep-threads-nocrash is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
 | `c-programs/nanosleep-threads-simple@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/nanosleep-threads-simple is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/nanosleep-threads-simple@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/nanosleep-threads-simple is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/nanosleep-threads-simple@kvm` | diverged | 0.365 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/nanosleep-threads-simple@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/nanosleep-threads-simple is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/nanosleep-threads-simple@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/nanosleep-threads-simple is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/netlink-autobind-generic@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/netlink-autobind-generic@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netlink-autobind-generic@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netlink-autobind-generic@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/netlink-autobind-route@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/netlink-autobind-route@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netlink-autobind-route@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netlink-autobind-route@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/netlink-autobind-usersock@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/netlink-autobind-usersock@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netlink-autobind-usersock@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netlink-autobind-usersock@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/netns-cookie-tcp4@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/netns-cookie-tcp4@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netns-cookie-tcp4@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netns-cookie-tcp4@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/netns-cookie-tcp6@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/netns-cookie-tcp6@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netns-cookie-tcp6@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netns-cookie-tcp6@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/netns-cookie-udp4@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/netns-cookie-udp4@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netns-cookie-udp4@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/netns-cookie-udp4@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/no-new-privs-refusal@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/no-new-privs-refusal@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/no-new-privs-refusal@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/no-new-privs-refusal@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/numa-node-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/numa-node-identity@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/numa-node-identity@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/numa-node-identity@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/o-tmpfile-anon@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/o-tmpfile-anon@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/o-tmpfile-anon@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/o-tmpfile-anon@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/openat-flags@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/openat-flags@in-guest-trap` | diverged | 0.052 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/openat-flags@liteinst` | diverged | 0.052 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/openat-flags@sabre` | diverged | 0.052 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/openat2-refusal@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/openat2-refusal@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/openat2-refusal@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/openat2-refusal@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/path-file-ops@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/path-file-ops@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/path-file-ops@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/path-file-ops@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pause-alarm-interrupt@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pause-alarm-interrupt@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pause-alarm-interrupt@kvm` | diverged | 0.772 | record 99, syscall 34: token 2: `detcore::scheduler:` vs `detcore:` |
+| `c-programs/netlink-autobind-generic@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/netlink-autobind-generic@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netlink-autobind-generic@kvm` | diverged | 0.336 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/netlink-autobind-generic@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netlink-autobind-generic@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/netlink-autobind-route@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/netlink-autobind-route@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netlink-autobind-route@kvm` | diverged | 0.336 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/netlink-autobind-route@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netlink-autobind-route@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/netlink-autobind-usersock@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/netlink-autobind-usersock@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netlink-autobind-usersock@kvm` | diverged | 0.336 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/netlink-autobind-usersock@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netlink-autobind-usersock@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/netns-cookie-tcp4@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/netns-cookie-tcp4@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netns-cookie-tcp4@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/netns-cookie-tcp4@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netns-cookie-tcp4@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/netns-cookie-tcp6@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/netns-cookie-tcp6@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netns-cookie-tcp6@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/netns-cookie-tcp6@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netns-cookie-tcp6@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/netns-cookie-udp4@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/netns-cookie-udp4@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netns-cookie-udp4@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/netns-cookie-udp4@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/netns-cookie-udp4@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/no-new-privs-refusal@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/no-new-privs-refusal@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/no-new-privs-refusal@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/no-new-privs-refusal@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/no-new-privs-refusal@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/numa-node-identity@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/numa-node-identity@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/numa-node-identity@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/numa-node-identity@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/numa-node-identity@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/o-tmpfile-anon@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/o-tmpfile-anon@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/o-tmpfile-anon@kvm` | diverged | 0.328 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/o-tmpfile-anon@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/o-tmpfile-anon@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/openat-flags@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/openat-flags@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/openat-flags@kvm` | diverged | 0.245 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/openat-flags@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/openat-flags@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/openat2-refusal@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/openat2-refusal@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/openat2-refusal@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/openat2-refusal@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/openat2-refusal@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/path-file-ops@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/path-file-ops@in-guest-trap` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/path-file-ops@kvm` | diverged | 0.279 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/path-file-ops@liteinst` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/path-file-ops@sabre` | diverged | 0.064 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pause-alarm-interrupt@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pause-alarm-interrupt@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pause-alarm-interrupt@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/pause-alarm-interrupt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/pause-alarm-interrupt is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/pause-alarm-interrupt@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pause-alarm-interrupt@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/pause-cross-task-signal@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Config::backend_supports_blocked_wait_signal_interruption is false on DBT, so the scheduler does not model signal targets and a cross-task signal to a thread parked in an emulated pause or nanosleep is not recorded for the step2 drain (https://github.com/rrnewton/hermit/issues/3982); qualify DBT separately |
 | `c-programs/pause-cross-task-signal@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/pause-cross-task-signal@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Config::backend_supports_blocked_wait_signal_interruption is false on KVM, so the scheduler does not model signal targets and a cross-task signal to a thread parked in an emulated pause or nanosleep is not recorded for the step2 drain (https://github.com/rrnewton/hermit/issues/3982); qualify KVM separately |
 | `c-programs/pause-cross-task-signal@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/pause-cross-task-signal@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Config::backend_supports_blocked_wait_signal_interruption is false on SaBRe, so the scheduler does not model signal targets and a cross-task signal to a thread parked in an emulated pause or nanosleep is not recorded for the step2 drain (https://github.com/rrnewton/hermit/issues/3982); qualify SaBRe separately |
-| `c-programs/perf-event-refusals@dbt` | diverged | 0.019 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/perf-event-refusals@in-guest-trap` | diverged | 0.043 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/perf-event-refusals@liteinst` | diverged | 0.043 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/perf-event-refusals@sabre` | diverged | 0.043 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/periodic-setitimer-delivery@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/perf-event-refusals@dbt` | diverged | 0.020 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/perf-event-refusals@in-guest-trap` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/perf-event-refusals@kvm` | diverged | 0.193 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/perf-event-refusals@liteinst` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/perf-event-refusals@sabre` | diverged | 0.045 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/periodic-setitimer-delivery@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/periodic-setitimer-delivery@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/periodic-setitimer-delivery is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/periodic-setitimer-delivery@kvm` | diverged | 0.645 | record 99, syscall 34: token 2: `detcore::scheduler:` vs `detcore:` |
+| `c-programs/periodic-setitimer-delivery@kvm` | diverged | 0.285 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/periodic-setitimer-delivery@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/periodic-setitimer-delivery is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
-| `c-programs/periodic-setitimer-delivery@sabre` | diverged | 0.059 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/personality-domain@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/personality-domain@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/personality-domain@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/personality-domain@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pid-probe@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pid-probe@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pid-probe@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pid-probe@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pidfd-open-self@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pidfd-open-self@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-open-self@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-open-self@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pidfd-open-self-pair@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pidfd-open-self-pair@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-open-self-pair@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-open-self-pair@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pidfd-poll-self@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pidfd-poll-self@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-poll-self@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-poll-self@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pidfd-waitid-child@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pidfd-waitid-child@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/periodic-setitimer-delivery@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/personality-domain@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/personality-domain@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/personality-domain@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/personality-domain@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/personality-domain@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pid-probe@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pid-probe@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pid-probe@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pid-probe@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pid-probe@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pidfd-open-self@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pidfd-open-self@in-guest-trap` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-open-self@kvm` | diverged | 0.351 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pidfd-open-self@liteinst` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-open-self@sabre` | diverged | 0.081 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pidfd-open-self-pair@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pidfd-open-self-pair@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-open-self-pair@kvm` | diverged | 0.336 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pidfd-open-self-pair@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-open-self-pair@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pidfd-poll-self@dbt` | diverged | 0.037 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pidfd-poll-self@in-guest-trap` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-poll-self@kvm` | diverged | 0.358 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pidfd-poll-self@liteinst` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-poll-self@sabre` | diverged | 0.083 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pidfd-waitid-child@dbt` | diverged | 0.026 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pidfd-waitid-child@in-guest-trap` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/pidfd-waitid-child@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/pidfd-waitid-child is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify KVM separately |
-| `c-programs/pidfd-waitid-child@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-waitid-child@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pipe-capacity@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pipe-capacity@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe-capacity@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe-capacity@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pipe-capacity-pin@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pipe-capacity-pin@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe-capacity-pin@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe-capacity-pin@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pipe-ipc@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pipe-ipc@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe-ipc@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-waitid-child@liteinst` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pidfd-waitid-child@sabre` | diverged | 0.059 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pipe-capacity@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pipe-capacity@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe-capacity@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pipe-capacity@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe-capacity@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pipe-capacity-pin@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pipe-capacity-pin@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe-capacity-pin@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pipe-capacity-pin@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe-capacity-pin@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pipe-ipc@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pipe-ipc@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe-ipc@kvm` | diverged | 0.248 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pipe-ipc@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/pipe-ipc@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/pipe-ipc is not enabled in the manifest, so it has no log to compare: Not evaluated in the source backend-parity matrix; qualify SaBRe separately |
-| `c-programs/pipe-multiwriter-ordering@dbt` | diverged | 0.016 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pipe-multiwriter-ordering@in-guest-trap` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe-multiwriter-ordering@kvm` | diverged | 0.496 | record 128, syscall 3: token 3: `[dtid` vs `[sched-step5]` |
-| `c-programs/pipe-multiwriter-ordering@liteinst` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe-multiwriter-ordering@dbt` | diverged | 0.015 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pipe-multiwriter-ordering@in-guest-trap` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe-multiwriter-ordering@kvm` | diverged | 0.146 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pipe-multiwriter-ordering@liteinst` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/pipe-multiwriter-ordering@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/pipe-multiwriter-ordering is not enabled in the manifest, so it has no log to compare: SaBRe is not buildable on the current host (same third-party-backends gate); qualify SaBRe separately |
-| `c-programs/pipe2-errno-precedence@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pipe2-errno-precedence@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe2-errno-precedence@kvm` | diverged | 0.094 (unequalized) | record 14, syscall 2: token 10: `0x7fffffffeb60)` vs `0x7fffffffeb70)` |
-| `c-programs/pipe2-errno-precedence@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe2-errno-precedence@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pipe2-flags@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pipe2-flags@in-guest-trap` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe2-flags@liteinst` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pipe2-flags@sabre` | diverged | 0.051 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/poll-readiness@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/poll-readiness@in-guest-trap` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/poll-readiness@liteinst` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/poll-readiness@sabre` | diverged | 0.059 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ppoll-readv@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ppoll-readv@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ppoll-readv@kvm` | diverged | 0.744 | record 100, syscall 34: token 2: `detcore::scheduler:` vs `detcore:` |
-| `c-programs/ppoll-readv@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ppoll-readv@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pipe2-errno-precedence@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pipe2-errno-precedence@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe2-errno-precedence@kvm` | diverged | 0.146 (unequalized) | record 19, syscall 4: token 10: `0x7fffffffdc50` vs `0x7fffffffdc70` |
+| `c-programs/pipe2-errno-precedence@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe2-errno-precedence@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pipe2-flags@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pipe2-flags@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe2-flags@kvm` | diverged | 0.241 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/pipe2-flags@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pipe2-flags@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/poll-readiness@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/poll-readiness@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/poll-readiness@kvm` | diverged | 0.283 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/poll-readiness@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/poll-readiness@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ppoll-readv@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ppoll-readv@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ppoll-readv@kvm` | diverged | 0.331 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ppoll-readv@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ppoll-readv@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/ppoll-simulation@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/ppoll-simulation is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/ppoll-simulation@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/ppoll-simulation is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/ppoll-simulation@kvm` | diverged | 0.321 | record 100, syscall 34: token 2: `detcore::scheduler:` vs `detcore:` |
+| `c-programs/ppoll-simulation@kvm` | diverged | 0.132 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/ppoll-simulation@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/ppoll-simulation is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/ppoll-simulation@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/ppoll-simulation is enabled but not selected by full validation, so it has no log to compare: Historical canonical verification diverged at recorded positions. The later clean observations do not erase that retained failure, so this backend remains excluded pending separate qualification. |
-| `c-programs/prctl-dumpable@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/prctl-dumpable@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/prctl-dumpable@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/prctl-dumpable@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/prctl-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/prctl-identity@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/prctl-identity@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/prctl-identity@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/prctl-option-policy@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/prctl-option-policy@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/prctl-option-policy@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/prctl-option-policy@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/prctl-pdeathsig@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/prctl-pdeathsig@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-dumpable@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/prctl-dumpable@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-dumpable@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/prctl-dumpable@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-dumpable@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/prctl-identity@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/prctl-identity@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-identity@kvm` | diverged | 0.325 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/prctl-identity@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-identity@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/prctl-option-policy@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/prctl-option-policy@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-option-policy@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/prctl-option-policy@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-option-policy@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/prctl-pdeathsig@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/prctl-pdeathsig@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/prctl-pdeathsig@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/prctl-pdeathsig is not enabled in the manifest, so it has no log to compare: KVM ElfExecutor returns deterministic ENOSYS for prctl PR_SET_PDEATHSIG/PR_GET_PDEATHSIG; ptrace and DBT drive the full parent-death-signal state machine |
-| `c-programs/prctl-pdeathsig@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/prctl-pdeathsig@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pread64-nostdlib@dbt` | diverged | 0.160 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/prctl-pdeathsig@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/prctl-pdeathsig@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pread64-nostdlib@dbt` | diverged | 0.160 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/pread64-nostdlib@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/pread64-nostdlib is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/pread64-nostdlib@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/pread64-nostdlib is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/pread64-nostdlib@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/pread64-nostdlib is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/preadv2-flags@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/preadv2-flags@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/preadv2-flags@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/preadv2-flags@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/print-memaddrs@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/print-memaddrs@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/print-memaddrs@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/print-memaddrs@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/print-memaddrs-threads@dbt` | diverged | 0.014 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/preadv2-flags@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/preadv2-flags@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/preadv2-flags@kvm` | diverged | 0.298 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/preadv2-flags@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/preadv2-flags@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/print-memaddrs@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/print-memaddrs@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/print-memaddrs@kvm` | diverged | 0.443 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/print-memaddrs@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/print-memaddrs@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/print-memaddrs-threads@dbt` | diverged | 0.013 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/print-memaddrs-threads@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/print-memaddrs-threads is not enabled in the manifest, so it has no log to compare: pthread_create fails with EOPNOTSUPP and the runtime prints "reverie-liteinst: clone injection requires ptrace fallback", so the guest exits 1 before printing any thread; measured at hermit 238231ed on 2026-10-16 |
+| `c-programs/print-memaddrs-threads@kvm` | diverged | 0.190 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/print-memaddrs-threads@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/print-memaddrs-threads is not enabled in the manifest, so it has no log to compare: pthread_create fails with EOPNOTSUPP and the runtime prints "reverie-liteinst: clone injection requires ptrace fallback", so the guest exits 1 before printing any thread; measured at hermit 238231ed on 2026-10-16 |
 | `c-programs/print-memaddrs-threads@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/print-memaddrs-threads is not enabled in the manifest, so it has no log to compare: Strict verify diverged in 4 of 7 runs at hermit 238231ed on 2026-10-16: the runs print the same addresses, but one has two more DETLOG records, an extra futex(FUTEX_WAIT_BITSET_PRIVATE) by an exiting thread before main writes its output; ptrace, kvm and dbt matched 8 of 8 |
 | `c-programs/printf-with-threads@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/printf-with-threads is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/printf-with-threads@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/printf-with-threads is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (0 bytes of stdout against ptrace's 9) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
+| `c-programs/printf-with-threads@kvm` | diverged | 0.356 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/printf-with-threads@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/printf-with-threads is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (0 bytes of stdout against ptrace's 9) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
 | `c-programs/printf-with-threads@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/printf-with-threads is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
-| `c-programs/proc-fd-link-aliases@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/proc-fd-link-aliases@in-guest-trap` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/proc-fd-link-aliases@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/proc-fd-link-aliases@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/proc-fd-link-aliases@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/proc-fd-link-aliases is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify KVM separately |
-| `c-programs/proc-fd-link-aliases@liteinst` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/proc-fd-link-aliases@sabre` | diverged | 0.059 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/proc-fdinfo@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/proc-fdinfo@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/proc-fdinfo@kvm` | diverged | 0.859 | record 117, syscall 41: token 11: `1024)` vs `4096)` |
-| `c-programs/proc-fdinfo@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/proc-fdinfo@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/proc-fd-link-aliases@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/proc-fd-link-aliases@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/proc-fdinfo@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/proc-fdinfo@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/proc-fdinfo@kvm` | diverged | 0.423 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/proc-fdinfo@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/proc-fdinfo@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/proc-locks@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/proc-locks is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/proc-locks@in-guest-trap` | diverged | 0.048 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/proc-locks@kvm` | diverged | 0.646 | record 123, syscall 44: token 14: `Ok(80)` vs `Ok(84)` |
-| `c-programs/proc-locks@liteinst` | diverged | 0.048 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/proc-locks@sabre` | diverged | 0.048 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/process-mrelease-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/process-mrelease-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/process-mrelease-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/process-mrelease-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/process-vm-readv-refusal-probe@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/process-vm-readv-refusal-probe@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/process-vm-readv-refusal-probe@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/process-vm-readv-refusal-probe@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/process-vm-writev-refusal-probe@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/process-vm-writev-refusal-probe@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/process-vm-writev-refusal-probe@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/process-vm-writev-refusal-probe@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/proc-locks@in-guest-trap` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/proc-locks@kvm` | diverged | 0.297 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/proc-locks@liteinst` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/proc-locks@sabre` | diverged | 0.046 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/process-mrelease-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/process-mrelease-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/process-mrelease-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/process-mrelease-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/process-mrelease-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/process-vm-readv-refusal-probe@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/process-vm-readv-refusal-probe@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/process-vm-readv-refusal-probe@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/process-vm-readv-refusal-probe@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/process-vm-readv-refusal-probe@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/process-vm-writev-refusal-probe@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/process-vm-writev-refusal-probe@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/process-vm-writev-refusal-probe@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/process-vm-writev-refusal-probe@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/process-vm-writev-refusal-probe@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/procfs-identity-agreement@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/procfs-identity-agreement is not enabled in the manifest, so it has no log to compare: Not yet qualified for this memfd-backed procfs identity check |
-| `c-programs/procfs-identity-agreement@in-guest-trap` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/procfs-identity-agreement@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/procfs-identity-agreement@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/procfs-identity-agreement is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace and SaBRe baseline; qualify KVM separately |
-| `c-programs/procfs-identity-agreement@liteinst` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/procfs-identity-agreement@sabre` | diverged | 0.058 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/procfs-positioned-probe@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/procfs-positioned-probe@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/procfs-positioned-probe@kvm` | diverged | 0.706 | record 97, syscall 34: token 15: `Ok(134)` vs `Ok(115)` |
-| `c-programs/procfs-positioned-probe@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/procfs-positioned-probe@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/procfs-identity-agreement@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/procfs-identity-agreement@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/procfs-positioned-probe@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/procfs-positioned-probe@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/procfs-positioned-probe@kvm` | diverged | 0.322 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/procfs-positioned-probe@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/procfs-positioned-probe@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/prodcons-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/prodcons-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/prodcons-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/prodcons-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/prodcons-determinism@kvm` | diverged | 0.004 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/prodcons-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/prodcons-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/prodcons-determinism@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/prodcons-determinism is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `c-programs/pselect6-simulation@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/pselect6-simulation is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/pselect6-simulation@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/pselect6-simulation is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/pselect6-simulation@kvm` | diverged | 0.652 | record 273, syscall 61: token 17: `Err(Errno(ERESTARTNOHAND))` vs `Err(Errno(EINTR))` |
+| `c-programs/pselect6-simulation@kvm` | diverged | 0.096 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/pselect6-simulation@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/pselect6-simulation is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/pselect6-simulation@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/pselect6-simulation is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `c-programs/pthread-lifecycle@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/pthread-lifecycle is not enabled in the manifest, so it has no log to compare: Portable release DynamoRIO can stall or exit during native pthread startup before Detcore readiness; this was the one declared DBT gap of the retired backend-parity matrix, and a --probe-disabled run is the way to requalify it |
 | `c-programs/pthread-lifecycle@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/pthread-lifecycle is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/pthread-lifecycle@kvm` | diverged | 0.184 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/pthread-lifecycle@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/pthread-lifecycle is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/pthread-lifecycle@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/pthread-lifecycle is enabled but not selected by full validation, so it has no log to compare: Historical canonical verification diverged at recorded positions. The later clean observations do not erase that retained failure, so this backend remains excluded pending separate qualification. |
-| `c-programs/ptrace-attach-eperm@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ptrace-attach-eperm@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-attach-eperm@kvm` | diverged | 0.774 | record 124, syscall 38: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
-| `c-programs/ptrace-attach-eperm@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-attach-eperm@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ptrace-eperm@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ptrace-eperm@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-eperm@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-eperm@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ptrace-seize-eperm@dbt` | diverged | 0.025 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ptrace-seize-eperm@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-seize-eperm@kvm` | diverged | 0.774 | record 124, syscall 38: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
-| `c-programs/ptrace-seize-eperm@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-seize-eperm@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/ptrace-traceme-eperm@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ptrace-traceme-eperm@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-traceme-eperm@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ptrace-traceme-eperm@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/pty-nr-count@dbt` | diverged | 0.020 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/pty-nr-count@in-guest-trap` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-attach-eperm@dbt` | diverged | 0.027 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ptrace-attach-eperm@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-attach-eperm@kvm` | diverged | 0.260 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ptrace-attach-eperm@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-attach-eperm@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ptrace-eperm@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ptrace-eperm@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-eperm@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ptrace-eperm@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-eperm@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ptrace-seize-eperm@dbt` | diverged | 0.027 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ptrace-seize-eperm@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-seize-eperm@kvm` | diverged | 0.260 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ptrace-seize-eperm@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-seize-eperm@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/ptrace-traceme-eperm@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ptrace-traceme-eperm@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-traceme-eperm@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ptrace-traceme-eperm@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ptrace-traceme-eperm@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/pty-nr-count@dbt` | diverged | 0.022 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pty-nr-count@in-guest-trap` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/pty-nr-count@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/pty-nr-count is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify KVM separately |
-| `c-programs/pty-nr-count@liteinst` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pty-nr-count@sabre` | diverged | 0.045 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/racewrite-nostdlib@dbt` | diverged | 0.143 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/pty-nr-count@liteinst` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/pty-nr-count@sabre` | diverged | 0.049 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/racewrite-nostdlib@dbt` | diverged | 0.143 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/racewrite-nostdlib@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/racewrite-nostdlib is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/racewrite-nostdlib@kvm` | diverged | 0.714 | record 22, syscall 2: token 3: `[dtid` vs `[sched-step5]` |
 | `c-programs/racewrite-nostdlib@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/racewrite-nostdlib is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/racewrite-nostdlib@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/racewrite-nostdlib is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/random-readv-stream@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/random-readv-stream@dbt` | diverged | 0.001 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/random-readv-stream@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/random-readv-stream is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/random-readv-stream@kvm` | diverged | 0.087 | record 266, syscall 86: token 21: `Ok(4294967296)` vs `Ok(2405425152)` |
+| `c-programs/random-readv-stream@kvm` | diverged | 0.013 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/random-readv-stream@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/random-readv-stream is not enabled in the manifest, so it has no log to compare: Random-device cursor, access-mode, and fault semantics have not been qualified on LiteInst |
 | `c-programs/random-readv-stream@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/random-readv-stream is not enabled in the manifest, so it has no log to compare: Random-device cursor, access-mode, and fault semantics have not been qualified on SaBRe |
 | `c-programs/random-sources@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/random-sources is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/random-sources@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/random-sources is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/random-sources@kvm` | diverged | 0.129 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/random-sources@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/random-sources is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/random-sources@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/random-sources is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/random-sources-root-only@dbt` | diverged | 0.015 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/random-sources-root-only@in-guest-trap` | diverged | 0.033 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/random-sources-root-only@liteinst` | diverged | 0.033 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/random-sources-root-only@sabre` | diverged | 0.033 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/rcx-canonicalization@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/rcx-canonicalization@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/rcx-canonicalization@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/rcx-canonicalization@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/readdir-entries@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/readdir-entries@in-guest-trap` | diverged | 0.053 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/readdir-entries@liteinst` | diverged | 0.053 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/readdir-entries@sabre` | diverged | 0.053 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/random-sources-root-only@dbt` | diverged | 0.014 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/random-sources-root-only@in-guest-trap` | diverged | 0.032 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/random-sources-root-only@kvm` | diverged | 0.208 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/random-sources-root-only@liteinst` | diverged | 0.032 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/random-sources-root-only@sabre` | diverged | 0.032 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/rcx-canonicalization@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/rcx-canonicalization@in-guest-trap` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/rcx-canonicalization@kvm` | diverged | 0.386 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/rcx-canonicalization@liteinst` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/rcx-canonicalization@sabre` | diverged | 0.089 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/readdir-entries@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/readdir-entries@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/readdir-entries@kvm` | diverged | 0.247 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/readdir-entries@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/readdir-entries@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/readdir-order-identity@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/readdir-order-identity is not enabled in the manifest, so it has no log to compare: DBT is not buildable on the current host (third-party-backends feature off; DynamoRIO needs cmake, absent), so no witness could be recorded; qualify DBT separately |
 | `c-programs/readdir-order-identity@in-guest-trap` | diverged | 0.001 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/readdir-order-identity@kvm` | diverged | 0.003 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/readdir-order-identity@liteinst` | diverged | 0.001 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/readdir-order-identity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/readdir-order-identity is not enabled in the manifest, so it has no log to compare: SaBRe is not buildable on the current host (same third-party-backends gate); qualify SaBRe separately |
-| `c-programs/record-lock@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/record-lock@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-lock@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-lock@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/record-lock@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/record-lock@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-lock@kvm` | diverged | 0.320 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/record-lock@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-lock@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/record-replay-fd-close@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/record-replay-fd-close is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/record-replay-fd-close@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/record-replay-fd-close is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/record-replay-fd-close@kvm` | diverged | 0.157 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/record-replay-fd-close@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/record-replay-fd-close is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/record-replay-fd-close@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/record-replay-fd-close is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
 | `c-programs/record-replay-file-state@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/record-replay-file-state is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/record-replay-file-state@in-guest-trap` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-replay-file-state@kvm` | diverged | 0.718 | record 185, syscall 61: token 14: `Ok(0)` vs `Err(Errno(ENOTTY))` |
-| `c-programs/record-replay-file-state@liteinst` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-file-state@in-guest-trap` | diverged | 0.037 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-file-state@kvm` | diverged | 0.159 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/record-replay-file-state@liteinst` | diverged | 0.037 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/record-replay-file-state@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/record-replay-file-state is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/record-replay-file-state-regular-sink@dbt` | diverged | 0.014 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/record-replay-file-state-regular-sink@in-guest-trap` | diverged | 0.031 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-replay-file-state-regular-sink@kvm` | diverged | 0.694 | record 204, syscall 68: token 14: `Ok(0)` vs `Err(Errno(ENOTTY))` |
-| `c-programs/record-replay-file-state-regular-sink@liteinst` | diverged | 0.031 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-replay-file-state-regular-sink@sabre` | diverged | 0.031 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/record-replay-file-state-regular-sink@dbt` | diverged | 0.017 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/record-replay-file-state-regular-sink@in-guest-trap` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-file-state-regular-sink@kvm` | diverged | 0.170 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/record-replay-file-state-regular-sink@liteinst` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-file-state-regular-sink@sabre` | diverged | 0.039 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/record-replay-lseek-seek-cur@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/record-replay-lseek-seek-cur is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/record-replay-lseek-seek-cur@in-guest-trap` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-replay-lseek-seek-cur@liteinst` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-replay-lseek-seek-cur@sabre` | diverged | 0.028 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/record-replay-setsockopt@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/record-replay-setsockopt@in-guest-trap` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-replay-setsockopt@liteinst` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/record-replay-setsockopt@sabre` | diverged | 0.064 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/recvmsg-scm-rights-mmap@dbt` | diverged | 0.027 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/recvmsg-scm-rights-mmap@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/recvmsg-scm-rights-mmap@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/recvmsg-scm-rights-mmap@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/remap-file-pages-anonymous-enosys@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/remap-file-pages-anonymous-enosys@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/remap-file-pages-anonymous-enosys@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/remap-file-pages-anonymous-enosys@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/remap-file-pages-memfd-enosys@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/remap-file-pages-memfd-enosys@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/remap-file-pages-memfd-enosys@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/remap-file-pages-memfd-enosys@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/remap-file-pages-tmpfile-enosys@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/remap-file-pages-tmpfile-enosys@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/remap-file-pages-tmpfile-enosys@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/remap-file-pages-tmpfile-enosys@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/rename-ops@dbt` | diverged | 0.023 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/rename-ops@in-guest-trap` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/rename-ops@liteinst` | diverged | 0.051 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/rename-ops@sabre` | diverged | 0.051 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/renameat2-flags@dbt` | diverged | 0.020 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/renameat2-flags@in-guest-trap` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/renameat2-flags@liteinst` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/renameat2-flags@sabre` | diverged | 0.046 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/request-key-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/request-key-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/request-key-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/request-key-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/record-replay-lseek-seek-cur@in-guest-trap` | diverged | 0.030 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-lseek-seek-cur@kvm` | diverged | 0.130 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/record-replay-lseek-seek-cur@liteinst` | diverged | 0.030 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-lseek-seek-cur@sabre` | diverged | 0.030 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/record-replay-setsockopt@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/record-replay-setsockopt@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-setsockopt@kvm` | diverged | 0.310 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/record-replay-setsockopt@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/record-replay-setsockopt@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/recvmsg-scm-rights-mmap@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/recvmsg-scm-rights-mmap@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/recvmsg-scm-rights-mmap@kvm` | diverged | 0.298 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/recvmsg-scm-rights-mmap@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/recvmsg-scm-rights-mmap@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/remap-file-pages-anonymous-enosys@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/remap-file-pages-anonymous-enosys@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/remap-file-pages-anonymous-enosys@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/remap-file-pages-anonymous-enosys@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/remap-file-pages-anonymous-enosys@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/remap-file-pages-memfd-enosys@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/remap-file-pages-memfd-enosys@in-guest-trap` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/remap-file-pages-memfd-enosys@kvm` | diverged | 0.351 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/remap-file-pages-memfd-enosys@liteinst` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/remap-file-pages-memfd-enosys@sabre` | diverged | 0.081 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/remap-file-pages-tmpfile-enosys@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/remap-file-pages-tmpfile-enosys@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/remap-file-pages-tmpfile-enosys@kvm` | diverged | 0.331 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/remap-file-pages-tmpfile-enosys@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/remap-file-pages-tmpfile-enosys@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/rename-ops@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/rename-ops@in-guest-trap` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/rename-ops@kvm` | diverged | 0.241 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/rename-ops@liteinst` | diverged | 0.056 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/rename-ops@sabre` | diverged | 0.056 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/renameat2-flags@dbt` | diverged | 0.022 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/renameat2-flags@in-guest-trap` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/renameat2-flags@kvm` | diverged | 0.213 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/renameat2-flags@liteinst` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/renameat2-flags@sabre` | diverged | 0.049 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/request-key-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/request-key-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/request-key-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/request-key-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/request-key-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/resource-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/resource-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/resource-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/resource-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/resource-determinism@kvm` | diverged | 0.998 | record 9057, syscall 3272: token 12: `{InternalIOPolling:` vs `{WaitChild` |
+| `c-programs/resource-determinism@kvm` | diverged | 0.006 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/resource-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/resource-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/resource-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/resource-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/rlimit-identity@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/rlimit-identity@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/rlimit-identity@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/rlimit-identity@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/robust-list@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/robust-list@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/robust-list@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/robust-list@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sched-getaffinity-identity@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sched-getaffinity-identity@in-guest-trap` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-getaffinity-identity@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-getaffinity-identity@sabre` | diverged | 0.072 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sched-setattr-batch@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sched-setattr-batch@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-setattr-batch@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-setattr-batch@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sched-setattr-idle@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sched-setattr-idle@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-setattr-idle@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-setattr-idle@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sched-setattr-other@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sched-setattr-other@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-setattr-other@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sched-setattr-other@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/rlimit-identity@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/rlimit-identity@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/rlimit-identity@kvm` | diverged | 0.325 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/rlimit-identity@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/rlimit-identity@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/robust-list@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/robust-list@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/robust-list@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/robust-list@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/robust-list@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sched-getaffinity-identity@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sched-getaffinity-identity@in-guest-trap` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-getaffinity-identity@kvm` | diverged | 0.355 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sched-getaffinity-identity@liteinst` | diverged | 0.082 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-getaffinity-identity@sabre` | diverged | 0.082 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sched-setattr-batch@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sched-setattr-batch@in-guest-trap` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-setattr-batch@kvm` | diverged | 0.386 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sched-setattr-batch@liteinst` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-setattr-batch@sabre` | diverged | 0.089 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sched-setattr-idle@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sched-setattr-idle@in-guest-trap` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-setattr-idle@kvm` | diverged | 0.386 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sched-setattr-idle@liteinst` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-setattr-idle@sabre` | diverged | 0.089 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sched-setattr-other@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sched-setattr-other@in-guest-trap` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-setattr-other@kvm` | diverged | 0.386 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sched-setattr-other@liteinst` | diverged | 0.089 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sched-setattr-other@sabre` | diverged | 0.089 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/sched-yield-progress@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/sched-yield-progress is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/sched-yield-progress@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sched-yield-progress is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sched-yield-progress@kvm` | diverged | 0.374 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/sched-yield-progress@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sched-yield-progress is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/sched-yield-progress@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/sched-yield-progress is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
-| `c-programs/scheduler-policy-queries@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/scheduler-policy-queries@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/scheduler-policy-queries@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/scheduler-policy-queries@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/seccomp-refusal@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/seccomp-refusal@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/seccomp-refusal@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/seccomp-refusal@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sendfile-copy@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sendfile-copy@in-guest-trap` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sendfile-copy@liteinst` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sendfile-copy@sabre` | diverged | 0.055 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/session-identity@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/session-identity@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/session-identity@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/session-identity@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/set-tid-address@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/set-tid-address@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/set-tid-address@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/set-tid-address@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/scheduler-policy-queries@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/scheduler-policy-queries@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/scheduler-policy-queries@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/scheduler-policy-queries@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/scheduler-policy-queries@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/seccomp-refusal@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/seccomp-refusal@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/seccomp-refusal@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/seccomp-refusal@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/seccomp-refusal@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sendfile-copy@dbt` | diverged | 0.026 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sendfile-copy@in-guest-trap` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sendfile-copy@kvm` | diverged | 0.253 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sendfile-copy@liteinst` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sendfile-copy@sabre` | diverged | 0.058 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/session-identity@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/session-identity@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/session-identity@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/session-identity@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/session-identity@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/set-tid-address@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/set-tid-address@in-guest-trap` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/set-tid-address@kvm` | diverged | 0.368 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/set-tid-address@liteinst` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/set-tid-address@sabre` | diverged | 0.085 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/setitimer-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/setitimer-determinism is not enabled in the manifest, so it has no log to compare: Strict verification fails on GitHub-hosted runners (determinism-failure, first divergence at record 158, syscall 57; both attempts of https://github.com/rrnewton/hermit/actions/runs/37784639364) though it passes on the validation host; re-enable once the run-to-run difference is understood |
 | `c-programs/setitimer-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/setitimer-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/setitimer-determinism@kvm` | diverged | 0.323 | record 111, syscall 39: token 2: `detcore::scheduler:` vs `detcore:` |
+| `c-programs/setitimer-determinism@kvm` | diverged | 0.167 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/setitimer-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/setitimer-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/setitimer-determinism@sabre` | diverged | 0.026 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/short-io-split-identity@dbt` | diverged | 0.009 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/short-io-split-identity@dbt` | diverged | 0.009 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/short-io-split-identity@in-guest-trap` | diverged | 0.021 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/short-io-split-identity@kvm` | diverged | 0.305 | record 133, syscall 3: token 30: `signal_state_task:` vs `decides_signal_interruption_itself:` |
+| `c-programs/short-io-split-identity@kvm` | diverged | 0.091 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/short-io-split-identity@liteinst` | diverged | 0.021 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/short-io-split-identity@sabre` | diverged | 0.021 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/shutdown-socketpair@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/shutdown-socketpair@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/shutdown-socketpair@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/shutdown-socketpair@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sigaction-state@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/shutdown-socketpair@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/shutdown-socketpair@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/shutdown-socketpair@kvm` | diverged | 0.315 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/shutdown-socketpair@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/shutdown-socketpair@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sigaction-state@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/sigaction-state@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigaction-state is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sigaction-state@kvm` | diverged | 0.336 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/sigaction-state@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sigaction-state is not enabled in the manifest, so it has no log to compare: Added for the DBT contract that replaced the backend-parity matrix; qualify LiteInst against the same oracle separately |
-| `c-programs/sigaction-state@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sigaltstack-state@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sigaction-state@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sigaltstack-state@dbt` | diverged | 0.037 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/sigaltstack-state@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigaltstack-state is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sigaltstack-state@kvm` | diverged | 0.361 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/sigaltstack-state@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sigaltstack-state is not enabled in the manifest, so it has no log to compare: Added for the DBT contract that replaced the backend-parity matrix; qualify LiteInst against the same oracle separately |
-| `c-programs/sigaltstack-state@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sigaltstack-state@sabre` | diverged | 0.083 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/sigmask-preemption@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/sigmask-preemption is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/sigmask-preemption@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigmask-preemption is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sigmask-preemption@kvm` | diverged | 0.005 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/sigmask-preemption@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sigmask-preemption is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/sigmask-preemption@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/sigmask-preemption is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `c-programs/signal-delivery-sequence@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/signal-delivery-sequence is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; DBI ratchets against it separately |
 | `c-programs/signal-delivery-sequence@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/signal-delivery-sequence is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/signal-delivery-sequence@kvm` | diverged | 0.039 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/signal-delivery-sequence@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/signal-delivery-sequence is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/signal-delivery-sequence@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/signal-delivery-sequence is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; SaBRe ratchets against it separately |
 | `c-programs/signal-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/signal-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/signal-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/signal-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/signal-determinism@kvm` | diverged | 0.701 | record 102, syscall 36: token 3: `[dtid` vs `[sched-step5]` |
+| `c-programs/signal-determinism@kvm` | diverged | 0.387 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/signal-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/signal-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/signal-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/signal-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/signal-disposition@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/signal-disposition@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/signal-disposition@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/signal-disposition is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/signal-disposition@kvm` | diverged | 0.331 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/signal-disposition@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/signal-disposition is not enabled in the manifest, so it has no log to compare: Added for the DBT contract that replaced the backend-parity matrix; qualify LiteInst against the same oracle separately |
-| `c-programs/signal-disposition@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/signal-disposition@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/signal-waitstatus-identity@dbt` | candidate-missing[candidate-not-selected] | — | the dbt candidate verify cell of c-programs/signal-waitstatus-identity is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained an understood infrastructure failure; this cell did not pass every repetition cleanly. Retained detail: verification recorded no comparison at all (verdict=no_result), so there is no canonical INFO evidence to admit |
 | `c-programs/signal-waitstatus-identity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/signal-waitstatus-identity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/signal-waitstatus-identity@kvm` | diverged | 0.152 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/signal-waitstatus-identity@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/signal-waitstatus-identity is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/signal-waitstatus-identity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/signal-waitstatus-identity is not enabled in the manifest, so it has no log to compare: MEASURED HANG 2026-08-06: prints through the sigkill case then never returns from the SIGILL case (killed at 150s). This is the defect the fixture exists to pin; re-enable when SaBRe signal delivery terminates. |
-| `c-programs/signalfd-create@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/signalfd-create@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/signalfd-create@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/signalfd-create@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sigpipe-siginfo@dbt` | diverged | 0.020 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/signalfd-create@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/signalfd-create@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/signalfd-create@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/signalfd-create@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/signalfd-create@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sigpipe-siginfo@dbt` | diverged | 0.020 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/sigpipe-siginfo@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigpipe-siginfo is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sigpipe-siginfo@kvm` | diverged | 0.284 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/sigpipe-siginfo@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sigpipe-siginfo is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
-| `c-programs/sigpipe-siginfo@sabre` | diverged | 0.045 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sigprocmask-state@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sigprocmask-state@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sigprocmask-state@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sigprocmask-state@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sigpipe-siginfo@sabre` | diverged | 0.044 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sigprocmask-state@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sigprocmask-state@in-guest-trap` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sigprocmask-state@kvm` | diverged | 0.342 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sigprocmask-state@liteinst` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sigprocmask-state@sabre` | diverged | 0.079 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/sigreturn-preemption@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/sigreturn-preemption is not enabled in the manifest, so it has no log to compare: The defect this cell guards is in the ptrace backend's reported rt_sigreturn stop; DBT reports no sigreturns |
 | `c-programs/sigreturn-preemption@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigreturn-preemption is not enabled in the manifest, so it has no log to compare: The defect this cell guards is in the ptrace backend's reported rt_sigreturn stop, and in-guest LiteInst refuses a preemption timer |
 | `c-programs/sigreturn-preemption@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/sigreturn-preemption is not enabled in the manifest, so it has no log to compare: The defect this cell guards is in the ptrace backend's reported rt_sigreturn stop; KVM reports no sigreturns |
@@ -4869,163 +5040,193 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/sigsuspend-sibling-signal-wake@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/sigsuspend-sibling-signal-wake is not enabled in the manifest, so it has no log to compare: Config::backend_supports_blocked_wait_signal_interruption is false on SaBRe, so the scheduler does not model signal targets and a sibling's signal neither arms a pooled rt_sigsuspend waiter for the release barrier nor is noted at a posted rt_sigsuspend request; qualify SaBRe separately |
 | `c-programs/sigtimedwait-no-timeout@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/sigtimedwait-no-timeout is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/sigtimedwait-no-timeout@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigtimedwait-no-timeout is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sigtimedwait-no-timeout@kvm` | diverged | 0.287 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/sigtimedwait-no-timeout@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sigtimedwait-no-timeout is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/sigtimedwait-no-timeout@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/sigtimedwait-no-timeout is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `c-programs/sigtimedwait-timeout-0s@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/sigtimedwait-timeout-0s is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/sigtimedwait-timeout-0s@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigtimedwait-timeout-0s is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sigtimedwait-timeout-0s@kvm` | diverged | 0.264 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/sigtimedwait-timeout-0s@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sigtimedwait-timeout-0s is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/sigtimedwait-timeout-0s@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/sigtimedwait-timeout-0s is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
 | `c-programs/sigtimedwait-timeout-1s@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/sigtimedwait-timeout-1s is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/sigtimedwait-timeout-1s@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sigtimedwait-timeout-1s is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/sigtimedwait-timeout-1s@kvm` | diverged | 0.287 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/sigtimedwait-timeout-1s@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sigtimedwait-timeout-1s is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/sigtimedwait-timeout-1s@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/sigtimedwait-timeout-1s is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `c-programs/so-incoming-cpu-tcp4@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/so-incoming-cpu-tcp4 is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/so-incoming-cpu-tcp4@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/so-incoming-cpu-tcp4@kvm` | diverged | 0.739 | record 106, syscall 37: token 25: `512,` vs `512` |
-| `c-programs/so-incoming-cpu-tcp4@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/so-incoming-cpu-tcp4@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/so-incoming-cpu-tcp4@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/so-incoming-cpu-tcp4@kvm` | diverged | 0.307 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/so-incoming-cpu-tcp4@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/so-incoming-cpu-tcp4@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/so-incoming-cpu-tcp6@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/so-incoming-cpu-tcp6 is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/so-incoming-cpu-tcp6@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/so-incoming-cpu-tcp6@kvm` | diverged | 0.739 | record 106, syscall 37: token 25: `512,` vs `512` |
-| `c-programs/so-incoming-cpu-tcp6@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/so-incoming-cpu-tcp6@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/so-incoming-cpu-udp4@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/so-incoming-cpu-udp4@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/so-incoming-cpu-udp4@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/so-incoming-cpu-udp4@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/socket-cookie-tcp@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socket-cookie-tcp@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-cookie-tcp@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-cookie-tcp@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/socket-cookie-udp@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socket-cookie-udp@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-cookie-udp@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-cookie-udp@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/socket-cookie-unix@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socket-cookie-unix@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-cookie-unix@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-cookie-unix@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/so-incoming-cpu-tcp6@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/so-incoming-cpu-tcp6@kvm` | diverged | 0.307 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/so-incoming-cpu-tcp6@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/so-incoming-cpu-tcp6@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/so-incoming-cpu-udp4@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/so-incoming-cpu-udp4@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/so-incoming-cpu-udp4@kvm` | diverged | 0.320 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/so-incoming-cpu-udp4@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/so-incoming-cpu-udp4@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/socket-cookie-tcp@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-cookie-tcp@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-cookie-tcp@kvm` | diverged | 0.331 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-cookie-tcp@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-cookie-tcp@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/socket-cookie-udp@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-cookie-udp@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-cookie-udp@kvm` | diverged | 0.331 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-cookie-udp@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-cookie-udp@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/socket-cookie-unix@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-cookie-unix@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-cookie-unix@kvm` | diverged | 0.336 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-cookie-unix@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-cookie-unix@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/socket-epoll-ordering@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/socket-epoll-ordering is not enabled in the manifest, so it has no log to compare: Never measured for this cell; the original .toml cited a missing toolchain on the authoring host, which is not evidence about the backend |
-| `c-programs/socket-epoll-ordering@in-guest-trap` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-epoll-ordering@kvm` | diverged | 0.458 | record 122, syscall 43: token 25: `512,` vs `512` |
-| `c-programs/socket-epoll-ordering@liteinst` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-epoll-ordering@sabre` | diverged | 0.034 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/socket-epoll-ordering@in-guest-trap` | diverged | 0.036 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-epoll-ordering@kvm` | diverged | 0.157 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-epoll-ordering@liteinst` | diverged | 0.036 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-epoll-ordering@sabre` | diverged | 0.036 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/socket-ioctl-timestamp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/socket-ioctl-timestamp is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/socket-ioctl-timestamp@in-guest-trap` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-ioctl-timestamp@liteinst` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-ioctl-timestamp@in-guest-trap` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-ioctl-timestamp@kvm` | diverged | 0.277 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-ioctl-timestamp@liteinst` | diverged | 0.064 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/socket-ioctl-timestamp@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/socket-ioctl-timestamp is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/socket-options@dbt` | diverged | 0.028 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socket-options@in-guest-trap` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-options@liteinst` | diverged | 0.062 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-options@sabre` | diverged | 0.062 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/socket-timestamp-edge-cases@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socket-timestamp-edge-cases@in-guest-trap` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-timestamp-edge-cases@kvm` | diverged | 0.750 | record 115, syscall 39: token 9: `unobserved` vs `0x7fffffffe973+1->ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48...` |
-| `c-programs/socket-timestamp-edge-cases@liteinst` | diverged | 0.059 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-options@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-options@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-options@kvm` | diverged | 0.300 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-options@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-options@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/socket-timestamp-edge-cases@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-timestamp-edge-cases@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-timestamp-edge-cases@kvm` | diverged | 0.285 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-timestamp-edge-cases@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/socket-timestamp-edge-cases@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/socket-timestamp-edge-cases is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/socket-timestamp-timespec@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socket-timestamp-timespec@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-timestamp-timespec@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-timestamp-timespec@sabre` | diverged | 0.070 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/socket-timestamp-timeval@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socket-timestamp-timeval@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-timestamp-timeval@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socket-timestamp-timeval@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/socketpair-flags@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/socketpair-flags@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socketpair-flags@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/socketpair-flags@sabre` | diverged | 0.068 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sockname-unnamed@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sockname-unnamed@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sockname-unnamed@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sockname-unnamed@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/splice-enosys@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/splice-enosys@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/splice-enosys@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/splice-enosys@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/stat-metadata-identity@dbt` | diverged | 0.016 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/stat-metadata-identity@in-guest-trap` | diverged | 0.036 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/stat-metadata-identity@liteinst` | diverged | 0.036 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/stat-metadata-identity@sabre` | diverged | 0.036 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/statfs-free-determinism@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/statfs-free-determinism@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/statfs-free-determinism@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/statfs-free-determinism@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/static-nolibc-syscall-sites@dbt` | diverged | 0.053 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-timestamp-timespec@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-timestamp-timespec@in-guest-trap` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-timestamp-timespec@kvm` | diverged | 0.342 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-timestamp-timespec@liteinst` | diverged | 0.079 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-timestamp-timespec@sabre` | diverged | 0.079 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/socket-timestamp-timeval@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socket-timestamp-timeval@in-guest-trap` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-timestamp-timeval@kvm` | diverged | 0.325 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socket-timestamp-timeval@liteinst` | diverged | 0.075 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socket-timestamp-timeval@sabre` | diverged | 0.075 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/socketpair-flags@dbt` | diverged | 0.034 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/socketpair-flags@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socketpair-flags@kvm` | diverged | 0.331 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/socketpair-flags@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/socketpair-flags@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sockname-unnamed@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sockname-unnamed@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sockname-unnamed@kvm` | diverged | 0.348 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sockname-unnamed@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sockname-unnamed@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/splice-enosys@dbt` | diverged | 0.035 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/splice-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/splice-enosys@kvm` | diverged | 0.339 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/splice-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/splice-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/stat-metadata-identity@dbt` | diverged | 0.017 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/stat-metadata-identity@in-guest-trap` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/stat-metadata-identity@kvm` | diverged | 0.168 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/stat-metadata-identity@liteinst` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/stat-metadata-identity@sabre` | diverged | 0.039 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/statfs-free-determinism@dbt` | diverged | 0.037 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/statfs-free-determinism@in-guest-trap` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/statfs-free-determinism@kvm` | diverged | 0.361 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/statfs-free-determinism@liteinst` | diverged | 0.083 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/statfs-free-determinism@sabre` | diverged | 0.083 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/static-nolibc-syscall-sites@dbt` | diverged | 0.053 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/static-nolibc-syscall-sites@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/static-nolibc-syscall-sites is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/static-nolibc-syscall-sites@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/static-nolibc-syscall-sites is not enabled in the manifest, so it has no log to compare: LiteInst preload runtime is not built beside the binary on this host |
 | `c-programs/static-nolibc-syscall-sites@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/static-nolibc-syscall-sites is not enabled in the manifest, so it has no log to compare: Not yet qualified for this guest; ratchet separately |
-| `c-programs/statmount-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/statmount-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/statmount-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/statmount-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/statx-metadata@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/statx-metadata@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/statx-metadata@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/statx-metadata@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/symlink-ops@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/symlink-ops@in-guest-trap` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/symlink-ops@liteinst` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/symlink-ops@sabre` | diverged | 0.055 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sync-file-range@dbt` | diverged | 0.030 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sync-file-range@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sync-file-range@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sync-file-range@sabre` | diverged | 0.067 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/syscall-file-io@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/syscall-file-io@in-guest-trap` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syscall-file-io@liteinst` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syscall-file-io@sabre` | diverged | 0.055 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/syscall-file-metadata@dbt` | diverged | 0.020 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/syscall-file-metadata@in-guest-trap` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syscall-file-metadata@liteinst` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syscall-file-metadata@sabre` | diverged | 0.045 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/syscall-quick-wins@dbt` | diverged | 0.022 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/syscall-quick-wins@in-guest-trap` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syscall-quick-wins@liteinst` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syscall-quick-wins@sabre` | diverged | 0.049 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sysfs-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sysfs-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sysfs-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sysfs-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sysinfo@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sysinfo@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sysinfo@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sysinfo@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/statmount-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/statmount-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/statmount-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/statmount-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/statmount-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/statx-metadata@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/statx-metadata@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/statx-metadata@kvm` | diverged | 0.320 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/statx-metadata@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/statx-metadata@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/symlink-ops@dbt` | diverged | 0.026 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/symlink-ops@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/symlink-ops@kvm` | diverged | 0.258 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/symlink-ops@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/symlink-ops@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sync-file-range@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sync-file-range@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sync-file-range@kvm` | diverged | 0.322 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sync-file-range@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sync-file-range@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/syscall-file-io@dbt` | diverged | 0.026 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/syscall-file-io@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syscall-file-io@kvm` | diverged | 0.258 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/syscall-file-io@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syscall-file-io@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/syscall-file-metadata@dbt` | diverged | 0.022 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/syscall-file-metadata@in-guest-trap` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syscall-file-metadata@kvm` | diverged | 0.211 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/syscall-file-metadata@liteinst` | diverged | 0.049 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syscall-file-metadata@sabre` | diverged | 0.049 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/syscall-quick-wins@dbt` | diverged | 0.024 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/syscall-quick-wins@in-guest-trap` | diverged | 0.053 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syscall-quick-wins@kvm` | diverged | 0.231 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/syscall-quick-wins@liteinst` | diverged | 0.053 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syscall-quick-wins@sabre` | diverged | 0.053 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sysfs-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sysfs-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sysfs-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sysfs-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sysfs-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sysinfo@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sysinfo@in-guest-trap` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sysinfo@kvm` | diverged | 0.351 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sysinfo@liteinst` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sysinfo@sabre` | diverged | 0.081 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/sysinfo-uptime@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/sysinfo-uptime is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/sysinfo-uptime@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/sysinfo-uptime is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (0 bytes of stdout against ptrace's 373) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
+| `c-programs/sysinfo-uptime@kvm` | diverged | 0.006 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/sysinfo-uptime@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/sysinfo-uptime is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest: pthread_create fails with EOPNOTSUPP ("reverie-liteinst: clone injection requires ptrace fallback"), the guest ignores the error, and the cell passed only vacuously (0 bytes of stdout against ptrace's 373) at hermit 238231ed; with the typed thread-creation refusal the run is refused instead |
 | `c-programs/sysinfo-uptime@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/sysinfo-uptime is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/syslog-deterministic@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/syslog-deterministic@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syslog-deterministic@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/syslog-deterministic@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/sysv-ipc-refusal@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/sysv-ipc-refusal@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sysv-ipc-refusal@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/sysv-ipc-refusal@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/syslog-deterministic@dbt` | diverged | 0.039 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/syslog-deterministic@in-guest-trap` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syslog-deterministic@kvm` | diverged | 0.382 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/syslog-deterministic@liteinst` | diverged | 0.088 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/syslog-deterministic@sabre` | diverged | 0.088 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/sysv-ipc-refusal@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/sysv-ipc-refusal@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sysv-ipc-refusal@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/sysv-ipc-refusal@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/sysv-ipc-refusal@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/tcp-info-accept4@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/tcp-info-accept4 is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/tcp-info-accept4@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tcp-info-accept4@kvm` | diverged | 0.739 | record 106, syscall 37: token 25: `512,` vs `512` |
-| `c-programs/tcp-info-accept4@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tcp-info-accept4@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/tcp-info-accept4@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tcp-info-accept4@kvm` | diverged | 0.307 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/tcp-info-accept4@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tcp-info-accept4@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/tcp-info-accept6@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/tcp-info-accept6 is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/tcp-info-accept6@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tcp-info-accept6@kvm` | diverged | 0.739 | record 106, syscall 37: token 25: `512,` vs `512` |
-| `c-programs/tcp-info-accept6@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tcp-info-accept6@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/tcp-info-accept6@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tcp-info-accept6@kvm` | diverged | 0.307 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/tcp-info-accept6@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tcp-info-accept6@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/tcp-info-client4@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/tcp-info-client4 is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
-| `c-programs/tcp-info-client4@in-guest-trap` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tcp-info-client4@kvm` | diverged | 0.739 | record 106, syscall 37: token 25: `512,` vs `512` |
-| `c-programs/tcp-info-client4@liteinst` | diverged | 0.063 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tcp-info-client4@sabre` | diverged | 0.063 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/tee-enosys@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/tee-enosys@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tee-enosys@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/tee-enosys@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/thp-disable@dbt` | diverged | 0.033 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/thp-disable@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/thp-disable@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/thp-disable@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/tcp-info-client4@in-guest-trap` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tcp-info-client4@kvm` | diverged | 0.307 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/tcp-info-client4@liteinst` | diverged | 0.071 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tcp-info-client4@sabre` | diverged | 0.071 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/tee-enosys@dbt` | diverged | 0.036 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/tee-enosys@in-guest-trap` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tee-enosys@kvm` | diverged | 0.351 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/tee-enosys@liteinst` | diverged | 0.081 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/tee-enosys@sabre` | diverged | 0.081 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/thp-disable@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/thp-disable@in-guest-trap` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/thp-disable@kvm` | diverged | 0.368 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/thp-disable@liteinst` | diverged | 0.085 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/thp-disable@sabre` | diverged | 0.085 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/thread-self-procfs-handoff@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/thread-self-procfs-handoff is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/thread-self-procfs-handoff@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/thread-self-procfs-handoff is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/thread-self-procfs-handoff@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/thread-self-procfs-handoff is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify KVM separately |
@@ -5033,84 +5234,97 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/thread-self-procfs-handoff@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/thread-self-procfs-handoff is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `c-programs/thread-sync-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/thread-sync-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/thread-sync-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/thread-sync-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/thread-sync-determinism@kvm` | diverged | 0.293 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/thread-sync-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/thread-sync-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/thread-sync-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/thread-sync-determinism is not enabled in the manifest, so it has no log to compare: Cancellation reaches one raw libc syscall site per execution; trusted shared-object native execution is not SaBRe support |
 | `c-programs/threadexhaustion@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/threadexhaustion is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/threadexhaustion@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/threadexhaustion is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `c-programs/threadexhaustion@kvm` | diverged | 0.216 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/threadexhaustion@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/threadexhaustion is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/threadexhaustion@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/threadexhaustion is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `c-programs/threads-fd-churn@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/threads-fd-churn is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; DBI ratchets against it separately |
 | `c-programs/threads-fd-churn@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/threads-fd-churn is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/threads-fd-churn@kvm` | diverged | 0.115 | record 147, syscall 49: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `c-programs/threads-fd-churn@kvm` | diverged | 0.031 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/threads-fd-churn@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/threads-fd-churn is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/threads-fd-churn@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/threads-fd-churn is not enabled in the manifest, so it has no log to compare: New top-of-funnel coverage is established on the ptrace reference first; SaBRe ratchets against it separately |
-| `c-programs/timer-create-determinism@dbt` | diverged | 0.032 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/timer-create-determinism@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/timer-create-determinism@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/timer-create-determinism@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/timer-create-determinism@dbt` | diverged | 0.031 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/timer-create-determinism@in-guest-trap` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/timer-create-determinism@kvm` | diverged | 0.446 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
+| `c-programs/timer-create-determinism@liteinst` | diverged | 0.069 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/timer-create-determinism@sabre` | diverged | 0.069 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/timer-family-identity@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/timer-family-identity is not enabled in the manifest, so it has no log to compare: Not buildable on the authoring host (cmake absent); qualify DBT separately |
 | `c-programs/timer-family-identity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/timer-family-identity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/timer-family-identity@kvm` | diverged | 0.109 | record 479, syscall 10: token 3: `[dtid` vs `[scheduler]` |
+| `c-programs/timer-family-identity@kvm` | diverged | 0.009 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/timer-family-identity@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/timer-family-identity is not enabled in the manifest, so it has no log to compare: LiteInst preload handshake fails on the authoring host; qualify LiteInst separately |
 | `c-programs/timer-family-identity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/timer-family-identity is not enabled in the manifest, so it has no log to compare: Not buildable on the authoring host (cmake absent); qualify SaBRe separately |
-| `c-programs/umask-mode@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/umask-mode@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/umask-mode@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/umask-mode@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/uname@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/uname@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/uname@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/uname@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/uname-identity@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/uname-identity@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/uname-identity@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/uname-identity@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/unix-autobind@dbt` | diverged | 0.018 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/unix-autobind@in-guest-trap` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/unix-autobind@liteinst` | diverged | 0.039 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/unix-autobind@sabre` | diverged | 0.039 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/umask-mode@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/umask-mode@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/umask-mode@kvm` | diverged | 0.283 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/umask-mode@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/umask-mode@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/uname@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/uname@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/uname@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/uname@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/uname@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/uname-identity@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/uname-identity@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/uname-identity@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/uname-identity@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/uname-identity@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/unix-autobind@dbt` | diverged | 0.018 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/unix-autobind@in-guest-trap` | diverged | 0.040 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/unix-autobind@kvm` | diverged | 0.175 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/unix-autobind@liteinst` | diverged | 0.040 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/unix-autobind@sabre` | diverged | 0.040 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/userfaultfd-self-service@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/userfaultfd-self-service is not enabled in the manifest, so it has no log to compare: userfaultfd has not been qualified on DBT |
 | `c-programs/userfaultfd-self-service@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/userfaultfd-self-service is not enabled in the manifest, so it has no log to compare: This verify mode stays out of CI until its first validation receipts, so full validation would not run an in-guest cell here; it passed 10 of 10 verify runs with the maximum timeslice disabled in a local survey on 2026-10-08 and joins when the mode enters CI (https://github.com/rrnewton/hermit/issues/3745); in-guest LiteInst also runs this program in hermit-cli's liteinst_in_guest_serves_its_own_userfaultfd_and_exits_registered |
 | `c-programs/userfaultfd-self-service@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/userfaultfd-self-service is not enabled in the manifest, so it has no log to compare: userfaultfd has not been qualified on KVM |
 | `c-programs/userfaultfd-self-service@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/userfaultfd-self-service is not enabled in the manifest, so it has no log to compare: This verify mode stays out of CI until its first validation receipts, so full validation would not run an in-guest cell here; it passed 10 of 10 verify runs with the maximum timeslice disabled in a local survey on 2026-10-08 and joins when the mode enters CI (https://github.com/rrnewton/hermit/issues/3745); in-guest LiteInst also runs this program in hermit-cli's liteinst_in_guest_serves_its_own_userfaultfd_and_exits_registered |
 | `c-programs/userfaultfd-self-service@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/userfaultfd-self-service is not enabled in the manifest, so it has no log to compare: userfaultfd has not been qualified on SaBRe |
-| `c-programs/ustat-enosys@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/ustat-enosys@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ustat-enosys@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/ustat-enosys@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/utimensat-determinism@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/utimensat-determinism@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/utimensat-determinism@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/utimensat-determinism@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/vectored-file-io@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/vectored-file-io@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/vectored-file-io@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/vectored-file-io@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/vectored-io@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/vectored-io@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/vectored-io@kvm` | diverged | 0.686 | record 97, syscall 34: token 2: `detcore:` vs `detcore::scheduler:` |
-| `c-programs/vectored-io@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/vectored-io@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/vforkexec@dbt` | diverged | 0.017 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ustat-enosys@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/ustat-enosys@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ustat-enosys@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/ustat-enosys@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/ustat-enosys@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/utimensat-determinism@dbt` | diverged | 0.033 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/utimensat-determinism@in-guest-trap` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/utimensat-determinism@kvm` | diverged | 0.320 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/utimensat-determinism@liteinst` | diverged | 0.074 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/utimensat-determinism@sabre` | diverged | 0.074 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/vectored-file-io@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/vectored-file-io@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/vectored-file-io@kvm` | diverged | 0.283 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/vectored-file-io@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/vectored-file-io@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/vectored-io@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/vectored-io@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/vectored-io@kvm` | diverged | 0.312 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/vectored-io@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/vectored-io@sabre` | diverged | 0.073 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/vforkexec@dbt` | diverged | 0.016 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `c-programs/vforkexec@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/vforkexec is not enabled in the manifest, so it has no log to compare: The in-guest runtime cannot replace the process image, so it refuses execve and execveat with a typed refusal that ends the run (test-unify, 2026-10-16); this guest execs a child after vfork, so its run is refused. It passed before only because that exec failed with EOPNOTSUPP in both verify runs and the exec'd image never ran. |
-| `c-programs/vforkexec@kvm` | diverged | 0.508 | record 124, syscall 10: token 3: `[step2]` vs `[sched-step5]` |
+| `c-programs/vforkexec@kvm` | diverged | 0.232 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `c-programs/vforkexec@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/vforkexec is not enabled in the manifest, so it has no log to compare: The in-guest runtime cannot replace the process image, so it refuses execve and execveat with a typed refusal that ends the run (test-unify, 2026-10-16); this guest execs a child after vfork, so its run is refused. It passed before only because that exec failed with EOPNOTSUPP in both verify runs and the exec'd image never ran. |
 | `c-programs/vforkexec@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/vforkexec is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
-| `c-programs/vmsplice-enosys@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/vmsplice-enosys@in-guest-trap` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/vmsplice-enosys@liteinst` | diverged | 0.076 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/vmsplice-enosys@sabre` | diverged | 0.076 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `c-programs/wait-on-child@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `c-programs/wait-on-child@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/wait-on-child@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/wait-on-child@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/vmsplice-enosys@dbt` | diverged | 0.038 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/vmsplice-enosys@in-guest-trap` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/vmsplice-enosys@kvm` | diverged | 0.375 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/vmsplice-enosys@liteinst` | diverged | 0.087 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/vmsplice-enosys@sabre` | diverged | 0.087 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `c-programs/wait-on-child@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `c-programs/wait-on-child@in-guest-trap` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/wait-on-child@kvm` | diverged | 0.283 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `c-programs/wait-on-child@liteinst` | diverged | 0.065 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `c-programs/wait-on-child@sabre` | diverged | 0.065 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `c-programs/writev-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/writev-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `c-programs/writev-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/writev-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/writev-determinism@kvm` | diverged | 0.018 | record 103, syscall 35: token 2: `detcore:` vs `detcore::scheduler:` |
+| `c-programs/writev-determinism@kvm` | diverged | 0.007 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `c-programs/writev-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/writev-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/writev-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/writev-determinism is not enabled in the manifest, so it has no log to compare: The first verify run exits with waitpid error 512 after one raw libc syscall site; neither functional L2 nor a pure SaBRe path is established |
 | `chaos-c/lock-granularity@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of chaos-c/lock-granularity is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `chaos-c/lock-granularity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of chaos-c/lock-granularity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `chaos-c/lock-granularity@kvm` | diverged | 0.320 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `chaos-c/lock-granularity@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of chaos-c/lock-granularity is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `chaos-c/lock-granularity@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of chaos-c/lock-granularity is enabled but not selected by full validation, so it has no log to compare: Historical canonical verification diverged at recorded positions. The later clean observations do not erase that retained failure, so this backend remains excluded pending separate qualification. |
 | `compat/addr2line@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/addr2line is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5178,7 +5392,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/bzip2@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bzip2 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/bzip2-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/bzip2-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/bzip2-roundtrip@kvm` | diverged | 0.163 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/bzip2-roundtrip@kvm` | diverged | 0.162 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/bzip2-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bzip2-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bzip2-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cal@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cal is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5313,7 +5527,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/dd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/dd is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/df@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/df is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, and a focused run type's verify cell on sabre |
 | `compat/df@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/df is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/df@kvm` | diverged | 0.365 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/df@kvm` | diverged | 0.364 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/df@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/df is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/df@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/df is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/df-direct@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/df-direct is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5354,7 +5568,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/egrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/egrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/elfedit@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/elfedit@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/elfedit@kvm` | diverged | 0.183 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/elfedit@kvm` | diverged | 0.182 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/elfedit@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/elfedit@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/elfedit is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/env@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/env is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5388,7 +5602,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/fallocate@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/fallocate is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/fgrep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/fgrep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/fgrep@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/fgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/fgrep@kvm` | diverged | 0.345 | record 499, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
+| `compat/fgrep@kvm` | diverged | 0.346 | record 499, syscall 49: token 3: `[dtid` vs `[sched-step5]` |
 | `compat/fgrep@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/fgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fgrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/fgrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/file@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/file is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5435,7 +5649,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/gcc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gcc is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/gcov@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gcov@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/gcov@kvm` | diverged | 0.268 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/gcov@kvm` | diverged | 0.266 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/gcov@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gcov@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gcov is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/getconf@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/getconf is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5454,7 +5668,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/git@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/git is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/gprof@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/gprof@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/gprof@kvm` | diverged | 0.332 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/gprof@kvm` | diverged | 0.331 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/gprof@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gprof@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gprof is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/grep@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/grep is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5564,7 +5778,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/ls@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ls is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/lscpu@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/lscpu@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/lscpu@kvm` | diverged | 0.240 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/lscpu@kvm` | diverged | 0.239 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/lscpu@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/lscpu@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lscpu is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/lsirq@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/lsirq is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5593,7 +5807,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/lua-direct@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lua-direct is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/m4@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/m4@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/m4@kvm` | diverged | 0.332 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/m4@kvm` | diverged | 0.331 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/m4@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/m4@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/m4 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/make@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5671,7 +5885,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/nl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/nm@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/nm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/nm@kvm` | diverged | 0.190 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/nm@kvm` | diverged | 0.189 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/nm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/nohup@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/nohup is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5790,7 +6004,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/pwd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pwd is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/python3@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/python3@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: Kept off by coordinator ruling: in-guest-trap diverged in 1 of 10 runs before the in-guest start-up heap-layout fix; the second local survey of 2026-10-08, at the fixed tree 81f3e50d, passed 10 of 10 on both backends (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/python3@kvm` | diverged | 0.231 | record 647, syscall 283: token 17: `1_792_547_885.106_241_665s` vs `1_792_547_885.106_241_645s` |
+| `compat/python3@kvm` | diverged | 0.231 | record 647, syscall 283: token 17: `1_767_225_600.106_241_205s` vs `1_767_225_600.106_241_185s` |
 | `compat/python3@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/python3 is not enabled in the manifest, so it has no log to compare: Kept off by coordinator ruling: in-guest-trap diverged in 1 of 10 runs before the in-guest start-up heap-layout fix; the second local survey of 2026-10-08, at the fixed tree 81f3e50d, passed 10 of 10 on both backends (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/python3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/python3 is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/ranlib@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5935,7 +6149,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/strings@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/strings is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/strip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/strip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/strip@kvm` | diverged | 0.211 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `compat/strip@kvm` | diverged | 0.210 | record 669, syscall 84: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
 | `compat/strip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/strip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/strip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/sum@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/sum is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on liteinst and in-guest-trap and kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -5993,7 +6207,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/time@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/time is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/top@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
 | `compat/top@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/top@kvm` | diverged | 0.372 (unequalized) | record 661, syscall 118: token 14: `Ok(130)` vs `Ok(111)` |
+| `compat/top@kvm` | diverged | 0.372 | record 661, syscall 118: token 14: `Ok(130)` vs `Ok(111)` |
 | `compat/top@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/top is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/top@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/top is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/touch@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: A compat corpus row runs only its lane's verify cell on ptrace, a verify cell on kvm, a focused run type's verify cell on sabre, and a replay cell on ptrace that the full validation and the rr-compat-only run type select |
@@ -6125,71 +6339,77 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/zstd-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/zstd-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `data-handling/archive-roundtrip@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of data-handling/archive-roundtrip is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `data-handling/archive-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/archive-roundtrip is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/archive-roundtrip@kvm` | diverged | 0.239 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `data-handling/archive-roundtrip@kvm` | diverged | 0.046 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `data-handling/archive-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/archive-roundtrip is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `data-handling/archive-roundtrip@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/archive-roundtrip is not enabled in the manifest, so it has no log to compare: The exec socket is fixed, but SaBRe strict verification intermittently diverges in shell PATH lookup and multi-exec DETLOG ordering |
 | `data-handling/dd-partial-transfers@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of data-handling/dd-partial-transfers is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
 | `data-handling/dd-partial-transfers@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/dd-partial-transfers is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/dd-partial-transfers@kvm` | diverged | 0.047 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `data-handling/dd-partial-transfers@kvm` | diverged | 0.009 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `data-handling/dd-partial-transfers@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/dd-partial-transfers is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
 | `data-handling/dd-partial-transfers@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/dd-partial-transfers is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
 | `data-handling/jq-json-transform@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of data-handling/jq-json-transform is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `data-handling/jq-json-transform@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/jq-json-transform is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/jq-json-transform@kvm` | diverged | 0.342 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `data-handling/jq-json-transform@kvm` | diverged | 0.058 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `data-handling/jq-json-transform@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/jq-json-transform is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `data-handling/jq-json-transform@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/jq-json-transform is not enabled in the manifest, so it has no log to compare: SaBRe jq qualification is tracked by backend compatibility |
 | `data-handling/shell-pipeline@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of data-handling/shell-pipeline is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `data-handling/shell-pipeline@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/shell-pipeline is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/shell-pipeline@kvm` | diverged | 0.161 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `data-handling/shell-pipeline@kvm` | diverged | 0.028 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `data-handling/shell-pipeline@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/shell-pipeline is not enabled in the manifest, so it has no log to compare: LiteInst omits the fork/clone/pipe process model this pipeline requires |
 | `data-handling/shell-pipeline@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/shell-pipeline is not enabled in the manifest, so it has no log to compare: Forwarded-DETLOG verification exposes nondeterministic multi-process scheduler and SIGCHLD ordering under SaBRe despite stable stdout |
 | `data-handling/sqlite-query-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of data-handling/sqlite-query-determinism is not enabled in the manifest, so it has no log to compare: DBT SQLite qualification is tracked by backend compatibility |
 | `data-handling/sqlite-query-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/sqlite-query-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/sqlite-query-determinism@kvm` | diverged | 0.219 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `data-handling/sqlite-query-determinism@kvm` | diverged | 0.040 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `data-handling/sqlite-query-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/sqlite-query-determinism is not enabled in the manifest, so it has no log to compare: LiteInst SQLite qualification is tracked by backend compatibility |
 | `data-handling/sqlite-query-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/sqlite-query-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `data-handling/zstd-multithread@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: DBI coverage is owned by its backend parity partition |
 | `data-handling/zstd-multithread@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/zstd-multithread@kvm` | diverged | 0.028 | record 615, syscall 66: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `data-handling/zstd-multithread@kvm` | diverged | 0.002 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `data-handling/zstd-multithread@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `data-handling/zstd-multithread@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: SaBRe strict verification intermittently diverges on multi-thread DETLOG ordering |
-| `debugger-c/debuggee@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `debugger-c/debuggee@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `debugger-c/debuggee@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `debugger-c/debuggee@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `determinism-stress-c/fork-tree@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `debugger-c/debuggee@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `debugger-c/debuggee@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `debugger-c/debuggee@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `debugger-c/debuggee@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `debugger-c/debuggee@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `determinism-stress-c/fork-tree@dbt` | diverged | 0.001 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `determinism-stress-c/fork-tree@in-guest-trap` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `determinism-stress-c/fork-tree@kvm` | diverged | 0.249 | record 738, syscall 101: token 3: `[dtid` vs `[sched-step5]` |
+| `determinism-stress-c/fork-tree@kvm` | diverged | 0.013 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/fork-tree@liteinst` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `determinism-stress-c/fork-tree@sabre` | diverged | 0.003 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `determinism-stress-c/lock-free@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress-c/lock-free is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify DBT separately |
 | `determinism-stress-c/lock-free@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress-c/lock-free is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `determinism-stress-c/lock-free@kvm` | diverged | 0.235 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/lock-free@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress-c/lock-free is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify LiteInst separately |
 | `determinism-stress-c/lock-free@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress-c/lock-free is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify SaBRe separately |
-| `determinism-stress-c/mmap-fork-shared@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `determinism-stress-c/mmap-fork-shared@dbt` | diverged | 0.001 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `determinism-stress-c/mmap-fork-shared@in-guest-trap` | diverged | 0.002 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `determinism-stress-c/mmap-fork-shared@kvm` | diverged | 0.011 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/mmap-fork-shared@liteinst` | diverged | 0.002 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `determinism-stress-c/mmap-fork-shared@sabre` | diverged | 0.002 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `determinism-stress-c/pid-tid@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress-c/pid-tid is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify DBT separately |
 | `determinism-stress-c/pid-tid@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress-c/pid-tid is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `determinism-stress-c/pid-tid@kvm` | diverged | 0.130 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/pid-tid@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress-c/pid-tid is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify LiteInst separately |
 | `determinism-stress-c/pid-tid@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress-c/pid-tid is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify SaBRe separately |
 | `determinism-stress-c/pid-tid-identity@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress-c/pid-tid-identity is not enabled in the manifest, so it has no log to compare: DBT was observed emitting a raw host tid in DETLOG records; this fixture is the gate for enabling it |
 | `determinism-stress-c/pid-tid-identity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress-c/pid-tid-identity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `determinism-stress-c/pid-tid-identity@kvm` | diverged | 0.350 | record 114, syscall 41: token 11: `1024)` vs `4096)` |
+| `determinism-stress-c/pid-tid-identity@kvm` | diverged | 0.133 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/pid-tid-identity@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress-c/pid-tid-identity is not enabled in the manifest, so it has no log to compare: Not yet qualified for the pid-identity fixture |
 | `determinism-stress-c/pid-tid-identity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress-c/pid-tid-identity is not enabled in the manifest, so it has no log to compare: Not yet qualified for the pid-identity fixture |
-| `determinism-stress-c/pipe-chain@dbt` | diverged | 0.009 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `determinism-stress-c/pipe-chain@in-guest-trap` | diverged | 0.020 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `determinism-stress-c/pipe-chain@kvm` | diverged | 0.451 | record 206, syscall 11: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
-| `determinism-stress-c/pipe-chain@liteinst` | diverged | 0.020 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `determinism-stress-c/pipe-chain@sabre` | diverged | 0.020 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `determinism-stress-c/pipe-prefill@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `determinism-stress-c/pipe-prefill@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `determinism-stress-c/pipe-prefill@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `determinism-stress-c/pipe-prefill@sabre` | diverged | 0.054 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `determinism-stress-c/pipe-chain@dbt` | diverged | 0.009 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `determinism-stress-c/pipe-chain@in-guest-trap` | diverged | 0.019 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `determinism-stress-c/pipe-chain@kvm` | diverged | 0.083 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `determinism-stress-c/pipe-chain@liteinst` | diverged | 0.019 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `determinism-stress-c/pipe-chain@sabre` | diverged | 0.019 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `determinism-stress-c/pipe-prefill@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `determinism-stress-c/pipe-prefill@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `determinism-stress-c/pipe-prefill@kvm` | diverged | 0.245 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `determinism-stress-c/pipe-prefill@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `determinism-stress-c/pipe-prefill@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `determinism-stress-c/producer-consumer@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress-c/producer-consumer is not enabled in the manifest, so it has no log to compare: This condvar/futex determinism cell calibrates the ptrace strict-verify baseline; qualify DBT separately |
 | `determinism-stress-c/producer-consumer@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress-c/producer-consumer is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `determinism-stress-c/producer-consumer@kvm` | diverged | 0.036 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/producer-consumer@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress-c/producer-consumer is not enabled in the manifest, so it has no log to compare: This condvar/futex determinism cell calibrates the ptrace strict-verify baseline; qualify LiteInst separately |
 | `determinism-stress-c/producer-consumer@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress-c/producer-consumer is not enabled in the manifest, so it has no log to compare: This condvar/futex determinism cell calibrates the ptrace strict-verify baseline; qualify SaBRe separately |
 | `determinism-stress-c/signal-order@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress-c/signal-order is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify DBT separately |
@@ -6199,145 +6419,154 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `determinism-stress-c/signal-order@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress-c/signal-order is not enabled in the manifest, so it has no log to compare: This determinism cell calibrates the ptrace strict-verify baseline; qualify SaBRe separately |
 | `determinism-stress-c/thread-contention@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress-c/thread-contention is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `determinism-stress-c/thread-contention@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress-c/thread-contention is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `determinism-stress-c/thread-contention@kvm` | diverged | 0.017 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/thread-contention@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress-c/thread-contention is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `determinism-stress-c/thread-contention@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress-c/thread-contention is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `determinism-stress-c/thread-stress@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress-c/thread-stress is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
 | `determinism-stress-c/thread-stress@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress-c/thread-stress is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `determinism-stress-c/thread-stress@kvm` | diverged | 0.055 | record 209, syscall 67: token 10: `0x7fffffffdc2f,` vs `0x7fffffffe27f,` |
+| `determinism-stress-c/thread-stress@kvm` | diverged | 0.010 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `determinism-stress-c/thread-stress@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress-c/thread-stress is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `determinism-stress-c/thread-stress@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of determinism-stress-c/thread-stress is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
 | `determinism-stress/example-race@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress/example-race is not enabled in the manifest, so it has no log to compare: Concurrent shell stdout differed between strict verification runs |
 | `determinism-stress/example-race@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress/example-race is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `determinism-stress/example-race@kvm` | diverged | 0.986 | record 3931, syscall 630: token 3: `[dtid` vs `[sched-step5]` |
+| `determinism-stress/example-race@kvm` | diverged | 0.036 | record 148, syscall 56: token 19: `Ok(140737350737920)` vs `Ok(140737349943296)` |
 | `determinism-stress/example-race@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress/example-race is not enabled in the manifest, so it has no log to compare: The preload runtime cannot survive the shell script's post-start exec |
 | `determinism-stress/example-race@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of determinism-stress/example-race is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
 | `determinism-stress/order-violation@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress/order-violation is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `determinism-stress/order-violation@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress/order-violation is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest and refuses thread creation (reverie 2d68a3bd, hermit d9d98c01); this guest creates threads with pthread_create, so its clone3 is refused and the run ends: in-guest-trap reports the refusal as missing LiteInst statistics, and liteinst as process 3 exiting without deregistering, because the fail-closed exit runs inside the guest process (hermit b3362616 validate, 2026-10-16) |
+| `determinism-stress/order-violation@kvm` | diverged | 0.307 | record 59, syscall 20: token 19: `Ok(140737351696384)` vs `Ok(140737349943296)` |
 | `determinism-stress/order-violation@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress/order-violation is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest and refuses thread creation (reverie 2d68a3bd, hermit d9d98c01); this guest creates threads with pthread_create, so its clone3 is refused and the run ends: in-guest-trap reports the refusal as missing LiteInst statistics, and liteinst as process 3 exiting without deregistering, because the fail-closed exit runs inside the guest process (hermit b3362616 validate, 2026-10-16) |
 | `determinism-stress/order-violation@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress/order-violation is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `determinism-stress/process-chains@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress/process-chains is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `determinism-stress/process-chains@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress/process-chains is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `determinism-stress/process-chains@kvm` | diverged | 0.311 | record 1216, syscall 101: token 3: `[dtid` vs `[sched-step5]` |
+| `determinism-stress/process-chains@kvm` | diverged | 0.032 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `determinism-stress/process-chains@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress/process-chains is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `determinism-stress/process-chains@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress/process-chains is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `determinism-stress/thread-contention@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress/thread-contention is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `determinism-stress/thread-contention@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress/thread-contention is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `determinism-stress/thread-contention@kvm` | diverged | 0.259 | record 2830, syscall 83: token 3: `[dtid` vs `[sched-step5]` |
+| `determinism-stress/thread-contention@kvm` | diverged | 0.012 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `determinism-stress/thread-contention@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress/thread-contention is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `determinism-stress/thread-contention@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress/thread-contention is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `determinism-stress/thread-output@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of determinism-stress/thread-output is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `determinism-stress/thread-output@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress/thread-output is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `determinism-stress/thread-output@kvm` | diverged | 0.986 | record 4060, syscall 630: token 3: `[dtid` vs `[sched-step5]` |
+| `determinism-stress/thread-output@kvm` | diverged | 0.031 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `determinism-stress/thread-output@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress/thread-output is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `determinism-stress/thread-output@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress/thread-output is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/bash-loop-pipe-time@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/bash-loop-pipe-time is not enabled in the manifest, so it has no log to compare: DBT Bash qualification is tracked by backend compatibility |
 | `language-runtimes/bash-loop-pipe-time@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/bash-loop-pipe-time is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/bash-loop-pipe-time@kvm` | diverged | 0.129 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `language-runtimes/bash-loop-pipe-time@kvm` | diverged | 0.034 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/bash-loop-pipe-time@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/bash-loop-pipe-time is not enabled in the manifest, so it has no log to compare: LiteInst Bash qualification is tracked by backend compatibility |
 | `language-runtimes/bash-loop-pipe-time@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/bash-loop-pipe-time is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/bash-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/bash-random is not enabled in the manifest, so it has no log to compare: DBT Bash qualification is tracked by backend compatibility |
 | `language-runtimes/bash-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/bash-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `language-runtimes/bash-random@kvm` | diverged | 0.221 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/bash-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/bash-random is not enabled in the manifest, so it has no log to compare: LiteInst Bash qualification is tracked by backend compatibility |
 | `language-runtimes/bash-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/bash-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/cpp-stl-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: DBT C++ qualification is tracked by backend compatibility |
 | `language-runtimes/cpp-stl-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `language-runtimes/cpp-stl-determinism@kvm` | diverged | 0.170 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/cpp-stl-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: LiteInst C++ qualification is tracked by backend compatibility |
 | `language-runtimes/cpp-stl-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/cpp-stl-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
-| `language-runtimes/example-python-random@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `language-runtimes/example-python-random@in-guest-trap` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `language-runtimes/example-python-random@kvm` | diverged | 0.189 | record 647, syscall 283: token 17: `1_792_547_885.106_256_895s` vs `1_792_547_885.106_256_875s` |
-| `language-runtimes/example-python-random@liteinst` | diverged | 0.003 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `language-runtimes/example-python-random@sabre` | diverged | 0.003 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `language-runtimes/example-python-random@dbt` | diverged | 0.003 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `language-runtimes/example-python-random@in-guest-trap` | diverged | 0.006 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `language-runtimes/example-python-random@kvm` | diverged | 0.022 | record 34, syscall 10: token 19: `Ok(140737346404352)` vs `Ok(140737345748992)` |
+| `language-runtimes/example-python-random@liteinst` | diverged | 0.006 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `language-runtimes/example-python-random@sabre` | diverged | 0.006 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `language-runtimes/gawk-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: DBT awk support is tracked by backend compatibility |
 | `language-runtimes/gawk-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/gawk-random@kvm` | diverged | 0.890 | record 724, syscall 308: token 13: `Ok(1)` vs `Ok(32769)` |
+| `language-runtimes/gawk-random@kvm` | diverged | 0.175 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/gawk-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: LiteInst awk support is tracked by backend compatibility |
 | `language-runtimes/gawk-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/lua-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/lua-random is not enabled in the manifest, so it has no log to compare: DBT Lua qualification is tracked by backend compatibility |
 | `language-runtimes/lua-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/lua-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/lua-random@kvm` | diverged | 0.686 | record 673, syscall 95: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `language-runtimes/lua-random@kvm` | diverged | 0.123 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/lua-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/lua-random is not enabled in the manifest, so it has no log to compare: LiteInst Lua qualification is tracked by backend compatibility |
 | `language-runtimes/lua-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/lua-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/m4-macro-mkstemp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/m4-macro-mkstemp is not enabled in the manifest, so it has no log to compare: DBT m4 qualification is tracked by backend compatibility |
 | `language-runtimes/m4-macro-mkstemp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/m4-macro-mkstemp is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/m4-macro-mkstemp@kvm` | diverged | 0.441 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `language-runtimes/m4-macro-mkstemp@kvm` | diverged | 0.075 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/m4-macro-mkstemp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/m4-macro-mkstemp is not enabled in the manifest, so it has no log to compare: LiteInst m4 qualification is tracked by backend compatibility |
 | `language-runtimes/m4-macro-mkstemp@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/m4-macro-mkstemp is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/node-v8-jit@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/node-v8-jit is not enabled in the manifest, so it has no log to compare: DBI rewrites the code stream, so a JIT that writes its own code at run time needs separate qualification |
 | `language-runtimes/node-v8-jit@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/node-v8-jit is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/node-v8-jit@kvm` | diverged | 0.027 | record 824, syscall 351: token 13: `Ok(1)` vs `Ok(32769)` |
+| `language-runtimes/node-v8-jit@kvm` | diverged | 0.025 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/node-v8-jit@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/node-v8-jit is not enabled in the manifest, so it has no log to compare: LiteInst patches the code stream, so JIT-generated code needs separate qualification |
 | `language-runtimes/node-v8-jit@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/node-v8-jit is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/perl-hash-order@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/perl-hash-order is not enabled in the manifest, so it has no log to compare: DBT perl support is tracked by backend compatibility |
 | `language-runtimes/perl-hash-order@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/perl-hash-order is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `language-runtimes/perl-hash-order@kvm` | diverged | 0.123 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/perl-hash-order@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/perl-hash-order is not enabled in the manifest, so it has no log to compare: LiteInst perl support is tracked by backend compatibility |
 | `language-runtimes/perl-hash-order@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/perl-hash-order is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/perl-io-subprocess-time@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/perl-io-subprocess-time is not enabled in the manifest, so it has no log to compare: DBT Perl qualification is tracked by backend compatibility |
 | `language-runtimes/perl-io-subprocess-time@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/perl-io-subprocess-time is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/perl-io-subprocess-time@kvm` | diverged | 0.911 | record 2154, syscall 64: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `language-runtimes/perl-io-subprocess-time@kvm` | diverged | 0.053 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/perl-io-subprocess-time@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/perl-io-subprocess-time is not enabled in the manifest, so it has no log to compare: LiteInst Perl qualification is tracked by backend compatibility |
 | `language-runtimes/perl-io-subprocess-time@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/perl-io-subprocess-time is not enabled in the manifest, so it has no log to compare: SaBRe path ineligible - the measured verify pair recorded 132 trusted shared-object sites (33 libc/ld-linux syscall instructions x Perl and tr x two runs; clock_gettime, getrandom, file I/O, memory mapping, and signal operations); forcing the first through the SaBRe marker caused SIGILL, so qualification requires zero trusted or fallback sites |
 | `language-runtimes/perl-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/perl-random is not enabled in the manifest, so it has no log to compare: DBT Perl support is tracked by backend compatibility |
 | `language-runtimes/perl-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/perl-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `language-runtimes/perl-random@kvm` | diverged | 0.121 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/perl-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/perl-random is not enabled in the manifest, so it has no log to compare: LiteInst Perl support is tracked by backend compatibility |
 | `language-runtimes/perl-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/perl-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/python-dict-hash-iteration@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-dict-hash-iteration is not enabled in the manifest, so it has no log to compare: DBT Python qualification is tracked by backend compatibility |
 | `language-runtimes/python-dict-hash-iteration@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/python-dict-hash-iteration is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/python-dict-hash-iteration@kvm` | diverged | 0.113 | record 851, syscall 362: token 2: `detcore:` vs `detcore::syscalls::memory:` |
+| `language-runtimes/python-dict-hash-iteration@kvm` | diverged | 0.028 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/python-dict-hash-iteration@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/python-dict-hash-iteration is not enabled in the manifest, so it has no log to compare: LiteInst Python qualification is tracked by backend compatibility |
 | `language-runtimes/python-dict-hash-iteration@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-dict-hash-iteration is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/python-hash-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: DBT Python support is tracked by backend compatibility |
 | `language-runtimes/python-hash-determinism@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/python-hash-determinism@kvm` | diverged | 0.336 | record 1090, syscall 473: token 17: `1_792_547_885.115_084_865s` vs `1_792_547_885.115_084_845s` |
+| `language-runtimes/python-hash-determinism@kvm` | diverged | 0.073 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/python-hash-determinism@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: LiteInst Python support is tracked by backend compatibility |
 | `language-runtimes/python-hash-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-hash-determinism is not enabled in the manifest, so it has no log to compare: SaBRe and ptrace each reach L2, but consume different deterministic entropy positions at Python exec and produce different hash seeds and stdout |
 | `language-runtimes/python-hashseed@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-hashseed is not enabled in the manifest, so it has no log to compare: DBT Python support is tracked by backend compatibility |
 | `language-runtimes/python-hashseed@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/python-hashseed is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/python-hashseed@kvm` | diverged | 0.206 | record 828, syscall 352: token 2: `detcore:` vs `detcore::syscalls::memory:` |
+| `language-runtimes/python-hashseed@kvm` | diverged | 0.071 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/python-hashseed@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/python-hashseed is not enabled in the manifest, so it has no log to compare: LiteInst Python support is tracked by backend compatibility |
 | `language-runtimes/python-hashseed@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-hashseed is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/python-io-subprocess-time@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-io-subprocess-time is not enabled in the manifest, so it has no log to compare: DBT Python qualification is tracked by backend compatibility |
 | `language-runtimes/python-io-subprocess-time@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/python-io-subprocess-time is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/python-io-subprocess-time@kvm` | diverged | 0.114 | record 851, syscall 362: token 2: `detcore:` vs `detcore::syscalls::memory:` |
+| `language-runtimes/python-io-subprocess-time@kvm` | diverged | 0.028 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/python-io-subprocess-time@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/python-io-subprocess-time is not enabled in the manifest, so it has no log to compare: LiteInst Python qualification is tracked by backend compatibility |
 | `language-runtimes/python-io-subprocess-time@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-io-subprocess-time is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/python-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: DBT Python support is tracked by backend compatibility |
 | `language-runtimes/python-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/python-random@kvm` | diverged | 0.284 | record 1090, syscall 473: token 17: `1_792_547_885.114_817_065s` vs `1_792_547_885.114_817_045s` |
+| `language-runtimes/python-random@kvm` | diverged | 0.065 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/python-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: LiteInst Python support is tracked by backend compatibility |
 | `language-runtimes/python-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/python-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/ruby-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/ruby-random is not enabled in the manifest, so it has no log to compare: DBT Ruby support is tracked by backend compatibility |
 | `language-runtimes/ruby-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/ruby-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/ruby-random@kvm` | diverged | 0.569 | record 733, syscall 311: token 11: `1024)` vs `4096)` |
+| `language-runtimes/ruby-random@kvm` | diverged | 0.084 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/ruby-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/ruby-random is not enabled in the manifest, so it has no log to compare: LiteInst Ruby support is tracked by backend compatibility |
 | `language-runtimes/ruby-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/ruby-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
-| `language-runtimes/rust-hashmap-iteration@dbt` | diverged | 0.018 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `language-runtimes/rust-hashmap-iteration@dbt` | diverged | 0.018 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `language-runtimes/rust-hashmap-iteration@in-guest-trap` | diverged | 0.041 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `language-runtimes/rust-hashmap-iteration@kvm` | diverged | 0.626 | record 138, syscall 50: token 11: `1024)` vs `4096)` |
+| `language-runtimes/rust-hashmap-iteration@kvm` | diverged | 0.313 | record 69, syscall 24: token 19: `Ok(140737351532544)` vs `Ok(140737349943296)` |
 | `language-runtimes/rust-hashmap-iteration@liteinst` | diverged | 0.041 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `language-runtimes/rust-hashmap-iteration@sabre` | diverged | 0.041 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `language-runtimes/tcl-rand-clock@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/tcl-rand-clock is not enabled in the manifest, so it has no log to compare: DBT Tcl qualification is tracked by backend compatibility |
 | `language-runtimes/tcl-rand-clock@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/tcl-rand-clock is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/tcl-rand-clock@kvm` | diverged | 0.427 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `language-runtimes/tcl-rand-clock@kvm` | diverged | 0.080 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `language-runtimes/tcl-rand-clock@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/tcl-rand-clock is not enabled in the manifest, so it has no log to compare: LiteInst Tcl qualification is tracked by backend compatibility |
 | `language-runtimes/tcl-rand-clock@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/tcl-rand-clock is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
-| `shared-futex-c/qemu-hello@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `shared-futex-c/qemu-hello@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `shared-futex-c/qemu-hello@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `shared-futex-c/qemu-hello@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `shared-futex-c/qemu-hello@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `shared-futex-c/qemu-hello@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `shared-futex-c/qemu-hello@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `shared-futex-c/qemu-hello@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of shared-futex-c/qemu-hello is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `system-utils/auxv-loader-dump@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/auxv-loader-dump is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
 | `system-utils/auxv-loader-dump@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/auxv-loader-dump is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/auxv-loader-dump@kvm` | diverged | 0.176 | record 720, syscall 79: token 3: `[dtid` vs `[sched-step5]` |
+| `system-utils/auxv-loader-dump@kvm` | diverged | 0.030 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/auxv-loader-dump@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/auxv-loader-dump is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
 | `system-utils/auxv-loader-dump@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/auxv-loader-dump is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
-| `system-utils/cat-file-read@dbt` | diverged | 0.029 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/cat-file-read@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/cat-file-read@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/cat-file-read@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `system-utils/clock-determinism@dbt` | diverged | 0.026 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/clock-determinism@in-guest-trap` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/clock-determinism@liteinst` | diverged | 0.060 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/clock-determinism@sabre` | diverged | 0.060 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/cat-file-read@dbt` | diverged | 0.018 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/cat-file-read@in-guest-trap` | diverged | 0.040 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/cat-file-read@kvm` | diverged | 0.596 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
+| `system-utils/cat-file-read@liteinst` | diverged | 0.040 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/cat-file-read@sabre` | diverged | 0.040 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/clock-determinism@dbt` | diverged | 0.029 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/clock-determinism@in-guest-trap` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/clock-determinism@kvm` | diverged | 0.287 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `system-utils/clock-determinism@liteinst` | diverged | 0.066 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/clock-determinism@sabre` | diverged | 0.066 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/clock-exec-continuity@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/clock-exec-continuity is not enabled in the manifest, so it has no log to compare: Enable once the DBI post-exec clock path is qualified against the ptrace baseline |
 | `system-utils/clock-exec-continuity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/clock-exec-continuity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `system-utils/clock-exec-continuity@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of system-utils/clock-exec-continuity is not enabled in the manifest, so it has no log to compare: Enable once the KVM post-exec clock path is qualified against the ptrace baseline |
@@ -6345,71 +6574,82 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/clock-exec-continuity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/clock-exec-continuity is not enabled in the manifest, so it has no log to compare: SaBRe does not intercept RDTSCP; clock probes can leak raw host TSC |
 | `system-utils/date-nanoseconds@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/date-nanoseconds is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/date-nanoseconds@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/date-nanoseconds is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/date-nanoseconds@kvm` | diverged | 0.565 | record 555, syscall 36: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `system-utils/date-nanoseconds@kvm` | diverged | 0.107 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/date-nanoseconds@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/date-nanoseconds is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/date-nanoseconds@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/date-nanoseconds is not enabled in the manifest, so it has no log to compare: The exec socket is fixed, but required date/clock virtual-time support remains owner-gated for SaBRe |
-| `system-utils/du-tree-summary@dbt` | diverged | 0.004 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/du-tree-summary@in-guest-trap` | diverged | 0.010 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/du-tree-summary@liteinst` | diverged | 0.010 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/du-tree-summary@dbt` | diverged | 0.004 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/du-tree-summary@in-guest-trap` | diverged | 0.009 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/du-tree-summary@kvm` | diverged | 0.135 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
+| `system-utils/du-tree-summary@liteinst` | diverged | 0.009 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `system-utils/du-tree-summary@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/du-tree-summary is not enabled in the manifest, so it has no log to compare: Qualify recursive du independently against the new ptrace golden baseline |
-| `system-utils/errno-path-identity@dbt` | diverged | 0.019 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/errno-path-identity@in-guest-trap` | diverged | 0.042 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/errno-path-identity@kvm` | diverged | 0.685 | record 149, syscall 58: token 14: `Err(Errno(EINVAL))` vs `Err(Errno(ENOSYS))` |
-| `system-utils/errno-path-identity@liteinst` | diverged | 0.042 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/errno-path-identity@sabre` | diverged | 0.042 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/errno-path-identity@dbt` | diverged | 0.020 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/errno-path-identity@in-guest-trap` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/errno-path-identity@kvm` | diverged | 0.194 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `system-utils/errno-path-identity@liteinst` | diverged | 0.045 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/errno-path-identity@sabre` | diverged | 0.045 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/example-date@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/example-date is not enabled in the manifest, so it has no log to compare: DBT wedges when the guest execs a new program image, and this script ends in `exec /usr/bin/date`. Measured 2026-08-24 - the run never exits and emits zero DETLOG records after "[dbt backend] Detcore Tool active"; a cell timeout then misreports it as "failed to launch drrun". Note DBT refuses execveat legibly with ENOSYS (tests/c/dbt_execveat_unsupported.c passes), so it is execve specifically that hangs |
 | `system-utils/example-date@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/example-date is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/example-date@kvm` | diverged | 0.161 | record 148, syscall 56: token 19: `Ok(140737350737920)` vs `Ok(140737349943296)` |
 | `system-utils/example-date@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/example-date is not enabled in the manifest, so it has no log to compare: The preload runtime cannot survive the date script's post-start exec |
 | `system-utils/example-date@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/example-date is not enabled in the manifest, so it has no log to compare: Required date/clock virtual-time support remains owner-gated for SaBRe |
 | `system-utils/example-devrand@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/example-devrand is not enabled in the manifest, so it has no log to compare: DBT wedges when the guest execs a new program image, and this script ends in `exec hexdump`. Measured 2026-08-24 - the run never exits and emits zero DETLOG records after "[dbt backend] Detcore Tool active"; a cell timeout then misreports it as "failed to launch drrun". Note DBT refuses execveat legibly with ENOSYS (tests/c/dbt_execveat_unsupported.c passes), so it is execve specifically that hangs |
 | `system-utils/example-devrand@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/example-devrand is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/example-devrand@kvm` | diverged | 0.965 | record 794, syscall 342: token 14: `Err(Errno(EINVAL))` vs `Err(Errno(ENOTTY))` |
+| `system-utils/example-devrand@kvm` | diverged | 0.165 | record 148, syscall 56: token 19: `Ok(140737350737920)` vs `Ok(140737349943296)` |
 | `system-utils/example-devrand@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/example-devrand is not enabled in the manifest, so it has no log to compare: The preload runtime cannot survive the hexdump script's post-start exec |
 | `system-utils/example-devrand@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of system-utils/example-devrand is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
-| `system-utils/file-timestamp-identity@dbt` | diverged | 0.021 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/file-timestamp-identity@in-guest-trap` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/file-timestamp-identity@liteinst` | diverged | 0.046 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/file-timestamp-identity@sabre` | diverged | 0.046 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `system-utils/find-tree-metadata@dbt` | diverged | 0.004 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/file-timestamp-identity@dbt` | diverged | 0.022 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/file-timestamp-identity@in-guest-trap` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/file-timestamp-identity@kvm` | diverged | 0.217 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `system-utils/file-timestamp-identity@liteinst` | diverged | 0.050 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/file-timestamp-identity@sabre` | diverged | 0.050 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/find-tree-metadata@dbt` | diverged | 0.004 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/find-tree-metadata@in-guest-trap` | diverged | 0.008 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/find-tree-metadata@kvm` | diverged | 0.055 | record 59, syscall 20: token 19: `Ok(140737350701056)` vs `Ok(140737349943296)` |
 | `system-utils/find-tree-metadata@liteinst` | diverged | 0.008 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `system-utils/find-tree-metadata@sabre` | diverged | 0.008 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/harness-width-contract@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/harness-width-contract is not enabled in the manifest, so it has no log to compare: The harness control is backend-independent; ptrace is the canonical required witness |
 | `system-utils/harness-width-contract@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/harness-width-contract is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/harness-width-contract@kvm` | diverged | 0.227 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/harness-width-contract@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/harness-width-contract is not enabled in the manifest, so it has no log to compare: The harness control is backend-independent; ptrace is the canonical required witness |
 | `system-utils/harness-width-contract@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/harness-width-contract is not enabled in the manifest, so it has no log to compare: The harness control is backend-independent; ptrace is the canonical required witness |
 | `system-utils/mcookie-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/mcookie-random is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/mcookie-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/mcookie-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/mcookie-random@kvm` | diverged | 0.183 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/mcookie-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/mcookie-random is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/mcookie-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/mcookie-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/mktemp-name@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/mktemp-name is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/mktemp-name@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/mktemp-name is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/mktemp-name@kvm` | diverged | 0.162 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/mktemp-name@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/mktemp-name is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/mktemp-name@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/mktemp-name is not enabled in the manifest, so it has no log to compare: Ptrace and SaBRe each reach L2, but coreutils mktemp consumes different deterministic entropy positions and emits different name suffixes |
 | `system-utils/nscd-neutralised@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/nscd-neutralised is not enabled in the manifest, so it has no log to compare: The mount is container setup and backend-independent; ptrace is the canonical required witness |
 | `system-utils/nscd-neutralised@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/nscd-neutralised is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/nscd-neutralised@kvm` | diverged | 0.719 | record 641, syscall 21: token 28: `signal_state_task:` vs `private_sigchld_decides:` |
+| `system-utils/nscd-neutralised@kvm` | diverged | 0.142 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/nscd-neutralised@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/nscd-neutralised is not enabled in the manifest, so it has no log to compare: The mount is container setup and backend-independent; ptrace is the canonical required witness |
 | `system-utils/nscd-neutralised@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/nscd-neutralised is not enabled in the manifest, so it has no log to compare: The mount is container setup and backend-independent; ptrace is the canonical required witness |
 | `system-utils/openssl-enc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/openssl-enc is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/openssl-enc@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/openssl-enc is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/openssl-enc@kvm` | diverged | 0.471 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `system-utils/openssl-enc@kvm` | diverged | 0.086 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/openssl-enc@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/openssl-enc is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/openssl-enc@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/openssl-enc is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/openssl-genpkey@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/openssl-genpkey is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/openssl-genpkey@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/openssl-genpkey is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/openssl-genpkey@kvm` | diverged | 0.147 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/openssl-genpkey@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/openssl-genpkey is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/openssl-genpkey@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/openssl-genpkey is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/openssl-passwd@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/openssl-passwd is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/openssl-passwd@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/openssl-passwd is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/openssl-passwd@kvm` | diverged | 0.148 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/openssl-passwd@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/openssl-passwd is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/openssl-passwd@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/openssl-passwd is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/openssl-rand@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/openssl-rand is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/openssl-rand@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/openssl-rand is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/openssl-rand@kvm` | diverged | 0.147 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/openssl-rand@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/openssl-rand is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/openssl-rand@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/openssl-rand is not enabled in the manifest, so it has no log to compare: SaBRe and ptrace each reach L2, but libcrypto consumes different deterministic entropy positions and emits different hex stdout |
 | `system-utils/openssl-x509@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/openssl-x509 is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/openssl-x509@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/openssl-x509 is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/openssl-x509@kvm` | diverged | 0.136 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/openssl-x509@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/openssl-x509 is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/openssl-x509@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/openssl-x509 is not enabled in the manifest, so it has no log to compare: Certificate issuance combines wall-clock validity with multiple entropy draws; clock, random-stream, and full-trace support remain unqualified |
 | `system-utils/overflow-gid-resolves@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/overflow-gid-resolves is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
@@ -6417,84 +6657,95 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/overflow-gid-resolves@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of system-utils/overflow-gid-resolves is not enabled in the manifest, so it has no log to compare: KVM requires the privileged runner |
 | `system-utils/overflow-gid-resolves@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/overflow-gid-resolves is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/overflow-gid-resolves@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/overflow-gid-resolves is not enabled in the manifest, so it has no log to compare: SaBRe coverage is owned by its backend compatibility partition |
-| `system-utils/printf-argument-forwarding@dbt` | diverged | 0.034 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/printf-argument-forwarding@in-guest-trap` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/printf-argument-forwarding@liteinst` | diverged | 0.077 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/printf-argument-forwarding@sabre` | diverged | 0.077 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/printf-argument-forwarding@dbt` | diverged | 0.019 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/printf-argument-forwarding@in-guest-trap` | diverged | 0.044 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/printf-argument-forwarding@kvm` | diverged | 0.646 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
+| `system-utils/printf-argument-forwarding@liteinst` | diverged | 0.044 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/printf-argument-forwarding@sabre` | diverged | 0.044 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/proc-random-uuid@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/proc-random-uuid is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/proc-random-uuid@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/proc-random-uuid is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `system-utils/proc-random-uuid@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of system-utils/proc-random-uuid is not enabled in the manifest, so it has no log to compare: KVM requires the privileged runner |
 | `system-utils/proc-random-uuid@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/proc-random-uuid is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/proc-random-uuid@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/proc-random-uuid is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
-| `system-utils/proc-uptime@dbt` | diverged | 0.006 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/proc-uptime@dbt` | diverged | 0.005 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/proc-uptime@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/proc-uptime is not enabled in the manifest, so it has no log to compare: Under in-guest-trap, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
+| `system-utils/proc-uptime@kvm` | diverged | 0.161 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/proc-uptime@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/proc-uptime is not enabled in the manifest, so it has no log to compare: Under in-guest LiteInst, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/proc-uptime@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/proc-uptime is not enabled in the manifest, so it has no log to compare: Under SaBRe this guest's verify matches, but the harness refuses the run because SaBRe used fallback or native sites for bash and the utilities it runs (https://github.com/rrnewton/hermit/issues/4477) |
-| `system-utils/procfs-sanitized-paths@dbt` | diverged | 0.003 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/procfs-sanitized-paths@dbt` | diverged | 0.003 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/procfs-sanitized-paths@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: Under in-guest-trap, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/procfs-sanitized-paths@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: KVM's own /proc refuses /proc/self/smaps with EACCES, so the guest fails (https://github.com/rrnewton/hermit/issues/4479, https://github.com/rrnewton/hermit/issues/4282) |
 | `system-utils/procfs-sanitized-paths@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: Under in-guest LiteInst, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/procfs-sanitized-paths@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: Under SaBRe this guest's verify matches, but the harness refuses the run because SaBRe used fallback or native sites for bash and the utilities it runs (https://github.com/rrnewton/hermit/issues/4477) |
-| `system-utils/ps-proc-table@dbt` | diverged | 0.001 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/ps-proc-table@dbt` | diverged | 0.001 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/ps-proc-table@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under in-guest-trap, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/ps-proc-table@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: ps exits 1 with no output on KVM, whose own /proc cannot open a process's directory (https://github.com/rrnewton/hermit/issues/4479, https://github.com/rrnewton/hermit/issues/4282) |
 | `system-utils/ps-proc-table@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under in-guest LiteInst, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/ps-proc-table@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under SaBRe this guest's verify matches, but the harness refuses the run because SaBRe used fallback or native sites for bash and the utilities it runs (https://github.com/rrnewton/hermit/issues/4477) |
 | `system-utils/random-device@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/random-device is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/random-device@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/random-device is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/random-device@kvm` | diverged | 0.970 | record 923, syscall 393: token 14: `Err(Errno(EINVAL))` vs `Err(Errno(ENOTTY))` |
+| `system-utils/random-device@kvm` | diverged | 0.120 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/random-device@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/random-device is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/random-device@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/random-device is not enabled in the manifest, so it has no log to compare: Path evidence found 33 raw syscall sites per execution in ld-linux and libc; trusted shared-object native execution is not SaBRe support |
-| `system-utils/record-getpid@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/record-getpid@in-guest-trap` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/record-getpid@liteinst` | diverged | 0.078 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/record-getpid@sabre` | diverged | 0.078 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `system-utils/sh-exit-status@dbt` | diverged | 0.015 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/sh-exit-status@in-guest-trap` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/sh-exit-status@liteinst` | diverged | 0.034 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/record-getpid@dbt` | diverged | 0.040 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/record-getpid@in-guest-trap` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/record-getpid@kvm` | diverged | 0.390 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `system-utils/record-getpid@liteinst` | diverged | 0.090 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/record-getpid@sabre` | diverged | 0.090 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/sh-exit-status@dbt` | diverged | 0.012 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/sh-exit-status@in-guest-trap` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/sh-exit-status@kvm` | diverged | 0.455 | record 148, syscall 56: token 19: `Ok(140737350737920)` vs `Ok(140737349943296)` |
+| `system-utils/sh-exit-status@liteinst` | diverged | 0.028 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `system-utils/sh-exit-status@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/sh-exit-status is not enabled in the manifest, so it has no log to compare: Added for the DBT contract that replaced the backend-parity matrix; qualify SaBRe against the same oracle separately |
-| `system-utils/shm-coherency-identity@dbt` | diverged | 0.024 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/shm-coherency-identity@in-guest-trap` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/shm-coherency-identity@liteinst` | diverged | 0.054 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/shm-coherency-identity@sabre` | diverged | 0.054 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/shm-coherency-identity@dbt` | diverged | 0.025 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/shm-coherency-identity@in-guest-trap` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/shm-coherency-identity@kvm` | diverged | 0.248 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `system-utils/shm-coherency-identity@liteinst` | diverged | 0.057 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/shm-coherency-identity@sabre` | diverged | 0.057 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/shuf-permutation@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/shuf-permutation is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/shuf-permutation@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/shuf-permutation is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/shuf-permutation@kvm` | diverged | 0.163 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/shuf-permutation@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/shuf-permutation is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/shuf-permutation@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/shuf-permutation is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/sort-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/sort-random is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/sort-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/sort-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/sort-random@kvm` | diverged | 0.465 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `system-utils/sort-random@kvm` | diverged | 0.078 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/sort-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/sort-random is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/sort-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/sort-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/ssh-keygen-ed25519@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/ssh-keygen-ed25519 is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/ssh-keygen-ed25519@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/ssh-keygen-ed25519 is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/ssh-keygen-ed25519@kvm` | diverged | 0.321 | record 657, syscall 52: token 3: `[dtid` vs `[sched-step5]` |
+| `system-utils/ssh-keygen-ed25519@kvm` | diverged | 0.066 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/ssh-keygen-ed25519@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/ssh-keygen-ed25519 is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/ssh-keygen-ed25519@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/ssh-keygen-ed25519 is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/startup-surface-identity@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/startup-surface-identity is not enabled in the manifest, so it has no log to compare: Enable once measured on this backend; ptrace is the proven baseline. A cross-backend difference in the RAW vDSO base or AT_RANDOM is a FINDING to report, never something to normalise away |
-| `system-utils/startup-surface-identity@in-guest-trap` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/startup-surface-identity@liteinst` | diverged | 0.080 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/startup-surface-identity@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
-| `system-utils/startup-tls-guards@dbt` | diverged | 0.035 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/startup-surface-identity@in-guest-trap` | diverged | 0.092 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/startup-surface-identity@kvm` | diverged | 0.398 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `system-utils/startup-surface-identity@liteinst` | diverged | 0.092 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/startup-surface-identity@sabre` | diverged | 0.092 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/startup-tls-guards@dbt` | diverged | 0.041 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
 | `system-utils/startup-tls-guards@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/startup-tls-guards is not enabled in the manifest, so it has no log to compare: glibc copies the kernel's AT_RANDOM into the TLS stack canary and pointer guard in the loader window before the in-guest runtime starts (the named loader-window divergence); Detcore's post-exec AT_RANDOM rewrite comes after, so STACK_CANARY and POINTER_GUARD differ between runs while AT_RANDOM_BYTES match. Closed when the root launch goes through the launcher (launcher design 7.1, phase LC). |
+| `system-utils/startup-tls-guards@kvm` | diverged | 0.398 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
 | `system-utils/startup-tls-guards@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/startup-tls-guards is not enabled in the manifest, so it has no log to compare: glibc copies the kernel's AT_RANDOM into the TLS stack canary and pointer guard in the loader window before the in-guest runtime starts (the named loader-window divergence); Detcore's post-exec AT_RANDOM rewrite comes after, so STACK_CANARY and POINTER_GUARD differ between runs while AT_RANDOM_BYTES match. Closed when the root launch goes through the launcher (launcher design 7.1, phase LC). |
-| `system-utils/startup-tls-guards@sabre` | diverged | 0.080 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/startup-tls-guards@sabre` | diverged | 0.092 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/sysfs-sanitized-prefixes@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/sysfs-sanitized-prefixes is not enabled in the manifest, so it has no log to compare: The sysfs read sanitizers are backend-independent; ptrace is the canonical required witness |
 | `system-utils/sysfs-sanitized-prefixes@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/sysfs-sanitized-prefixes is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
 | `system-utils/sysfs-sanitized-prefixes@kvm` | diverged | 0.023 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/sysfs-sanitized-prefixes@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/sysfs-sanitized-prefixes is not enabled in the manifest, so it has no log to compare: The sysfs read sanitizers are backend-independent; ptrace is the canonical required witness |
 | `system-utils/sysfs-sanitized-prefixes@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/sysfs-sanitized-prefixes is not enabled in the manifest, so it has no log to compare: The sysfs read sanitizers are backend-independent; ptrace is the canonical required witness |
-| `system-utils/true-exit-zero@dbt` | diverged | 0.040 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `system-utils/true-exit-zero@in-guest-trap` | diverged | 0.091 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/true-exit-zero@liteinst` | diverged | 0.091 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/true-exit-zero@sabre` | diverged | 0.091 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
+| `system-utils/true-exit-zero@dbt` | diverged | 0.021 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `system-utils/true-exit-zero@in-guest-trap` | diverged | 0.047 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/true-exit-zero@kvm` | diverged | 0.693 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
+| `system-utils/true-exit-zero@liteinst` | diverged | 0.047 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `system-utils/true-exit-zero@sabre` | diverged | 0.047 | record 10, syscall ?: token 2: `detcore:` vs `detcore::syscalls::sysinfo:` |
 | `system-utils/uuidgen-random@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of system-utils/uuidgen-random is not enabled in the manifest, so it has no log to compare: DBT coverage is owned by its backend parity partition |
 | `system-utils/uuidgen-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/uuidgen-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
+| `system-utils/uuidgen-random@kvm` | diverged | 0.170 | record 134, syscall 50: token 19: `Ok(140737350930432)` vs `Ok(140737349943296)` |
 | `system-utils/uuidgen-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/uuidgen-random is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/uuidgen-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/uuidgen-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
-| `util-c/pmu-skid@dbt` | diverged | 0.031 | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
-| `util-c/pmu-skid@in-guest-trap` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `util-c/pmu-skid@liteinst` | diverged | 0.070 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `util-c/pmu-skid@dbt` | diverged | 0.032 (unequalized) | record 5, syscall ?: token 2: `detcore::scheduler:` vs `detcore::random:` |
+| `util-c/pmu-skid@in-guest-trap` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `util-c/pmu-skid@kvm` | diverged | 0.315 | record 40, syscall 12: token 19: `Ok(140737351716864)` vs `Ok(140737349943296)` |
+| `util-c/pmu-skid@liteinst` | diverged | 0.073 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `util-c/pmu-skid@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of util-c/pmu-skid is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 
 ### pressure-test run `pressure-1e5ebe341ed0-20261020T054843Z` at `1e5ebe341ed0` (partial: selected 240 of 2885 committed)
@@ -6769,7 +7020,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 1239 other parity run(s) in the store
+### 1245 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -6829,6 +7080,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-16f99cd02155-1792169620925835677-1299485-1521d91d` at Hermit `16f99cd02155`: `parity: 318/2930 matched; selected 2930 of 2930 committed; population 2930: mean 0.166 over 2930 (318 full, 1348 partial, 1264 zero: crash 2, candidate-not-enabled 1022, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.292 over 1666 [inputs equalized for 1659 of 1666 credited: mean 0.293 over 1659 with equal inputs; mean 0.095 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-172396362f8d-1791280868145651672-3308505-4d10eec9` at Hermit `172396362f8d`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-17a5e44e96cb-1791871112510578594-2499092-b3050395` at Hermit `17a5e44e96cb`: `parity: 252/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.126 over 2775 (252 full, 1331 partial, 1192 zero: candidate-not-enabled 934, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.221 over 1583 [inputs equalized for 1470 of 1583 credited: mean 0.236 over 1470 with equal inputs; mean 0.031 over 113 with unequal inputs]`
+- validate run `validate-claude-coord-182a1bbaf14f-1792551983991140632-2516678-ce967b36` at Hermit `182a1bbaf14f`: `parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.166 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-1865a98ab24e-1791376671864204296-936757-02cda44f` at Hermit `1865a98ab24e`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-19ea0a616130-1792359998632618634-742242-1b634cd4` at Hermit `19ea0a616130`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1305 partial, 1268 zero: candidate-not-enabled 1028, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1617 [inputs equalized for 1611 of 1617 credited: mean 0.295 over 1611 with equal inputs; mean 0.103 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-1a051204e98e-1791423297729082753-1845167-7df2bde1` at Hermit `1a051204e98e`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
@@ -6975,6 +7227,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-6b31e9aefb5b-1791415046815492668-45436-3e5147aa` at Hermit `6b31e9aefb5b`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.105 over 2208 (207 full, 327 partial, 1674 zero: timeout 1, ended 1, candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.436 over 534 [inputs equalized for 531 of 534 credited: mean 0.438 over 531 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-6b9c57afbfc3-1792198514658339081-21859-79d091d5` at Hermit `6b9c57afbfc3`: `parity: 318/2930 matched; selected 2930 of 2930 committed; population 2930: mean 0.166 over 2930 (318 full, 1348 partial, 1264 zero: candidate-not-enabled 1024, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.292 over 1666 [inputs equalized for 1659 of 1666 credited: mean 0.293 over 1659 with equal inputs; mean 0.094 over 7 with unequal inputs]`
 - validate run `validate-claude-coord-6c0043760f71-1791716216713412883-4030607-924affe5` at Hermit `6c0043760f71`: `parity: 247/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (247 full, 1150 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
+- validate run `validate-claude-coord-6d9aed11f8cf-1792552911522734064-256823-527606a7` at Hermit `6d9aed11f8cf`: `parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.166 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-6dc86f82cdcd-1792420268762405279-162355-515ec920` at Hermit `6dc86f82cdcd`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1304 partial, 1269 zero: candidate-not-enabled 1029, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.295 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.295 over 1610 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-6e504e72f58e-1791475060674655525-2043533-892a11d7` at Hermit `6e504e72f58e`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 526 partial, 1434 zero: candidate-not-enabled 1174, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.392 over 774 [inputs equalized for 771 of 774 credited: mean 0.393 over 771 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-6e8535114487-1792358901199503067-2729740-621dbf90` at Hermit `6e8535114487`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1305 partial, 1268 zero: candidate-not-enabled 1028, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1617 [inputs equalized for 1611 of 1617 credited: mean 0.295 over 1611 with equal inputs; mean 0.103 over 6 with unequal inputs]`
@@ -7054,6 +7307,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-claude-coord-96fd931a3175-1792268224392270825-1998444-4fb12135` at Hermit `96fd931a3175`: `parity: 308/2880 matched; selected 2880 of 2880 committed; population 2880: mean 0.165 over 2880 (308 full, 1308 partial, 1264 zero: candidate-not-enabled 1024, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.293 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.294 over 1610 with equal inputs; mean 0.098 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-97533a0df4a7-1791814665522680355-2326595-28756cd7` at Hermit `97533a0df4a7`: `parity: 250/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.124 over 2775 (250 full, 1149 partial, 1376 zero: candidate-not-enabled 1118, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.246 over 1399 [inputs equalized for 1360 of 1399 credited: mean 0.251 over 1360 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-claude-coord-98d902968282-1791640733961809888-757075-a44d661d` at Hermit `98d902968282`: `parity: 247/2770 matched; selected 2770 of 2770 committed; population 2770: mean 0.123 over 2770 (247 full, 1149 partial, 1374 zero: candidate-not-enabled 1114, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.244 over 1396 [inputs equalized for 1357 of 1396 credited: mean 0.250 over 1357 with equal inputs; mean 0.058 over 39 with unequal inputs]`
+- validate run `validate-claude-coord-9b30cb9a9e32-1792556881129048373-685248-a1137baa` at Hermit `9b30cb9a9e32`: `parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.165 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-claude-coord-9b3ea0e025c0-1791443145589699059-2712954-3f45398f` at Hermit `9b3ea0e025c0`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.111 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.458 over 536 [inputs equalized for 533 of 536 credited: mean 0.460 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-claude-coord-9b495ceb3f9c-1791293903209854871-2908375-6f97e53f` at Hermit `9b495ceb3f9c`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 195 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.055 over 195 [inputs equalized for 194 of 195 credited: mean 0.055 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-claude-coord-9b66187f85de-1791425299762966515-1117174-cd8d155a` at Hermit `9b66187f85de`: `parity: 207/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.106 over 2208 (207 full, 329 partial, 1672 zero: candidate-not-enabled 1412, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.435 over 536 [inputs equalized for 533 of 536 credited: mean 0.437 over 533 with equal inputs; mean 0.064 over 3 with unequal inputs]`
@@ -7666,12 +7920,14 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-668d420ed214-3d7fa3843888` at Hermit `668d420ed214`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1304 partial, 1269 zero: candidate-not-enabled 1029, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.295 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.295 over 1610 with equal inputs; mean 0.092 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-6799d4e0a7d1-f679daad7c7d` at Hermit `6799d4e0a7d1`: `parity: 314/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.166 over 2885 (314 full, 1311 partial, 1260 zero: determinism-mismatch 1, candidate-not-enabled 1029, candidate-not-selected 230); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1625 [inputs equalized for 1619 of 1625 credited: mean 0.295 over 1619 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-6ae2cba524f5-d17a83eaaa36` at Hermit `6ae2cba524f5`: `parity: 318/2930 matched; selected 2930 of 2930 committed; population 2930: mean 0.166 over 2930 (318 full, 1348 partial, 1264 zero: candidate-not-enabled 1024, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.292 over 1666 [inputs equalized for 1659 of 1666 credited: mean 0.293 over 1659 with equal inputs; mean 0.087 over 7 with unequal inputs]`
+- validate run `validate-ops-tick-6d9aed11f8cf-3503159921d1` at Hermit `6d9aed11f8cf`: `parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.166 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.090 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-6f121440cd40-5380813f1706` at Hermit `6f121440cd40`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1381 partial, 1245 zero: candidate-not-enabled 1005, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.267 over 1680 [inputs equalized for 1673 of 1680 credited: mean 0.268 over 1673 with equal inputs; mean 0.063 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-6f195f99030c-03784a6bf36a` at Hermit `6f195f99030c`: `parity: 90/198 matched; selected 198 of 198 committed; population 198: mean 0.465 over 198 (90 full, 105 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 0 not compared; measured mean 0.472 over 195 [inputs equalized for 194 of 195 credited: mean 0.475 over 194 with equal inputs; mean 0.040 over 1 with unequal inputs]`
 - validate run `validate-ops-tick-7023ea311aa9-925d8f2468cb` at Hermit `7023ea311aa9`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.052 over 198 (0 full, 182 partial, 16 zero: no-result-row 16); excluded: 0 reference without golden; 0 not compared; measured mean 0.057 over 182 [inputs equalized for 180 of 182 credited: mean 0.057 over 180 with equal inputs; mean 0.037 over 2 with unequal inputs]`
 - validate run `validate-ops-tick-70c08dfc00f1-de799f6a0083` at Hermit `70c08dfc00f1`: `parity: 300/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (300 full, 1334 partial, 1291 zero: candidate-not-enabled 1008, candidate-not-selected 283); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1634 [inputs equalized for 1627 of 1634 credited: mean 0.274 over 1627 with equal inputs; mean 0.064 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-72570381d215-d6efef734a19` at Hermit `72570381d215`: `parity: 312/2885 matched; selected 2885 of 2885 committed; population 2885: mean 0.165 over 2885 (312 full, 1305 partial, 1268 zero: candidate-not-enabled 1028, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1617 [inputs equalized for 1611 of 1617 credited: mean 0.295 over 1611 with equal inputs; mean 0.094 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-74703ccef145-3d60710f36c0` at Hermit `74703ccef145`: `parity: 251/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.126 over 2775 (251 full, 1329 partial, 1195 zero: candidate-not-enabled 937, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.221 over 1580 [inputs equalized for 1467 of 1580 credited: mean 0.235 over 1467 with equal inputs; mean 0.031 over 113 with unequal inputs]`
+- validate run `validate-ops-tick-7648e94e84f5-a26c503a66a6` at Hermit `7648e94e84f5`: `parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.166 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.101 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-77cafe3e60dc-e0f91cee60a9` at Hermit `77cafe3e60dc`: `parity: 318/2930 matched; selected 2930 of 2930 committed; population 2930: mean 0.166 over 2930 (318 full, 1348 partial, 1264 zero: candidate-not-enabled 1024, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.292 over 1666 [inputs equalized for 1659 of 1666 credited: mean 0.293 over 1659 with equal inputs; mean 0.087 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-79dc5904f828-cd1ff74f279c` at Hermit `79dc5904f828`: `parity: 249/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (249 full, 1149 partial, 1377 zero: ended 1, candidate-not-enabled 1118, candidate-not-selected 258); excluded: 0 reference without golden; 0 not compared; measured mean 0.245 over 1398 [inputs equalized for 1359 of 1398 credited: mean 0.250 over 1359 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-ops-tick-7abe8e239204-80c970420ade` at Hermit `7abe8e239204`: `parity: 308/2880 matched; selected 2880 of 2880 committed; population 2880: mean 0.165 over 2880 (308 full, 1308 partial, 1264 zero: candidate-not-enabled 1024, candidate-not-selected 240); excluded: 0 reference without golden; 0 not compared; measured mean 0.293 over 1616 [inputs equalized for 1610 of 1616 credited: mean 0.294 over 1610 with equal inputs; mean 0.091 over 6 with unequal inputs]`
@@ -7699,6 +7955,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-ops-tick-97ea57335950-f91592acc7f2` at Hermit `97ea57335950`: `parity: 299/2925 matched; selected 2925 of 2925 committed; population 2925: mean 0.153 over 2925 (299 full, 1338 partial, 1288 zero: candidate-not-enabled 1006, candidate-not-selected 282); excluded: 0 reference without golden; 0 not compared; measured mean 0.273 over 1637 [inputs equalized for 1630 of 1637 credited: mean 0.274 over 1630 with equal inputs; mean 0.064 over 7 with unequal inputs]`
 - validate run `validate-ops-tick-9a86568eff85-2a7b1b568766` at Hermit `9a86568eff85`: `parity: 248/2208 matched; selected 2208 of 2208 committed; population 2208: mean 0.137 over 2208 (248 full, 526 partial, 1434 zero: determinism-mismatch 1, candidate-not-enabled 1173, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.392 over 774 [inputs equalized for 771 of 774 credited: mean 0.393 over 771 with equal inputs; mean 0.064 over 3 with unequal inputs]`
 - validate run `validate-ops-tick-9af999677494-4ea4d2816eaf` at Hermit `9af999677494`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.043 over 281 (0 full, 278 partial, 3 zero: no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 278`
+- validate run `validate-ops-tick-9b30cb9a9e32-33cefd61e8d5` at Hermit `9b30cb9a9e32`: `parity: 314/2890 matched; selected 2890 of 2890 committed; population 2890: mean 0.165 over 2890 (314 full, 1315 partial, 1261 zero: candidate-not-enabled 1030, candidate-not-selected 231); excluded: 0 reference without golden; 0 not compared; measured mean 0.294 over 1629 [inputs equalized for 1623 of 1629 credited: mean 0.294 over 1623 with equal inputs; mean 0.090 over 6 with unequal inputs]`
 - validate run `validate-ops-tick-9c18b120af28-e9b9a4103c5c` at Hermit `9c18b120af28`: `parity: 248/2775 matched; selected 2775 of 2775 committed; population 2775: mean 0.123 over 2775 (248 full, 1149 partial, 1378 zero: candidate-not-enabled 1118, candidate-not-selected 260); excluded: 0 reference without golden; 0 not compared; measured mean 0.245 over 1397 [inputs equalized for 1358 of 1397 credited: mean 0.250 over 1358 with equal inputs; mean 0.058 over 39 with unequal inputs]`
 - validate run `validate-ops-tick-9d6c1f214242-545b42c1e906` at Hermit `9d6c1f214242`: `parity: 0/297 matched; selected 297 of 297 committed; population 280: mean 0.043 over 280 (0 full, 277 partial, 3 zero: crash 1, no-result-row 2); excluded: 1 reference without golden: ended 1; 16 not compared; measured mean 0.043 over 277`
 - validate run `validate-ops-tick-9d6c1f214242-df156e1dcf8c` at Hermit `9d6c1f214242`: `parity: 0/297 matched; selected 297 of 297 committed; population 281: mean 0.042 over 281 (0 full, 277 partial, 4 zero: crash 1, no-result-row 3); excluded: 0 reference without golden; 16 not compared; measured mean 0.043 over 277`
