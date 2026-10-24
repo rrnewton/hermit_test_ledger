@@ -1,20 +1,20 @@
 {
   "local_sources": [],
-  "rows": 3070113,
-  "rows_sha256": "e8c8ab1c44bf2d446474c07827d5d2329ddeefb4a29e22cfad7f5b29534d9a2d",
+  "rows": 3081019,
+  "rows_sha256": "71655a3630cbac66af1f40ddef59139cd1a696465908fcb9a9b03d5f90aafff2",
   "schema": "hermit-test-ledger/v1",
   "scorecard": {
-    "scorecard/SCORECARD.md": "73cbe787de9282ebcb8b531258242e471bfbc556e04376cfa1837e4149c34b4c",
-    "scorecard/cells.json": "809a2c8f413012f7d85cb8ff8e67202c162696095233e2c197c9b8a18f11389e",
-    "scorecard/finalized/objects/sha256/ac6373caf7a5c2a31ca341713df96613af02873ed906191cb9ebefa3cf95a00d": "ac6373caf7a5c2a31ca341713df96613af02873ed906191cb9ebefa3cf95a00d",
-    "scorecard/finalized/runs/f55629b86fef02eaccc16fec0e0f25ff92be6acf08c2ca1446d28bed884df980.json": "87a70c1c6b910b98f35d1e01bd03c82ee136010a79b683a9d575de7a3c6c6d06",
-    "scorecard/parity.json": "df81b2f765546745e712f930a5806e655dff0dda1756462c12e25fad48d97ea4"
+    "scorecard/SCORECARD.md": "557e6f7653aaccd5f1d69383f256faaf1a8a6ace1cd0ed7b0ab4258da0fe2d2a",
+    "scorecard/cells.json": "e866b080058dde0edeea5819caab6121bce6020d357589598a55b9026834a60d",
+    "scorecard/finalized/objects/sha256/4ca183520ce9025d53f78afaba054d0aa79e9427068d3e31f298967af16c5aef": "4ca183520ce9025d53f78afaba054d0aa79e9427068d3e31f298967af16c5aef",
+    "scorecard/finalized/runs/d2cc9af20dfbaac51bb7abd9fb0a4813d83b06912cc942a5b76b28d26a491dff.json": "de491e5d62b519ba7f6d1a5f855ca6c039ec6b5616d2fdcfb76cefc0da70679d",
+    "scorecard/parity.json": "11abfca4728381fe1eeae36cf7e9ab11a017a462b8af6f3b1c807b6d7091e921"
   },
-  "scorecard_hermit_commit": "88db0de74f6ab2f8ab81e9761fcb49b1aacfaf4f",
-  "scorecard_hermit_commit_time": 1792814645,
-  "scorecard_tool_hermit_commit": "88db0de74f6ab2f8ab81e9761fcb49b1aacfaf4f",
-  "series_commit": "869166470a13c34f5500c5b94f6461ed32e03812",
-  "source_commit": "869166470a13c34f5500c5b94f6461ed32e03812",
+  "scorecard_hermit_commit": "be25e672d20deb1a0535829363ffbccd4d8dce1c",
+  "scorecard_hermit_commit_time": 1792820029,
+  "scorecard_tool_hermit_commit": "be25e672d20deb1a0535829363ffbccd4d8dce1c",
+  "series_commit": "03fdaad2694a3be8493e39bb357f7e45cf6c35cc",
+  "source_commit": "03fdaad2694a3be8493e39bb357f7e45cf6c35cc",
   "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
-  "source_tree": "c1b694c7e1f1220e99890c586b7fcb452181b131"
+  "source_tree": "369481a84790addbda475c510a176023352d0140"
 }
