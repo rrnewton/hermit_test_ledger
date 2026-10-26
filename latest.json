@@ -1,0 +1,18 @@
+{
+  "local_sources": [],
+  "rows": 3213098,
+  "rows_sha256": "1ce9368a838964e74988b76bcf4d7685f99331a0f499f9376670261b9dca03b7",
+  "schema": "hermit-test-ledger/v1",
+  "scorecard": {
+    "scorecard/SCORECARD.md": "4063da7ddefbaca73cfd13ab2c16d839520e4886ce68ad83ea557b3e7499ceff",
+    "scorecard/cells.json": "64c423aa4669f32c3403e94340e8d609d19046f163c98e7374ff6b0c24e778d6",
+    "scorecard/parity.json": "16aea4b1867383dcef46baff62a786d5d3cea8179da23b67d37ebee0f879aaaa"
+  },
+  "scorecard_hermit_commit": "5771f5a4299be221b725902dd194c3da8fc569b6",
+  "scorecard_hermit_commit_time": 1792936121,
+  "scorecard_tool_hermit_commit": "5771f5a4299be221b725902dd194c3da8fc569b6",
+  "series_commit": "d288eae9f69cbb5f31dd03e6840d5caa0e5e60ed",
+  "source_commit": "d288eae9f69cbb5f31dd03e6840d5caa0e5e60ed",
+  "source_repository": "https://github.com/rrnewton/hermit_test_ledger.git",
+  "source_tree": "2062d4d127427af8f7b9d2c9ea8edb3688769a16"
+}

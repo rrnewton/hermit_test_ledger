@@ -1,0 +1,10 @@
+{
+  "blob": "c55b6e644a6f32aadfdea8fbbf76dfaddb20de3e",
+  "bytes": 81434443,
+  "cells": 5760,
+  "commit": "97c39b308efd854693038f24962484182d932f27",
+  "observations": 9509,
+  "path": "ci/compat-envelope/cells.json",
+  "repository": "https://github.com/rrnewton/hermit.git",
+  "sha256": "e07c158d1f697e6eea027414550c017fd9d88d80eebe4e35b73fb2eb8ac7eb0f"
+}
