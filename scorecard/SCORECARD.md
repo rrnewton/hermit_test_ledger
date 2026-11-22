@@ -1,4 +1,4 @@
-Last regenerated **2026-11-17T03:08:49Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `34c69c8211d93138b77c2a6d923a886ccb754e18`, reading 5563982 series row(s). No validate run's comparisons were captured from this series snapshot. Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (666), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (665), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-ops-tick-6d16e529044d-8fa53e08a6c6` current (332), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), and 42 more.
+Last regenerated **2026-11-22T07:24:30Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `d88d07eeabb19b8a383e5c0c73e66de3e5a3ed09`, reading 5599459 series row(s). No validate run's comparisons were captured from this series snapshot. Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (666), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (665), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-ops-tick-6d16e529044d-8fa53e08a6c6` current (332), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), and 42 more.
 
 # Test selection scorecard
 
@@ -114,7 +114,7 @@ See the [test-suite documentation](ci/compat-envelope/README.md) for the detaile
 
 ## Selection and measurement
 
-Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **3** have `never-measured`; of the cells not selected by full, **617** have `measured-and-passed`.
+Selection and observation answer different questions. The first column says whether full validation selects a cell. The per-cell `measurement` value says what retained evidence observed: `never-measured`, `measured-and-passed`, `measured-no-verdict`, `diverged-unlocated`, or `diverged`. Of the cells selected by full, **0** have `never-measured`; of the cells not selected by full, **617** have `measured-and-passed`.
 
 Retained history that has not been imported is not counted here. A stored measurement does not establish that it describes current code; `show` reports whether the recorded last test still matches `HEAD:detcore`.
 
@@ -122,10 +122,10 @@ The count table includes all **17822** cells in the manifest; no row is omitted.
 
 | Selection by full | `never-measured` | `measured-and-passed` | `measured-no-verdict` | `diverged-unlocated` | `diverged` | In the manifest |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selected by full | 3 | 2002 | 1 | 0 | 431 | 2437 |
-| Not selected by full | 783 | 617 | 78 | 1 | 366 | 1845 |
+| Selected by full | 0 | 2006 | 0 | 0 | 431 | 2437 |
+| Not selected by full | 225 | 617 | 636 | 1 | 366 | 1845 |
 | Not applicable | 7903 | 175 | 5393 | 1 | 68 | 13540 |
-| **Total** | **8689** | **2794** | **5472** | **2** | **865** | **17822** |
+| **Total** | **8128** | **2798** | **6029** | **2** | **865** | **17822** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -1862,7 +1862,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/pidfd-waitid-child` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/pidfd-waitid-child` | `verify` | `dbt` | `Not selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-waitid-child` | `verify` | `in-guest-trap` | `Selected by full` | `measured-and-passed` |
-| `c-programs/pidfd-waitid-child` | `verify` | `kvm` | `Selected by full` | `measured-no-verdict` |
+| `c-programs/pidfd-waitid-child` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-waitid-child` | `verify` | `liteinst` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-waitid-child` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/pidfd-waitid-child` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
@@ -2031,6 +2031,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/preadv2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/preadv2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/preadv2-flags` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/preempt-spin-flag` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/preempt-spin-flag` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/preempt-spin-flag` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/print-memaddrs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/print-memaddrs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/print-memaddrs` | `replay` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -6292,6 +6295,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-absdir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdoesnotexist` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdoesnotexist` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6299,6 +6306,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-absdoesnotexist` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdoesnotexist` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdoesnotexist` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdoesnotexist` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdoesnotexist` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdoesnotexist` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absdoesnotexist` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absdoesnotexist` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absfile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absfile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6306,6 +6317,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-absfile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absfile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absfile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absfile` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absfile` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absfile` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-absfile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-absfile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmode` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmode` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6313,6 +6328,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-invalidmode` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmode` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmode` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmode` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmode` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmode` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmode` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmode` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmoderoot` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmoderoot` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6320,6 +6339,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-invalidmoderoot` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmoderoot` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmoderoot` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmoderoot` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmoderoot` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmoderoot` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmoderoot` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmoderoot` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmodes` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmodes` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6327,6 +6350,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-invalidmodes` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmodes` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmodes` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmodes` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmodes` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmodes` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidmodes` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidmodes` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidname` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidname` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6334,6 +6361,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-invalidname` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidname` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidname` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidname` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidname` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidname` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-invalidname` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-invalidname` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-noperms` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-noperms` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6341,6 +6372,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-noperms` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-noperms` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-noperms` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-noperms` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-noperms` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-noperms` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-noperms` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativedir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativedir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6348,6 +6382,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-relativedir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativedir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativedir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativedir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativedir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativedir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativedir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativedir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativefile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativefile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6355,6 +6393,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-relativefile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativefile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativefile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativefile` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativefile` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativefile` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-relativefile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-relativefile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-reldoesnotexist` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-reldoesnotexist` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6362,6 +6404,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-reldoesnotexist` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-reldoesnotexist` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-reldoesnotexist` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-reldoesnotexist` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-reldoesnotexist` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-reldoesnotexist` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-reldoesnotexist` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-reldoesnotexist` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadexec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadexec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6369,6 +6415,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-usrreadexec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadexec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadexec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadexec` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadexec` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadexec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadexec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadonly` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadonly` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6376,6 +6425,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-usrreadonly` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadonly` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadonly` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadonly` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadonly` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadonly` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadonly` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwrite` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwrite` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6383,6 +6435,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-usrreadwrite` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwrite` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwrite` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwrite` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwrite` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwrite` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwrite` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwrite` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwriteexec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwriteexec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6390,6 +6446,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-accesstest-usrreadwriteexec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwriteexec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwriteexec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwriteexec` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwriteexec` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwriteexec` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-accesstest-usrreadwriteexec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-accesstest-usrreadwriteexec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6397,6 +6457,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6404,6 +6465,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinknofollow` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinknofollow` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6411,6 +6476,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-faccessat2test-symlinknofollow` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinknofollow` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinknofollow` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinknofollow` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinknofollow` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinknofollow` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-symlinknofollow` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinknofollow` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessattest-symlinkfollowed` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessattest-symlinkfollowed` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6418,6 +6487,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-faccessattest-symlinkfollowed` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessattest-symlinkfollowed` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessattest-symlinkfollowed` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-faccessattest-symlinkfollowed` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessattest-symlinkfollowed` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessattest-symlinkfollowed` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/access-faccessattest-symlinkfollowed` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-faccessattest-symlinkfollowed` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/clock-getres-clockgetres-timespec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/clock-getres-clockgetres-timespec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6425,6 +6498,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/clock-getres-clockgetres-timespec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/clock-getres-clockgetres-timespec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/clock-getres-clockgetres-timespec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/clock-getres-clockgetres-timespec` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/clock-getres-clockgetres-timespec` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/clock-getres-clockgetres-timespec` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/clock-getres-clockgetres-timespec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/clock-getres-clockgetres-timespec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6432,6 +6509,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dup` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6439,6 +6520,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dup2` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2samefd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2samefd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6446,6 +6531,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dup2samefd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2samefd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2samefd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2samefd` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2samefd` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2samefd` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2samefd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2samefd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2withopath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2withopath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6453,6 +6542,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dup2withopath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2withopath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2withopath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2withopath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2withopath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2withopath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup2withopath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup2withopath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6460,6 +6553,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dup3` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3failssamefd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3failssamefd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6467,6 +6564,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dup3failssamefd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3failssamefd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3failssamefd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3failssamefd` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3failssamefd` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3failssamefd` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3failssamefd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3failssamefd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3withopath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3withopath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6474,6 +6575,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dup3withopath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3withopath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3withopath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3withopath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3withopath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3withopath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dup3withopath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dup3withopath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupclearscloexec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupclearscloexec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6481,6 +6586,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dupclearscloexec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupclearscloexec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupclearscloexec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupclearscloexec` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupclearscloexec` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupclearscloexec` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupclearscloexec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupclearscloexec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupwithopath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupwithopath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6488,6 +6597,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-dupwithopath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupwithopath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupwithopath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupwithopath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupwithopath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupwithopath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/dup-duptest-dupwithopath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-dupwithopath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6495,6 +6608,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-rlimit` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-rlimit` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6502,6 +6616,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigread` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6509,6 +6624,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-bigread` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigread` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigread` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigread` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigread` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigread` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigread` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigread` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigwritefails` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigwritefails` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6516,6 +6635,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-bigwritefails` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigwritefails` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigwritefails` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigwritefails` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigwritefails` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigwritefails` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-bigwritefails` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigwritefails` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6523,6 +6646,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpread` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6530,6 +6655,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-illegalpread` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpread` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpread` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpread` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpread` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpread` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpread` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpread` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpwrite` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpwrite` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6537,6 +6666,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-illegalpwrite` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpwrite` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpwrite` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpwrite` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpwrite` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpwrite` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalpwrite` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpwrite` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalseek` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalseek` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6544,6 +6677,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-illegalseek` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalseek` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalseek` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalseek` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalseek` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalseek` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-illegalseek` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalseek` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-nonblock` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-nonblock` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6551,6 +6688,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-nonblock` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-nonblock` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-nonblock` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-nonblock` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-nonblock` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-nonblock` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-nonblock` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-nonblock` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6558,6 +6699,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallread` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6565,6 +6708,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-smallread` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallread` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallread` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallread` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallread` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallread` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallread` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallread` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallwrite` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallwrite` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6572,6 +6719,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-smallwrite` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallwrite` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallwrite` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallwrite` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallwrite` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallwrite` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-smallwrite` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallwrite` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-splicereturnseinval` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-splicereturnseinval` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6579,6 +6730,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-splicereturnseinval` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-splicereturnseinval` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-splicereturnseinval` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-splicereturnseinval` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-splicereturnseinval` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-splicereturnseinval` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-splicereturnseinval` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-splicereturnseinval` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6586,6 +6741,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6593,6 +6749,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-issue128procseekend` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-issue128procseekend` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6600,6 +6757,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-issue128procseekend` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-issue128procseekend` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-issue128procseekend` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-issue128procseekend` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-issue128procseekend` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-issue128procseekend` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-issue128procseekend` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-issue128procseekend` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6607,6 +6768,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-largedir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-largedir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-notdir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-notdir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6614,6 +6776,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-notdir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-notdir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-notdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-notdir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-notdir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-notdir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-notdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathdirectory` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathdirectory` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6621,6 +6786,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-opathdirectory` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathdirectory` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathdirectory` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-opathdirectory` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-opathdirectory` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-opathdirectory` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathdirectory` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathfile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathfile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6628,6 +6796,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-opathfile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathfile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathfile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-opathfile` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-opathfile` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-opathfile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-opathfile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6635,6 +6806,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-procselffd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-procselffd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6642,6 +6814,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-procselffd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-procselffd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-procselffd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-procselffd` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-procselffd` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-procselffd` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-procselffd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-procselffd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6649,6 +6825,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6656,6 +6833,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-smalldir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-toolargesize` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-toolargesize` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6663,6 +6841,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-toolargesize` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-toolargesize` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-toolargesize` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-toolargesize` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-toolargesize` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-toolargesize` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-toolargesize` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6670,6 +6851,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-verifyentries` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6677,6 +6859,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-verifypadding` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6684,6 +6867,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6691,6 +6877,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6698,6 +6885,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-issue128procseekend` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-issue128procseekend` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6705,6 +6893,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-issue128procseekend` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-issue128procseekend` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-issue128procseekend` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-issue128procseekend` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-issue128procseekend` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-issue128procseekend` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-issue128procseekend` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-issue128procseekend` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6712,6 +6904,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-largedir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-largedir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-notdir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-notdir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6719,6 +6912,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-notdir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-notdir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-notdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-notdir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-notdir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-notdir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-notdir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-notdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathdirectory` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathdirectory` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6726,6 +6923,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-opathdirectory` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathdirectory` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathdirectory` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathdirectory` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathdirectory` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathdirectory` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathdirectory` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathdirectory` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathfile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathfile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6733,6 +6934,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-opathfile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathfile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathfile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathfile` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathfile` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathfile` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-opathfile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-opathfile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6740,6 +6945,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-procselffd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-procselffd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6747,6 +6953,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-procselffd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-procselffd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-procselffd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-procselffd` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-procselffd` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-procselffd` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-procselffd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-procselffd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6754,6 +6964,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6761,6 +6972,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-smalldir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-toolargesize` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-toolargesize` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6768,6 +6980,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-toolargesize` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-toolargesize` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-toolargesize` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-toolargesize` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-toolargesize` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-toolargesize` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-toolargesize` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-toolargesize` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6775,6 +6991,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-verifyentries` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6782,6 +6999,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-verifypadding` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6789,6 +7007,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713dev` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713dev` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6796,6 +7018,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-bug24096713dev` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713dev` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713dev` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713dev` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713dev` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713dev` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713dev` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713dev` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713proctid` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713proctid` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6803,6 +7029,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-bug24096713proctid` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713proctid` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713proctid` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713proctid` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713proctid` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713proctid` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug24096713proctid` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug24096713proctid` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug33429925proc` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug33429925proc` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6810,6 +7040,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-bug33429925proc` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug33429925proc` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug33429925proc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug33429925proc` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug33429925proc` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug33429925proc` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug33429925proc` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug33429925proc` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug35110122root` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug35110122root` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6817,6 +7051,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-bug35110122root` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug35110122root` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug35110122root` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug35110122root` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug35110122root` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug35110122root` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-bug35110122root` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-bug35110122root` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterremovecache` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterremovecache` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6824,6 +7062,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-goneafterremovecache` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterremovecache` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterremovecache` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterremovecache` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterremovecache` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterremovecache` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterremovecache` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterremovecache` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterrenamecache` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterrenamecache` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6831,6 +7073,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-goneafterrenamecache` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterrenamecache` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterrenamecache` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterrenamecache` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterrenamecache` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterrenamecache` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-goneafterrenamecache` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-goneafterrenamecache` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-opendir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-opendir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6838,6 +7084,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-opendir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-opendir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-opendir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-opendir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-opendir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-opendir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-opendir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-opendir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6845,6 +7095,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-readdirtest-rootcontainsbasicdirectories` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getrandom-getrandomtest-israndom` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getrandom-getrandomtest-israndom` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6852,6 +7106,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getrandom-getrandomtest-israndom` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getrandom-getrandomtest-israndom` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getrandom-getrandomtest-israndom` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getrandom-getrandomtest-israndom` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getrandom-getrandomtest-israndom` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getrandom-getrandomtest-israndom` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/getrandom-getrandomtest-israndom` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getrandom-getrandomtest-israndom` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6859,6 +7117,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6866,6 +7125,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-epoll` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-epoll` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6873,6 +7133,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6880,6 +7141,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6887,6 +7149,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6894,6 +7157,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6901,6 +7165,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdworks` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6908,6 +7173,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6915,6 +7181,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6922,6 +7189,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6929,6 +7197,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6936,6 +7205,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6943,6 +7213,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6950,6 +7221,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6957,6 +7229,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6964,6 +7237,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6971,6 +7245,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6978,6 +7253,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-poll` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-poll` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6985,6 +7261,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6992,6 +7269,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -6999,6 +7277,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7006,6 +7285,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7013,6 +7293,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7020,6 +7301,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7027,6 +7309,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7034,6 +7317,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7041,6 +7325,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7048,6 +7333,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7055,6 +7341,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7062,6 +7349,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7069,6 +7357,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7076,6 +7365,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7083,6 +7373,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7090,6 +7381,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7097,6 +7389,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollhup` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7104,6 +7397,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7111,6 +7405,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7118,6 +7413,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7125,6 +7421,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7132,6 +7429,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7139,6 +7437,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7146,6 +7445,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7153,6 +7453,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7160,6 +7461,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7167,6 +7469,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-invalidfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-invalidfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7174,6 +7477,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-negativetimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-negativetimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7181,6 +7485,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7188,6 +7493,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7195,6 +7501,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7202,6 +7509,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7209,6 +7517,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7216,6 +7525,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7223,6 +7533,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7230,6 +7541,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7237,6 +7549,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7244,6 +7557,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nullfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nullfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7251,6 +7565,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-pollleveltriggered` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-pollleveltriggered` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7258,6 +7573,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-unpollablefile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-unpollablefile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7265,6 +7581,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-zerotimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-zerotimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/sched-yield-schedyieldtest-success` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/sched-yield-schedyieldtest-success` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7272,6 +7589,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/sched-yield-schedyieldtest-success` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/sched-yield-schedyieldtest-success` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/sched-yield-schedyieldtest-success` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/sched-yield-schedyieldtest-success` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/sched-yield-schedyieldtest-success` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/sched-yield-schedyieldtest-success` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/sched-yield-schedyieldtest-success` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/sched-yield-schedyieldtest-success` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7279,6 +7600,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-closedfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-closedfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-closedfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7286,6 +7609,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7293,6 +7618,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-interruptedbysignal` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-interruptedbysignal` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-interruptedbysignal` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7300,6 +7627,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7307,6 +7636,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-negativenfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-negativenfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-negativenfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7314,6 +7645,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-notimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-notimeout` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-notimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7321,6 +7654,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-nullfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-nullfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-nullfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7328,6 +7663,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-setrlimitcallnofile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7335,6 +7672,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-zerotimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-zerotimeout` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-zerotimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7342,6 +7681,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-cloexec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-cloexec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7349,6 +7689,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-killstillkills` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-killstillkills` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7356,6 +7697,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-ppoll` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-ppoll` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7363,6 +7705,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7370,6 +7713,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7377,6 +7721,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7384,6 +7729,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7391,6 +7737,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7398,6 +7745,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7405,6 +7753,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7412,6 +7761,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7419,6 +7769,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7426,6 +7777,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7433,6 +7785,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7440,6 +7793,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7447,6 +7801,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7454,6 +7809,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7461,6 +7817,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7468,6 +7825,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7475,6 +7833,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7482,6 +7841,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7489,6 +7849,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7496,6 +7860,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-sysfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7503,6 +7871,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7510,6 +7879,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7517,6 +7887,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7524,6 +7895,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7531,6 +7906,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-sysfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7538,6 +7917,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7545,6 +7925,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7552,6 +7933,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7559,6 +7941,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7566,6 +7952,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-sysfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7573,6 +7963,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7580,6 +7971,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7587,6 +7982,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-differentfileshavedifferentdeviceinodenumberpairs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-blocksincreaseonwrite` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-blocksincreaseonwrite` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7594,6 +7993,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-blocksincreaseonwrite` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-blocksincreaseonwrite` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-blocksincreaseonwrite` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-blocksincreaseonwrite` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-blocksincreaseonwrite` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-blocksincreaseonwrite` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-blocksincreaseonwrite` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-blocksincreaseonwrite` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-childofnondir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-childofnondir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7601,6 +8004,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-childofnondir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-childofnondir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-childofnondir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-childofnondir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-childofnondir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-childofnondir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-childofnondir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-childofnondir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatabs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatabs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7608,6 +8015,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatabs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatabs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatabs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatabs` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatabs` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatabs` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatabs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatabs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatdirwithopath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatdirwithopath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7615,6 +8026,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatdirwithopath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatdirwithopath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatdirwithopath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatdirwithopath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatdirwithopath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatdirwithopath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatdirwithopath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatdirwithopath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatemptypath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatemptypath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7622,6 +8037,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatemptypath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatemptypath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatemptypath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatemptypath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatemptypath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatemptypath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatemptypath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatemptypath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatrel` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatrel` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7629,6 +8048,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatrel` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatrel` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatrel` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatrel` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatrel` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatrel` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatrel` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatrel` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlink` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlink` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7636,6 +8059,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatsymlink` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlink` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlink` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlink` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlink` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlink` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlink` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlink` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7643,6 +8070,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatsymlinkdir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7650,6 +8081,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslash` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7657,6 +8092,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatatsymlinkdirwithtrailingslashsameinode` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatdirwithopath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatdirwithopath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7664,6 +8103,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatdirwithopath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatdirwithopath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatdirwithopath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatdirwithopath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatdirwithopath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatdirwithopath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatdirwithopath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatdirwithopath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatfilewithopath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatfilewithopath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7671,6 +8114,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-fstatfilewithopath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatfilewithopath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatfilewithopath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatfilewithopath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatfilewithopath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatfilewithopath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-fstatfilewithopath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-fstatfilewithopath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-leadingdoubleslash` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-leadingdoubleslash` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7678,6 +8125,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-leadingdoubleslash` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-leadingdoubleslash` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-leadingdoubleslash` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-leadingdoubleslash` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-leadingdoubleslash` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-leadingdoubleslash` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-leadingdoubleslash` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-leadingdoubleslash` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7685,6 +8136,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-linkcountswithdirchild` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithregularfilechild` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithregularfilechild` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7692,6 +8144,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-linkcountswithregularfilechild` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithregularfilechild` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithregularfilechild` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithregularfilechild` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithregularfilechild` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithregularfilechild` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithregularfilechild` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithregularfilechild` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithsubdirectories` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithsubdirectories` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7699,6 +8155,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-linkcountswithsubdirectories` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithsubdirectories` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithsubdirectories` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithsubdirectories` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithsubdirectories` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithsubdirectories` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithsubdirectories` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithsubdirectories` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatelooppath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatelooppath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7706,6 +8166,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-lstatelooppath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatelooppath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatelooppath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatelooppath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatelooppath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatelooppath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatelooppath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatelooppath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatsymlinkdir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatsymlinkdir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7713,6 +8177,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-lstatsymlinkdir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatsymlinkdir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatsymlinkdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatsymlinkdir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatsymlinkdir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatsymlinkdir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-lstatsymlinkdir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-lstatsymlinkdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7720,6 +8188,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-nlinks` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-nlinks` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontaindotdot` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontaindotdot` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7727,6 +8196,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-pathcancontaindotdot` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontaindotdot` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontaindotdot` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontaindotdot` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontaindotdot` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontaindotdot` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontaindotdot` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontaindotdot` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontainemptycomponent` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontainemptycomponent` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7734,6 +8207,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-pathcancontainemptycomponent` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontainemptycomponent` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontainemptycomponent` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontainemptycomponent` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontainemptycomponent` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontainemptycomponent` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathcancontainemptycomponent` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontainemptycomponent` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathnotcleaned` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathnotcleaned` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7741,6 +8218,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-pathnotcleaned` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathnotcleaned` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathnotcleaned` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathnotcleaned` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathnotcleaned` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathnotcleaned` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-pathnotcleaned` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathnotcleaned` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statdoesntchangeafterrename` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statdoesntchangeafterrename` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7748,6 +8229,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statdoesntchangeafterrename` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statdoesntchangeafterrename` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statdoesntchangeafterrename` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statdoesntchangeafterrename` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statdoesntchangeafterrename` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statdoesntchangeafterrename` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statdoesntchangeafterrename` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statdoesntchangeafterrename` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statignorenoautomount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statignorenoautomount` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7755,6 +8240,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statignorenoautomount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statignorenoautomount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statignorenoautomount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statignorenoautomount` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statignorenoautomount` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statignorenoautomount` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statignorenoautomount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statignorenoautomount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxabspath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxabspath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7762,6 +8251,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxabspath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxabspath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxabspath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxabspath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxabspath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxabspath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxabspath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxabspath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7769,6 +8262,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxdoesnotrejectextraneousmaskbits` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxemptypath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxemptypath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7776,6 +8273,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxemptypath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxemptypath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxemptypath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxemptypath` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxemptypath` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxemptypath` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxemptypath` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxemptypath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxinvalidflags` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxinvalidflags` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7783,6 +8284,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxinvalidflags` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxinvalidflags` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxinvalidflags` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxinvalidflags` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxinvalidflags` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxinvalidflags` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxinvalidflags` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxinvalidflags` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntid` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntid` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7790,6 +8295,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmntid` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntid` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntid` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmntid` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmntid` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmntid` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmntid` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntid` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7797,6 +8306,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmntidbindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7804,6 +8314,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7811,6 +8325,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7818,6 +8333,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootonrootdirectory` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootonrootdirectory` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7825,6 +8341,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmountrootonrootdirectory` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootonrootdirectory` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootonrootdirectory` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootonrootdirectory` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootonrootdirectory` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootonrootdirectory` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootonrootdirectory` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootonrootdirectory` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7832,6 +8352,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrejectsreservedmaskbit` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathcwd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathcwd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7839,6 +8363,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxrelpathcwd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathcwd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathcwd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathcwd` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathcwd` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathcwd` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathcwd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathcwd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathdirfd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathdirfd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7846,6 +8374,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxrelpathdirfd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathdirfd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathdirfd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathdirfd` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathdirfd` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathdirfd` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxrelpathdirfd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxrelpathdirfd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxsymlink` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxsymlink` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7853,6 +8385,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxsymlink` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxsymlink` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxsymlink` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxsymlink` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxsymlink` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxsymlink` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxsymlink` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxsymlink` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7860,6 +8396,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-trailingslashnotcleanedreturnsenotdir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7867,6 +8407,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-zerolinksopenfdregularfilechild-nosave` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7874,6 +8418,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-boottime` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7881,6 +8429,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingpoll-settimeresetsexpirations-clock-monotonic` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7888,6 +8440,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-boottime` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7895,6 +8451,10 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `verify` | `liteinst` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-blockingread-clock-monotonic` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-boottime` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-boottime` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -7902,6 +8462,7 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-boottime` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-boottime` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-boottime` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-boottime` | `verify` | `in-guest-trap` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-boottime` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-monotonic` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/timerfd-alltimertypes-timerfdtest-illegalpread-clock-monotonic` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -9272,28 +9833,30 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. The **population** is every test whose ptrace `verify` cell full validation selects, crossed with every candidate backend, so it is the verify matrix itself. Every population cell is scored: a measured cell earns its credit, and a candidate that is not enabled, not selected, left no row or log, timed out, crashed, failed or diverged between its own two runs, a comparison the parity tool could not make, a record-missing cell and a refused cell each score 0 and are counted. **Population mean** divides the credit sum by every population cell (N), zeros included; **Full**, **Partial** and **Zero** count the cells with credit 1, between 0 and 1, and 0. A cell whose ptrace reference left no usable golden log has nothing to compare against: it is outside the population, counted under **Excluded (reference)**, and so is a historical **not compared** dbt cell. In a pressure-test run, which executes a sample, a candidate full validation runs but the sample did not plan is **not sampled**: outside that run's population, counted on its line apart, never 0. **Mean credit (measured)** divides the credit sum by the measured (matched plus diverged) cells only. A mean over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C population cells it owes, and a run that reported fewer is marked partial. Credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is.
 
 
-### validate run `validate-merge-queue-1f48941b068c-1794883841904716158-3561986-32022631` at `1f48941b068c`
+### validate run `validate-muse-detq-6574e693f401-1795316537425700189-3727775-7fa08c11` at `6574e693f401`
 
-`parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+`parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 
 | Candidate backend | Selected | Population | Population mean | Full | Partial | Zero | Excluded (reference) | Not compared | Measured | Matched | Mean credit (measured) | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 614 of 614 | 614 | 0.000 | 0 | 0 | 614 | 0 | 0 | 0 | 0 | n/a | — |
-| `in-guest-trap` | 614 of 614 | 614 | 0.031 | 0 | 314 | 300 | 0 | 0 | 314 | 0 | 0.061 | equalized for 312 of 314 (mean 0.061 equal; 0.006 unequal) |
-| `kvm` | 614 of 614 | 614 | 0.772 | 368 | 237 | 9 | 0 | 0 | 605 | 368 | 0.783 | equalized for 597 of 605 (mean 0.793 equal; 0.044 unequal) |
-| `liteinst` | 614 of 614 | 614 | 0.031 | 0 | 315 | 299 | 0 | 0 | 315 | 0 | 0.061 | equalized for 311 of 315 (mean 0.061 equal; 0.014 unequal) |
-| `sabre` | 614 of 614 | 614 | 0.000 | 0 | 0 | 614 | 0 | 0 | 0 | 0 | n/a | — |
-| **TOTAL** | 3070 of 3070 | 3070 | 0.167 | 368 | 866 | 1836 | 0 | 0 | 1234 | 368 | 0.415 | equalized for 1220 of 1234 (mean 0.419 equal; 0.030 unequal) |
+| `dbt` | 615 of 615 | 615 | 0.000 | 0 | 0 | 615 | 0 | 0 | 0 | 0 | n/a | — |
+| `in-guest-trap` | 615 of 615 | 615 | 0.031 | 0 | 314 | 301 | 0 | 0 | 314 | 0 | 0.061 | equalized for 312 of 314 (mean 0.061 equal; 0.006 unequal) |
+| `kvm` | 615 of 615 | 615 | 0.773 | 369 | 236 | 10 | 0 | 0 | 605 | 369 | 0.786 | equalized for 597 of 605 (mean 0.796 equal; 0.044 unequal) |
+| `liteinst` | 615 of 615 | 615 | 0.031 | 0 | 315 | 300 | 0 | 0 | 315 | 0 | 0.061 | equalized for 311 of 315 (mean 0.061 equal; 0.014 unequal) |
+| `sabre` | 615 of 615 | 615 | 0.000 | 0 | 0 | 615 | 0 | 0 | 0 | 0 | n/a | — |
+| **TOTAL** | 3075 of 3075 | 3075 | 0.167 | 369 | 865 | 1841 | 0 | 0 | 1234 | 369 | 0.416 | equalized for 1220 of 1234 (mean 0.421 equal; 0.030 unequal) |
 
 Cells that were not measured, by class: a cell whose ptrace reference left no golden is excluded from the population; every other one scores 0 and is counted.
 
 | Class | Group | Counts as | `dbt` | `in-guest-trap` | `kvm` | `liteinst` | `sabre` | **TOTAL** |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `candidate-not-enabled` | candidate not run | 0 | 57 | 300 | 9 | 299 | 144 | 809 |
+| `timeout` | no golden | 0 | 0 | 0 | 1 | 0 | 0 | 1 |
+| `crash` | no golden | 0 | 0 | 0 | 1 | 0 | 0 | 1 |
+| `candidate-not-enabled` | candidate not run | 0 | 58 | 301 | 8 | 300 | 145 | 812 |
 | `candidate-not-selected` | candidate not run | 0 | 2 | 0 | 0 | 0 | 470 | 472 |
 | `no-result-row` | unmeasured | 0 | 555 | 0 | 0 | 0 | 0 | 555 |
 
-Most common first divergence: 629 of 866 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/example-timed-progress-bar@in-guest-trap`).
+Most common first divergence: 629 of 865 diverged cell(s) at record 10, syscall ?: token 3: `[dtid` vs `DETLOG` (for example `applications/example-timed-progress-bar@in-guest-trap`).
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
@@ -9447,7 +10010,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/dbt-mmap-exec@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/dbt-mmap-exec is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `c-programs/dbt-pid-virtualization@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/dbt-pid-virtualization has no result row in this run |
 | `c-programs/dbt-pid-virtualization@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/dbt-pid-virtualization is not enabled in the manifest, so it has no log to compare: The in-guest runtime cannot replace the process image, so it refuses execve and execveat with a typed refusal that ends the run (test-unify, 2026-10-16); this guest execs a child after vfork, so its run is refused. It passed before only because that exec failed with EOPNOTSUPP in both verify runs and the exec'd image never ran. |
-| `c-programs/dbt-pid-virtualization@kvm` | diverged | 0.553 | record 309, syscall 43: token 9: `0x7fffffffe580+144->93053957e698d7b6979f2f040c7fc67fc5a2c3b20defd67beba10822e909...` vs `0x7fffffffe580+144->4a7c58589adae5335a09d44509b1347bc564dbce7f17f6523882e85961d2...` |
+| `c-programs/dbt-pid-virtualization@kvm` | diverged | 0.550 | record 309, syscall 43: token 9: `0x7fffffffe580+144->93053957e698d7b6979f2f040c7fc67fc5a2c3b20defd67beba10822e909...` vs `0x7fffffffe580+144->4a7c58589adae5335a09d44509b1347bc564dbce7f17f6523882e85961d2...` |
 | `c-programs/dbt-pid-virtualization@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/dbt-pid-virtualization is not enabled in the manifest, so it has no log to compare: The in-guest runtime cannot replace the process image, so it refuses execve and execveat with a typed refusal that ends the run (test-unify, 2026-10-16); this guest execs a child after vfork, so its run is refused. It passed before only because that exec failed with EOPNOTSUPP in both verify runs and the exec'd image never ran. |
 | `c-programs/dbt-pid-virtualization@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/dbt-pid-virtualization is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `c-programs/dbt-prlimit-self@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/dbt-prlimit-self has no result row in this run |
@@ -9919,7 +10482,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/pause-alarm-interrupt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/pause-alarm-interrupt is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `c-programs/pause-cross-task-signal@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Config::backend_supports_blocked_wait_signal_interruption is false on DBT, so the scheduler does not model signal targets and a cross-task signal to a thread parked in an emulated pause or nanosleep is not recorded for the step2 drain (https://github.com/rrnewton/hermit/issues/3982); qualify DBT separately |
 | `c-programs/pause-cross-task-signal@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/pause-cross-task-signal@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: NAMED REFUSAL (https://github.com/rrnewton/hermit/issues/5036): KVM refuses a signal to another process by name (`KVM signal delivery refused: KVM cannot deliver a signal to another process`, UnsupportedOperation::Signal), a fail-closed policy refusal (HERMIT_POLICY_REFUSAL) at the guest's first kill of its child, in 3 of 3 KVM verify runs at Hermit 26eb116d; ptrace passes |
+| `c-programs/pause-cross-task-signal@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: NAMED REFUSAL (https://github.com/rrnewton/hermit/issues/5036, https://github.com/rrnewton/hermit/issues/4485): Detcore refuses by name the guest's first kill of its child, a SIGTERM whose default action ends the process (`KVM cannot yet carry out for a signal another process sends (stage X1 slice F)`), a fail-closed policy refusal (HERMIT_POLICY_REFUSAL); its caught signals to a child parked in pause or nanosleep wait for slice D; ptrace passes |
 | `c-programs/pause-cross-task-signal@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/pause-cross-task-signal@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/pause-cross-task-signal is not enabled in the manifest, so it has no log to compare: Config::backend_supports_blocked_wait_signal_interruption is false on SaBRe, so the scheduler does not model signal targets and a cross-task signal to a thread parked in an emulated pause or nanosleep is not recorded for the step2 drain (https://github.com/rrnewton/hermit/issues/3982); qualify SaBRe separately |
 | `c-programs/perf-event-refusals@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/perf-event-refusals has no result row in this run |
@@ -9953,7 +10516,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/pidfd-poll-self@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/pidfd-poll-self is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `c-programs/pidfd-waitid-child@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/pidfd-waitid-child has no result row in this run |
 | `c-programs/pidfd-waitid-child@in-guest-trap` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `c-programs/pidfd-waitid-child@kvm` | candidate-missing[candidate-not-enabled] | — | the kvm candidate verify cell of c-programs/pidfd-waitid-child is not enabled in the manifest, so it has no log to compare: KVM gap (https://github.com/rrnewton/hermit/issues/5037): KVM's pidfd_open serves only the calling process and answers ESRCH for a live child, so the guest exits 1 (`pidfd_open child failed: No such process`) in 3 of 3 KVM verify runs at Hermit 26eb116d; ptrace and native Linux return a pidfd |
+| `c-programs/pidfd-waitid-child@kvm` | diverged | 0.721 | record 112, syscall 33: token 2: `detcore::syscalls::threads:` vs `detcore:` |
 | `c-programs/pidfd-waitid-child@liteinst` | diverged | 0.058 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/pidfd-waitid-child@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/pidfd-waitid-child is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `c-programs/pipe-capacity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/pipe-capacity has no result row in this run |
@@ -10019,6 +10582,10 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/preadv2-flags@in-guest-trap` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/preadv2-flags@liteinst` | diverged | 0.068 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/preadv2-flags@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/preadv2-flags is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
+| `c-programs/preempt-spin-flag@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/preempt-spin-flag is not enabled in the manifest, so it has no log to compare: Reverie BackendCapabilities::DBT delivers_preemption_timer_events=false and its Guest refuses set_timer, so a pure-userspace spin is never preempted and this guest can only reach its starvation cap (https://github.com/facebookexperimental/hermit/issues/119) |
+| `c-programs/preempt-spin-flag@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/preempt-spin-flag is not enabled in the manifest, so it has no log to compare: The in-guest trap host shares LiteInst's set_timer ENOSYS refusal (delivers_preemption_timer_events=false), so a pure-userspace spin is never preempted (https://github.com/facebookexperimental/hermit/issues/119) |
+| `c-programs/preempt-spin-flag@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/preempt-spin-flag is not enabled in the manifest, so it has no log to compare: Reverie BackendCapabilities::LITEINST_IN_GUEST delivers_preemption_timer_events=false and the in-guest host refuses set_timer with ENOSYS, so a pure-userspace spin runs unpreempted to its next syscall (https://github.com/facebookexperimental/hermit/issues/119) |
+| `c-programs/preempt-spin-flag@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/preempt-spin-flag is not enabled in the manifest, so it has no log to compare: Reverie BackendCapabilities::SABRE delivers_preemption_timer_events=false, so a pure-userspace spin is never preempted and this guest can only reach its starvation cap (https://github.com/facebookexperimental/hermit/issues/119) |
 | `c-programs/print-memaddrs@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/print-memaddrs has no result row in this run |
 | `c-programs/print-memaddrs@in-guest-trap` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `c-programs/print-memaddrs@liteinst` | diverged | 0.067 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
@@ -10519,7 +11086,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/thp-disable@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/thp-disable is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `c-programs/thread-self-procfs-handoff@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/thread-self-procfs-handoff has no result row in this run |
 | `c-programs/thread-self-procfs-handoff@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/thread-self-procfs-handoff is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/thread-self-procfs-handoff@kvm` | diverged | 0.771 | record 112, syscall 3: token 14: `Ok(1018)` vs `Ok(861)` |
+| `c-programs/thread-self-procfs-handoff@kvm` | diverged | 0.771 | record 112, syscall 3: token 14: `Ok(1130)` vs `Ok(861)` |
 | `c-programs/thread-self-procfs-handoff@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/thread-self-procfs-handoff is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `c-programs/thread-self-procfs-handoff@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/thread-self-procfs-handoff is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a determinism failure; this cell did not pass every repetition cleanly. Retained detail: canonical verification did not match: verified=false verdict=diverged bitwise_parity=false |
 | `c-programs/thread-sync-determinism@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of c-programs/thread-sync-determinism is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify DBT separately |
@@ -11107,7 +11674,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/mktemp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mktemp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/mountpoint@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/mountpoint has no result row in this run |
 | `compat/mountpoint@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mountpoint is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/mountpoint@kvm` | diverged | 0.661 | record 635, syscall 95: token 3: `[sched-step5]` vs `[dtid` |
+| `compat/mountpoint@kvm` | diverged | 0.660 | record 638, syscall 96: token 3: `[sched-step5]` vs `[dtid` |
 | `compat/mountpoint@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mountpoint is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mountpoint@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mountpoint is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/mpstat-softirqs@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/mpstat-softirqs has no result row in this run |
@@ -11168,9 +11735,9 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/nproc@liteinst` | diverged | 0.035 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/nproc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nproc is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/numactl-hardware@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/numactl-hardware has no result row in this run |
-| `compat/numactl-hardware@in-guest-trap` | diverged | 0.038 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `compat/numactl-hardware@kvm` | diverged | 0.774 | record 182, syscall 67: token 9: `0x7fffffffe9b0+144->c11f1a0f8a72b791d2f805aeb6fb34294e72a3c5aa7398f9ba61c61076d4...` vs `0x7fffffffe9b0+144->8aa57e7baf91642dfc7364a1fbcac9f8b8a439f619fdb2274b475f73fb21...` |
-| `compat/numactl-hardware@liteinst` | diverged | 0.038 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `compat/numactl-hardware@in-guest-trap` | diverged | 0.037 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
+| `compat/numactl-hardware@kvm` | diverged | 0.754 | record 182, syscall 67: token 9: `0x7fffffffe9b0+144->c11f1a0f8a72b791d2f805aeb6fb34294e72a3c5aa7398f9ba61c61076d4...` vs `0x7fffffffe9b0+144->8aa57e7baf91642dfc7364a1fbcac9f8b8a439f619fdb2274b475f73fb21...` |
+| `compat/numactl-hardware@liteinst` | diverged | 0.037 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/numactl-hardware@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/numactl-hardware is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/numastat@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/numastat has no result row in this run |
 | `compat/numastat@in-guest-trap` | diverged | 0.055 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
@@ -11226,12 +11793,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/perl-direct@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/perl-direct is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/pgrep@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/pgrep has no result row in this run |
 | `compat/pgrep@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/pgrep@kvm` | diverged | 0.570 | record 684, syscall 66: token 14: `Ok(4585)` vs `Ok(4131)` |
+| `compat/pgrep@kvm` | diverged | 0.569 | record 684, syscall 66: token 14: `Ok(4585)` vs `Ok(4131)` |
 | `compat/pgrep@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/pgrep is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pgrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pgrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/pidstat-disk@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/pidstat-disk has no result row in this run |
 | `compat/pidstat-disk@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pidstat-disk is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): Hermit refused the run because no guest process reported LiteInst statistics (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/pidstat-disk@kvm` | diverged | 0.393 | record 153, syscall 53: token 14: `Ok(139)` vs `Ok(134)` |
+| `compat/pidstat-disk@kvm` | diverged | 0.387 | record 153, syscall 53: token 14: `Ok(139)` vs `Ok(134)` |
 | `compat/pidstat-disk@liteinst` | diverged | 0.023 (unequalized) | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/pidstat-disk@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pidstat-disk is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/pinky@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/pinky has no result row in this run |
@@ -11240,7 +11807,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/pinky@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pinky is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/pkill@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/pkill has no result row in this run |
 | `compat/pkill@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/pkill is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/pkill@kvm` | diverged | 0.721 | record 637, syscall 95: token 14: `Ok(139)` vs `Ok(134)` |
+| `compat/pkill@kvm` | diverged | 0.719 | record 637, syscall 95: token 14: `Ok(139)` vs `Ok(134)` |
 | `compat/pkill@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/pkill is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/pkill@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pkill is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/pr@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/pr has no result row in this run |
@@ -11257,7 +11824,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/printf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/printf is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/ps@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ps has no result row in this run |
 | `compat/ps@in-guest-trap` | diverged | 0.016 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `compat/ps@kvm` | diverged | 0.488 | record 273, syscall 105: token 14: `Ok(1013)` vs `Ok(905)` |
+| `compat/ps@kvm` | diverged | 0.483 | record 273, syscall 105: token 14: `Ok(1024)` vs `Ok(905)` |
 | `compat/ps@liteinst` | diverged | 0.016 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `compat/ps@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ps is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/ptx@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ptx has no result row in this run |
@@ -11369,7 +11936,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/shred@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/shred is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/shuf@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/shuf has no result row in this run |
 | `compat/shuf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/shuf@kvm` | diverged | 0.377 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/shuf@kvm` | diverged | 0.376 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
 | `compat/shuf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shuf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/shuf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/size@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/size has no result row in this run |
@@ -11619,7 +12186,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `data-handling/jq-json-transform@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/jq-json-transform is not enabled in the manifest, so it has no log to compare: SaBRe jq qualification is tracked by backend compatibility |
 | `data-handling/shell-pipeline@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of data-handling/shell-pipeline has no result row in this run |
 | `data-handling/shell-pipeline@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/shell-pipeline is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/shell-pipeline@kvm` | diverged | 0.178 | record 887, syscall 90: token 3: `[sched-step5]` vs `[dtid` |
+| `data-handling/shell-pipeline@kvm` | diverged | 0.177 | record 887, syscall 90: token 3: `[sched-step5]` vs `[dtid` |
 | `data-handling/shell-pipeline@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/shell-pipeline is not enabled in the manifest, so it has no log to compare: LiteInst omits the fork/clone/pipe process model this pipeline requires |
 | `data-handling/shell-pipeline@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/shell-pipeline is not enabled in the manifest, so it has no log to compare: Forwarded-DETLOG verification exposes nondeterministic multi-process scheduler and SIGCHLD ordering under SaBRe despite stable stdout |
 | `data-handling/sqlite-query-determinism@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of data-handling/sqlite-query-determinism has no result row in this run |
@@ -11629,7 +12196,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `data-handling/sqlite-query-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/sqlite-query-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `data-handling/zstd-multithread@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of data-handling/zstd-multithread has no result row in this run |
 | `data-handling/zstd-multithread@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/zstd-multithread@kvm` | diverged | 0.042 | record 3003, syscall 612: token 10: `0x7fffffffbb90,` vs `0x7fffffffc1e0,` |
+| `data-handling/zstd-multithread@kvm` | diverged | 0.042 | record 3013, syscall 614: token 10: `0x7fffffffbb90,` vs `0x7fffffffc1e0,` |
 | `data-handling/zstd-multithread@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `data-handling/zstd-multithread@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: SaBRe strict verification intermittently diverges on multi-thread DETLOG ordering |
 | `debugger-c/debuggee@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of debugger-c/debuggee has no result row in this run |
@@ -11734,7 +12301,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/gawk-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/gawk-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/go-os-exec-output@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/go-os-exec-output is not enabled in the manifest, so it has no log to compare: New coverage of a KVM descriptor-table defect is established on KVM and the ptrace reference first; DBT ratchets against it separately |
 | `language-runtimes/go-os-exec-output@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/go-os-exec-output is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest and refuses execve; this guest spawns children from several threads |
-| `language-runtimes/go-os-exec-output@kvm` | diverged | 0.056 | record 628, syscall 253: token 19: `Ok(140736202801152)` vs `Ok(1868562432)` |
+| `language-runtimes/go-os-exec-output@kvm` | unavailable[crash] | — | the kvm candidate verify cell of language-runtimes/go-os-exec-output ended FAIL with result crash-error (no error kind): Run1 failed (policy_refusal): Hermit refused the run: a fail-closed policy stopped it before completion. This is not a hermit failure; the refusal reason is above. |
 | `language-runtimes/go-os-exec-output@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/go-os-exec-output is not enabled in the manifest, so it has no log to compare: The in-guest runtime runs one thread of the guest and refuses execve; this guest spawns children from several threads |
 | `language-runtimes/go-os-exec-output@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/go-os-exec-output is not enabled in the manifest, so it has no log to compare: New coverage of a KVM descriptor-table defect is established on KVM and the ptrace reference first; SaBRe ratchets against it separately |
 | `language-runtimes/lua-random@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of language-runtimes/lua-random has no result row in this run |
@@ -11749,7 +12316,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/m4-macro-mkstemp@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/m4-macro-mkstemp is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/node-v8-jit@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of language-runtimes/node-v8-jit has no result row in this run |
 | `language-runtimes/node-v8-jit@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/node-v8-jit is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/node-v8-jit@kvm` | diverged | 0.513 | record 2671, syscall 1012: token 9: `rt_sigaction(21,` vs `rt_sigaction(22,` |
+| `language-runtimes/node-v8-jit@kvm` | diverged | 0.514 | record 2671, syscall 1012: token 9: `rt_sigaction(21,` vs `rt_sigaction(22,` |
 | `language-runtimes/node-v8-jit@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/node-v8-jit is not enabled in the manifest, so it has no log to compare: LiteInst patches the code stream, so JIT-generated code needs separate qualification |
 | `language-runtimes/node-v8-jit@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/node-v8-jit is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/perl-hash-order@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of language-runtimes/perl-hash-order has no result row in this run |
@@ -11806,7 +12373,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/rust-hashmap-iteration@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of language-runtimes/rust-hashmap-iteration is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `language-runtimes/rustc-hello@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of language-runtimes/rustc-hello is not enabled in the manifest, so it has no log to compare: Not measured; the SOCK_SEQPACKET socketpair slice qualified ptrace and KVM |
 | `language-runtimes/rustc-hello@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/rustc-hello is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/rustc-hello@kvm` | diverged | 0.052 | record 899, syscall 90: token 3: `[sched-step5]` vs `[dtid` |
+| `language-runtimes/rustc-hello@kvm` | unavailable[timeout] | — | the kvm candidate verify cell of language-runtimes/rustc-hello ended ERROR with result timeout (cpu-timeout): cell exceeded 41 CPU s |
 | `language-runtimes/rustc-hello@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/rustc-hello is not enabled in the manifest, so it has no log to compare: LiteInst multi-exec toolchain qualification must ratchet after the ptrace reference path |
 | `language-runtimes/rustc-hello@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/rustc-hello is not enabled in the manifest, so it has no log to compare: SaBRe multi-exec toolchain qualification must ratchet after the ptrace reference path |
 | `language-runtimes/tcl-rand-clock@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of language-runtimes/tcl-rand-clock has no result row in this run |
@@ -11820,7 +12387,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `shared-futex-c/qemu-hello@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of shared-futex-c/qemu-hello is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `system-utils/auxv-loader-dump@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/auxv-loader-dump has no result row in this run |
 | `system-utils/auxv-loader-dump@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/auxv-loader-dump is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/auxv-loader-dump@kvm` | diverged | 0.191 | record 883, syscall 89: token 3: `[sched-step5]` vs `[dtid` |
+| `system-utils/auxv-loader-dump@kvm` | diverged | 0.190 | record 883, syscall 89: token 3: `[sched-step5]` vs `[dtid` |
 | `system-utils/auxv-loader-dump@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/auxv-loader-dump is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
 | `system-utils/auxv-loader-dump@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/auxv-loader-dump is not enabled in the manifest, so it has no log to compare: Established on ptrace first; other backends ratchet against this shared entry |
 | `system-utils/cat-file-read@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/cat-file-read has no result row in this run |
@@ -11933,7 +12500,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/procfs-sanitized-paths@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/procfs-sanitized-paths is not enabled in the manifest, so it has no log to compare: Under SaBRe this guest's verify matches, but the harness refuses the run because SaBRe used fallback or native sites for bash and the utilities it runs (https://github.com/rrnewton/hermit/issues/4477) |
 | `system-utils/ps-proc-table@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/ps-proc-table has no result row in this run |
 | `system-utils/ps-proc-table@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under in-guest-trap, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
-| `system-utils/ps-proc-table@kvm` | diverged | 0.192 | record 883, syscall 89: token 3: `[sched-step5]` vs `[dtid` |
+| `system-utils/ps-proc-table@kvm` | diverged | 0.191 | record 883, syscall 89: token 3: `[sched-step5]` vs `[dtid` |
 | `system-utils/ps-proc-table@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under in-guest LiteInst, /usr/bin/env cannot exec bash (EOPNOTSUPP), so the guest never starts (https://github.com/rrnewton/hermit/issues/4476) |
 | `system-utils/ps-proc-table@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/ps-proc-table is not enabled in the manifest, so it has no log to compare: Under SaBRe this guest's verify matches, but the harness refuses the run because SaBRe used fallback or native sites for bash and the utilities it runs (https://github.com/rrnewton/hermit/issues/4477) |
 | `system-utils/random-device@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/random-device has no result row in this run |
@@ -11959,7 +12526,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/shuf-permutation@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/shuf-permutation is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/sort-random@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/sort-random has no result row in this run |
 | `system-utils/sort-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/sort-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/sort-random@kvm` | diverged | 0.504 | record 887, syscall 90: token 3: `[sched-step5]` vs `[dtid` |
+| `system-utils/sort-random@kvm` | diverged | 0.503 | record 887, syscall 90: token 3: `[sched-step5]` vs `[dtid` |
 | `system-utils/sort-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/sort-random is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/sort-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/sort-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `system-utils/ssh-keygen-ed25519@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/ssh-keygen-ed25519 has no result row in this run |
@@ -11977,12 +12544,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/startup-tls-guards@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of system-utils/startup-tls-guards is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `system-utils/stat-alias-root@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/stat-alias-root has no result row in this run |
 | `system-utils/stat-alias-root@in-guest-trap` | diverged | 0.018 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/stat-alias-root@kvm` | diverged | 0.835 | record 417, syscall 171: token 14: `Ok(1021)` vs `Ok(913)` |
+| `system-utils/stat-alias-root@kvm` | diverged | 0.835 | record 417, syscall 171: token 14: `Ok(1133)` vs `Ok(913)` |
 | `system-utils/stat-alias-root@liteinst` | diverged | 0.018 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `system-utils/stat-alias-root@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/stat-alias-root is not enabled in the manifest, so it has no log to compare: NOT-QUALIFIED: this cell checks the name Detcore's rendered stat gives a root launched through a symbolic link against the kernel's status and comm; SaBRe has not been run on it, and SaBRe is a drop candidate under the owner's ruling. |
 | `system-utils/stat-script-root@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/stat-script-root has no result row in this run |
 | `system-utils/stat-script-root@in-guest-trap` | diverged | 0.018 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
-| `system-utils/stat-script-root@kvm` | diverged | 0.835 | record 417, syscall 171: token 14: `Ok(1023)` vs `Ok(915)` |
+| `system-utils/stat-script-root@kvm` | diverged | 0.835 | record 417, syscall 171: token 14: `Ok(1135)` vs `Ok(915)` |
 | `system-utils/stat-script-root@liteinst` | diverged | 0.018 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `system-utils/stat-script-root@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/stat-script-root is not enabled in the manifest, so it has no log to compare: NOT-QUALIFIED: this cell checks the name Detcore's rendered stat gives a #! script root against the kernel's status and comm; SaBRe has not been run on it, and SaBRe is a drop candidate under the owner's ruling. |
 | `system-utils/sysfs-sanitized-prefixes@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/sysfs-sanitized-prefixes has no result row in this run |
@@ -12002,33 +12569,32 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `util-c/pmu-skid@liteinst` | diverged | 0.072 | record 10, syscall ?: token 3: `[dtid` vs `DETLOG` |
 | `util-c/pmu-skid@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of util-c/pmu-skid is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 
-### pressure-test run `pressure-1cdd75c193d4-20261107T060129Z` at `1cdd75c193d4` (partial: selected 1030 of 3065 committed)
+### pressure-test run `pressure-e024bb3fcd41-20261121T061623Z` at `e024bb3fcd41` (partial: selected 952 of 3075 committed)
 
-`parity: 0/1030 matched; selected 1030 of 3065 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 1030 reference without golden: no-result-row 1030; 0 not compared; measured mean n/a over 0`
+`parity: 0/952 matched; selected 952 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 952 reference without golden: no-result-row 952; 0 not compared; measured mean n/a over 0`
 
 | Candidate backend | Selected | Population | Population mean | Full | Partial | Zero | Excluded (reference) | Not compared | Measured | Matched | Mean credit (measured) | Credit inputs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `dbt` | 557 of 613 | 0 | n/a | 0 | 0 | 0 | 557 | 0 | 0 | 0 | n/a | — |
-| `in-guest-trap` | 0 of 613 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | — |
-| `kvm` | 3 of 613 | 0 | n/a | 0 | 0 | 0 | 3 | 0 | 0 | 0 | n/a | — |
-| `liteinst` | 0 of 613 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | — |
-| `sabre` | 470 of 613 | 0 | n/a | 0 | 0 | 0 | 470 | 0 | 0 | 0 | n/a | — |
-| **TOTAL** | 1030 of 3065 | 0 | n/a | 0 | 0 | 0 | 1030 | 0 | 0 | 0 | n/a | — |
+| `dbt` | 496 of 615 | 0 | n/a | 0 | 0 | 0 | 496 | 0 | 0 | 0 | n/a | — |
+| `in-guest-trap` | 0 of 615 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | — |
+| `kvm` | 0 of 615 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | — |
+| `liteinst` | 0 of 615 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | — |
+| `sabre` | 456 of 615 | 0 | n/a | 0 | 0 | 0 | 456 | 0 | 0 | 0 | n/a | — |
+| **TOTAL** | 952 of 3075 | 0 | n/a | 0 | 0 | 0 | 952 | 0 | 0 | 0 | n/a | — |
 
-2035 cell(s) its commit selects have no row in this run: `applications/c-toolchain-workflow@dbt`, `applications/c-toolchain-workflow@in-guest-trap`, `applications/c-toolchain-workflow@kvm`, `applications/c-toolchain-workflow@liteinst`, `applications/c-toolchain-workflow@sabre`, `applications/cc-compile-and-run@dbt`, `applications/cc-compile-and-run@in-guest-trap`, `applications/cc-compile-and-run@kvm`, `applications/cc-compile-and-run@liteinst`, `applications/cc-compile-and-run@sabre`, `applications/example-timed-progress-bar@in-guest-trap`, `applications/example-timed-progress-bar@kvm`, `applications/example-timed-progress-bar@liteinst`, `applications/example-timed-progress-bar@sabre`, `applications/git-repository-workflow@dbt`, `applications/git-repository-workflow@in-guest-trap`, `applications/git-repository-workflow@kvm`, `applications/git-repository-workflow@liteinst`, `applications/git-repository-workflow@sabre`, `applications/kvm-python-examples@dbt` and 2015 more (all are in `scorecard/parity.json`).
+2123 cell(s) its commit selects have no row in this run: `applications/c-toolchain-workflow@dbt`, `applications/c-toolchain-workflow@in-guest-trap`, `applications/c-toolchain-workflow@kvm`, `applications/c-toolchain-workflow@liteinst`, `applications/c-toolchain-workflow@sabre`, `applications/cc-compile-and-run@dbt`, `applications/cc-compile-and-run@in-guest-trap`, `applications/cc-compile-and-run@kvm`, `applications/cc-compile-and-run@liteinst`, `applications/cc-compile-and-run@sabre`, `applications/example-timed-progress-bar@in-guest-trap`, `applications/example-timed-progress-bar@kvm`, `applications/example-timed-progress-bar@liteinst`, `applications/example-timed-progress-bar@sabre`, `applications/git-repository-workflow@dbt`, `applications/git-repository-workflow@in-guest-trap`, `applications/git-repository-workflow@kvm`, `applications/git-repository-workflow@liteinst`, `applications/git-repository-workflow@sabre`, `applications/kvm-python-examples@dbt` and 2103 more (all are in `scorecard/parity.json`).
 
 Cells that were not measured, by class: a cell whose ptrace reference left no golden is excluded from the population; every other one scores 0 and is counted.
 
 | Class | Group | Counts as | `dbt` | `in-guest-trap` | `kvm` | `liteinst` | `sabre` | **TOTAL** |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `no-result-row` | unmeasured | excluded (reference) | 557 | 0 | 3 | 0 | 470 | 1030 |
+| `no-result-row` | unmeasured | excluded (reference) | 496 | 0 | 0 | 0 | 456 | 952 |
 
 Every cell that did not match, with its first divergence or the reason it was not measured:
 
 | Cell | Verdict | Credit | First divergence or reason |
 | --- | --- | ---: | --- |
 | `applications/example-timed-progress-bar@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of applications/example-timed-progress-bar has no result row in this run |
-| `applications/kvm-shell-environment@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of applications/kvm-shell-environment has no result row in this run |
 | `applications/timed-progress-bar@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of applications/timed-progress-bar has no result row in this run |
 | `bin-c/posix-timer-test@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of bin-c/posix-timer-test has no result row in this run |
 | `bin-c/posix-timer-test@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of bin-c/posix-timer-test has no result row in this run |
@@ -12062,7 +12628,6 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/copy-file-range-refusal-probe@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of c-programs/copy-file-range-refusal-probe has no result row in this run |
 | `c-programs/cpu-virtualization@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of c-programs/cpu-virtualization has no result row in this run |
 | `c-programs/cpu-virtualization@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of c-programs/cpu-virtualization has no result row in this run |
-| `c-programs/cpuid-probe@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of c-programs/cpuid-probe has no result row in this run |
 | `c-programs/cwd-roundtrip@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of c-programs/cwd-roundtrip has no result row in this run |
 | `c-programs/cwd-roundtrip@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of c-programs/cwd-roundtrip has no result row in this run |
 | `c-programs/dbt-copied-tiocgpgrp@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of c-programs/dbt-copied-tiocgpgrp has no result row in this run |
@@ -12850,7 +13415,6 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/sha512sum@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/sha512sum has no result row in this run |
 | `compat/sha512sum@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/sha512sum has no result row in this run |
 | `compat/shred@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/shred has no result row in this run |
-| `compat/shred@kvm` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/shred has no result row in this run |
 | `compat/shred@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/shred has no result row in this run |
 | `compat/shuf@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/shuf has no result row in this run |
 | `compat/shuf@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/shuf has no result row in this run |
@@ -12879,7 +13443,6 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/sync@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/sync has no result row in this run |
 | `compat/sync@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/sync has no result row in this run |
 | `compat/sysctl-random-uuid@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/sysctl-random-uuid has no result row in this run |
-| `compat/sysctl-random-uuid@kvm` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/sysctl-random-uuid has no result row in this run |
 | `compat/sysctl-random-uuid@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/sysctl-random-uuid has no result row in this run |
 | `compat/tac@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/tac has no result row in this run |
 | `compat/tac@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/tac has no result row in this run |
@@ -12898,7 +13461,6 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/time@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/time has no result row in this run |
 | `compat/time@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/time has no result row in this run |
 | `compat/top@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/top has no result row in this run |
-| `compat/top@kvm` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/top has no result row in this run |
 | `compat/top@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/top has no result row in this run |
 | `compat/touch@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/touch has no result row in this run |
 | `compat/touch@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of compat/touch has no result row in this run |
@@ -12984,79 +13546,6 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `determinism-stress/thread-contention@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of determinism-stress/thread-contention has no result row in this run |
 | `determinism-stress/thread-interleaving@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of determinism-stress/thread-interleaving has no result row in this run |
 | `determinism-stress/thread-output@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of determinism-stress/thread-output has no result row in this run |
-| `language-runtimes/bash-loop-pipe-time@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/bash-loop-pipe-time has no result row in this run |
-| `language-runtimes/bash-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/bash-random has no result row in this run |
-| `language-runtimes/cpp-stl-determinism@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/cpp-stl-determinism has no result row in this run |
-| `language-runtimes/example-python-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/example-python-random has no result row in this run |
-| `language-runtimes/example-python-random@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/example-python-random has no result row in this run |
-| `language-runtimes/gawk-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/gawk-random has no result row in this run |
-| `language-runtimes/lua-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/lua-random has no result row in this run |
-| `language-runtimes/m4-macro-mkstemp@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/m4-macro-mkstemp has no result row in this run |
-| `language-runtimes/node-v8-jit@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/node-v8-jit has no result row in this run |
-| `language-runtimes/perl-hash-order@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/perl-hash-order has no result row in this run |
-| `language-runtimes/perl-io-subprocess-time@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/perl-io-subprocess-time has no result row in this run |
-| `language-runtimes/perl-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/perl-random has no result row in this run |
-| `language-runtimes/python-hash-determinism@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/python-hash-determinism has no result row in this run |
-| `language-runtimes/python-hashseed@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/python-hashseed has no result row in this run |
-| `language-runtimes/python-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/python-random has no result row in this run |
-| `language-runtimes/ruby-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/ruby-random has no result row in this run |
-| `language-runtimes/rust-hashmap-iteration@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/rust-hashmap-iteration has no result row in this run |
-| `language-runtimes/rust-hashmap-iteration@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/rust-hashmap-iteration has no result row in this run |
-| `language-runtimes/tcl-rand-clock@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of language-runtimes/tcl-rand-clock has no result row in this run |
-| `shared-futex-c/qemu-hello@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of shared-futex-c/qemu-hello has no result row in this run |
-| `system-utils/auxv-loader-dump@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/auxv-loader-dump has no result row in this run |
-| `system-utils/cat-file-read@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/cat-file-read has no result row in this run |
-| `system-utils/cat-file-read@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/cat-file-read has no result row in this run |
-| `system-utils/clock-determinism@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/clock-determinism has no result row in this run |
-| `system-utils/clock-determinism@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/clock-determinism has no result row in this run |
-| `system-utils/clock-exec-continuity@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/clock-exec-continuity has no result row in this run |
-| `system-utils/date-nanoseconds@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/date-nanoseconds has no result row in this run |
-| `system-utils/du-tree-summary@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/du-tree-summary has no result row in this run |
-| `system-utils/errno-path-identity@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/errno-path-identity has no result row in this run |
-| `system-utils/errno-path-identity@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/errno-path-identity has no result row in this run |
-| `system-utils/example-date@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/example-date has no result row in this run |
-| `system-utils/example-devrand@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/example-devrand has no result row in this run |
-| `system-utils/example-devrand@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/example-devrand has no result row in this run |
-| `system-utils/file-timestamp-identity@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/file-timestamp-identity has no result row in this run |
-| `system-utils/file-timestamp-identity@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/file-timestamp-identity has no result row in this run |
-| `system-utils/find-tree-metadata@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/find-tree-metadata has no result row in this run |
-| `system-utils/find-tree-metadata@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/find-tree-metadata has no result row in this run |
-| `system-utils/harness-width-contract@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/harness-width-contract has no result row in this run |
-| `system-utils/mcookie-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/mcookie-random has no result row in this run |
-| `system-utils/mktemp-name@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/mktemp-name has no result row in this run |
-| `system-utils/nscd-neutralised@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/nscd-neutralised has no result row in this run |
-| `system-utils/openssl-enc@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/openssl-enc has no result row in this run |
-| `system-utils/openssl-genpkey@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/openssl-genpkey has no result row in this run |
-| `system-utils/openssl-passwd@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/openssl-passwd has no result row in this run |
-| `system-utils/openssl-rand@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/openssl-rand has no result row in this run |
-| `system-utils/openssl-x509@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/openssl-x509 has no result row in this run |
-| `system-utils/overflow-gid-resolves@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/overflow-gid-resolves has no result row in this run |
-| `system-utils/printf-argument-forwarding@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/printf-argument-forwarding has no result row in this run |
-| `system-utils/printf-argument-forwarding@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/printf-argument-forwarding has no result row in this run |
-| `system-utils/proc-random-uuid@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/proc-random-uuid has no result row in this run |
-| `system-utils/proc-uptime@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/proc-uptime has no result row in this run |
-| `system-utils/procfs-sanitized-paths@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/procfs-sanitized-paths has no result row in this run |
-| `system-utils/ps-proc-table@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/ps-proc-table has no result row in this run |
-| `system-utils/random-device@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/random-device has no result row in this run |
-| `system-utils/record-getpid@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/record-getpid has no result row in this run |
-| `system-utils/record-getpid@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/record-getpid has no result row in this run |
-| `system-utils/sh-exit-status@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/sh-exit-status has no result row in this run |
-| `system-utils/shm-coherency-identity@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/shm-coherency-identity has no result row in this run |
-| `system-utils/shm-coherency-identity@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/shm-coherency-identity has no result row in this run |
-| `system-utils/shuf-permutation@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/shuf-permutation has no result row in this run |
-| `system-utils/sort-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/sort-random has no result row in this run |
-| `system-utils/ssh-keygen-ed25519@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/ssh-keygen-ed25519 has no result row in this run |
-| `system-utils/startup-surface-identity@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/startup-surface-identity has no result row in this run |
-| `system-utils/startup-surface-identity@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/startup-surface-identity has no result row in this run |
-| `system-utils/startup-tls-guards@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/startup-tls-guards has no result row in this run |
-| `system-utils/startup-tls-guards@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/startup-tls-guards has no result row in this run |
-| `system-utils/stat-alias-root@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/stat-alias-root has no result row in this run |
-| `system-utils/stat-script-root@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/stat-script-root has no result row in this run |
-| `system-utils/sysfs-sanitized-prefixes@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/sysfs-sanitized-prefixes has no result row in this run |
-| `system-utils/true-exit-zero@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/true-exit-zero has no result row in this run |
-| `system-utils/true-exit-zero@sabre` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/true-exit-zero has no result row in this run |
-| `system-utils/uuidgen-random@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of system-utils/uuidgen-random has no result row in this run |
-| `util-c/pmu-skid@dbt` | reference-missing[no-result-row] | — | the ptrace reference verify cell of util-c/pmu-skid has no result row in this run |
 
 ### parity-all run `pressure-76d1432776c3-20261112T061312Z-parity-all` at `76d1432776c3`
 
@@ -15792,7 +16281,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 1277 other parity run(s) in the store
+### 1303 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -16061,6 +16550,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-merge-queue-1decde180b4a-1794171912072809599-873882-58c6d872` at Hermit `1decde180b4a`: `parity: 359/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.166 over 3070 (359 full, 873 partial, 1838 zero: candidate-not-enabled 809, candidate-not-selected 474, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.413 over 1232 [inputs equalized for 1218 of 1232 credited: mean 0.417 over 1218 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-1ed343185385-1794044186293301292-2190446-c82f937d` at Hermit `1ed343185385`: `parity: 355/3065 matched; selected 3065 of 3065 committed; population 3065: mean 0.164 over 3065 (355 full, 871 partial, 1839 zero: candidate-not-enabled 809, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.411 over 1226 [inputs equalized for 1212 of 1226 credited: mean 0.415 over 1212 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-1f21fba3977b-1793938720006361612-3774571-99abb2e8` at Hermit `1f21fba3977b`: `parity: 322/3055 matched; selected 3055 of 3055 committed; population 3055: mean 0.157 over 3055 (322 full, 902 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.393 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.397 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-merge-queue-1f48941b068c-1794883841904716158-3561986-32022631` at Hermit `1f48941b068c`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-1f5a84d2c5d8-1793887869648970649-1900841-5a80a3dd` at Hermit `1f5a84d2c5d8`: `parity: 3/3055 matched; selected 3055 of 3055 committed; population 3055: mean 0.061 over 3055 (3 full, 1221 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.152 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.154 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-1f768a9289c1-1794435015972330558-3288767-9ae3daa8` at Hermit `1f768a9289c1`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-1f8a6b21beb6-1793946680055438118-455982-ed0649e6` at Hermit `1f8a6b21beb6`: `parity: 0/3055 matched; selected 3055 of 3055 committed; population 3055: mean 0.000 over 3055 (0 full, 0 partial, 3055 zero: record-missing 3055); excluded: 0 reference without golden; 0 not compared; measured mean n/a over 0`
@@ -16464,6 +16954,14 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-merge-queue-ff1ce04a03ca-1794215106601718141-4025295-797c83ab` at Hermit `ff1ce04a03ca`: `parity: 359/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.166 over 3070 (359 full, 873 partial, 1838 zero: candidate-not-enabled 809, candidate-not-selected 474, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.413 over 1232 [inputs equalized for 1218 of 1232 credited: mean 0.417 over 1218 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-ffb74ba4173f-1793918638508724810-2031587-f635d281` at Hermit `ffb74ba4173f`: `parity: 308/3055 matched; committed selection unknown; population 3055: mean 0.153 over 3055 (308 full, 916 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.382 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.386 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-ffef6a47a4ec-1793960792127789938-1097045-fd9edd67` at Hermit `ffef6a47a4ec`: `parity: 354/3055 matched; committed selection unknown; population 3055: mean 0.164 over 3055 (354 full, 870 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.410 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.415 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-527bf95fee71-1795307347547197292-3261128-3a9503d9` at Hermit `527bf95fee71`: `parity: 115/3075 matched; committed selection unknown; population 3075: mean 0.068 over 3075 (115 full, 371 partial, 2589 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555, log-diff-failed 748); excluded: 0 reference without golden; 0 not compared; measured mean 0.432 over 486 [inputs equalized for 484 of 486 credited: mean 0.434 over 484 with equal inputs; mean 0.022 over 2 with unequal inputs]`
+- validate run `validate-muse-detq-63f7344f7332-1795285172916531616-807142-242b4647` at Hermit `63f7344f7332`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-68f600b91654-1795292390693268230-2798665-e6d14cb4` at Hermit `68f600b91654`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-79092cec5e20-1795320313201773828-39810-c9693b71` at Hermit `79092cec5e20`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-7aad5b4888bf-1795277636967825915-3717609-058cf95f` at Hermit `7aad5b4888bf`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-812e9e9d467d-1795264668740597192-1282610-2d0774dd` at Hermit `812e9e9d467d`: `parity: 3/3075 matched; committed selection unknown; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
+- validate run `validate-muse-detq-adbe21dfbf1a-1795311426313907598-1789774-7a55602c` at Hermit `adbe21dfbf1a`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 866 partial, 1840 zero: crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1235 [inputs equalized for 1221 of 1235 credited: mean 0.420 over 1221 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-cc650e862e6c-1795297334085651010-4048488-bfead9e2` at Hermit `cc650e862e6c`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-musebuck-d258ff60cd41-1793656148032054845-2317408-204bd25f` at Hermit `d258ff60cd41`: `parity: 0/195 matched; selected 195 of 3030 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 195 reference without golden: ended 195; 0 not compared; measured mean n/a over 0`
 - validate run `validate-musebuckv-005f363ec0d9-1794310204317239495-2815292-74899197` at Hermit `005f363ec0d9`: `parity: 2/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.002 over 3070 (2 full, 13 partial, 3055 zero: candidate-not-enabled 31, candidate-not-selected 1, no-result-row 8, record-missing 3015); excluded: 0 reference without golden; 0 not compared; measured mean 0.316 over 15`
 - validate run `validate-musebuckv-1dd452e468f3-1794319310266002562-2724753-ecb26dea` at Hermit `1dd452e468f3`: `parity: 261/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.105 over 3070 (261 full, 537 partial, 2272 zero: candidate-not-enabled 338, candidate-not-selected 249, no-result-row 295, record-missing 1390); excluded: 0 reference without golden; 0 not compared; measured mean 0.403 over 798 [inputs equalized for 786 of 798 credited: mean 0.409 over 786 with equal inputs; mean 0.031 over 12 with unequal inputs]`
@@ -16830,6 +17328,10 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-owner-checkout-20261113t224748246638z-2021295` at Hermit `d814f11f13b6`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-owner-checkout-20261114t033526925306z-2763454` at Hermit `6f8932bf5c0f`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-owner-checkout-20261117t011142028679z-3743478` at Hermit `fd8044838403`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-post-land-297b5b3cb733-20261121T143404Z-9f6065e40d80` at Hermit `297b5b3cb733`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
+- validate run `validate-post-land-4ca409b70116-20261121T125247Z-f7674bf3450a` at Hermit `4ca409b70116`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
+- validate run `validate-post-land-63f7344f7332-20261121T163614Z-eae78a364543` at Hermit `63f7344f7332`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
+- validate run `validate-post-land-e5732acc483d-20261121T170706Z-eecf2d2c870a` at Hermit `e5732acc483d`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
 - validate run `validate-post-land-ec01d815b519-20261114T034241Z-4d8d32bfeac6` at Hermit `ec01d815b519`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-release05-4803-conveyor-b2a16d9f8fc4-1793800281354748846-3682976-735023b7` at Hermit `b2a16d9f8fc4`: `parity: 245/3055 matched; selected 3055 of 3055 committed; population 3055: mean 0.125 over 3055 (245 full, 979 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.312 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.315 over 1210 with equal inputs; mean 0.022 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-08fea5532ab9-1794290424615004053-2378345-7a3d4e91` at Hermit `08fea5532ab9`: `parity: 359/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.165 over 3070 (359 full, 872 partial, 1839 zero: candidate-not-enabled 810, candidate-not-selected 474, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.413 over 1231 [inputs equalized for 1217 of 1231 credited: mean 0.417 over 1217 with equal inputs; mean 0.030 over 14 with unequal inputs]`
@@ -16838,6 +17340,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-super-nightly-0f679947f850-1794377093174715302-2095248-c81bd131` at Hermit `0f679947f850`: `parity: 19/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.008 over 3070 (19 full, 30 partial, 3021 zero: timeout 1, candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555, log-diff-failed 1184); excluded: 0 reference without golden; 0 not compared; measured mean 0.504 over 49`
 - validate run `validate-super-nightly-239ca43d3092-1794636065631812224-2467084-6ee5ee5b` at Hermit `239ca43d3092`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-239ca43d3092-1794636071893430628-2713651-6927c075` at Hermit `239ca43d3092`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-super-nightly-2915320b7b6f-1795204446112332079-2551797-3ca1d40c` at Hermit `2915320b7b6f`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-42c785122f82-1794036893653775102-1166505-b46bdcf5` at Hermit `42c785122f82`: `parity: 355/3065 matched; selected 3065 of 3065 committed; population 3065: mean 0.164 over 3065 (355 full, 871 partial, 1839 zero: candidate-not-enabled 809, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.411 over 1226 [inputs equalized for 1212 of 1226 credited: mean 0.415 over 1212 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-4e20e92719cb-1794463260393954676-3222151-cbbf5e66` at Hermit `4e20e92719cb`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-6174c87d437b-1794117807705033979-2235276-fece553b` at Hermit `6174c87d437b`: `parity: 358/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.165 over 3070 (358 full, 870 partial, 1842 zero: candidate-not-enabled 813, candidate-not-selected 474, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.412 over 1228 [inputs equalized for 1214 of 1228 credited: mean 0.416 over 1214 with equal inputs; mean 0.030 over 14 with unequal inputs]`
@@ -16845,6 +17348,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-super-nightly-852802539309-1794549631710285568-950994-5e26e8c5` at Hermit `852802539309`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-852802539309-1794549639775920643-2140051-66ec2aaa` at Hermit `852802539309`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-858629ebdbfa-1793946179326195760-3220331-e48c2d71` at Hermit `858629ebdbfa`: `parity: 322/3055 matched; selected 3055 of 3055 committed; population 3055: mean 0.157 over 3055 (322 full, 902 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.393 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.397 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-super-nightly-e024bb3fcd41-1795242984500796451-4093383-4093acb6` at Hermit `e024bb3fcd41`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-tick-buck-cargo-repro-0948c8ebf9ab-20261027T054906Z` at Hermit `0948c8ebf9ab`: `parity: 68/2960 matched; selected 2960 of 2960 committed; population 2960: mean 0.091 over 2960 (68 full, 1370 partial, 1522 zero: candidate-not-enabled 1053, candidate-not-selected 469); excluded: 0 reference without golden; 0 not compared; measured mean 0.187 over 1438 [inputs equalized for 1171 of 1438 credited: mean 0.223 over 1171 with equal inputs; mean 0.031 over 267 with unequal inputs]`
 - validate run `validate-tick-buck-cargo-repro-0a2e0c248258-20261006T034408Z` at Hermit `0a2e0c248258`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 182 partial, 16 zero: no-result-row 16); excluded: 0 reference without golden; 0 not compared; measured mean 0.059 over 182 [inputs equalized for 180 of 182 credited: mean 0.059 over 180 with equal inputs; mean 0.040 over 2 with unequal inputs]`
 - validate run `validate-tick-buck-cargo-repro-1d54d226396e-20261031T062047Z` at Hermit `1d54d226396e`: `parity: 3/2995 matched; selected 2995 of 2995 committed; population 2985: mean 0.065 over 2985 (3 full, 1747 partial, 1235 zero: timeout 2, candidate-not-enabled 761, candidate-not-selected 472); excluded: 10 reference without golden: crash 10; 0 not compared; measured mean 0.111 over 1750 [inputs equalized for 1187 of 1750 credited: mean 0.154 over 1187 with equal inputs; mean 0.019 over 563 with unequal inputs]`
@@ -16898,6 +17402,7 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - pressure-test run `pressure-19ab73ea596c-20261105T060705Z-sample` at Hermit `19ab73ea596c`: `parity: 10/181 matched; selected 181 of 3055 committed (partial); population 93: mean 0.165 over 93 (10 full, 34 partial, 49 zero: candidate-not-enabled 27, candidate-not-selected 22); excluded: 12 reference without golden: no-result-row 12; 0 not compared; 76 not sampled; measured mean 0.349 over 44 [inputs equalized for 42 of 44 credited: mean 0.365 over 42 with equal inputs; mean 0.006 over 2 with unequal inputs]`
 - pressure-test run `pressure-19ab73ea596c-20261105T060705Z-survey-in-guest-trap` at Hermit `19ab73ea596c`: `parity: 0/148 matched; selected 148 of 3055 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-19ab73ea596c-20261105T060705Z-survey-liteinst` at Hermit `19ab73ea596c`: `parity: 0/146 matched; selected 146 of 3055 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 146 reference without golden: no-result-row 146; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-1cdd75c193d4-20261107T060129Z` at Hermit `1cdd75c193d4`: `parity: 0/1030 matched; selected 1030 of 3065 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 1030 reference without golden: no-result-row 1030; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-1cdd75c193d4-20261107T060129Z-sample` at Hermit `1cdd75c193d4`: `parity: 15/203 matched; selected 203 of 3065 committed (partial); population 112: mean 0.168 over 112 (15 full, 29 partial, 68 zero: candidate-not-enabled 43, candidate-not-selected 25); excluded: 0 reference without golden; 0 not compared; 91 not sampled; measured mean 0.429 over 44`
 - pressure-test run `pressure-1cdd75c193d4-20261107T060129Z-survey-dbt` at Hermit `1cdd75c193d4`: `parity: 0/4 matched; selected 4 of 3065 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 4 reference without golden: no-result-row 4; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-1cdd75c193d4-20261107T060129Z-survey-in-guest-trap` at Hermit `1cdd75c193d4`: `parity: 0/148 matched; selected 148 of 3065 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
@@ -16957,6 +17462,11 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - pressure-test run `pressure-5bd5f765f5fe-20261106T060620Z-sample` at Hermit `5bd5f765f5fe`: `parity: 17/162 matched; selected 161 of 3055 committed (partial); 1 outside the committed selection; population 96: mean 0.249 over 96 (17 full, 33 partial, 46 zero: candidate-not-enabled 28, candidate-not-selected 18); excluded: 9 reference without golden: determinism-mismatch 5, no-result-row 4; 0 not compared; 57 not sampled; measured mean 0.478 over 50`
 - pressure-test run `pressure-5bd5f765f5fe-20261106T060620Z-survey-in-guest-trap` at Hermit `5bd5f765f5fe`: `parity: 0/148 matched; selected 148 of 3055 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-5bd5f765f5fe-20261106T060620Z-survey-liteinst` at Hermit `5bd5f765f5fe`: `parity: 0/146 matched; selected 146 of 3055 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 146 reference without golden: no-result-row 146; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-sample` at Hermit `6fdd70cfd09f`: `parity: 0/181 matched; selected 181 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 181 reference without golden: no-result-row 181; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-survey-dbt` at Hermit `6fdd70cfd09f`: `parity: 0/4 matched; selected 4 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 4 reference without golden: no-result-row 4; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-survey-in-guest-trap` at Hermit `6fdd70cfd09f`: `parity: 0/148 matched; selected 148 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-survey-liteinst` at Hermit `6fdd70cfd09f`: `parity: 0/146 matched; selected 146 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 146 reference without golden: no-result-row 146; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-survey-sabre` at Hermit `6fdd70cfd09f`: `parity: 0/12 matched; selected 12 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 12 reference without golden: no-result-row 12; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-76d1432776c3-20261112T061312Z-sample` at Hermit `76d1432776c3`: `parity: 15/184 matched; selected 183 of 3070 committed (partial); 1 outside the committed selection; population 108: mean 0.187 over 108 (15 full, 30 partial, 63 zero: candidate-not-enabled 44, candidate-not-selected 19); excluded: 0 reference without golden; 0 not compared; 76 not sampled; measured mean 0.449 over 45 [inputs equalized for 44 of 45 credited: mean 0.459 over 44 with equal inputs; mean 0.010 over 1 with unequal inputs]`
 - pressure-test run `pressure-76d1432776c3-20261112T061312Z-survey-dbt` at Hermit `76d1432776c3`: `parity: 0/4 matched; selected 4 of 3070 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 4 reference without golden: no-result-row 4; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-76d1432776c3-20261112T061312Z-survey-in-guest-trap` at Hermit `76d1432776c3`: `parity: 0/148 matched; selected 148 of 3070 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
@@ -17035,6 +17545,11 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - pressure-test run `pressure-cd62c0eef320-20261030T051403Z-survey-liteinst` at Hermit `cd62c0eef320`: `parity: 0/151 matched; selected 151 of 2980 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 151 reference without golden: no-result-row 151; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-cd62c0eef320-20261030T051403Z-survey-sabre` at Hermit `cd62c0eef320`: `parity: 0/12 matched; selected 12 of 2980 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 12 reference without golden: no-result-row 12; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-d7441caea790-20261006T230247Z` at Hermit `d7441caea790`: `parity: 0/2 matched; selected 0 of 198 committed (partial); 2 outside the committed selection; population 1: mean 0.035 over 1 (0 full, 1 partial, 0 zero); excluded: 1 reference without golden: no-result-row 1; 0 not compared; measured mean 0.035 over 1 [inputs not equalized]`
+- pressure-test run `pressure-e024bb3fcd41-20261121T061623Z-sample` at Hermit `e024bb3fcd41`: `parity: 0/174 matched; selected 173 of 3075 committed (partial); 1 outside the committed selection; population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 174 reference without golden: no-result-row 174; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-e024bb3fcd41-20261121T061623Z-survey-dbt` at Hermit `e024bb3fcd41`: `parity: 0/4 matched; selected 4 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 4 reference without golden: no-result-row 4; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-e024bb3fcd41-20261121T061623Z-survey-in-guest-trap` at Hermit `e024bb3fcd41`: `parity: 0/148 matched; selected 148 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-e024bb3fcd41-20261121T061623Z-survey-liteinst` at Hermit `e024bb3fcd41`: `parity: 0/146 matched; selected 146 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 146 reference without golden: no-result-row 146; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-e024bb3fcd41-20261121T061623Z-survey-sabre` at Hermit `e024bb3fcd41`: `parity: 0/12 matched; selected 12 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 12 reference without golden: no-result-row 12; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-e3120d836b43-20261031T052110Z` at Hermit `e3120d836b43`: `parity: 0/472 matched; selected 472 of 2980 committed (partial); population 160: mean 0.000 over 160 (0 full, 0 partial, 160 zero: determinism-mismatch 18, crash 142); excluded: 312 reference without golden: no-result-row 312; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-e3120d836b43-20261031T052110Z-sample` at Hermit `e3120d836b43`: `parity: 13/170 matched; selected 170 of 2980 committed (partial); population 116: mean 0.179 over 116 (13 full, 62 partial, 41 zero: candidate-not-enabled 26, candidate-not-selected 15); excluded: 0 reference without golden; 0 not compared; 54 not sampled; measured mean 0.277 over 75 [inputs equalized for 54 of 75 credited: mean 0.378 over 54 with equal inputs; mean 0.017 over 21 with unequal inputs]`
 - pressure-test run `pressure-e3120d836b43-20261031T052110Z-survey-dbt` at Hermit `e3120d836b43`: `parity: 0/11 matched; selected 11 of 2980 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 11 reference without golden: no-result-row 11; 0 not compared; measured mean n/a over 0`
