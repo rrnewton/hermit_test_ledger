@@ -1,4 +1,4 @@
-Last regenerated **2026-11-22T07:24:30Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `d88d07eeabb19b8a383e5c0c73e66de3e5a3ed09`, reading 5599459 series row(s). No validate run's comparisons were captured from this series snapshot. Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (666), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (665), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-ops-tick-6d16e529044d-8fa53e08a6c6` current (332), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), and 42 more.
+Last regenerated **2026-11-23T07:01:08Z** from `https://github.com/rrnewton/hermit_test_ledger.git` commit `f32486d6b92ffa072dd01c56cd23575e1bdc4d48`, reading 5657071 series row(s). No validate run's comparisons were captured from this series snapshot. Earlier validate runs still supplying comparisons: `validate-buck-validate-cargo-5ee668223a15-1790586574232510178-2945118-43b1052e` current (666), `validate-buck-validate-cargo-5f7fe6f5469e-1790581119742174450-899201-26d8395d` current (665), `validate-claude-coord-af9b9c8dbb53-1791713323394693122-592055-ad8a8fc6` current (388), `validate-claude-coord-df908e70a84e-1791719916851290350-186421-d098c166` current (368), `validate-ops-tick-6d16e529044d-8fa53e08a6c6` current (332), `validate-coord-s15-fdd8f55a8e7c-1790627089637531101-811416-cdde0755` current (280), `validate-coord-s17-d3a0a4ae3d16-1790649970094317174-3328074-da07a1da` current (280), `validate-liteinst-lane-claude-20260927-inodes-6580cd7386e7-1790627597757327220-1924918-b6e71e83` current (280), and 42 more.
 
 # Test selection scorecard
 
@@ -124,8 +124,8 @@ The count table includes all **17822** cells in the manifest; no row is omitted.
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Selected by full | 0 | 2006 | 0 | 0 | 431 | 2437 |
 | Not selected by full | 225 | 617 | 636 | 1 | 366 | 1845 |
-| Not applicable | 7903 | 175 | 5393 | 1 | 68 | 13540 |
-| **Total** | **8128** | **2798** | **6029** | **2** | **865** | **17822** |
+| Not applicable | 7613 | 175 | 5683 | 1 | 68 | 13540 |
+| **Total** | **7838** | **2798** | **6319** | **2** | **865** | **17822** |
 
 Cells whose stored `measurement` is not `never-measured` are shown individually so selection and measurement remain visible together.
 
@@ -2031,9 +2031,17 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `c-programs/preadv2-flags` | `verify` | `liteinst` | `Selected by full` | `diverged` |
 | `c-programs/preadv2-flags` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
 | `c-programs/preadv2-flags` | `verify` | `sabre` | `Not selected by full` | `measured-and-passed` |
+| `c-programs/preempt-spin-flag` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/preempt-spin-flag` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/preempt-spin-flag` | `replay` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/preempt-spin-flag` | `replay` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/preempt-spin-flag` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/preempt-spin-flag` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `c-programs/preempt-spin-flag` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/preempt-spin-flag` | `verify` | `kvm` | `Selected by full` | `measured-and-passed` |
+| `c-programs/preempt-spin-flag` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/preempt-spin-flag` | `verify` | `ptrace` | `Selected by full` | `measured-and-passed` |
+| `c-programs/preempt-spin-flag` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/print-memaddrs` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/print-memaddrs` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `c-programs/print-memaddrs` | `replay` | `liteinst` | `Not applicable` | `measured-no-verdict` |
@@ -6457,6 +6465,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-noexecmountdeniesexec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/access-faccessat2test-symlinkfollowedbydefault` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6608,6 +6618,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-duptest-rlimit` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-rlimit` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-duptest-rlimit` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-duptest-rlimit` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6616,6 +6628,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/dup-rlimittest-duplimitedbynropensysctl` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-bigread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6646,7 +6660,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-blockingwrite` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-illegalpread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6699,7 +6715,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-notifynonzero` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/eventfd-eventfdtest-smallread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6741,6 +6759,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-boundarystraddling` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6749,6 +6769,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-inodenumbersmatchstat` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-issue128procseekend` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6768,6 +6790,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-largedir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-largedir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-largedir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-largedir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-notdir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6806,6 +6830,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-partialbuffer` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-procselffd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6825,6 +6851,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-seekresetscursor` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6833,6 +6861,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-smalldir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-smalldir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-toolargesize` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6851,6 +6881,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-verifyentries` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifyentries` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6859,6 +6891,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-0-verifypadding` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-verifypadding` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-0-zerolengthoutbuffer` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6877,6 +6911,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-boundarystraddling` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6885,6 +6921,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-inodenumbersmatchstat` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-issue128procseekend` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6904,6 +6942,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-largedir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-largedir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-largedir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-largedir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-notdir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6945,6 +6985,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-partialbuffer` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-procselffd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6964,6 +7006,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-seekresetscursor` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6972,6 +7016,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-smalldir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-smalldir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-toolargesize` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6991,6 +7037,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-verifyentries` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifyentries` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -6999,6 +7047,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/getdents-getdentstest-1-verifypadding` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-verifypadding` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/getdents-getdentstest-1-zerolengthoutbuffer` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7117,6 +7167,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-clone3invalidfdaddrfails` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7125,6 +7177,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-epoll` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-epoll` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-epoll` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-epoll` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7133,6 +7187,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-fasyncisunsupported` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7141,6 +7197,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdfailswhenunprivileged` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7149,6 +7207,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdinvalidflags` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7157,6 +7217,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdunknown` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7165,6 +7227,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-getfdworks` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-getfdworks` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7173,6 +7237,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-invalidpidfd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7181,6 +7247,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-openpidfdselfsucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7189,6 +7257,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdgetfdnondumpableexitingrace` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7197,6 +7267,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdopeninvalid` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7205,6 +7277,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadexecrevival` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7213,6 +7287,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadleaderdelayednotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7221,6 +7297,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadsubthreadnotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7229,6 +7307,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedleadernotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7237,6 +7317,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtracedsubthreadnotification` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7245,6 +7327,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-pidfdthreadtrackssinglethread` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7253,6 +7337,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-poll` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-poll` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-poll` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-poll` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7261,6 +7347,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalrejection` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7269,6 +7357,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltodeadchildfails` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7277,6 +7367,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltopausedchildfailswhenunprivileged` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7285,6 +7377,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostartingtaskrace` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7293,6 +7387,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltostoppedchildsucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7301,6 +7397,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignaltozombiesucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7309,6 +7407,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtodeadchildfails` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7317,6 +7417,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-sendsignalviapidfdopenpidfdtoselfsucceeds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7325,6 +7427,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsexitedchild` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7333,6 +7437,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsinvalidflags` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7341,6 +7447,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnsptraceeperm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7349,6 +7457,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnssinglenamespaceworks` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7357,6 +7467,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-setnszombiechild` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7365,6 +7477,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitmultiplestates` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7373,6 +7487,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitnonblock` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7381,6 +7497,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/pidfd-pidfdtest-waitsinglestate` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7389,6 +7507,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollhup` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollhup` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7397,6 +7517,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollin` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollin` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7405,6 +7527,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7413,6 +7537,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7421,6 +7547,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollrdnorm-pollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7429,6 +7557,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7437,6 +7567,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-blockingeventpollwrnorm-pollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7445,6 +7577,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodified` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7453,6 +7587,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-eventsfieldnotmodifiedonerror` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7461,6 +7597,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-immediatelyreturnonlyonpollevents` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7469,6 +7607,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-invalidfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-invalidfds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-invalidfds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-invalidfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7477,6 +7617,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-negativetimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-negativetimeout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-negativetimeout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-negativetimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7485,6 +7627,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nfds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nfds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7493,6 +7637,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollerr` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7501,6 +7647,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollhup` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7509,6 +7657,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7517,6 +7667,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7525,6 +7677,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7533,6 +7687,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollrdnorm-pollin` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7541,6 +7697,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7549,6 +7707,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nonblockingeventpollwrnorm-pollout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7557,6 +7717,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-nullfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nullfds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-nullfds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-nullfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7565,6 +7727,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-pollleveltriggered` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-pollleveltriggered` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-pollleveltriggered` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-pollleveltriggered` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7573,6 +7737,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-unpollablefile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-unpollablefile` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-unpollablefile` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-unpollablefile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7581,6 +7747,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/poll-polltest-zerotimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-zerotimeout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/poll-polltest-zerotimeout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/poll-polltest-zerotimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/sched-yield-schedyieldtest-success` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7600,7 +7768,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-closedfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-closedfds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-closedfds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-closedfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7609,7 +7779,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-ignorebitsabovenfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7618,7 +7790,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-interruptedbysignal` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-interruptedbysignal` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-interruptedbysignal` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-interruptedbysignal` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7627,7 +7801,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-invalidtimeoutnegative` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7636,7 +7812,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-negativenfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-negativenfds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-negativenfds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-negativenfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7645,7 +7823,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-notimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-notimeout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-notimeout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-notimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7654,7 +7834,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-nullfds` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-nullfds` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-nullfds` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-nullfds` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7663,7 +7845,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-setrlimitcallnofile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-setrlimitcallnofile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7672,7 +7856,9 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/select-selecttest-zerotimeout` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/select-selecttest-zerotimeout` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `verify` | `kvm` | `Not selected by full` | `measured-no-verdict` |
+| `gvisor/select-selecttest-zerotimeout` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/select-selecttest-zerotimeout` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7681,6 +7867,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-cloexec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-cloexec` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-cloexec` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-cloexec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7689,6 +7877,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-killstillkills` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-killstillkills` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-killstillkills` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-killstillkills` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7697,6 +7887,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-ppoll` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-ppoll` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-ppoll` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-ppoll` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7705,6 +7897,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-readduringexecveinotherprocess` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7713,6 +7907,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-rtqueuedeliverspayload` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7721,6 +7917,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7729,6 +7927,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-basic-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7737,6 +7937,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7745,6 +7947,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-blocking-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7753,6 +7957,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7761,6 +7967,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-maskworks-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7769,6 +7977,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7777,6 +7987,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-nonblock-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7785,6 +7997,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7793,6 +8007,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-poll-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7801,6 +8017,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7809,6 +8027,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-setmask-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7817,6 +8037,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksigno` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7825,6 +8047,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/signalfd-signalfd-signalfdtest-threadgroup-ksignomax` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7833,6 +8057,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-bindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7841,6 +8067,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-overlay` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-proc` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7871,6 +8099,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-clearbelowmountroot-tmpfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7879,6 +8109,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-bindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7887,6 +8119,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-overlay` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-proc` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7917,6 +8151,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-emptypathfd-tmpfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7925,6 +8161,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-bindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7933,6 +8171,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-overlay` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-proc` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -7963,6 +8203,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-all-statxmountroottest-setonmountroot-tmpfs` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-simplestattest-anondeviceallocatesuniqueinodesacrosssaverestore` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -8136,6 +8378,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-linkcountswithdirchild` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithdirchild` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-linkcountswithregularfilechild` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -8188,6 +8432,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-nlinks` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-nlinks` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-nlinks` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-nlinks` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-pathcancontaindotdot` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -8306,6 +8552,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmntidbindmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmntidbindmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootadvertisedonregularfile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -8325,6 +8573,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountfile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -8333,6 +8583,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `ptrace` | `Not selected by full` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootbindmountsourceandunmount` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/stat-stattest-statxmountrootonrootdirectory` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
@@ -8645,6 +8897,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/tkill-tkilltest-validtidandrealsignal` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/tkill-tkilltest-validtidandrealsignal` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/tkill-tkilltest-validtidandrealsignal` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/tkill-tkilltest-validtidandrealsignal` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/tkill-tkilltest-validtidandrealsignal` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/tkill-tkilltest-validtidandrealsignal` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-sanity` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-sanity` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8659,6 +8913,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/uname-unametest-setnames` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-setnames` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-setnames` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/uname-unametest-setnames` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/uname-unametest-setnames` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-setnames` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-unprivilegedsetnames` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-unprivilegedsetnames` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8673,6 +8929,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/uname-unametest-unshareuts` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-unshareuts` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-unshareuts` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/uname-unametest-unshareuts` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/uname-unametest-unshareuts` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/uname-unametest-unshareuts` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-invalidnsec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-invalidnsec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8680,6 +8938,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-futimesattest-invalidnsec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-invalidnsec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-invalidnsec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-invalidnsec` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-invalidnsec` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-invalidnsec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onabspath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onabspath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8687,6 +8947,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-futimesattest-onabspath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onabspath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onabspath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onabspath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onabspath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onabspath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8694,6 +8956,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-futimesattest-onnullpath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onnullpath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onnullpath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithcwd` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithcwd` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8701,6 +8965,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-futimesattest-onnullpathwithcwd` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithcwd` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithcwd` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onnullpathwithcwd` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onnullpathwithcwd` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithcwd` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithopath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithopath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8708,6 +8974,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-futimesattest-onnullpathwithopath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithopath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithopath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onnullpathwithopath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onnullpathwithopath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onnullpathwithopath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onrelpath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onrelpath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8715,6 +8983,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-futimesattest-onrelpath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onrelpath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onrelpath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onrelpath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-futimesattest-onrelpath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-futimesattest-onrelpath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensat-nullpath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensat-nullpath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8722,6 +8992,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimensat-nullpath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensat-nullpath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensat-nullpath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensat-nullpath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensat-nullpath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensat-nullpath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-atemptypath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-atemptypath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8729,6 +9001,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimensattest-atemptypath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-atemptypath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-atemptypath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-atemptypath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-atemptypath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-atemptypath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-invalidnsec` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-invalidnsec` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8736,6 +9010,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimensattest-invalidnsec` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-invalidnsec` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-invalidnsec` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-invalidnsec` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-invalidnsec` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-invalidnsec` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-omitnoop` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-omitnoop` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8743,6 +9019,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimensattest-omitnoop` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-omitnoop` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-omitnoop` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-omitnoop` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-omitnoop` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-omitnoop` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onabspath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onabspath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8750,6 +9028,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimensattest-onabspath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onabspath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onabspath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-onabspath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-onabspath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onabspath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onrelpath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onrelpath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8757,6 +9037,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimensattest-onrelpath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onrelpath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onrelpath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-onrelpath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimensattest-onrelpath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimensattest-onrelpath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-missingpath` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-missingpath` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8764,6 +9046,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimestest-missingpath` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-missingpath` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-missingpath` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimestest-missingpath` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimestest-missingpath` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-missingpath` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-ondir` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-ondir` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8771,6 +9055,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimestest-ondir` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-ondir` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-ondir` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimestest-ondir` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimestest-ondir` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-ondir` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-onfile` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-onfile` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8778,6 +9064,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimestest-onfile` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-onfile` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-onfile` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimestest-onfile` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimestest-onfile` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimestest-onfile` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimetest-zeroatimeandmtime` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimetest-zeroatimeandmtime` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -8785,6 +9073,8 @@ Cells whose stored `measurement` is not `never-measured` are shown individually 
 | `gvisor/utimes-utimetest-zeroatimeandmtime` | `replay` | `ptrace` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimetest-zeroatimeandmtime` | `replay` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimetest-zeroatimeandmtime` | `verify` | `dbt` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimetest-zeroatimeandmtime` | `verify` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
+| `gvisor/utimes-utimetest-zeroatimeandmtime` | `verify` | `liteinst` | `Not applicable` | `measured-no-verdict` |
 | `gvisor/utimes-utimetest-zeroatimeandmtime` | `verify` | `sabre` | `Not applicable` | `measured-no-verdict` |
 | `language-runtimes/bash-loop-pipe-time` | `replay` | `dbt` | `Not applicable` | `measured-no-verdict` |
 | `language-runtimes/bash-loop-pipe-time` | `replay` | `in-guest-trap` | `Not applicable` | `measured-no-verdict` |
@@ -9833,7 +10123,7 @@ Cross-backend parity compares a candidate backend's retained `verify` log with t
 A measured cell earns credit in [0, 1]: its matched prefix of compared records over the longer log, and 1 only for a full match. The **population** is every test whose ptrace `verify` cell full validation selects, crossed with every candidate backend, so it is the verify matrix itself. Every population cell is scored: a measured cell earns its credit, and a candidate that is not enabled, not selected, left no row or log, timed out, crashed, failed or diverged between its own two runs, a comparison the parity tool could not make, a record-missing cell and a refused cell each score 0 and are counted. **Population mean** divides the credit sum by every population cell (N), zeros included; **Full**, **Partial** and **Zero** count the cells with credit 1, between 0 and 1, and 0. A cell whose ptrace reference left no usable golden log has nothing to compare against: it is outside the population, counted under **Excluded (reference)**, and so is a historical **not compared** dbt cell. In a pressure-test run, which executes a sample, a candidate full validation runs but the sample did not plan is **not sampled**: outside that run's population, counted on its line apart, never 0. **Mean credit (measured)** divides the credit sum by the measured (matched plus diverged) cells only. A mean over no cells reads n/a, never 0.000. **Selected** reads `W of C` when the run's own Hermit commit's `ci/compat-envelope/parity-cells.json` is known: the run reported W of the C population cells it owes, and a run that reported fewer is marked partial. Credit pools clean credit (inputs equalized) with unequalized credit only under a marker that says so; **Credit inputs** shows which it is.
 
 
-### validate run `validate-muse-detq-6574e693f401-1795316537425700189-3727775-7fa08c11` at `6574e693f401`
+### validate run `validate-post-land-8385491b342c-20261123T063034Z-193f8c7a006e` at `8385491b342c`
 
 `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 
@@ -10164,7 +10454,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `c-programs/getsockopt-null@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of c-programs/getsockopt-null is enabled but not selected by full validation, so it has no log to compare: Only the archived-nightly run type selects this cell, by its manifest label; full validation does not. |
 | `c-programs/hardware-trap-identity@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/hardware-trap-identity has no result row in this run |
 | `c-programs/hardware-trap-identity@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of c-programs/hardware-trap-identity is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `c-programs/hardware-trap-identity@kvm` | diverged | 0.467 | record 144, syscall 39: token 10: `0x7fffffffddc0,` vs `0x7fffffffe410,` |
+| `c-programs/hardware-trap-identity@kvm` | diverged | 0.467 | record 144, syscall 39: token 10: `0x7fffffffddc0,` vs `0x7fffffffe400,` |
 | `c-programs/hardware-trap-identity@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of c-programs/hardware-trap-identity is not enabled in the manifest, so it has no log to compare: Owner reset 2026-10-04 - the ptrace-owned LiteInst hybrid is being replaced by in-guest Detcore, and LiteInst cells return only on the new architecture (https://github.com/rrnewton/hermit/issues/3745, step 1 of https://github.com/rrnewton/hermit/issues/3520) |
 | `c-programs/hardware-trap-identity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of c-programs/hardware-trap-identity is not enabled in the manifest, so it has no log to compare: MEASURED 2026-08-06: does not deliver #UD to a child with no handler installed (child runs past ud2 and exits 99), and then HANGS on the hardware #DE case until the harness timeout. Re-enable when both are fixed. |
 | `c-programs/hello-alarm@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of c-programs/hello-alarm has no result row in this run |
@@ -11176,12 +11466,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `chaos-c/lock-granularity@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of chaos-c/lock-granularity is enabled but not selected by full validation, so it has no log to compare: Historical canonical verification diverged at recorded positions. The later clean observations do not erase that retained failure, so this backend remains excluded pending separate qualification. |
 | `compat/addr2line@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/addr2line has no result row in this run |
 | `compat/addr2line@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/addr2line is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/addr2line@kvm` | diverged | 0.213 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/addr2line@kvm` | diverged | 0.213 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/addr2line@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/addr2line is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/addr2line@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/addr2line is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/ar@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ar has no result row in this run |
 | `compat/ar@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ar is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/ar@kvm` | diverged | 0.154 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/ar@kvm` | diverged | 0.154 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/ar@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ar is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ar@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ar is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/arch@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/arch has no result row in this run |
@@ -11190,7 +11480,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/arch@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/arch is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/as@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/as has no result row in this run |
 | `compat/as@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/as is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/as@kvm` | diverged | 0.328 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/as@kvm` | diverged | 0.328 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/as@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/as is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/as@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/as is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/awk@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/awk has no result row in this run |
@@ -11239,7 +11529,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/bzip2@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bzip2 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/bzip2-roundtrip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/bzip2-roundtrip has no result row in this run |
 | `compat/bzip2-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/bzip2-roundtrip@kvm` | diverged | 0.197 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/bzip2-roundtrip@kvm` | diverged | 0.197 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/bzip2-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/bzip2-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/bzip2-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/bzip2-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cal@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cal has no result row in this run |
@@ -11248,7 +11538,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/cal@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cal is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/cargo@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cargo has no result row in this run |
 | `compat/cargo@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cargo is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cargo@kvm` | diverged | 0.147 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/cargo@kvm` | diverged | 0.147 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/cargo@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cargo is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cargo@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cargo is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cat@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cat has no result row in this run |
@@ -11257,12 +11547,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/cat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cat is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/chmod@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/chmod has no result row in this run |
 | `compat/chmod@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/chmod is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/chmod@kvm` | diverged | 0.430 | record 698, syscall 162: token 10: `0x7fffffffbc10,` vs `0x7fffffffc260,` |
+| `compat/chmod@kvm` | diverged | 0.430 | record 698, syscall 162: token 10: `0x7fffffffbc10,` vs `0x7fffffffc250,` |
 | `compat/chmod@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/chmod is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chmod@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/chmod is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/chown@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/chown has no result row in this run |
 | `compat/chown@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/chown is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/chown@kvm` | diverged | 0.412 | record 698, syscall 162: token 10: `0x7fffffffbbd0,` vs `0x7fffffffc220,` |
+| `compat/chown@kvm` | diverged | 0.412 | record 698, syscall 162: token 10: `0x7fffffffbbd0,` vs `0x7fffffffc210,` |
 | `compat/chown@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/chown is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/chown@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/chown is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/chrt@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/chrt has no result row in this run |
@@ -11276,17 +11566,17 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/cksum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cksum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/clang@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/clang is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/clang@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/clang is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/clang@kvm` | diverged | 0.059 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/clang@kvm` | diverged | 0.059 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/clang@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/clang is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/clang@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/clang is enabled but not selected by full validation, so it has no log to compare: Waiting for a child it just started returns ECHILD under SaBRe (make: "wait: No child processes"; clang: "Error waiting for child process"; rustc: "could not exec the linker `/usr/bin/clang`: No child processes") |
 | `compat/cmake@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cmake has no result row in this run |
 | `compat/cmake@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cmake is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cmake@kvm` | diverged | 0.270 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/cmake@kvm` | diverged | 0.270 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/cmake@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cmake is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cmake@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cmake is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cmp@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cmp has no result row in this run |
 | `compat/cmp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cmp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cmp@kvm` | diverged | 0.531 | record 694, syscall 162: token 10: `0x7fffffffba50,` vs `0x7fffffffc0a0,` |
+| `compat/cmp@kvm` | diverged | 0.531 | record 694, syscall 162: token 10: `0x7fffffffba50,` vs `0x7fffffffc090,` |
 | `compat/cmp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cmp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cmp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cmp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/col@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/col has no result row in this run |
@@ -11311,32 +11601,32 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/comm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/comm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cp@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cp has no result row in this run |
 | `compat/cp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cp@kvm` | diverged | 0.357 | record 694, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc060,` |
+| `compat/cp@kvm` | diverged | 0.357 | record 694, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc050,` |
 | `compat/cp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cpio-roundtrip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cpio-roundtrip has no result row in this run |
 | `compat/cpio-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cpio-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cpio-roundtrip@kvm` | diverged | 0.188 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/cpio-roundtrip@kvm` | diverged | 0.188 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/cpio-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cpio-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cpio-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cpio-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cpp@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/cpp is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/cpp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cpp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cpp@kvm` | diverged | 0.136 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/cpp@kvm` | diverged | 0.136 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/cpp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cpp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cpp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cpp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/crc32@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/crc32 has no result row in this run |
 | `compat/crc32@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/crc32 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/crc32@kvm` | diverged | 0.094 | record 698, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc060,` |
+| `compat/crc32@kvm` | diverged | 0.094 | record 698, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc050,` |
 | `compat/crc32@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/crc32 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/crc32@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/crc32 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cscope@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cscope has no result row in this run |
 | `compat/cscope@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cscope is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cscope@kvm` | diverged | 0.218 | record 694, syscall 162: token 10: `0x7fffffffb5d0,` vs `0x7fffffffbc20,` |
+| `compat/cscope@kvm` | diverged | 0.218 | record 694, syscall 162: token 10: `0x7fffffffb5d0,` vs `0x7fffffffbc10,` |
 | `compat/cscope@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cscope is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cscope@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cscope is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/csplit@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/csplit has no result row in this run |
 | `compat/csplit@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/csplit is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/csplit@kvm` | diverged | 0.374 | record 694, syscall 162: token 10: `0x7fffffffbd90,` vs `0x7fffffffc3e0,` |
+| `compat/csplit@kvm` | diverged | 0.374 | record 694, syscall 162: token 10: `0x7fffffffbd90,` vs `0x7fffffffc3d0,` |
 | `compat/csplit@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/csplit is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/csplit@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/csplit is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/curl@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/curl has no result row in this run |
@@ -11345,7 +11635,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/curl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/curl is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/curl-localhost@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/curl-localhost has no result row in this run |
 | `compat/curl-localhost@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/curl-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/curl-localhost@kvm` | diverged | 0.140 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/curl-localhost@kvm` | diverged | 0.140 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/curl-localhost@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/curl-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/curl-localhost@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/curl-localhost is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cut@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cut has no result row in this run |
@@ -11355,7 +11645,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/cut@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cut is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/cxxfilt@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/cxxfilt has no result row in this run |
 | `compat/cxxfilt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/cxxfilt is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/cxxfilt@kvm` | diverged | 0.479 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/cxxfilt@kvm` | diverged | 0.479 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/cxxfilt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/cxxfilt is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/cxxfilt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/cxxfilt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/date@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/date has no result row in this run |
@@ -11374,7 +11664,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/dd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/dd is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/df@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/df has no result row in this run |
 | `compat/df@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/df is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/df@kvm` | diverged | 0.396 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/df@kvm` | diverged | 0.396 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/df@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/df is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/df@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/df is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/df-direct@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/df-direct has no result row in this run |
@@ -11383,12 +11673,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/df-direct@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/df-direct is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/diff@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/diff has no result row in this run |
 | `compat/diff@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/diff is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/diff@kvm` | diverged | 0.411 | record 694, syscall 162: token 10: `0x7fffffffba50,` vs `0x7fffffffc0a0,` |
+| `compat/diff@kvm` | diverged | 0.411 | record 694, syscall 162: token 10: `0x7fffffffba50,` vs `0x7fffffffc090,` |
 | `compat/diff@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/diff is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/diff@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/diff is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/diff3@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/diff3 has no result row in this run |
 | `compat/diff3@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/diff3 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/diff3@kvm` | diverged | 0.304 | record 694, syscall 162: token 10: `0x7fffffffb7d0,` vs `0x7fffffffbe20,` |
+| `compat/diff3@kvm` | diverged | 0.304 | record 694, syscall 162: token 10: `0x7fffffffb7d0,` vs `0x7fffffffbe10,` |
 | `compat/diff3@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/diff3 is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/diff3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/diff3 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/dirname@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/dirname has no result row in this run |
@@ -11397,7 +11687,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/dirname@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/dirname is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/dos2unix@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/dos2unix has no result row in this run |
 | `compat/dos2unix@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/dos2unix is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/dos2unix@kvm` | diverged | 0.391 | record 698, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc060,` |
+| `compat/dos2unix@kvm` | diverged | 0.391 | record 698, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc050,` |
 | `compat/dos2unix@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/dos2unix is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/dos2unix@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/dos2unix is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/du@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/du has no result row in this run |
@@ -11415,12 +11705,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/egrep@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/egrep is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/elfedit@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/elfedit has no result row in this run |
 | `compat/elfedit@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/elfedit@kvm` | diverged | 0.271 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/elfedit@kvm` | diverged | 0.271 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/elfedit@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/elfedit is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/elfedit@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/elfedit is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/env@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/env has no result row in this run |
 | `compat/env@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/env is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/env@kvm` | diverged | 0.475 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/env@kvm` | diverged | 0.475 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/env@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/env is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/env@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/env is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/envsubst@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/envsubst has no result row in this run |
@@ -11439,12 +11729,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/expr@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/expr is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/factor@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/factor has no result row in this run |
 | `compat/factor@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/factor is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/factor@kvm` | diverged | 0.525 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/factor@kvm` | diverged | 0.525 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/factor@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/factor is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/factor@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/factor is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/fallocate@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/fallocate has no result row in this run |
 | `compat/fallocate@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/fallocate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/fallocate@kvm` | diverged | 0.400 | record 694, syscall 162: token 10: `0x7fffffffb850,` vs `0x7fffffffbea0,` |
+| `compat/fallocate@kvm` | diverged | 0.400 | record 694, syscall 162: token 10: `0x7fffffffb850,` vs `0x7fffffffbe90,` |
 | `compat/fallocate@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/fallocate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/fallocate@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/fallocate is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/fgrep@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/fgrep has no result row in this run |
@@ -11458,7 +11748,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/file@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/file is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/find@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/find has no result row in this run |
 | `compat/find@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/find is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/find@kvm` | diverged | 0.314 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/find@kvm` | diverged | 0.314 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/find@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/find is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/find@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/find is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/findmnt@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/findmnt has no result row in this run |
@@ -11467,12 +11757,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/findmnt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/findmnt is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/flex@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/flex is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/flex@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/flex is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/flex@kvm` | diverged | 0.269 | record 694, syscall 162: token 10: `0x7fffffffb990,` vs `0x7fffffffbfe0,` |
+| `compat/flex@kvm` | diverged | 0.269 | record 694, syscall 162: token 10: `0x7fffffffb990,` vs `0x7fffffffbfd0,` |
 | `compat/flex@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/flex is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/flex@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/flex is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/flock@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/flock has no result row in this run |
 | `compat/flock@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/flock is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/flock@kvm` | diverged | 0.453 | record 698, syscall 162: token 10: `0x7fffffffbf90,` vs `0x7fffffffc5e0,` |
+| `compat/flock@kvm` | diverged | 0.453 | record 698, syscall 162: token 10: `0x7fffffffbf90,` vs `0x7fffffffc5d0,` |
 | `compat/flock@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/flock is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/flock@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/flock is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/fmt@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/fmt has no result row in this run |
@@ -11491,17 +11781,17 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/free@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/free is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/gcc@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gcc is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/gcc@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gcc is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/gcc@kvm` | diverged | 0.205 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/gcc@kvm` | diverged | 0.205 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/gcc@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gcc is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gcc@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gcc is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/gcov@dbt` | candidate-missing[candidate-not-selected] | — | the dbt candidate verify cell of compat/gcov is enabled but not selected by full validation, so it has no log to compare: Measured diverged under DBT in the pinned image (full validate validate-museland-9ab8418de603); gcov in the image is GCC 14's, whose coverage output ordering differs under DBT |
 | `compat/gcov@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/gcov@kvm` | diverged | 0.321 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/gcov@kvm` | diverged | 0.321 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/gcov@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gcov is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gcov@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gcov is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/getconf@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/getconf has no result row in this run |
 | `compat/getconf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/getconf is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/getconf@kvm` | diverged | 0.689 | record 538, syscall 162: token 10: `0x7fffffffbd90,` vs `0x7fffffffc3e0,` |
+| `compat/getconf@kvm` | diverged | 0.689 | record 538, syscall 162: token 10: `0x7fffffffbd90,` vs `0x7fffffffc3d0,` |
 | `compat/getconf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/getconf is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/getconf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/getconf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/getopt@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/getopt has no result row in this run |
@@ -11510,12 +11800,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/getopt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/getopt is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/git@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/git has no result row in this run |
 | `compat/git@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/git is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/git@kvm` | diverged | 0.085 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/git@kvm` | diverged | 0.085 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/git@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/git is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/git@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/git is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/gprof@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/gprof has no result row in this run |
 | `compat/gprof@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/gprof@kvm` | diverged | 0.386 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/gprof@kvm` | diverged | 0.386 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/gprof@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gprof is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gprof@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gprof is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/grep@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/grep has no result row in this run |
@@ -11529,7 +11819,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/groups@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/groups is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/gxx@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/gxx is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/gxx@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gxx is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/gxx@kvm` | diverged | 0.072 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/gxx@kvm` | diverged | 0.072 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/gxx@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gxx is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gxx@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gxx is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/gzip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/gzip has no result row in this run |
@@ -11539,7 +11829,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/gzip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gzip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/gzip-roundtrip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/gzip-roundtrip has no result row in this run |
 | `compat/gzip-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/gzip-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/gzip-roundtrip@kvm` | diverged | 0.181 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/gzip-roundtrip@kvm` | diverged | 0.181 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/gzip-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/gzip-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/gzip-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/gzip-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/head@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/head has no result row in this run |
@@ -11566,7 +11856,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/id@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/id is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/install@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/install has no result row in this run |
 | `compat/install@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/install is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/install@kvm` | diverged | 0.417 | record 694, syscall 162: token 10: `0x7fffffffbd50,` vs `0x7fffffffc3a0,` |
+| `compat/install@kvm` | diverged | 0.417 | record 694, syscall 162: token 10: `0x7fffffffbd50,` vs `0x7fffffffc390,` |
 | `compat/install@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/install is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/install@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/install is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/ionice@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ionice has no result row in this run |
@@ -11580,7 +11870,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/iostat@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/iostat is enabled but not selected by full validation, so it has no log to compare: Diverges at an inbound-signal scheduler commit under SaBRe in 4 of 4 runs; ptrace passes 3 of 3 |
 | `compat/ip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ip has no result row in this run |
 | `compat/ip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/ip@kvm` | diverged | 0.460 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/ip@kvm` | diverged | 0.460 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/ip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/join@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/join has no result row in this run |
@@ -11590,7 +11880,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/join@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/join is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/jq@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/jq has no result row in this run |
 | `compat/jq@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/jq is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/jq@kvm` | diverged | 0.412 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/jq@kvm` | diverged | 0.412 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/jq@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/jq is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/jq@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/jq is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/kill@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/kill is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
@@ -11599,12 +11889,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/kill@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/kill is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/ld@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ld has no result row in this run |
 | `compat/ld@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ld is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/ld@kvm` | diverged | 0.133 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/ld@kvm` | diverged | 0.133 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/ld@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ld is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ld@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ld is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/ln@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ln has no result row in this run |
 | `compat/ln@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ln is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/ln@kvm` | diverged | 0.308 | record 694, syscall 162: token 10: `0x7fffffffb850,` vs `0x7fffffffbea0,` |
+| `compat/ln@kvm` | diverged | 0.308 | record 694, syscall 162: token 10: `0x7fffffffb850,` vs `0x7fffffffbe90,` |
 | `compat/ln@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ln is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ln@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ln is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/logname@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/logname has no result row in this run |
@@ -11618,7 +11908,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/ls@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ls is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/lscpu@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/lscpu has no result row in this run |
 | `compat/lscpu@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/lscpu@kvm` | diverged | 0.300 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/lscpu@kvm` | diverged | 0.300 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/lscpu@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/lscpu is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/lscpu@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lscpu is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/lsirq@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/lsirq has no result row in this run |
@@ -11636,7 +11926,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/lsof@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of compat/lsof is not enabled in the manifest, so it has no log to compare: Not in the SaBRe corpus this replaced (ci/compat/corpus-sabre.json had no lsof row) |
 | `compat/lua@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/lua has no result row in this run |
 | `compat/lua@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/lua is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/lua@kvm` | diverged | 0.941 | record 672, syscall 162: token 10: `0x7fffffffbf10,` vs `0x7fffffffc560,` |
+| `compat/lua@kvm` | diverged | 0.941 | record 672, syscall 162: token 10: `0x7fffffffbf10,` vs `0x7fffffffc550,` |
 | `compat/lua@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/lua is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/lua@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lua is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/lua-direct@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/lua-direct has no result row in this run |
@@ -11645,12 +11935,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/lua-direct@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/lua-direct is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/m4@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/m4 has no result row in this run |
 | `compat/m4@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/m4@kvm` | diverged | 0.379 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/m4@kvm` | diverged | 0.379 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/m4@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/m4 is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/m4@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/m4 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/make@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/make@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/make@kvm` | diverged | 0.358 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/make@kvm` | diverged | 0.358 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/make@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/make is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/make@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/make is enabled but not selected by full validation, so it has no log to compare: Waiting for a child it just started returns ECHILD under SaBRe (make: "wait: No child processes"; clang: "Error waiting for child process"; rustc: "could not exec the linker `/usr/bin/clang`: No child processes") |
 | `compat/md5sum@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/md5sum has no result row in this run |
@@ -11659,17 +11949,17 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/md5sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/md5sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/mkdir@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/mkdir has no result row in this run |
 | `compat/mkdir@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mkdir is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/mkdir@kvm` | diverged | 0.500 | record 694, syscall 162: token 10: `0x7fffffffbc10,` vs `0x7fffffffc260,` |
+| `compat/mkdir@kvm` | diverged | 0.500 | record 694, syscall 162: token 10: `0x7fffffffbc10,` vs `0x7fffffffc250,` |
 | `compat/mkdir@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mkdir is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mkdir@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mkdir is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/mkfifo@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/mkfifo has no result row in this run |
 | `compat/mkfifo@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mkfifo is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/mkfifo@kvm` | diverged | 0.438 | record 694, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc420,` |
+| `compat/mkfifo@kvm` | diverged | 0.438 | record 694, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc410,` |
 | `compat/mkfifo@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mkfifo is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mkfifo@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mkfifo is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/mktemp@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/mktemp has no result row in this run |
 | `compat/mktemp@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mktemp is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/mktemp@kvm` | diverged | 0.667 | record 694, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc420,` |
+| `compat/mktemp@kvm` | diverged | 0.667 | record 694, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc410,` |
 | `compat/mktemp@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mktemp is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mktemp@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mktemp is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/mountpoint@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/mountpoint has no result row in this run |
@@ -11684,32 +11974,32 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/mpstat-softirqs@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mpstat-softirqs is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/msgfmt@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/msgfmt has no result row in this run |
 | `compat/msgfmt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/msgfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/msgfmt@kvm` | diverged | 0.420 | record 694, syscall 162: token 10: `0x7fffffffb990,` vs `0x7fffffffbfe0,` |
+| `compat/msgfmt@kvm` | diverged | 0.420 | record 694, syscall 162: token 10: `0x7fffffffb990,` vs `0x7fffffffbfd0,` |
 | `compat/msgfmt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/msgfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/msgfmt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/msgfmt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/msgunfmt@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/msgunfmt has no result row in this run |
 | `compat/msgunfmt@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/msgunfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/msgunfmt@kvm` | diverged | 0.292 | record 694, syscall 162: token 10: `0x7fffffffb790,` vs `0x7fffffffbde0,` |
+| `compat/msgunfmt@kvm` | diverged | 0.292 | record 694, syscall 162: token 10: `0x7fffffffb790,` vs `0x7fffffffbdd0,` |
 | `compat/msgunfmt@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/msgunfmt is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/msgunfmt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/msgunfmt is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/mv@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/mv has no result row in this run |
 | `compat/mv@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/mv is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/mv@kvm` | diverged | 0.417 | record 694, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc060,` |
+| `compat/mv@kvm` | diverged | 0.417 | record 694, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc050,` |
 | `compat/mv@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/mv is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/mv@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/mv is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/namei@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/namei has no result row in this run |
 | `compat/namei@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/namei is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/namei@kvm` | diverged | 0.232 | record 694, syscall 162: token 10: `0x7fffffffb490,` vs `0x7fffffffbae0,` |
+| `compat/namei@kvm` | diverged | 0.232 | record 694, syscall 162: token 10: `0x7fffffffb490,` vs `0x7fffffffbad0,` |
 | `compat/namei@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/namei is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/namei@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/namei is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/netlink-route@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/netlink-route has no result row in this run |
 | `compat/netlink-route@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/netlink-route is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/netlink-route@kvm` | diverged | 0.284 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/netlink-route@kvm` | diverged | 0.284 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/netlink-route@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/netlink-route is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/netlink-route@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of compat/netlink-route is not enabled in the manifest, so it has no log to compare: Not in the SaBRe corpus this replaced (ci/compat/corpus-sabre.json had no netlink-route row) |
 | `compat/netlink-sock-diag@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/netlink-sock-diag is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/netlink-sock-diag@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/netlink-sock-diag is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/netlink-sock-diag@kvm` | diverged | 0.247 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/netlink-sock-diag@kvm` | diverged | 0.247 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/netlink-sock-diag@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/netlink-sock-diag is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/netlink-sock-diag@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of compat/netlink-sock-diag is not enabled in the manifest, so it has no log to compare: Not in the SaBRe corpus this replaced (ci/compat/corpus-sabre.json had no netlink-sock-diag row) |
 | `compat/nice@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/nice has no result row in this run |
@@ -11723,7 +12013,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/nl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/nm@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/nm has no result row in this run |
 | `compat/nm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/nm@kvm` | diverged | 0.314 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/nm@kvm` | diverged | 0.314 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/nm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/nm is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/nm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/nm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/nohup@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/nohup has no result row in this run |
@@ -11750,12 +12040,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/numfmt@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/numfmt is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/objcopy@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/objcopy has no result row in this run |
 | `compat/objcopy@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/objcopy is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/objcopy@kvm` | diverged | 0.281 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/objcopy@kvm` | diverged | 0.281 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/objcopy@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/objcopy is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/objcopy@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/objcopy is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/objdump@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/objdump has no result row in this run |
 | `compat/objdump@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/objdump is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/objdump@kvm` | diverged | 0.291 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/objdump@kvm` | diverged | 0.291 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/objdump@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/objdump is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/objdump@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/objdump is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/od@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/od has no result row in this run |
@@ -11774,7 +12064,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/paste@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/paste is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/patch@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/patch has no result row in this run |
 | `compat/patch@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/patch is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/patch@kvm` | diverged | 0.384 | record 694, syscall 162: token 10: `0x7fffffffbbd0,` vs `0x7fffffffc220,` |
+| `compat/patch@kvm` | diverged | 0.384 | record 694, syscall 162: token 10: `0x7fffffffbbd0,` vs `0x7fffffffc210,` |
 | `compat/patch@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/patch is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/patch@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/patch is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/pathchk@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/pathchk has no result row in this run |
@@ -11784,7 +12074,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/pathchk@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/pathchk is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/perl@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/perl has no result row in this run |
 | `compat/perl@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/perl is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/perl@kvm` | diverged | 0.957 | record 926, syscall 162: token 10: `0x7fffffffbed0,` vs `0x7fffffffc520,` |
+| `compat/perl@kvm` | diverged | 0.957 | record 926, syscall 162: token 10: `0x7fffffffbed0,` vs `0x7fffffffc510,` |
 | `compat/perl@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/perl is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/perl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/perl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/perl-direct@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/perl-direct has no result row in this run |
@@ -11843,12 +12133,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/python3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/python3 is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/ranlib@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ranlib has no result row in this run |
 | `compat/ranlib@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/ranlib@kvm` | diverged | 0.256 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/ranlib@kvm` | diverged | 0.256 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/ranlib@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ranlib is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ranlib@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ranlib is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/readelf@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/readelf has no result row in this run |
 | `compat/readelf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/readelf is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/readelf@kvm` | diverged | 0.274 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/readelf@kvm` | diverged | 0.274 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/readelf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/readelf is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/readelf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/readelf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/readlink@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/readlink has no result row in this run |
@@ -11866,12 +12156,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/rev@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/rev is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/rm@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/rm has no result row in this run |
 | `compat/rm@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/rm is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/rm@kvm` | diverged | 0.505 | record 694, syscall 162: token 10: `0x7fffffffba50,` vs `0x7fffffffc0a0,` |
+| `compat/rm@kvm` | diverged | 0.505 | record 694, syscall 162: token 10: `0x7fffffffba50,` vs `0x7fffffffc090,` |
 | `compat/rm@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/rm is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rm@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/rm is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/rmdir@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/rmdir has no result row in this run |
 | `compat/rmdir@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/rmdir is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/rmdir@kvm` | diverged | 0.667 | record 694, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc420,` |
+| `compat/rmdir@kvm` | diverged | 0.667 | record 694, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc410,` |
 | `compat/rmdir@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/rmdir is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/rmdir@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/rmdir is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/ruby@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ruby has no result row in this run |
@@ -11891,17 +12181,17 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/sed@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sed is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/seq@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/seq has no result row in this run |
 | `compat/seq@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/seq is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/seq@kvm` | diverged | 0.432 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/seq@kvm` | diverged | 0.432 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/seq@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/seq is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/seq@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/seq is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/setfacl@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/setfacl has no result row in this run |
 | `compat/setfacl@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/setfacl is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/setfacl@kvm` | diverged | 0.269 | record 698, syscall 162: token 10: `0x7fffffffb650,` vs `0x7fffffffbca0,` |
+| `compat/setfacl@kvm` | diverged | 0.269 | record 698, syscall 162: token 10: `0x7fffffffb650,` vs `0x7fffffffbc90,` |
 | `compat/setfacl@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/setfacl is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/setfacl@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/setfacl is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/setfattr@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/setfattr has no result row in this run |
 | `compat/setfattr@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/setfattr is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/setfattr@kvm` | diverged | 0.335 | record 698, syscall 162: token 10: `0x7fffffffb410,` vs `0x7fffffffba60,` |
+| `compat/setfattr@kvm` | diverged | 0.335 | record 698, syscall 162: token 10: `0x7fffffffb410,` vs `0x7fffffffba50,` |
 | `compat/setfattr@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/setfattr is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/setfattr@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/setfattr is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/sha1sum@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/sha1sum has no result row in this run |
@@ -11926,22 +12216,22 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/sha512sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sha512sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/shell-build@dbt` | candidate-missing[candidate-not-enabled] | — | the dbt candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: Not CLEAN on DBT in both the 2026-10-26 and 2026-10-27 nightly sweeps (Hermit 0948c8eb), so this row has no DBT verify cell yet |
 | `compat/shell-build@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/shell-build@kvm` | diverged | 0.059 | record 733, syscall 180: token 10: `0x7fffffffc190,` vs `0x7fffffffc7e0,` |
+| `compat/shell-build@kvm` | diverged | 0.059 | record 733, syscall 180: token 10: `0x7fffffffc190,` vs `0x7fffffffc7d0,` |
 | `compat/shell-build@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shell-build@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of compat/shell-build is not enabled in the manifest, so it has no log to compare: Not in the SaBRe corpus this replaced (ci/compat/corpus-sabre.json had no shell-build row) |
 | `compat/shred@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/shred has no result row in this run |
 | `compat/shred@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/shred is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/shred@kvm` | diverged | 0.329 | record 698, syscall 162: token 10: `0x7fffffffb850,` vs `0x7fffffffbea0,` |
+| `compat/shred@kvm` | diverged | 0.329 | record 698, syscall 162: token 10: `0x7fffffffb850,` vs `0x7fffffffbe90,` |
 | `compat/shred@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/shred is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shred@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/shred is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/shuf@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/shuf has no result row in this run |
 | `compat/shuf@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/shuf@kvm` | diverged | 0.376 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/shuf@kvm` | diverged | 0.376 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/shuf@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/shuf is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/shuf@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/shuf is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/size@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/size has no result row in this run |
 | `compat/size@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/size is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/size@kvm` | diverged | 0.391 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/size@kvm` | diverged | 0.391 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/size@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/size is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/size@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/size is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/sleep@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/sleep has no result row in this run |
@@ -11955,17 +12245,17 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/sort@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sort is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/split@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/split has no result row in this run |
 | `compat/split@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/split is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/split@kvm` | diverged | 0.398 | record 694, syscall 162: token 10: `0x7fffffffbbd0,` vs `0x7fffffffc220,` |
+| `compat/split@kvm` | diverged | 0.398 | record 694, syscall 162: token 10: `0x7fffffffbbd0,` vs `0x7fffffffc210,` |
 | `compat/split@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/split is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/split@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/split is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/sqlite3@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/sqlite3 has no result row in this run |
 | `compat/sqlite3@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/sqlite3 is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/sqlite3@kvm` | diverged | 0.497 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/sqlite3@kvm` | diverged | 0.497 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/sqlite3@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/sqlite3 is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sqlite3@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sqlite3 is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/ss@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/ss has no result row in this run |
 | `compat/ss@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/ss is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/ss@kvm` | diverged | 0.477 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/ss@kvm` | diverged | 0.477 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/ss@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/ss is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/ss@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/ss is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/stat@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/stat has no result row in this run |
@@ -11983,7 +12273,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/strings@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/strings is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/strip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/strip has no result row in this run |
 | `compat/strip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/strip@kvm` | diverged | 0.297 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/strip@kvm` | diverged | 0.297 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/strip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/strip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/strip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/strip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/sum@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/sum has no result row in this run |
@@ -11992,7 +12282,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/sum@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sum is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/sync@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/sync has no result row in this run |
 | `compat/sync@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/sync is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/sync@kvm` | diverged | 0.374 | record 698, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc060,` |
+| `compat/sync@kvm` | diverged | 0.374 | record 698, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc050,` |
 | `compat/sync@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/sync is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/sync@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/sync is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/sysctl-random-uuid@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/sysctl-random-uuid has no result row in this run |
@@ -12006,12 +12296,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/tac@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tac is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/tar@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/tar has no result row in this run |
 | `compat/tar@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tar is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/tar@kvm` | diverged | 0.351 | record 694, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc060,` |
+| `compat/tar@kvm` | diverged | 0.351 | record 694, syscall 162: token 10: `0x7fffffffba10,` vs `0x7fffffffc050,` |
 | `compat/tar@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tar is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tar@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tar is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/tar-roundtrip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/tar-roundtrip has no result row in this run |
 | `compat/tar-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/tar-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/tar-roundtrip@kvm` | diverged | 0.196 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/tar-roundtrip@kvm` | diverged | 0.196 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/tar-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/tar-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/tar-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/tar-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/taskset@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/taskset has no result row in this run |
@@ -12035,7 +12325,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/test@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/test is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/time@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/time has no result row in this run |
 | `compat/time@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/time is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/time@kvm` | diverged | 0.400 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/time@kvm` | diverged | 0.400 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/time@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/time is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/time@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/time is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/top@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/top has no result row in this run |
@@ -12045,7 +12335,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/top@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/top is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/touch@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/touch has no result row in this run |
 | `compat/touch@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/touch@kvm` | diverged | 0.436 | record 698, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc420,` |
+| `compat/touch@kvm` | diverged | 0.436 | record 698, syscall 162: token 10: `0x7fffffffbdd0,` vs `0x7fffffffc410,` |
 | `compat/touch@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/touch is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/touch@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/touch is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/tr@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/tr has no result row in this run |
@@ -12059,7 +12349,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/true@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/true is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/truncate@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/truncate has no result row in this run |
 | `compat/truncate@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/truncate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/truncate@kvm` | diverged | 0.260 | record 698, syscall 162: token 10: `0x7fffffffb490,` vs `0x7fffffffbae0,` |
+| `compat/truncate@kvm` | diverged | 0.260 | record 698, syscall 162: token 10: `0x7fffffffb490,` vs `0x7fffffffbad0,` |
 | `compat/truncate@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/truncate is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/truncate@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/truncate is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/tsort@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/tsort has no result row in this run |
@@ -12096,7 +12386,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/users@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/users is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/uuidgen@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/uuidgen has no result row in this run |
 | `compat/uuidgen@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on in-guest-trap with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/uuidgen@kvm` | diverged | 0.933 | record 616, syscall 162: token 10: `0x7fffffffbf10,` vs `0x7fffffffc560,` |
+| `compat/uuidgen@kvm` | diverged | 0.933 | record 616, syscall 162: token 10: `0x7fffffffbf10,` vs `0x7fffffffc550,` |
 | `compat/uuidgen@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/uuidgen is not enabled in the manifest, so it has no log to compare: Did not pass 10 of 10 verify runs on liteinst with the maximum timeslice disabled in the first local survey of 2026-10-08, which ran without the compat fixtures; the second survey did not run this sabre-compat-only row (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/uuidgen@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/uuidgen is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/vmstat@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/vmstat has no result row in this run |
@@ -12117,7 +12407,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/wc-lines@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/wc-lines is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/wget-localhost@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/wget-localhost has no result row in this run |
 | `compat/wget-localhost@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/wget-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/wget-localhost@kvm` | diverged | 0.161 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/wget-localhost@kvm` | diverged | 0.161 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/wget-localhost@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/wget-localhost is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/wget-localhost@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/wget-localhost is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/whoami@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/whoami has no result row in this run |
@@ -12126,12 +12416,12 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/whoami@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/whoami is enabled but not selected by full validation, so it has no log to compare: Only the sabre-compat-only run type selects this cell, by its manifest label; full validation does not. |
 | `compat/xargs@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/xargs has no result row in this run |
 | `compat/xargs@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xargs is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/xargs@kvm` | diverged | 0.385 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/xargs@kvm` | diverged | 0.385 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/xargs@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xargs is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xargs@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xargs is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/xmllint@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/xmllint has no result row in this run |
 | `compat/xmllint@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xmllint is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/xmllint@kvm` | diverged | 0.341 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/xmllint@kvm` | diverged | 0.341 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/xmllint@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xmllint is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xmllint@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xmllint is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/xxd@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/xxd has no result row in this run |
@@ -12146,7 +12436,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/xz@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xz is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/xz-roundtrip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/xz-roundtrip has no result row in this run |
 | `compat/xz-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/xz-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/xz-roundtrip@kvm` | diverged | 0.185 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/xz-roundtrip@kvm` | diverged | 0.185 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/xz-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/xz-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/xz-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/xz-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/yes@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/yes has no result row in this run |
@@ -12166,7 +12456,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `compat/zstd@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/zstd is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `compat/zstd-roundtrip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of compat/zstd-roundtrip has no result row in this run |
 | `compat/zstd-roundtrip@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of compat/zstd-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on in-guest-trap failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
-| `compat/zstd-roundtrip@kvm` | diverged | 0.182 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca60,` |
+| `compat/zstd-roundtrip@kvm` | diverged | 0.182 | record 926, syscall 252: token 10: `0x7fffffffc410,` vs `0x7fffffffca50,` |
 | `compat/zstd-roundtrip@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of compat/zstd-roundtrip is not enabled in the manifest, so it has no log to compare: Its first verify run on liteinst failed in the second local survey of 2026-10-08 (release Hermit 81f3e50d, compat fixtures prepared): execve of a further program image returned EOPNOTSUPP (exec refused) (https://github.com/rrnewton/hermit/issues/3745) |
 | `compat/zstd-roundtrip@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of compat/zstd-roundtrip is enabled but not selected by full validation, so it has no log to compare: The guest starts a second program image, and each image after the first makes 33 raw system calls in ld-linux and libc, which SaBRe's execution-path contract refuses (trusted_shared_object_sites > 0) |
 | `data-handling/archive-roundtrip@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of data-handling/archive-roundtrip has no result row in this run |
@@ -12196,7 +12486,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `data-handling/sqlite-query-determinism@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/sqlite-query-determinism is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `data-handling/zstd-multithread@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of data-handling/zstd-multithread has no result row in this run |
 | `data-handling/zstd-multithread@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `data-handling/zstd-multithread@kvm` | diverged | 0.042 | record 3013, syscall 614: token 10: `0x7fffffffbb90,` vs `0x7fffffffc1e0,` |
+| `data-handling/zstd-multithread@kvm` | diverged | 0.042 | record 3013, syscall 614: token 10: `0x7fffffffbb90,` vs `0x7fffffffc1d0,` |
 | `data-handling/zstd-multithread@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `data-handling/zstd-multithread@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of data-handling/zstd-multithread is not enabled in the manifest, so it has no log to compare: SaBRe strict verification intermittently diverges on multi-thread DETLOG ordering |
 | `debugger-c/debuggee@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of debugger-c/debuggee has no result row in this run |
@@ -12246,7 +12536,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `determinism-stress-c/thread-contention@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of determinism-stress-c/thread-contention is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify SaBRe separately |
 | `determinism-stress-c/thread-stress@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of determinism-stress-c/thread-stress has no result row in this run |
 | `determinism-stress-c/thread-stress@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of determinism-stress-c/thread-stress is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `determinism-stress-c/thread-stress@kvm` | diverged | 0.052 | record 195, syscall 61: token 10: `0x7fffffffdc1f,` vs `0x7fffffffe26f,` |
+| `determinism-stress-c/thread-stress@kvm` | diverged | 0.052 | record 195, syscall 61: token 10: `0x7fffffffdc1f,` vs `0x7fffffffe25f,` |
 | `determinism-stress-c/thread-stress@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of determinism-stress-c/thread-stress is not enabled in the manifest, so it has no log to compare: Initial C-corpus migration preserves the established ptrace baseline; qualify LiteInst separately |
 | `determinism-stress-c/thread-stress@sabre` | candidate-missing[candidate-not-selected] | — | the sabre candidate verify cell of determinism-stress-c/thread-stress is enabled but not selected by full validation, so it has no log to compare: Repeated canonical verification retained a crash error; this cell did not pass every repetition cleanly. Retained detail: SaBRe execution path is incomplete or used fallback/native sites |
 | `determinism-stress/example-race@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of determinism-stress/example-race has no result row in this run |
@@ -12306,7 +12596,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `language-runtimes/go-os-exec-output@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/go-os-exec-output is not enabled in the manifest, so it has no log to compare: New coverage of a KVM descriptor-table defect is established on KVM and the ptrace reference first; SaBRe ratchets against it separately |
 | `language-runtimes/lua-random@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of language-runtimes/lua-random has no result row in this run |
 | `language-runtimes/lua-random@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of language-runtimes/lua-random is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `language-runtimes/lua-random@kvm` | diverged | 0.731 | record 819, syscall 251: token 10: `0x7fffffffc310,` vs `0x7fffffffc960,` |
+| `language-runtimes/lua-random@kvm` | diverged | 0.731 | record 819, syscall 251: token 10: `0x7fffffffc310,` vs `0x7fffffffc950,` |
 | `language-runtimes/lua-random@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of language-runtimes/lua-random is not enabled in the manifest, so it has no log to compare: LiteInst Lua qualification is tracked by backend compatibility |
 | `language-runtimes/lua-random@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of language-runtimes/lua-random is not enabled in the manifest, so it has no log to compare: SaBRe requires its external runtime |
 | `language-runtimes/m4-macro-mkstemp@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of language-runtimes/m4-macro-mkstemp has no result row in this run |
@@ -12404,7 +12694,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/clock-exec-continuity@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/clock-exec-continuity is not enabled in the manifest, so it has no log to compare: SaBRe does not intercept RDTSCP; clock probes can leak raw host TSC |
 | `system-utils/date-nanoseconds@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/date-nanoseconds has no result row in this run |
 | `system-utils/date-nanoseconds@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/date-nanoseconds is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/date-nanoseconds@kvm` | diverged | 0.964 | record 1244, syscall 250: token 10: `0x7fffffffc090,` vs `0x7fffffffc6e0,` |
+| `system-utils/date-nanoseconds@kvm` | diverged | 0.964 | record 1244, syscall 250: token 10: `0x7fffffffc090,` vs `0x7fffffffc6d0,` |
 | `system-utils/date-nanoseconds@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/date-nanoseconds is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/date-nanoseconds@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/date-nanoseconds is not enabled in the manifest, so it has no log to compare: The exec socket is fixed, but required date/clock virtual-time support remains owner-gated for SaBRe |
 | `system-utils/du-tree-summary@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/du-tree-summary has no result row in this run |
@@ -12478,7 +12768,7 @@ Every cell that did not match, with its first divergence or the reason it was no
 | `system-utils/openssl-x509@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/openssl-x509 is not enabled in the manifest, so it has no log to compare: Certificate issuance combines wall-clock validity with multiple entropy draws; clock, random-stream, and full-trace support remain unqualified |
 | `system-utils/overflow-gid-resolves@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/overflow-gid-resolves has no result row in this run |
 | `system-utils/overflow-gid-resolves@in-guest-trap` | candidate-missing[candidate-not-enabled] | — | the in-guest-trap candidate verify cell of system-utils/overflow-gid-resolves is not enabled in the manifest, so it has no log to compare: Owner directive 2026-10-02 - in-guest-trap (in-guest LiteInst with syscall site patching off) is scored as its own column, apart from liteinst, and its verify cells return only through their own track, as liteinst's do after the 2026-10-04 reset (step C4 of https://github.com/rrnewton/hermit/issues/3520) |
-| `system-utils/overflow-gid-resolves@kvm` | diverged | 0.676 | record 936, syscall 251: token 10: `0x7fffffffc550,` vs `0x7fffffffcba0,` |
+| `system-utils/overflow-gid-resolves@kvm` | diverged | 0.676 | record 936, syscall 251: token 10: `0x7fffffffc550,` vs `0x7fffffffcb90,` |
 | `system-utils/overflow-gid-resolves@liteinst` | candidate-missing[candidate-not-enabled] | — | the liteinst candidate verify cell of system-utils/overflow-gid-resolves is not enabled in the manifest, so it has no log to compare: LiteInst coverage is owned by its backend compatibility partition |
 | `system-utils/overflow-gid-resolves@sabre` | candidate-missing[candidate-not-enabled] | — | the sabre candidate verify cell of system-utils/overflow-gid-resolves is not enabled in the manifest, so it has no log to compare: SaBRe coverage is owned by its backend compatibility partition |
 | `system-utils/printf-argument-forwarding@dbt` | candidate-missing[no-result-row] | — | the dbt candidate verify cell of system-utils/printf-argument-forwarding has no result row in this run |
@@ -16281,7 +16571,7 @@ Outside the clean headline: 0 parity rows from a dirty source tree.
 
 Outside the clean headline: 0 parity rows that did not report their source tree state.
 
-### 1303 other parity run(s) in the store
+### 1329 other parity run(s) in the store
 
 Only a run from a clean source tree can be its producer's headline: at least one of its rows says `"source_tree_dirty": false`, and none says `true` or leaves the value out. A row refused for its own defect does not count; one refused only because its run's rows name more than one Hermit commit does. Among those runs, the headline is the run that reported every cell its own Hermit commit's selection owes; a partial run headlines only when no complete run exists, the most complete first. Then the deepest Hermit commit this checkout can place, then the latest emission.
 
@@ -16954,14 +17244,27 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-merge-queue-ff1ce04a03ca-1794215106601718141-4025295-797c83ab` at Hermit `ff1ce04a03ca`: `parity: 359/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.166 over 3070 (359 full, 873 partial, 1838 zero: candidate-not-enabled 809, candidate-not-selected 474, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.413 over 1232 [inputs equalized for 1218 of 1232 credited: mean 0.417 over 1218 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-ffb74ba4173f-1793918638508724810-2031587-f635d281` at Hermit `ffb74ba4173f`: `parity: 308/3055 matched; committed selection unknown; population 3055: mean 0.153 over 3055 (308 full, 916 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.382 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.386 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-merge-queue-ffef6a47a4ec-1793960792127789938-1097045-fd9edd67` at Hermit `ffef6a47a4ec`: `parity: 354/3055 matched; committed selection unknown; population 3055: mean 0.164 over 3055 (354 full, 870 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.410 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.415 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-01361c1bf935-1795383343741887886-1779760-c7bb38a9` at Hermit `01361c1bf935`: `parity: 90/3075 matched; committed selection unknown; population 3075: mean 0.057 over 3075 (90 full, 329 partial, 2656 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555, log-diff-failed 815); excluded: 0 reference without golden; 0 not compared; measured mean 0.418 over 419 [inputs equalized for 417 of 419 credited: mean 0.420 over 417 with equal inputs; mean 0.022 over 2 with unequal inputs]`
+- validate run `validate-muse-detq-049367e8c739-1795348897705113555-1158494-79911a23` at Hermit `049367e8c739`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-070174e0a728-1795351797675799983-4191023-e37bc501` at Hermit `070174e0a728`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 864 partial, 1842 zero: timeout 2, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1233 [inputs equalized for 1219 of 1233 credited: mean 0.421 over 1219 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-1b7f839a27c8-1795395778504344339-616764-ce25aa61` at Hermit `1b7f839a27c8`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-1d1aa61d2c77-1795377295294948328-1173014-881096ce` at Hermit `1d1aa61d2c77`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-39b1c03c3c2e-1795366197413510723-3900524-68391e08` at Hermit `39b1c03c3c2e`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 866 partial, 1840 zero: crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1235 [inputs equalized for 1221 of 1235 credited: mean 0.420 over 1221 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-45f53fe0c524-1795372549394022250-1865108-2ffbb577` at Hermit `45f53fe0c524`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-muse-detq-527bf95fee71-1795307347547197292-3261128-3a9503d9` at Hermit `527bf95fee71`: `parity: 115/3075 matched; committed selection unknown; population 3075: mean 0.068 over 3075 (115 full, 371 partial, 2589 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555, log-diff-failed 748); excluded: 0 reference without golden; 0 not compared; measured mean 0.432 over 486 [inputs equalized for 484 of 486 credited: mean 0.434 over 484 with equal inputs; mean 0.022 over 2 with unequal inputs]`
 - validate run `validate-muse-detq-63f7344f7332-1795285172916531616-807142-242b4647` at Hermit `63f7344f7332`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-6574e693f401-1795316537425700189-3727775-7fa08c11` at Hermit `6574e693f401`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-muse-detq-68f600b91654-1795292390693268230-2798665-e6d14cb4` at Hermit `68f600b91654`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-6fdd70cfd09f-1795339184574731255-590315-749d9525` at Hermit `6fdd70cfd09f`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-muse-detq-79092cec5e20-1795320313201773828-39810-c9693b71` at Hermit `79092cec5e20`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-muse-detq-7aad5b4888bf-1795277636967825915-3717609-058cf95f` at Hermit `7aad5b4888bf`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-muse-detq-812e9e9d467d-1795264668740597192-1282610-2d0774dd` at Hermit `812e9e9d467d`: `parity: 3/3075 matched; committed selection unknown; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
 - validate run `validate-muse-detq-adbe21dfbf1a-1795311426313907598-1789774-7a55602c` at Hermit `adbe21dfbf1a`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 866 partial, 1840 zero: crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1235 [inputs equalized for 1221 of 1235 credited: mean 0.420 over 1221 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-b5626e6b3eab-1795362566380732516-204735-1a9b689f` at Hermit `b5626e6b3eab`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-c6389b208170-1795334223311074584-1887380-d3c5a953` at Hermit `c6389b208170`: `parity: 369/3075 matched; committed selection unknown; population 3075: mean 0.167 over 3075 (369 full, 866 partial, 1840 zero: crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1235 [inputs equalized for 1221 of 1235 credited: mean 0.420 over 1221 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-muse-detq-cc650e862e6c-1795297334085651010-4048488-bfead9e2` at Hermit `cc650e862e6c`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-d5d71a8e7f1b-1795359910314769732-637910-9fa9139f` at Hermit `d5d71a8e7f1b`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 864 partial, 1842 zero: timeout 2, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1233 [inputs equalized for 1219 of 1233 credited: mean 0.421 over 1219 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-muse-detq-e22ff1700116-1795345126370042986-389983-d89b5321` at Hermit `e22ff1700116`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-musebuck-d258ff60cd41-1793656148032054845-2317408-204bd25f` at Hermit `d258ff60cd41`: `parity: 0/195 matched; selected 195 of 3030 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 195 reference without golden: ended 195; 0 not compared; measured mean n/a over 0`
 - validate run `validate-musebuckv-005f363ec0d9-1794310204317239495-2815292-74899197` at Hermit `005f363ec0d9`: `parity: 2/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.002 over 3070 (2 full, 13 partial, 3055 zero: candidate-not-enabled 31, candidate-not-selected 1, no-result-row 8, record-missing 3015); excluded: 0 reference without golden; 0 not compared; measured mean 0.316 over 15`
 - validate run `validate-musebuckv-1dd452e468f3-1794319310266002562-2724753-ecb26dea` at Hermit `1dd452e468f3`: `parity: 261/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.105 over 3070 (261 full, 537 partial, 2272 zero: candidate-not-enabled 338, candidate-not-selected 249, no-result-row 295, record-missing 1390); excluded: 0 reference without golden; 0 not compared; measured mean 0.403 over 798 [inputs equalized for 786 of 798 credited: mean 0.409 over 786 with equal inputs; mean 0.031 over 12 with unequal inputs]`
@@ -17329,10 +17632,17 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-owner-checkout-20261114t033526925306z-2763454` at Hermit `6f8932bf5c0f`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-owner-checkout-20261117t011142028679z-3743478` at Hermit `fd8044838403`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-post-land-297b5b3cb733-20261121T143404Z-9f6065e40d80` at Hermit `297b5b3cb733`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
+- validate run `validate-post-land-2b2e9ecf472f-20261123T031112Z-b4134e5a5117` at Hermit `2b2e9ecf472f`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-post-land-3ebbdc951692-20261122T224228Z-10b7e5be7253` at Hermit `3ebbdc951692`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 864 partial, 1842 zero: timeout 2, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1233 [inputs equalized for 1219 of 1233 credited: mean 0.421 over 1219 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-post-land-4ca409b70116-20261121T125247Z-f7674bf3450a` at Hermit `4ca409b70116`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
 - validate run `validate-post-land-63f7344f7332-20261121T163614Z-eae78a364543` at Hermit `63f7344f7332`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
+- validate run `validate-post-land-74f90c88d284-20261122T185934Z-31d7666628c5` at Hermit `74f90c88d284`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
+- validate run `validate-post-land-ab6ad441c162-20261123T004101Z-1f10b9d4baa5` at Hermit `ab6ad441c162`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 864 partial, 1842 zero: timeout 2, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1233 [inputs equalized for 1219 of 1233 credited: mean 0.421 over 1219 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-post-land-b7d22c59cdae-20261122T212736Z-50746aac6554` at Hermit `b7d22c59cdae`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-post-land-e308b5584d28-20261123T035112Z-68c832fb3898` at Hermit `e308b5584d28`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-post-land-e5732acc483d-20261121T170706Z-eecf2d2c870a` at Hermit `e5732acc483d`: `parity: 3/3075 matched; selected 3075 of 3075 committed; population 2991: mean 0.001 over 2991 (3 full, 4 partial, 2984 zero: crash 1, candidate-not-enabled 12, candidate-not-selected 1, no-result-row 5, record-missing 2965); excluded: 84 reference without golden: no-result-row 84; 0 not compared; measured mean 0.483 over 7`
 - validate run `validate-post-land-ec01d815b519-20261114T034241Z-4d8d32bfeac6` at Hermit `ec01d815b519`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-post-land-fe2ac63b9338-20261122T202753Z-5264c274b297` at Hermit `fe2ac63b9338`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-release05-4803-conveyor-b2a16d9f8fc4-1793800281354748846-3682976-735023b7` at Hermit `b2a16d9f8fc4`: `parity: 245/3055 matched; selected 3055 of 3055 committed; population 3055: mean 0.125 over 3055 (245 full, 979 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.312 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.315 over 1210 with equal inputs; mean 0.022 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-08fea5532ab9-1794290424615004053-2378345-7a3d4e91` at Hermit `08fea5532ab9`: `parity: 359/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.165 over 3070 (359 full, 872 partial, 1839 zero: candidate-not-enabled 810, candidate-not-selected 474, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.413 over 1231 [inputs equalized for 1217 of 1231 credited: mean 0.417 over 1217 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-08fea5532ab9-1794290429258308476-1122515-f3c96682` at Hermit `08fea5532ab9`: `parity: 359/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.165 over 3070 (359 full, 872 partial, 1839 zero: candidate-not-enabled 810, candidate-not-selected 474, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.413 over 1231 [inputs equalized for 1217 of 1231 credited: mean 0.417 over 1217 with equal inputs; mean 0.030 over 14 with unequal inputs]`
@@ -17348,6 +17658,8 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - validate run `validate-super-nightly-852802539309-1794549631710285568-950994-5e26e8c5` at Hermit `852802539309`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-852802539309-1794549639775920643-2140051-66ec2aaa` at Hermit `852802539309`: `parity: 368/3070 matched; selected 3070 of 3070 committed; population 3070: mean 0.167 over 3070 (368 full, 866 partial, 1836 zero: candidate-not-enabled 809, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.415 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.419 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-858629ebdbfa-1793946179326195760-3220331-e48c2d71` at Hermit `858629ebdbfa`: `parity: 322/3055 matched; selected 3055 of 3055 committed; population 3055: mean 0.157 over 3055 (322 full, 902 partial, 1831 zero: candidate-not-enabled 801, candidate-not-selected 475, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.393 over 1224 [inputs equalized for 1210 of 1224 credited: mean 0.397 over 1210 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-super-nightly-ab99f8d341f9-1795413625009603857-3429134-ac3cb0fa` at Hermit `ab99f8d341f9`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
+- validate run `validate-super-nightly-ab99f8d341f9-1795413636279724020-2563066-dc627c33` at Hermit `ab99f8d341f9`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-super-nightly-e024bb3fcd41-1795242984500796451-4093383-4093acb6` at Hermit `e024bb3fcd41`: `parity: 369/3075 matched; selected 3075 of 3075 committed; population 3075: mean 0.167 over 3075 (369 full, 865 partial, 1841 zero: timeout 1, crash 1, candidate-not-enabled 812, candidate-not-selected 472, no-result-row 555); excluded: 0 reference without golden; 0 not compared; measured mean 0.416 over 1234 [inputs equalized for 1220 of 1234 credited: mean 0.421 over 1220 with equal inputs; mean 0.030 over 14 with unequal inputs]`
 - validate run `validate-tick-buck-cargo-repro-0948c8ebf9ab-20261027T054906Z` at Hermit `0948c8ebf9ab`: `parity: 68/2960 matched; selected 2960 of 2960 committed; population 2960: mean 0.091 over 2960 (68 full, 1370 partial, 1522 zero: candidate-not-enabled 1053, candidate-not-selected 469); excluded: 0 reference without golden; 0 not compared; measured mean 0.187 over 1438 [inputs equalized for 1171 of 1438 credited: mean 0.223 over 1171 with equal inputs; mean 0.031 over 267 with unequal inputs]`
 - validate run `validate-tick-buck-cargo-repro-0a2e0c248258-20261006T034408Z` at Hermit `0a2e0c248258`: `parity: 0/198 matched; selected 198 of 198 committed; population 198: mean 0.054 over 198 (0 full, 182 partial, 16 zero: no-result-row 16); excluded: 0 reference without golden; 0 not compared; measured mean 0.059 over 182 [inputs equalized for 180 of 182 credited: mean 0.059 over 180 with equal inputs; mean 0.040 over 2 with unequal inputs]`
@@ -17462,6 +17774,10 @@ Only a run from a clean source tree can be its producer's headline: at least one
 - pressure-test run `pressure-5bd5f765f5fe-20261106T060620Z-sample` at Hermit `5bd5f765f5fe`: `parity: 17/162 matched; selected 161 of 3055 committed (partial); 1 outside the committed selection; population 96: mean 0.249 over 96 (17 full, 33 partial, 46 zero: candidate-not-enabled 28, candidate-not-selected 18); excluded: 9 reference without golden: determinism-mismatch 5, no-result-row 4; 0 not compared; 57 not sampled; measured mean 0.478 over 50`
 - pressure-test run `pressure-5bd5f765f5fe-20261106T060620Z-survey-in-guest-trap` at Hermit `5bd5f765f5fe`: `parity: 0/148 matched; selected 148 of 3055 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-5bd5f765f5fe-20261106T060620Z-survey-liteinst` at Hermit `5bd5f765f5fe`: `parity: 0/146 matched; selected 146 of 3055 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 146 reference without golden: no-result-row 146; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-resurvey-dbt` at Hermit `6fdd70cfd09f`: `parity: 0/58 matched; selected 58 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 58 reference without golden: no-result-row 58; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-resurvey-in-guest-trap` at Hermit `6fdd70cfd09f`: `parity: 0/301 matched; selected 301 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 301 reference without golden: no-result-row 301; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-resurvey-liteinst` at Hermit `6fdd70cfd09f`: `parity: 0/300 matched; selected 300 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 300 reference without golden: no-result-row 300; 0 not compared; measured mean n/a over 0`
+- pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-resurvey-sabre` at Hermit `6fdd70cfd09f`: `parity: 0/145 matched; selected 145 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 145 reference without golden: no-result-row 145; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-sample` at Hermit `6fdd70cfd09f`: `parity: 0/181 matched; selected 181 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 181 reference without golden: no-result-row 181; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-survey-dbt` at Hermit `6fdd70cfd09f`: `parity: 0/4 matched; selected 4 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 4 reference without golden: no-result-row 4; 0 not compared; measured mean n/a over 0`
 - pressure-test run `pressure-6fdd70cfd09f-20261122T061718Z-survey-in-guest-trap` at Hermit `6fdd70cfd09f`: `parity: 0/148 matched; selected 148 of 3075 committed (partial); population 0: mean n/a over 0 (0 full, 0 partial, 0 zero); excluded: 148 reference without golden: no-result-row 148; 0 not compared; measured mean n/a over 0`
